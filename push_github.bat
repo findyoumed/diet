@@ -23,6 +23,9 @@ echo [2/5] Adding files...
 git add .
 echo [3/5] Committing... (%MSG%)
 git commit -m "%MSG%"
+:: [LOG: 20260622_1921] Set local branch to main before pull to prevent push error if pull fails
+:: [LOG: 20260622_2248] Fix encoding issues by removing Korean comments
+git branch -M main
 
 echo.
 echo [4/5] Syncing with remote (Pull)...
