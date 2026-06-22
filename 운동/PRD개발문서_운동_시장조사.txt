@@ -1,0 +1,39 @@
+주요 경쟁 서비스 분석
+
+(1) Kemtai (https://kemtai.com/) (가장 유사한 모델)
+- 특징: 웹 브라우저 기반으로 별도 설치 없이 카메라(Pose Estimation)로 실시간 피드백 제공.
+- 수익 모델: 구독형 ($20 ~ $40 / 월).
+- WebGym과의 차이: 자체 제작된 운동 영상 콘텐츠 위주로 운영됨. (WebGym은 유튜브 연동으로 무한한 콘텐츠가 강점)
+
+(2) Wondercise (https://wondercise.com/)
+- 특징: "Multi-Point Motion Match" 기술 사용.
+- 차이점: 주로 애플워치, 가민 등 웨어러블 기기와 연동하여 정확도를 높임. 웹보다는 앱 중심.
+- 수익 모델: 구독형 (약 $4.99 / 월) + 웨어러블 장비 판매.
+
+(3) Zenia / FitCam (https://fitcam.io/)
+- 특징: 모바일 앱 기반의 요가 및 피트니스 교정 AI.
+- 차이점: 모바일 환경에 최적화되어 있으며, 특정 운동(요가 등)에 특화된 정밀 분석 제공.
+
+(4) Insane AI (https://www.youtube.com/@readysetinsane)
+- 특징: 인도 기반 스타트업 Insanefit Technologies가 개발한 AI 홈트레이닝 앱.
+- 차이점: 게임화와 리얼타임 포즈 트래킹에 집중하고 있으나, 웹이 아닌 '전용 앱 설치'가 필수임.
+
+(5) Fit with Viva (https://www.fitwithviva.com/)
+- 특징: 웹 브라우저에서 '직접 말을 거는 AI 코치' 컨셉으로 실시간 음성 피드백 제공.
+- 차이점: 실시간 소통에 집중되어 있어 정적인 자세 교정보다는 코칭 경험에 치중함.
+
+(6) Kaia Personal Trainer (https://www.kaiahealth.com/)
+- 특징: 스마트폰 카메라를 활용한 가상 PT 서비스.
+- 차이점: 재활 및 통증 관리 등 의료/헬스케어 기반의 전문적인 자세 분석에 특화됨.
+
+(7) RepCounter AI (https://repcounterai.app/)
+- 특징: 실시간 포즈 감지 및 횟수 측정(Rep counting)에 집중한 웹 기반 무료 툴.
+- 차이점: 기능이 횟수 측정에 제한적이며 WebGym처럼 유튜브 영상과 함께하는 기능없음.
+
+(8) 윌로 https://weelo.fit/
+- 특징 : 한국에서 나온 AI 퍼스널 트레이너 ‘윌로' ㈜앨리스헬스케어. AI가 자세 교정 가능. 
+- 차이점: 유튜브 영상은 미제공.
+
+(9) JustDanceNow https://justdancenow.com/
+- 특징 : 핸드폰을 손으로 잡고, 손에 있는 기기의 자이로센서를 이용해서 운동을 측정하는 게임. 네트워크 게임 가능.
+- 차이점: 카메라가 아닌 자이로센서를 이용한 특이성과 유일한 상품.

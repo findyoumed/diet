@@ -1,0 +1,21 @@
+[
+    { "name": "닭가슴살 (생)", "calories": 110.0, "carbs": 0.0, "protein": 23.0, "fat": 1.5 },
+    { "name": "닭가슴살 (훈제)", "calories": 120.0, "carbs": 1.0, "protein": 25.0, "fat": 2.0 },
+    { "name": "현미밥", "calories": 150.0, "carbs": 33.0, "protein": 3.0, "fat": 1.0 },
+    { "name": "백미밥", "calories": 140.0, "carbs": 31.0, "protein": 2.5, "fat": 0.3 },
+    { "name": "방울토마토", "calories": 16.0, "carbs": 4.0, "protein": 0.9, "fat": 0.1 },
+    { "name": "삶은 계란", "calories": 75.0, "carbs": 0.6, "protein": 6.3, "fat": 5.0 },
+    { "name": "고구마 (찐것)", "calories": 130.0, "carbs": 31.0, "protein": 1.5, "fat": 0.2 },
+    { "name": "아메리카노", "calories": 4.0, "carbs": 0.5, "protein": 0.2, "fat": 0.0 },
+    { "name": "바나나", "calories": 89.0, "carbs": 23.0, "protein": 1.1, "fat": 0.3 },
+    { "name": "사과", "calories": 52.0, "carbs": 14.0, "protein": 0.3, "fat": 0.2 },
+    { "name": "그릭요거트", "calories": 90.0, "carbs": 4.0, "protein": 10.0, "fat": 4.0 },
+    { "name": "두부 (부침)", "calories": 120.0, "carbs": 3.0, "protein": 9.0, "fat": 8.0 },
+    { "name": "소고기 우둔살 (구이)", "calories": 150.0, "carbs": 0.0, "protein": 22.0, "fat": 7.0 },
+    { "name": "연어 (생선)", "calories": 160.0, "carbs": 0.0, "protein": 20.0, "fat": 9.0 },
+    { "name": "양배추 샐러드", "calories": 25.0, "carbs": 6.0, "protein": 1.3, "fat": 0.1 },
+    { "name": "단호박 (찐것)", "calories": 70.0, "carbs": 17.0, "protein": 1.5, "fat": 0.2 },
+    { "name": "아몬드 (10알)", "calories": 60.0, "carbs": 2.0, "protein": 2.1, "fat": 5.4 },
+    { "name": "우유 (저지방)", "calories": 45.0, "carbs": 4.8, "protein": 3.2, "fat": 1.0 },
+    { "name": "오이", "calories": 12.0, "carbs": 3.0, "protein": 0.6, "fat": 0.1 }
+]

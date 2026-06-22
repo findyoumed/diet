@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DietOn - 마이페이지</title>
+  <link rel="stylesheet" href="css/style.css?v=20260622_1940">
+</head>
+<body data-page="my">
+  <header class="site-header" id="siteHeader"></header>
+  <div class="header-spacer"></div>
+
+  <main class="page-shell">
+    <div class="content-layout">
+      <section class="main-column">
+        <section class="board-section">
+          <div class="section-head">
+            <h2 id="profileTitle">프로필 관리</h2>
+          </div>
+          <form class="profile-form" id="profileForm">
+            <label>닉네임<input id="profileNickname" type="text" placeholder="예: 감량중" required></label>
+            <label>키(cm)<input id="profileHeight" type="number" placeholder="170" required></label>
+            <label>목표 체중(kg)<input id="profileTargetWeight" type="number" step="0.1" placeholder="60" required></label>
+            <button class="btn primary" type="submit">저장</button>
+          </form>
+        </section>
+
+        <section class="board-section" id="pointSection">
+          <div class="section-head">
+            <h2>G포인트 적립 내역</h2>
+          </div>
+          <p class="point-total">현재 보유 포인트 <strong id="pointTotal">0</strong>P</p>
+          <table class="point-table">
+            <thead><tr><th>날짜</th><th>적립 사유</th><th>포인트</th></tr></thead>
+            <tbody id="pointRows"></tbody>
+          </table>
+        </section>
+      </section>
+      <aside class="side-column" id="sidebar"></aside>
+    </div>
+  </main>
+
+  <script src="js/managers/StorageManager.js?v=20260622_1940"></script>
+  <script src="js/managers/PointManager.js?v=20260622_1940"></script>
+  <script src="js/managers/UIManager.js?v=20260622_1940"></script>
+  <script src="js/app.js?v=20260622_1940"></script>
+</body>
+</html>

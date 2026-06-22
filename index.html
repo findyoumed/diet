@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DietOn - 대한민국 1등 다이어트 커뮤니티</title>
+  <link rel="stylesheet" href="css/style.css?v=20260622_1940">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="home">
+  <header class="site-header" id="siteHeader"></header>
+  <div class="header-spacer"></div>
+
+  <main class="page-shell">
+    <a class="promo-strip" href="community.html?tag=treatment">
+      <span class="promo-tag">EVENT</span>
+      <strong>마운자로·위고비, 어디서 맞을까?</strong>
+      <em>비대면 처방부터 부작용 관리까지 — 실사용자 후기로 비교하세요</em>
+      <b class="promo-go">견적 비교받기 &rsaquo;</b>
+    </a>
+
+    <section class="today-panel">
+      <div class="today-search">
+        <strong>지금, 다이어트 검색해보세요</strong>
+        <ol>
+          <li>위고비</li><li>삭센다</li><li>식단</li><li>체지방</li><li>요요</li>
+          <li>단백질</li><li>지방흡입</li><li>운동루틴</li><li>간헐적 단식</li><li>인바디</li>
+        </ol>
+      </div>
+      <div class="today-now">
+        <span>DietOn NOW</span>
+        <strong>26.06.22</strong>
+        <em>Update. 17:00 기준</em>
+      </div>
+    </section>
+
+    <section class="hero-grid">
+      <div class="hero-main">
+        <div>
+          <span class="hero-kicker">28주 감량 노하우</span>
+          <h1>다이어트는<br><strong>DietOn</strong></h1>
+          <p>82,154개의 체중 감량 후기와 412,852건의 식단, 운동, 비만치료 경험담을 한곳에서 확인하세요.</p>
+          <div class="hero-stats">
+            <a href="community.html?tag=review"><strong>40,774</strong><span>비포&애프터</span></a>
+            <a href="community.html?tag=treatment"><strong>12,806</strong><span>치료 후기</span></a>
+            <a href="record.html"><strong>8,430</strong><span>식단 기록</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <b>Diet</b>
+          <span>ON</span>
+          <i>+82,154</i>
+        </div>
+      </div>
+      <a class="quote-card" href="my.html?setup=1">
+        <span>실시간 비대면</span>
+        <strong>감량 플랜 견적받기</strong>
+        <em>체형, 식습관, 목표체중 기준으로 맞춤 상담</em>
+      </a>
+    </section>
+
+    <section class="notice-bar">
+      <strong>실시간 감량 플랜</strong>
+      <span>82,154건</span>
+      <p>K12**님, 라떼**님, 보름**님이 오늘 목표 체중 상담을 신청했습니다.</p>
+    </section>
+
+    <section class="quick-grid" id="quickGrid"></section>
+
+    <div class="content-layout">
+      <section class="main-column">
+        <section class="alert-strip">
+          <strong>요요/부작용 경고</strong>
+          <a href="community.html?tag=side_effect">삭센다 중단 후 식욕이 돌아온 후기 공유합니다</a>
+          <span>유지어터</span>
+        </section>
+
+        <section class="board-section">
+          <div class="section-head">
+            <h2>다이어트 인기글</h2>
+            <a href="community.html">전체 15,856건</a>
+          </div>
+          <div class="photo-list" id="bestPhotoList"></div>
+          <div class="text-list" id="bestTextList"></div>
+        </section>
+
+        <section class="board-section">
+          <div class="section-head">
+            <h2>비만인가요? 체형 고민 Q&A</h2>
+            <a href="community.html?tag=side_effect">전체 2,026건</a>
+          </div>
+          <div class="text-list two-col" id="qnaTextList"></div>
+        </section>
+
+        <section class="board-section">
+          <div class="section-head">
+            <h2>다이어트 비포&애프터 포토후기</h2>
+            <a href="community.html?tag=review">전체 40,774건</a>
+          </div>
+          <div class="review-grid" id="reviewGrid"></div>
+        </section>
+
+        <section class="board-section">
+          <div class="section-head">
+            <h2>다이어트 치료톡</h2>
+            <a href="community.html?tag=treatment">전체 475건</a>
+          </div>
+          <div class="text-list" id="treatmentTextList"></div>
+        </section>
+      </section>
+
+      <aside class="side-column" id="sidebar"></aside>
+    </div>
+  </main>
+
+  <script src="js/managers/StorageManager.js?v=20260622_1940"></script>
+  <script src="js/managers/PointManager.js?v=20260622_1940"></script>
+  <script src="js/managers/UIManager.js?v=20260622_1940"></script>
+  <script src="js/app.js?v=20260622_1940"></script>
+</body>
+</html>
