@@ -1,10 +1,11 @@
+// [LOG: 20260623_2055] Dynamic image and avatar diversification in rendering layer
 class UIManager {
   constructor(storage) {
     this.storage = storage;
   }
 
   // ===========================================================================
-  // [LOG: 20260623_2115] Phase 7: DOM 바인딩 - 커뮤니티 리스트
+  // Phase 7: DOM 바인딩 - 커뮤니티 리스트
   // ===========================================================================
   renderPostList(container, posts) {
     let html = '';
@@ -30,6 +31,19 @@ class UIManager {
       const dateStr = `${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
       const num = posts.length - i;
       
+      // Dynamic avatar selection based on index to prevent repetition
+      let avatarIdx = (i % 6) + 1;
+      let userAvatar = avatarIdx === 1 ? 'images/custom/avatar.png' : `images/custom/avatar${avatarIdx}.png`;
+
+      // Dynamic product thumbnail selection
+      let postImage = post.image;
+      if (postImage) {
+        if (postImage.includes('product.png') || postImage.includes('unsplash.com')) {
+          let productIdx = (i % 6) + 1;
+          postImage = productIdx === 1 ? 'images/custom/product.png' : `images/custom/product${productIdx}.png`;
+        }
+      }
+      
       html += `
         <tr class="mw_basic_list_tr mw_basic_list_tr_data ">
             <td class="mw_basic_list_num media-no-text">\${num}</td>
@@ -44,7 +58,7 @@ class UIManager {
                         <div class="info">
                             <div class="mw_basic_list_name media-no-text">
                                 <button type="button" class="btn_usermenu">
-                                  <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" />
+                                  <img src="\${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
                                   <span>\${post.nickname}</span>
                                 </button>
                             </div>
@@ -54,7 +68,7 @@ class UIManager {
                         </div>
                     </div>
                     <div class="list_right">
-                        \${post.image ? \`<div class="thumb"><img src="\${post.image}" style="width:50px; height:50px; object-fit:cover;"></div>\` : ''}
+                        \${postImage ? \`<div class="thumb"><img src="\${postImage}" style="width:50px; height:50px; object-fit:cover;"></div>\` : ''}
                         <div class='list_cmt'>
                             <span class='i_comment_black'></span> \${post.comment_count || 0}
                         </div>
@@ -64,7 +78,7 @@ class UIManager {
             </td>
             <td class="mw_basic_list_name media-on-text">
                 <button type="button" class="btn_usermenu">
-                  <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" />
+                  <img src="\${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
                   <span>\${post.nickname}</span>
                 </button>
             </td>
@@ -88,7 +102,7 @@ class UIManager {
   }
 
   // ===========================================================================
-  // [LOG: 20260623_2120] Phase 7: DOM 바인딩 - 포스트 상세
+  // Phase 7: DOM 바인딩 - 포스트 상세
   // ===========================================================================
   renderPostDetail(post) {
     const titleEl = document.getElementById("dieton-post-title");
@@ -97,15 +111,19 @@ class UIManager {
     const commentsEl = document.getElementById("dieton-comments-list");
 
     if (titleEl) {
-        titleEl.innerHTML = \`<span style="color:#1e88e5; margin-right:5px;">[\${post.category_tag}]</span> \${post.title}\`;
+        titleEl.innerHTML = `<span style="color:#1e88e5; margin-right:5px;">[\${post.category_tag}]</span> \${post.title}`;
     }
 
     if (infoEl) {
         const dateStr = new Date(post.created_at).toLocaleString();
-        infoEl.innerHTML = \`
+        // Dynamic avatar for post author based on name char code
+        let authorAvatarIdx = (post.nickname.charCodeAt(post.nickname.length - 1) % 6) + 1;
+        let authorAvatar = authorAvatarIdx === 1 ? 'images/custom/avatar.png' : `images/custom/avatar${authorAvatarIdx}.png`;
+
+        infoEl.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:15px;">
                 <div>
-                    <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" style="vertical-align:middle;"/>
+                    <img src="\${authorAvatar}" alt="Author Avatar" style="vertical-align:middle; width:20px; height:20px; border-radius:50%; margin-right:5px;"/>
                     <span style="font-weight:bold; margin-right:15px;">\${post.nickname}</span>
                     <span style="color:#888; font-size:13px;">\${dateStr}</span>
                 </div>
@@ -115,47 +133,56 @@ class UIManager {
                     추천 <b style="color:#333;">\${post.like_count || 0}</b>
                 </div>
             </div>
-        \`;
+        `;
     }
 
     if (contentEl) {
         let contentHtml = '';
-        if (post.image) {
-            contentHtml += \`<div style="text-align:center; margin-bottom:20px;"><img src="\${post.image}" style="max-width:100%; border-radius:8px;"></div>\`;
+        let postImage = post.image;
+        if (postImage) {
+            if (postImage.includes('product.png') || postImage.includes('unsplash.com')) {
+                let productIdx = (post.id.charCodeAt(post.id.length - 1) % 6) + 1;
+                postImage = productIdx === 1 ? 'images/custom/product.png' : `images/custom/product${productIdx}.png`;
+            }
+            contentHtml += `<div style="text-align:center; margin-bottom:20px;"><img src="\${postImage}" style="max-width:100%; border-radius:8px;"></div>`;
         }
-        contentHtml += \`<div style="font-size:16px; line-height:1.8; color:#333;">\${post.content.replace(/\\n/g, '<br>')}</div>\`;
+        contentHtml += `<div style="font-size:16px; line-height:1.8; color:#333;">\${post.content.replace(/\\n/g, '<br>')}</div>`;
         contentEl.innerHTML = contentHtml;
     }
 
     if (commentsEl) {
-        let commentsHtml = \`<h4 style="font-size:18px; font-weight:bold; margin-bottom:15px; padding-top:20px; border-top:2px solid #333;">댓글 \${post.comments.length}개</h4>\`;
-        commentsHtml += \`<ul style="list-style:none; padding:0; margin:0;">\`;
-        post.comments.forEach(cmt => {
+        let commentsHtml = `<h4 style="font-size:18px; font-weight:bold; margin-bottom:15px; padding-top:20px; border-top:2px solid #333;">댓글 \${post.comments.length}개</h4>`;
+        commentsHtml += `<ul style="list-style:none; padding:0; margin:0;">`;
+        post.comments.forEach((cmt, idx) => {
             const cDate = new Date(cmt.created_at).toLocaleString();
-            commentsHtml += \`
+            // Dynamic avatar for comment writer
+            let cmtAvatarIdx = ((cmt.nickname.charCodeAt(cmt.nickname.length - 1) + idx) % 6) + 1;
+            let cmtAvatar = cmtAvatarIdx === 1 ? 'images/custom/avatar.png' : `images/custom/avatar${cmtAvatarIdx}.png`;
+
+            commentsHtml += `
                 <li style="padding:15px 0; border-bottom:1px solid #f1f1f1;">
                     <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                         <div>
-                            <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade" style="vertical-align:middle; width:16px;"/>
+                            <img src="\${cmtAvatar}" alt="Commenter Avatar" style="vertical-align:middle; width:16px; height:16px; border-radius:50%; margin-right:5px;"/>
                             <b style="font-size:14px; margin-left:5px;">\${cmt.nickname}</b>
                         </div>
                         <div style="font-size:12px; color:#999;">\${cDate}</div>
                     </div>
                     <div style="font-size:14px; line-height:1.6; color:#444;">\${cmt.content.replace(/\\n/g, '<br>')}</div>
                 </li>
-            \`;
+            `;
         });
-        commentsHtml += \`</ul>\`;
+        commentsHtml += `</ul>`;
         
         // 댓글 쓰기 폼
-        commentsHtml += \`
+        commentsHtml += `
             <div style="margin-top:20px; background:#f9f9f9; padding:15px; border-radius:8px; border:1px solid #eee;">
                 <textarea id="newCommentInput" placeholder="댓글을 남겨주세요." style="width:100%; height:80px; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; resize:none; outline:none;"></textarea>
                 <div style="text-align:right; margin-top:10px;">
                     <button onclick="submitComment('\${post.id}')" style="background:#1e88e5; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">등록</button>
                 </div>
             </div>
-        \`;
+        `;
         commentsEl.innerHTML = commentsHtml;
 
         // 글로벌 함수 바인딩
