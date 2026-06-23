@@ -1,19 +1,21 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto:wght@500;700;900&display=swap");
 
+/* [LOG: 20260623_1825] Phase 5: 1:1 대다모 픽셀 퍼펙트 복제 - 컬러 변수 완전 일치화 */
 :root {
-  --main: #4c00ee;
-  --main-dark: #3300a8;
-  --accent: #ff6600;
-  --danger: #d82e18;
-  --ink: #181c34;
-  --text: #333849;
-  --muted: #777;
-  --line: #e6e8ec;
-  --soft-line: #eff0f4;
-  --soft: #f7f8fb;
-  --green: #1f9d66;
-  --yellow: #ffc247;
-  --blue: #1f6feb;
+  --main: #333333; /* 대다모는 무채색/어두운 톤을 메인으로 많이 씁니다 */
+  --main-dark: #111111;
+  --accent: #ed1c24; /* 대다모 특유의 강조(포인트) 레드 컬러 */
+  --danger: #ed1c24;
+  --ink: #222222;
+  --text: #444444;
+  --muted: #888888;
+  --line: #e5e5e5;
+  --soft-line: #f4f4f4;
+  --soft: #fafafa;
+  --green: #2bb6a8;
+  --yellow: #f2a93b;
+  --blue: #4c8bf5;
 }
 
 * {
@@ -22,9 +24,9 @@
 
 body {
   margin: 0;
-  background: #fff;
+  background: #f0f2f5;
   color: var(--text);
-  font-family: "Noto Sans KR", system-ui, sans-serif;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -45,131 +47,329 @@ textarea {
   position: fixed;
   inset: 0 0 auto;
   z-index: 20;
-  min-width: 1100px;
+  min-width: 1200px;
   background: #fff;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* [LOG: 20260623_1840] Phase 6: 대다모 오리지널 3단 헤더 1:1 복제 */
+.top-util {
+  background: #f8f8f8;
+  border-bottom: 1px solid var(--line);
+}
+.top-util-inner {
+  width: 1200px;
+  margin: 0 auto;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+}
+.util-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.util-right span {
+  color: #ddd;
+}
+.util-right a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.top-main {
+  background: #fff;
+}
+.top-main-inner {
+  width: 1200px;
+  margin: 0 auto;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-daedamo {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -2px;
+  font-family: "Roboto", sans-serif;
+}
+.search-wrap-daedamo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.search-box-daedamo {
+  display: flex;
+  width: 420px;
+  height: 44px;
+  border: 4px solid var(--accent);
+}
+.search-box-daedamo input {
+  flex: 1;
+  border: none;
+  padding: 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  outline: none;
+}
+.btn-search-daedamo {
+  width: 60px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.search-keywords {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #666;
+}
+.search-keywords a:hover {
+  text-decoration: underline;
+}
+.header-ad-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 60px;
+  background: #fff8f8;
+  border: 1px solid #fecaca;
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 4px;
+}
+.header-ad-banner strong {
+  font-size: 15px;
+  font-weight: 900;
+}
+.header-ad-banner span {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+/* [LOG: 20260623_1830] Phase 5: GNB(메뉴바) 1:1 대다모 스타일 복제 */
+.gnb {
+  height: 50px;
+  background: #fff;
+  border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--line);
 }
 
-.top-bar {
-  border-bottom: 1px solid #d1d1d4;
-}
-
-.top-inner,
-.gnb-inner,
-.page-shell {
-  width: 1100px;
-  margin: 0 auto;
-}
-
-.top-inner {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 0 20px;
-}
-
-.logo {
-  width: 170px;
-  color: var(--main);
-  font-family: Roboto, sans-serif;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 0;
-}
-
-.search-box {
-  width: 330px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  border: 1.5px solid #111;
-  border-radius: 42px;
-  padding: 0 16px;
-  background: #fff;
-}
-
-.search-box input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  color: var(--ink);
-  cursor: pointer;
-}
-
-.top-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.top-meta strong,
-.top-meta a span {
-  color: var(--main);
-}
-
-.auth-links {
-  display: flex;
-  gap: 10px;
-  padding-left: 14px;
-  border-left: 1px solid var(--line);
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.gnb {
-  height: 65px;
-}
-
 .gnb-inner {
-  height: 65px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   padding: 0;
+  margin: 0 auto;
+}
+
+.gnb li {
+  position: relative;
 }
 
 .gnb a {
   display: block;
-  height: 65px;
-  padding: 0 8px;
+  height: 50px;
+  padding: 0 10px;
   color: var(--ink);
   font-size: 16px;
-  font-weight: 800;
-  line-height: 65px;
-  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  line-height: 50px;
+  white-space: nowrap;
+  transition: color 0.15s ease;
 }
 
 .gnb li.active a,
 .gnb a:hover {
-  color: var(--main);
-  border-bottom-color: var(--main);
+  color: var(--accent);
+}
+
+.gnb li::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.gnb li.active::after,
+.gnb li:hover::after {
+  transform: scaleX(1);
+}
+
+.gnb-all-container {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.gnb-all-menu {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 4px;
+  transition: color 0.15s ease;
+}
+
+.gnb-all-menu:hover {
+  color: var(--accent);
+}
+
+/* [LOG: 20260623_1513] 대다모 스타일 메가 전체메뉴 레이아웃 */
+.gnb-megamenu {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--soft-line);
+  padding: 20px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+.gnb-all-container:hover .gnb-megamenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.gnb-megamenu-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.gnb-megamenu-section strong {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--soft-line);
+  padding-bottom: 4px;
+}
+
+.gnb-megamenu-section a {
+  height: auto !important;
+  line-height: 1.8 !important;
+  padding: 4px 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  transition: color 0.15s ease;
+}
+
+.gnb-megamenu-section a:hover {
+  color: var(--main) !important;
 }
 
 .header-spacer {
-  height: 145px;
+  height: 146px;
 }
 
 .page-shell {
-  padding: 14px 0 48px;
+  padding: 16px 0 48px;
+}
+
+/* [LOG: 20260623_1431] 대다모 스타일 GNB 바로 아래 와이드 배너 광고 */
+.wide-promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #4f1cf2 0%, #7d3bff 50%, #2bb6a8 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(79, 28, 242, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.wide-promo-banner:hover {
+  transform: translateY(-2px);
+}
+
+.wide-promo-banner-text {
+  z-index: 2;
+}
+
+.wide-promo-banner-text span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.wide-promo-banner-text h2 {
+  font-size: 22px;
+  font-weight: 900;
+  margin: 10px 0 6px 0;
+  letter-spacing: -0.5px;
+}
+
+.wide-promo-banner-text p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.wide-promo-banner-visual {
+  font-size: 48px;
+  z-index: 2;
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+}
+
+.wide-promo-banner:hover .wide-promo-banner-visual {
+  transform: scale(1.1) rotate(0deg);
 }
 
 .promo-strip {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   padding: 14px 20px;
   border-radius: 8px;
-  background: linear-gradient(100deg, #4c00ee 0%, #7d3bff 55%, #ff6600 130%);
+  background: linear-gradient(100deg, var(--main) 0%, #7d3bff 55%, var(--accent) 130%);
   color: #fff;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(100, 56, 235, 0.15);
 }
 
 .promo-tag {
@@ -285,14 +485,16 @@ textarea {
   gap: 15px;
 }
 
+/* [LOG: 20260623_1235] 대다모 히어로: 둥근모서리 + 강한그림자 */
 .hero-main {
   height: 300px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 220px;
   overflow: hidden;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #191f3c 0%, #4c00ee 100%);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #191f3c 0%, var(--main) 100%);
   color: #fff;
+  box-shadow: 1px 4px 14px rgba(0, 0, 0, 0.18);
 }
 
 .hero-main > div {
@@ -439,30 +641,65 @@ textarea {
   font-style: normal;
 }
 
+/* [LOG: 20260623_1235] 대다모 알림바: 뱃지 + 롤링 텍스트 */
 .notice-bar {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 12px 0;
-  padding: 11px 16px;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 10px 16px;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: var(--soft);
+  background: #fff;
+  overflow: hidden;
+}
+
+.notice-bar-badge {
+  flex: none;
+  min-width: 30px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: var(--main);
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 0 8px;
 }
 
 .notice-bar strong {
-  color: var(--ink);
-}
-
-.notice-bar span {
+  flex: none;
   color: var(--main);
-  font-weight: 900;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.notice-bar p {
+.notice-bar strong a {
+  color: var(--main);
+  text-decoration: underline;
+}
+
+.notice-bar .notice-scroll {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.notice-bar .notice-scroll p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 13px;
+  display: inline-block;
+  animation: noticeScroll 20s linear infinite;
+}
+
+@keyframes noticeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .quick-grid {
@@ -524,17 +761,38 @@ textarea {
   font-weight: 900;
 }
 
+.quick-new-count {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 22px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  border-radius: 8px;
+  background: var(--main);
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  box-shadow: 0 2px 5px rgba(100, 56, 235, 0.4);
+}
+
 .quick-grid span {
   color: var(--ink);
   font-size: 12px;
   font-weight: 700;
 }
 
+/* [LOG: 20260623_1225] Content layout matching, 3-column popular posts grid, and hover effects */
 .content-layout {
   display: grid;
-  grid-template-columns: 800px 220px;
-  justify-content: space-between;
-  gap: 0;
+  grid-template-columns: 865px 220px;
+  gap: 15px;
 }
 
 .main-column,
@@ -553,6 +811,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .alert-strip {
@@ -586,72 +845,270 @@ textarea {
 .board-section,
 .write-panel {
   margin-bottom: 16px;
-  padding: 14px 16px;
+  padding: 18px 20px;
 }
 
+/* [LOG: 20260623_1230] 대다모 섹션제목: 보더 없음, 20px 굵은 제목 */
 .section-head {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--ink);
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .section-head h2 {
   margin: 0;
   color: var(--ink);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 900;
+  letter-spacing: -0.5px;
 }
 
 .section-head a {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.section-head a strong {
+  color: var(--main);
 }
 
 .section-head.dark {
   border-bottom-color: var(--line);
 }
 
-.photo-list,
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
 .review-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 14px;
+}
+
+/* [LOG: 20260623_1431] 대다모 스타일 입체 메탈릭 순위 뱃지 */
+.photo-card-rank {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 900;
+  font-family: Roboto, sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.photo-card-rank.rank-1 {
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+}
+
+.photo-card-rank.rank-2 {
+  background: linear-gradient(135deg, #e0e0e0 0%, #a8a8a8 100%);
+}
+
+.photo-card-rank.rank-3 {
+  background: linear-gradient(135deg, #cd7f32 0%, #9e5822 100%);
+}
+
+/* [LOG: 20260623_1431] 우측 하단 플로팅 액션 버튼 */
+.floating-actions {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.floating-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--soft-line);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.floating-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: var(--main);
+  color: var(--main);
+}
+
+.floating-btn.write-trigger {
+  background: var(--main);
+  color: #fff;
+  border: none;
+}
+
+.floating-btn.write-trigger:hover {
+  background: #3b00c4;
+  color: #fff;
 }
 
 .photo-card,
 .review-card {
+  position: relative;
   min-width: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.photo-card:hover,
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(100, 56, 235, 0.1);
+  border-color: var(--main);
+}
+
+.photo-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+/* [LOG: 20260623_1357] 대다모 스타일 비포애프터 세로 2분할 카드 */
+.review-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card-img-half {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  height: 50%;
+  border-bottom: 2px solid #fff;
+}
+
+.review-card-img-half:last-child {
+  border-bottom: none;
+}
+
+.review-card-img-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.review-card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.review-card-badge.before {
+  background: #e03131;
+}
+
+.review-card-badge.after {
+  background: var(--teal);
 }
 
 .photo-card img,
 .review-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   display: block;
-  border-radius: 4px;
   object-fit: cover;
   background: var(--soft);
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover img,
+.review-card:hover img {
+  transform: scale(1.06);
+}
+
+.photo-card-info,
+.review-card-info {
+  padding: 10px 12px;
 }
 
 .photo-card strong,
 .review-card strong {
   display: block;
-  margin-top: 8px;
   overflow: hidden;
   color: var(--ink);
   font-size: 13px;
-  line-height: 1.35;
+  font-weight: 700;
+  line-height: 1.4;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 4px;
 }
 
 .photo-card span,
 .review-card span {
   color: var(--muted);
   font-size: 11px;
+}
+
+/* [LOG: 20260623_1225] Daedamo Q&A badges */
+.qna-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-right: 6px;
+}
+
+.qna-badge.worry {
+  background: #fff0f6;
+  color: #eb2f96;
+}
+
+.qna-badge.unknown {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.qna-badge.mentor {
+  background: #f6ffed;
+  color: #52c41a;
 }
 
 .text-list {
@@ -993,6 +1450,74 @@ textarea {
   margin-top: 4px;
 }
 
+/* [LOG: 20260623_1431] 소셜 간편 로그인 영역 스타일 */
+.social-login-title {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+  margin: 14px 0 10px;
+}
+
+.social-login-title::before,
+.social-login-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--soft-line);
+}
+
+.social-login-title::before {
+  margin-right: 8px;
+}
+
+.social-login-title::after {
+  margin-left: 8px;
+}
+
+.social-login-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease;
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  transform: scale(1.08);
+}
+
+.social-btn.kakao {
+  background: #fee500;
+  color: #191919;
+}
+
+.social-btn.naver {
+  background: #03c75a;
+}
+
+.social-btn.google {
+  background: #ffffff;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+}
+
 .side-title {
   margin: 0 0 12px;
   padding-left: 7px;
@@ -1002,10 +1527,35 @@ textarea {
   font-weight: 900;
 }
 
+/* [LOG: 20260623_1235] 대다모 사이드바 퀵링크: 회색버튼 + 화살표 */
 .side-menu {
   display: grid;
-  gap: 9px;
+  gap: 4px;
   font-size: 13px;
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #f5f6f9;
+  color: var(--ink);
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.side-menu a::after {
+  content: "›";
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.side-menu a:hover {
+  background: #ecedf2;
+  color: var(--main);
 }
 
 .profile-mini {
@@ -1066,7 +1616,1857 @@ textarea {
   text-align: center;
 }
 
+/* [LOG: 20260623_1240] 대다모 하단 3열 게시판 */
+.board-triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.board-col {
+  min-width: 0;
+}
+
+.board-col-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.board-col-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.board-col-head span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.board-col-head span strong {
+  color: var(--main);
+}
+
+.board-col-list {
+  display: grid;
+  gap: 0;
+}
+
+.board-col-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--soft-line);
+  color: var(--ink);
+  font-size: 13px;
+  transition: all 0.15s ease;
+  border-radius: 4px;
+}
+
+.board-col-list a:last-child {
+  border-bottom: none;
+}
+
+.board-col-list a:hover {
+  background: rgba(100, 56, 235, 0.04);
+  color: var(--main);
+}
+
+.board-col-list a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* [LOG: 20260623_1513] 대다모식 보라색 댓글 수 표기 */
+.board-comment-count {
+  color: var(--main);
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 4px;
+  font-family: Roboto, sans-serif;
+}
+
+/* [LOG: 20260623_1513] 대다모식 더보기 링크 */
+.board-more {
+  font-size: 11px !important;
+  color: var(--muted) !important;
+  font-weight: 700 !important;
+  background: #f0f2f5;
+  padding: 2px 7px;
+  border-radius: 10px;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.board-more:hover {
+  background: var(--main);
+  color: #fff !important;
+}
+
+.board-col-list a em {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+/* [LOG: 20260623_1240] 대다모 푸터 */
+.site-footer {
+  background: #222;
+  color: #aaa;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 30px 0;
+}
+
+.footer-inner {
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.footer-links a {
+  color: #ccc;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-logo {
+  color: #666;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* [LOG: 20260623_1357] 대다모 스타일 4열 Q&A 투표형 카드 */
+.qna-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.qna-card {
+  background: #fff;
+  border: 1px solid var(--soft-line);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 210px;
+}
+
+.qna-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.qna-card-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.qna-card-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.qna-card-badge.side_effect {
+  background: #fff0f6;
+  color: #eb2f96;
+}
+
+.qna-card-badge.general {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.qna-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 42px;
+}
+
+.qna-vote-area {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.qna-vote-option {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.qna-vote-option strong {
+  color: var(--ink);
+}
+
+.qna-vote-bar {
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.qna-vote-fill {
+  height: 100%;
+  background: var(--main);
+  border-radius: 3px;
+}
+
+.qna-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid #f0f0f0;
+  padding-top: 8px;
+}
+
+/* [LOG: 20260623_1825] Phase 5: 대다모식 게시판 테이블 강제 1:1 복제 */
+.board-table-wrap {
+  border-top: 2px solid var(--ink);
+  margin-bottom: 24px;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.board-table th {
+  padding: 12px 10px;
+  background: var(--soft);
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.board-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  text-align: center;
+}
+
+.board-table td.col-title {
+  text-align: left;
+}
+
+.board-table td.col-title a {
+  color: var(--ink);
+  font-weight: 500;
+}
+.board-table td.col-title a:hover {
+  text-decoration: underline;
+}
+
+.board-table tr:hover td {
+  background: #fdfdfd;
+}
+
+/* 대다모 하단 컨트롤 (페이징, 검색) */
+.board-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.board-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* [LOG: 20260623_1825] Phase 5: 대다모식 각진 페이지네이션 (1:1 복제) */
+.board-pagination {
+  display: flex;
+  gap: 4px;
+}
+
+.board-pagination a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+  color: #666;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.board-pagination a:hover {
+  border-color: #999;
+  color: #333;
+}
+
+.board-pagination a.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+}
+
+.board-search {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.board-search select,
+.board-search input {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+}
+
+.board-search select:focus,
+.board-search input:focus {
+  border-color: var(--main);
+}
+
+/* [LOG: 20260623_1550] 대다모 스타일 게시글 상세 및 댓글 영역 */
+.article-header {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+}
+
+.article-category span {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--soft);
+  color: var(--main);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.article-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 6px;
+}
+
+.article-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.author-info strong {
+  display: block;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.author-date {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.article-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.article-stats b {
+  color: var(--ink);
+}
+
+.btn-txt {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-txt:hover {
+  color: var(--main);
+  text-decoration: underline;
+}
+
+.article-body {
+  padding: 20px 0 40px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.article-content {
+  min-height: 200px;
+}
+
+.article-vote {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--soft-line);
+}
+
+.btn-vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-vote i {
+  font-size: 20px;
+  font-style: normal;
+  margin-bottom: 4px;
+}
+
+.btn-vote span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.btn-vote strong {
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.btn-vote.up:hover {
+  border-color: var(--main);
+  color: var(--main);
+}
+.btn-vote.up:hover strong {
+  color: var(--main);
+}
+
+.comment-list {
+  border-top: 2px solid var(--ink);
+  margin-top: 16px;
+}
+
+.comment-item {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.comment-main {
+  flex: 1;
+}
+
+.comment-meta {
+  margin-bottom: 4px;
+}
+
+.comment-meta strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.comment-meta .time {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.comment-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.comment-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.comment-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+.comment-form input {
+  flex: 1;
+  border: 1px solid var(--line);
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.comment-form button {
+  width: 80px;
+}
+
+/* [LOG: 20260623_1600] 대다모 스타일 마이페이지 LNB 2단 레이아웃 */
+.my-page-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+}
+
+.lnb-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lnb-user {
+  padding: 24px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.lnb-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--main);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.lnb-user strong {
+  display: block;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.lnb-user span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.lnb-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lnb-menu li {
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.lnb-menu li:last-child {
+  border-bottom: none;
+}
+
+.lnb-menu a {
+  display: block;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+
+.lnb-menu a:hover {
+  background: #fafafa;
+  color: var(--main);
+}
+
+.lnb-menu li.active a {
+  font-weight: 700;
+  color: var(--main);
+  background: #f0f2f5;
+  border-left: 3px solid var(--main);
+}
+
+.my-content-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.profile-form-daedamo {
+  max-width: 500px;
+}
+
+.profile-form-daedamo .form-row {
+  margin-bottom: 20px;
+}
+
+.profile-form-daedamo label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.profile-form-daedamo input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.profile-form-daedamo input:focus {
+  border-color: var(--main);
+  outline: none;
+}
+
+.profile-form-daedamo .form-actions {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--soft-line);
+}
+
+.profile-form-daedamo .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.point-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border: 1px solid var(--soft-line);
+}
+
+.point-summary span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.point-summary strong {
+  font-size: 24px;
+  color: var(--main);
+  font-weight: 900;
+}
+
+.point-summary b {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+/* [LOG: 20260623_1610] 대다모 스타일 글쓰기 모달 CSS */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay[hidden] {
+  display: none !important;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: modalIn 0.2s ease-out;
+  overflow: hidden;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.write-form-daedamo {
+  padding: 24px;
+}
+
+.write-form-daedamo .form-row {
+  margin-bottom: 20px;
+}
+
+.write-form-daedamo label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.write-form-daedamo select,
+.write-form-daedamo input,
+.write-form-daedamo textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.write-form-daedamo select:focus,
+.write-form-daedamo input:focus,
+.write-form-daedamo textarea:focus {
+  border-color: var(--main);
+  outline: none;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--soft-line);
+}
+
+.modal-footer .btn {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+/* [LOG: 20260623_1625] 대다모 스타일 사이드바 로그인 및 위젯 CSS */
+.login-box-daedamo {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.login-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+}
+
+.login-tabs button {
+  flex: 1;
+  background: #f8f9fa;
+  border: none;
+  padding: 12px 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-tabs button.active {
+  background: #fff;
+  color: var(--ink);
+  border-bottom: 2px solid var(--main);
+}
+
+.login-form {
+  display: flex;
+  padding: 16px 16px 8px;
+  gap: 8px;
+}
+
+.login-inputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-inputs input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.btn-login-submit {
+  width: 68px;
+  background: var(--main);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 16px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.login-links input {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.login-links .links-right a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.login-links .links-right span {
+  margin: 0 4px;
+  color: var(--line);
+}
+
+.social-login-daedamo {
+  display: flex;
+  border-top: 1px solid var(--soft-line);
+}
+
+.social-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.social-item:hover {
+  opacity: 0.8;
+}
+
+.social-item.kakao { background: #fee500; color: #3c1e1e; }
+.social-item.naver { background: #03c75a; }
+.social-item.google { background: #ea4335; }
+.social-item.apple { background: #000; }
+
+.side-banner-estimate {
+  display: block;
+  background: linear-gradient(135deg, var(--main), var(--accent));
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(100,56,235,0.15);
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.side-banner-estimate:hover {
+  transform: translateY(-2px);
+}
+
+.side-banner-estimate strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.side-banner-estimate span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.side-widget-daedamo {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.widget-title {
+  margin: 0;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--ink);
+  border-bottom: 1px solid var(--soft-line);
+  background: #fcfcfc;
+}
+
+.widget-quick-menu, .widget-rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget-quick-menu li {
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.widget-quick-menu li:last-child, .widget-rank-list li:last-child {
+  border-bottom: none;
+}
+
+.widget-quick-menu a {
+  display: block;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.widget-quick-menu a:hover {
+  background: #fafafa;
+  color: var(--main);
+}
+
+.widget-rank-list a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.widget-rank-list a:hover {
+  text-decoration: underline;
+}
+
+.widget-rank-list b {
+  color: var(--main);
+  font-style: italic;
+  width: 20px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.widget-rank-list span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.side-ad-banner {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f2f5;
+  border: 1px solid var(--line);
+  padding: 30px 15px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.side-ad-banner strong {
+  color: var(--main);
+  font-size: 14px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* [LOG: 20260623_1730] Phase 3: 대다모 스타일 팻 푸터(Fat Footer) CSS */
+.site-footer-daedamo {
+  background: #242933;
+  color: #8b92a1;
+  padding: 50px 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 60px;
+  border-top: 1px solid #1a1e26;
+}
+.site-footer-daedamo .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.site-footer-daedamo .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.site-footer-daedamo .footer-links a {
+  color: #d1d5db;
+  font-weight: 700;
+  text-decoration: none;
+}
+.site-footer-daedamo .footer-links a.highlight {
+  color: var(--accent);
+}
+.site-footer-daedamo .footer-info {
+  flex: 1;
+  min-width: 300px;
+}
+.site-footer-daedamo .footer-cs {
+  flex: 0 0 300px;
+  text-align: right;
+}
+.site-footer-daedamo .footer-cs h3 {
+  font-size: 28px;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.site-footer-daedamo .footer-cs p {
+  margin: 0;
+  color: #9ca3af;
+  line-height: 1.8;
+}
+.site-footer-daedamo .footer-copy {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: left;
+  color: #6b7280;
+}
+@media (max-width: 768px) {
+  .site-footer-daedamo .footer-inner { flex-direction: column; }
+  .site-footer-daedamo .footer-cs { text-align: left; }
+  .site-footer-daedamo { margin-bottom: 70px; /* 모바일 바텀 탭바 공간 확보 */ }
+}
+
+/* [LOG: 20260623_1800] Phase 4: 스크롤 감지 스티키 헤더 축소 효과 */
+.site-header.scrolled {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.site-header.scrolled .top-bar {
+  border-bottom: none;
+}
+.site-header.scrolled .top-inner {
+  height: 60px;
+}
+.site-header.scrolled .logo {
+  font-size: 24px;
+}
+.site-header .top-inner, .site-header .logo {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* [LOG: 20260623_1815] Phase 4: 모바일 드로어 아코디언 메뉴 */
+.accordion-item {
+  border-bottom: 1px solid var(--line);
+}
+.accordion-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--soft);
+  transition: max-height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.accordion-body a {
+  display: block;
+  padding: 12px 20px 12px 30px;
+  color: var(--text);
+  font-size: 14px;
+}
+.accordion-item.active .accordion-body {
+  max-height: 250px;
+}
+.accordion-item.active .accordion-header span {
+  transform: rotate(180deg);
+}
+.accordion-header span {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* [LOG: 20260623_1815] Phase 4: 라이트박스(Lightbox) 갤러리 */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.lightbox-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+}
+.lightbox-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.lightbox-overlay.show .lightbox-img {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: -10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* [LOG: 20260623_1820] Phase 4: 플로팅 글쓰기 버튼 펄스(물결) 애니메이션 */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.floating-btn.write-trigger {
+  position: relative;
+}
+.floating-btn.write-trigger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--main);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  z-index: -1;
+}
+
+.empty-state-daedamo {
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fdfdfd;
+  border-radius: 8px;
+  border: 1px dashed var(--line);
+  margin: 20px 0;
+}
+.empty-state-daedamo.compact {
+  padding: 40px 20px;
+  margin: 10px 0;
+}
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.8;
+}
+.empty-title {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.empty-desc {
+  font-size: 14px;
+  color: var(--muted);
+}
+.toast-container {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  pointer-events: none;
+}
+.toast-daedamo {
+  background: rgba(40, 42, 48, 0.95);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toast-daedamo.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast-icon { font-size: 16px; }
+
+/* [LOG: 20260623_1700] 스켈레톤 로딩 UI */
+.skeleton-card { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; }
+.skeleton-row { border: none !important; background: transparent !important; padding: 10px 0 !important; }
+.skeleton-text { 
+  background: linear-gradient(90deg, #f0f2f5 25%, #e6e8eb 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  height: 16px; margin-bottom: 8px; width: 100%; 
+}
+.skeleton-text.short { width: 60%; }
+.skeleton-img { 
+  background: linear-gradient(90deg, #f0f2f5 25%, #e6e8eb 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  height: 140px; width: 100%; border-radius: 8px; 
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.hero-carousel-daedamo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: var(--main);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel-slide {
+  min-width: 100%;
+  padding: 60px 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.carousel-slide.slide-1 {
+  background: linear-gradient(135deg, var(--main) 0%, #4c00ee 100%);
+}
+.carousel-slide.slide-2 {
+  background: linear-gradient(135deg, #242933 0%, #151a23 100%);
+}
+.carousel-slide h1 {
+  font-size: 32px;
+  line-height: 1.3;
+  margin: 10px 0 20px;
+}
+.carousel-slide h1 strong {
+  color: var(--accent);
+}
+.carousel-slide p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+.carousel-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.carousel-nav button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-nav button:hover {
+  background: rgba(255,255,255,0.4);
+}
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+.carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.carousel-dots .dot.active {
+  background: #fff;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.home-tab-section {
+  margin-bottom: 30px;
+}
+.tab-header {
+  display: flex;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 20px;
+  position: relative;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--muted);
+  padding: 12px 24px;
+  cursor: pointer;
+  position: relative;
+}
+.tab-btn.active {
+  color: var(--ink);
+  font-weight: 900;
+}
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--main);
+}
+.tab-more {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+.diary-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 12px;
+}
+
+.diary-header h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.diary-header h2 span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.diary-date {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.diary-date strong {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--main);
+}
+
+.diary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.diary-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.diary-card-title {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.diary-card-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 4px;
+  background: var(--main);
+  border-radius: 2px;
+}
+
+.weight-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.weight-input-group input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+  transition: border-color 0.2s;
+}
+
+.weight-input-group input:focus {
+  border-color: var(--main);
+  outline: none;
+}
+
+.weight-input-group span {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--main);
+  cursor: pointer;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+.diary-form-meal select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+
+.meal-inputs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.meal-inputs input[type="text"] {
+  flex: 2;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.kcal-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kcal-input input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.diary-list-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.meal-list-daedamo {
+  border-top: 1px solid var(--ink);
+}
+
+.meal-item-daedamo {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.meal-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 16px;
+  color: #fff;
+  text-align: center;
+  min-width: 48px;
+}
+
+.meal-badge.breakfast { background: #4c00ee; }
+.meal-badge.lunch { background: #1f9d66; }
+.meal-badge.dinner { background: #ff6600; }
+.meal-badge.snack { background: #ffc247; color: #fff; }
+
+.meal-info {
+  flex: 1;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.meal-kcal {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--main);
+}
+
+.meal-kcal span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.meal-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+/* [LOG: 20260623_1645] 데스크탑에서는 모바일 UI 숨김 */
+.mobile-slide-overlay,
+.mobile-slide-menu,
+.mobile-bottom-bar {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  /* [LOG: 20260623_1645] 모바일 하단 탭바 및 슬라이드 메뉴 */
+  .mobile-bottom-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .mobile-bottom-bar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 10px;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .mobile-bottom-bar a i {
+    font-size: 20px;
+    font-style: normal;
+  }
+
+  .mobile-bottom-bar a.active {
+    color: var(--main);
+  }
+
+  .page-shell {
+    padding-bottom: 80px !important;
+  }
+
+  .mobile-slide-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1010;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+  }
+  
+  .mobile-slide-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-slide-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #fff;
+    z-index: 1020;
+    transition: left 0.3s ease-out;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .mobile-slide-menu.show {
+    left: 0;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--main);
+    color: #fff;
+  }
+
+  .mobile-menu-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .btn-close-mobile {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .mobile-user {
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-nav-list li {
+    border-bottom: 1px solid var(--soft-line);
+  }
+
+  .mobile-nav-list a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 15px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .mobile-nav-list li.active a {
+    color: var(--main);
+    font-weight: 700;
+  }
+
+  .gnb-inner > li { display: none; }
+  .gnb-inner > li.gnb-all-container { display: block; width: 100%; text-align: right; }
+  .gnb-all-menu { padding: 10px 15px; font-size: 24px; cursor: pointer; color: #fff; }
+  .gnb-megamenu { display: none !important; }
   .site-header {
     min-width: 0;
   }
@@ -1226,6 +3626,7 @@ textarea {
 
   .photo-list,
   .review-grid,
+  .qna-grid,
   .text-list.two-col {
     grid-template-columns: 1fr 1fr;
   }

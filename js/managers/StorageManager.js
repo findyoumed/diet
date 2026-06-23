@@ -94,6 +94,119 @@ class StorageManager {
   write(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   }
+
+  // ===========================================================================
+  // [LOG: 20260623_2050] Supabase DB 연동 완료 (CRUD)
+  // ===========================================================================
+
+  async getThreadsAsync(categoryTag = null) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    let query = window.supabaseClient.from('diet_threads').select('*').order('created_at', { ascending: false });
+    if (categoryTag && categoryTag !== "all") {
+      query = query.eq('category_tag', categoryTag);
+    }
+    const { data, error } = await query;
+    if (error) throw error;
+    return data;
+  }
+
+  async getThreadDetailAsync(id) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    
+    // 조회수 증가
+    await window.supabaseClient.rpc('increment_view_count', { row_id: id }).catch(() => {
+        // RPC가 없으면 직접 업데이트 시도 (조회수 중복 가능성 무시)
+        window.supabaseClient.from('diet_threads').select('views').eq('id', id).single().then(({data}) => {
+            if(data) window.supabaseClient.from('diet_threads').update({ views: data.views + 1 }).eq('id', id).then();
+        });
+    });
+
+    const { data: thread, error: tError } = await window.supabaseClient
+      .from('diet_threads')
+      .select('*')
+      .eq('id', id)
+      .single();
+      
+    if (tError) throw tError;
+
+    const { data: comments, error: cError } = await window.supabaseClient
+      .from('diet_comments')
+      .select('*')
+      .eq('thread_id', id)
+      .order('created_at', { ascending: true });
+      
+    if (cError) throw cError;
+
+    thread.comments = comments || [];
+    return thread;
+  }
+
+  async createThreadAsync(title, content, categoryTag, nickname) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    const { data, error } = await window.supabaseClient
+      .from('diet_threads')
+      .insert([{ 
+        title, 
+        content, 
+        category_tag: categoryTag, 
+        nickname: nickname || "익명",
+        created_at: new Date().toISOString()
+      }])
+      .select();
+      
+    if (error) throw error;
+    return data[0];
+  }
+
+  async deleteThreadAsync(id) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    const { error } = await window.supabaseClient
+      .from('diet_threads')
+      .delete()
+      .eq('id', id);
+      
+    if (error) throw error;
+    return true;
+  }
+
+  async createCommentAsync(postId, content, nickname) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    const { data, error } = await window.supabaseClient
+      .from('diet_comments')
+      .insert([{ 
+        thread_id: postId, 
+        content, 
+        nickname: nickname || "익명",
+        created_at: new Date().toISOString()
+      }])
+      .select();
+      
+    if (error) throw error;
+
+    // 댓글 수 증가 (클라이언트 사이드 추정치)
+    window.supabaseClient.from('diet_threads').select('comment_count').eq('id', postId).single().then(({data: tData}) => {
+        if(tData) window.supabaseClient.from('diet_threads').update({ comment_count: tData.comment_count + 1 }).eq('id', postId).then();
+    });
+
+    return data[0];
+  }
+
+  async deleteCommentAsync(postId, commentId) {
+    if (!window.supabaseClient) throw new Error("Supabase is not initialized.");
+    const { error } = await window.supabaseClient
+      .from('diet_comments')
+      .delete()
+      .eq('id', commentId);
+      
+    if (error) throw error;
+    
+    // 댓글 수 감소
+    window.supabaseClient.from('diet_threads').select('comment_count').eq('id', postId).single().then(({data: tData}) => {
+        if(tData && tData.comment_count > 0) window.supabaseClient.from('diet_threads').update({ comment_count: tData.comment_count - 1 }).eq('id', postId).then();
+    });
+
+    return true;
+  }
 }
 
 const HOUR = 1000 * 60 * 60;

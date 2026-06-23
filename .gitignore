@@ -1,4 +1,6 @@
 # [LOG: 20260622_1750] Git Commit Exclusion Rules
 documents-prd/
 documents-prd
+OpenSourceCommunity/
+OpenSourceCommunity
 *.prd

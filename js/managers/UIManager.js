@@ -3,171 +3,175 @@ class UIManager {
     this.storage = storage;
   }
 
-  renderCommon(activePage) {
-    this.renderHeader(activePage);
-    this.renderSidebar();
-  }
-
-  renderHeader(activePage) {
-    const header = document.getElementById("siteHeader");
-    if (!header) return;
-
-    const profile = this.storage.getUserProfile();
-    const menus = [
-      ["home", "다이어트핫픽", "index.html"],
-      ["community", "다이어트톡톡", "community.html"],
-      ["treatment", "비만치료톡", "community.html?tag=treatment"],
-      ["review", "비포&애프터", "community.html?tag=review"],
-      ["meal", "식단인증", "community.html?tag=meal"],
-      ["record", "식단&칼로리", "record.html"],
-      ["general", "체형/시술", "community.html?tag=general"],
-      ["expert", "전문가상담", "my.html"],
-      ["clinic", "병원찾기", "my.html"]
-    ];
-
-    header.innerHTML = `
-      <div class="top-bar">
-        <div class="top-inner">
-          <a class="logo" href="index.html">DietOn</a>
-          <form class="search-box" id="globalSearchForm">
-            <input id="globalSearchInput" type="search" placeholder="'위고비' 궁금하다면 지금 검색하세요">
-          </form>
-          <div class="top-meta">
-            <a href="my.html?setup=1">실시간 비대면 <span>견적받기</span> &gt;</a>
-            <span>현재 접속자 <strong>1,854</strong>명</span>
-          </div>
-          <div class="auth-links">
-            ${profile
-              ? `<a href="my.html">${profile.nickname}님</a><a href="#" data-action="logout">로그아웃</a>`
-              : `<a href="my.html?setup=1">로그인</a><a href="my.html?setup=1">회원가입</a>`}
-          </div>
-        </div>
-      </div>
-      <nav class="gnb">
-        <ul class="gnb-inner">
-          ${menus.map(([id, label, url]) => `<li class="${this.isActive(activePage, id) ? "active" : ""}"><a href="${url}">${label}</a></li>`).join("")}
-        </ul>
-      </nav>
+  // ===========================================================================
+  // [LOG: 20260623_2115] Phase 7: DOM 바인딩 - 커뮤니티 리스트
+  // ===========================================================================
+  renderPostList(container, posts) {
+    let html = '';
+    
+    // 테이블 레이아웃 그대로 활용
+    html += '<table width="100%" cellpadding="0" cellspacing="0" class="mw_basic_list_table">';
+    html += '<colgroup><col width="80"><col width=""><col width="120"><col width="80"><col width="50"><col width="50"></colgroup>';
+    
+    // 테이블 헤더
+    html += `
+        <tr class="mw_basic_list_tr mw_basic_list_tr_head">
+            <td class="mw_basic_list_head mw_basic_list_head_num"><span class="media-list-head-text">번호</span></td>
+            <td class="mw_basic_list_head mw_basic_list_head_subject"><span class="media-list-head-text">제목</span></td>
+            <td class="mw_basic_list_head mw_basic_list_head_name"><span class="media-list-head-text">글쓴이</span></td>
+            <td class="mw_basic_list_head mw_basic_list_head_datetime"><span class="media-list-head-text">날짜</span></td>
+            <td class="mw_basic_list_head mw_basic_list_head_hit"><span class="media-list-head-text">조회</span></td>
+            <td class="mw_basic_list_head mw_basic_list_head_good"><span class="media-list-head-text">추천</span></td>
+        </tr>
     `;
 
-    const searchForm = document.getElementById("globalSearchForm");
-    searchForm?.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const query = document.getElementById("globalSearchInput").value.trim();
-      if (query) location.href = `community.html?search=${encodeURIComponent(query)}`;
+    posts.forEach((post, i) => {
+      const date = new Date(post.created_at);
+      const dateStr = `${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+      const num = posts.length - i;
+      
+      html += `
+        <tr class="mw_basic_list_tr mw_basic_list_tr_data ">
+            <td class="mw_basic_list_num media-no-text">\${num}</td>
+            <td class="mw_basic_list_subject">
+                <div class="list_wrap">
+                    <div class="list_left">
+                        <div class="mw_basic_list_subject_desc">
+                            <a href="post.html?id=\${post.id}">
+                                <strong>\${post.title}</strong>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="mw_basic_list_name media-no-text">
+                                <button type="button" class="btn_usermenu">
+                                  <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" />
+                                  <span>\${post.nickname}</span>
+                                </button>
+                            </div>
+                            <div class="mw_basic_list_datetime media-no-text">\${dateStr}</div>
+                            <div class="mw_basic_list_hit media-no-text">조회 \${post.views || 0}</div>
+                            <div class="mw_basic_list_good media-no-text"><span class="i_good_gray_16"></span>&nbsp;\${post.like_count || 0}</div>
+                        </div>
+                    </div>
+                    <div class="list_right">
+                        \${post.image ? \`<div class="thumb"><img src="\${post.image}" style="width:50px; height:50px; object-fit:cover;"></div>\` : ''}
+                        <div class='list_cmt'>
+                            <span class='i_comment_black'></span> \${post.comment_count || 0}
+                        </div>
+                    </div>
+                </div>
+                <div><div colspan=8 class="mw_basic_line_color" height="1"></div></div>
+            </td>
+            <td class="mw_basic_list_name media-on-text">
+                <button type="button" class="btn_usermenu">
+                  <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" />
+                  <span>\${post.nickname}</span>
+                </button>
+            </td>
+            <td class="mw_basic_list_datetime media-on-text">\${dateStr}</td>
+            <td class="mw_basic_list_hit media-on-text">\${post.views || 0}</td>
+            <td class="mw_basic_list_good media-on-text">\${post.like_count || 0}</td>
+        </tr>
+      `;
     });
 
-    header.querySelector("[data-action='logout']")?.addEventListener("click", (event) => {
-      event.preventDefault();
-      localStorage.removeItem("diet_on_profile");
-      location.href = "index.html";
-    });
-  }
-
-  renderSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (!sidebar) return;
-
-    const profile = this.storage.getUserProfile();
-    const posts = this.storage.getPosts().slice(0, 5);
-    const profileHtml = profile
-      ? `
-        <div class="side-widget">
-          <div class="profile-mini">
-            <div class="avatar">${profile.nickname.slice(0, 1)}</div>
-            <div><strong>${profile.nickname}님</strong><br><span>${profile.points || 0}P 보유</span></div>
-          </div>
-          <div class="profile-data">
-            <span>키 <strong>${profile.height_cm}cm</strong></span>
-            <span>목표 체중 <strong>${profile.target_weight_kg}kg</strong></span>
-            <span>BMI <strong>${this.calculateBMI(profile.height_cm, profile.target_weight_kg)}</strong></span>
-          </div>
-        </div>`
-      : `
-        <div class="login-box">
-          <input type="text" value="diet@dieton.kr" aria-label="아이디">
-          <input type="password" value="123456" aria-label="비밀번호">
-          <button class="btn primary" onclick="location.href='my.html?setup=1'">로그인</button>
-          <div class="post-meta" style="margin-top:8px;"><a href="my.html?setup=1">회원가입</a><span>|</span><a href="my.html?setup=1">아이디/비번 찾기</a></div>
-        </div>`;
-
-    sidebar.innerHTML = `
-      ${profileHtml}
-      <div class="side-widget">
-        <h3 class="side-title">다이어트 NOW</h3>
-        <div class="rank-list">
-          ${posts.map((post, index) => `<a href="post.html?id=${post.id}"><b>${index + 1}</b><span>${post.title}</span></a>`).join("")}
+    html += '</table>';
+    
+    // 글쓰기 버튼 추가
+    html += `
+        <div style="text-align:right; margin-top:15px;">
+            <a href="write.html" style="display:inline-block; padding:10px 25px; background:#1e88e5; color:#fff; font-weight:bold; border-radius:4px; text-decoration:none;">글쓰기</a>
         </div>
-      </div>
-      <div class="side-widget">
-        <h3 class="side-title">빠른 메뉴</h3>
-        <div class="side-menu">
-          <a href="record.html">식단 다이어리 쓰기</a>
-          <a href="record.html">오늘 몸무게 입력</a>
-          <a href="community.html?tag=treatment">비만치료 후기 보기</a>
-          <a href="community.html?tag=side_effect">요요/부작용 상담</a>
-        </div>
-      </div>
-      <a class="side-widget" href="my.html?setup=1" style="display:block;background:linear-gradient(135deg,var(--main),var(--green));color:#fff;text-align:center;">
-        <strong>맞춤 감량 플랜 상담</strong><br>
-        <span style="font-size:12px;opacity:.85;">목표 체중까지 필요한 루틴 확인</span>
-      </a>
-      <div class="ad-box">AD<br>DietOn 파트너 배너</div>
     `;
+
+    container.innerHTML = html;
   }
 
-  renderWeightChart(canvasId, records) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas || !window.Chart) return;
-    const labels = Object.keys(records).sort().slice(-30);
-    const values = labels.map((date) => records[date].weight_kg);
+  // ===========================================================================
+  // [LOG: 20260623_2120] Phase 7: DOM 바인딩 - 포스트 상세
+  // ===========================================================================
+  renderPostDetail(post) {
+    const titleEl = document.getElementById("dieton-post-title");
+    const infoEl = document.getElementById("dieton-post-info");
+    const contentEl = document.getElementById("dieton-post-content");
+    const commentsEl = document.getElementById("dieton-comments-list");
 
-    if (window.weightChart) window.weightChart.destroy();
-    window.weightChart = new Chart(canvas, {
-      type: "line",
-      data: {
-        labels: labels.map((date) => date.slice(5)),
-        datasets: [{
-          data: values,
-          borderColor: "#4c00ee",
-          backgroundColor: "rgba(76,0,238,.08)",
-          tension: .25,
-          fill: true,
-          pointBackgroundColor: labels.map((date) => records[date].medicine_taken ? "#ff6600" : "#4c00ee")
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
-    });
-  }
+    if (titleEl) {
+        titleEl.innerHTML = \`<span style="color:#1e88e5; margin-right:5px;">[\${post.category_tag}]</span> \${post.title}\`;
+    }
 
-  renderCalorieChart(canvasId, meals) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas || !window.Chart) return;
-    const totals = { breakfast: 0, lunch: 0, dinner: 0, snack: 0 };
-    meals.forEach((meal) => { totals[meal.mealType] += Number(meal.calories || 0); });
+    if (infoEl) {
+        const dateStr = new Date(post.created_at).toLocaleString();
+        infoEl.innerHTML = \`
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:15px;">
+                <div>
+                    <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade Icon" style="vertical-align:middle;"/>
+                    <span style="font-weight:bold; margin-right:15px;">\${post.nickname}</span>
+                    <span style="color:#888; font-size:13px;">\${dateStr}</span>
+                </div>
+                <div style="color:#888; font-size:13px;">
+                    조회 <b style="color:#333;">\${post.views || 0}</b> | 
+                    댓글 <b style="color:#333;">\${post.comment_count || 0}</b> | 
+                    추천 <b style="color:#333;">\${post.like_count || 0}</b>
+                </div>
+            </div>
+        \`;
+    }
 
-    if (window.calorieChart) window.calorieChart.destroy();
-    window.calorieChart = new Chart(canvas, {
-      type: "doughnut",
-      data: {
-        labels: ["아침", "점심", "저녁", "간식"],
-        datasets: [{ data: Object.values(totals), backgroundColor: ["#4c00ee", "#1f9d66", "#ff6600", "#ffc247"] }]
-      },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: "bottom" } }, cutout: "64%" }
-    });
-  }
+    if (contentEl) {
+        let contentHtml = '';
+        if (post.image) {
+            contentHtml += \`<div style="text-align:center; margin-bottom:20px;"><img src="\${post.image}" style="max-width:100%; border-radius:8px;"></div>\`;
+        }
+        contentHtml += \`<div style="font-size:16px; line-height:1.8; color:#333;">\${post.content.replace(/\\n/g, '<br>')}</div>\`;
+        contentEl.innerHTML = contentHtml;
+    }
 
-  isActive(activePage, menuId) {
-    if (activePage === menuId) return true;
-    if (activePage === "post" && menuId === "community") return true;
-    return false;
-  }
+    if (commentsEl) {
+        let commentsHtml = \`<h4 style="font-size:18px; font-weight:bold; margin-bottom:15px; padding-top:20px; border-top:2px solid #333;">댓글 \${post.comments.length}개</h4>\`;
+        commentsHtml += \`<ul style="list-style:none; padding:0; margin:0;">\`;
+        post.comments.forEach(cmt => {
+            const cDate = new Date(cmt.created_at).toLocaleString();
+            commentsHtml += \`
+                <li style="padding:15px 0; border-bottom:1px solid #f1f1f1;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                        <div>
+                            <img src="https://daedamo.com/new/img/icon/5.svg" alt="Grade" style="vertical-align:middle; width:16px;"/>
+                            <b style="font-size:14px; margin-left:5px;">\${cmt.nickname}</b>
+                        </div>
+                        <div style="font-size:12px; color:#999;">\${cDate}</div>
+                    </div>
+                    <div style="font-size:14px; line-height:1.6; color:#444;">\${cmt.content.replace(/\\n/g, '<br>')}</div>
+                </li>
+            \`;
+        });
+        commentsHtml += \`</ul>\`;
+        
+        // 댓글 쓰기 폼
+        commentsHtml += \`
+            <div style="margin-top:20px; background:#f9f9f9; padding:15px; border-radius:8px; border:1px solid #eee;">
+                <textarea id="newCommentInput" placeholder="댓글을 남겨주세요." style="width:100%; height:80px; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; resize:none; outline:none;"></textarea>
+                <div style="text-align:right; margin-top:10px;">
+                    <button onclick="submitComment('\${post.id}')" style="background:#1e88e5; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">등록</button>
+                </div>
+            </div>
+        \`;
+        commentsEl.innerHTML = commentsHtml;
 
-  calculateBMI(heightCm, weightKg) {
-    if (!heightCm || !weightKg) return "N/A";
-    const heightM = Number(heightCm) / 100;
-    return (Number(weightKg) / (heightM * heightM)).toFixed(1);
+        // 글로벌 함수 바인딩
+        window.submitComment = async (postId) => {
+            const input = document.getElementById('newCommentInput');
+            const text = input.value.trim();
+            if(!text) return alert('댓글 내용을 입력하세요.');
+            
+            try {
+                await window.app.storage.createCommentAsync(postId, text, '다이어터');
+                window.app.renderPostDetail(); // 리렌더링
+            } catch(e) {
+                alert('에러: ' + e.message);
+            }
+        };
+    }
   }
 }
-
 window.UIManager = UIManager;
