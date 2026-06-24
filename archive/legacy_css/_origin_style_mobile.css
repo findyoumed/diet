@@ -1211,11 +1211,11 @@ html.not_scroll {
   margin-left: 5px;
 }
 .popular_words_box .popular_list ul li .status.up {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_up_orange_10.svg) no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_up_orange_10.svg) no-repeat;
   background-size: 100%;
 }
 .popular_words_box .popular_list ul li .status.down {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_down_sky_10.svg) no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_down_sky_10.svg) no-repeat;
   background-size: 100%;
 }
 
@@ -1724,7 +1724,7 @@ html:lang(ja) .modeSpan {
   margin: 0;
   border: 1px solid #d7d8da;
 
-  background-image: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_20.svg);
+  background-image: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_20.svg);
   background-position: 50% 50%;
   background-size: 16px;
 }
@@ -1752,12 +1752,12 @@ html:lang(ja) .modeSpan {
 }
 .menu_list_wrap .btn_open_quick_menu p {
   padding-bottom: 4px;
-  background-image: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_20.svg);
+  background-image: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_20.svg);
   pointer-events: all;
 }
 
 .menu_list_wrap .btn_close_quick_menu p {
-  background-image: url(https://image.daedamo.com/images/img/renew/i_close_black.svg);
+  background-image: url(../../images/remote/image.daedamo.com/images/img/renew/i_close_black.svg);
 }
 
 .index_nav_menu .menu_list .menu .icon {
@@ -1779,7 +1779,7 @@ html:lang(ja) .modeSpan {
   justify-content: center;
 }
 .index_nav_menu .menu_list .menu.graft .icon {
-  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
 }
@@ -1788,7 +1788,7 @@ html:lang(ja) .modeSpan {
 }
 /* talmo_care bg color */
 .index_nav_menu .menu_list .menu.talmo_care .icon {
-  background: url(https://image.daedamo.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
   background-size: cover;
 }
 .index_nav_menu .menu_list .menu .new {
@@ -2381,7 +2381,7 @@ html:lang(ja) .modeSpan {
   width: 100%;
   min-height: 300px;
   position: relative;
-  background: url(https://image.daedamo.com/images/img/renew/ad/m_main_ad_blackfore_ytb_bg.jpg) no-repeat #efeff2;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/ad/m_main_ad_blackfore_ytb_bg.jpg) no-repeat #efeff2;
   background-size: 100%;
   background-color: #fff;
 }
@@ -2662,13 +2662,13 @@ html:lang(ja) .modeSpan {
   background: #ff6246;
 }
 .index_woman_list.vote_story_list .vote-tag--winner.type1 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story03.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story03.svg");
 }
 .index_woman_list.vote_story_list .vote-tag--winner.type2 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story01.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story01.svg");
 }
 .index_woman_list.vote_story_list .vote-tag--winner.type3 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story02.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story02.svg");
 }
 /* 동률 (불꽃논쟁) */
 .index_woman_list.vote_story_list .vote-tag--tie {
@@ -2683,7 +2683,7 @@ html:lang(ja) .modeSpan {
   flex-shrink: 0;
   width: 24px;
   height: 12px;
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vs_00.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vs_00.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -2699,7 +2699,7 @@ html:lang(ja) .modeSpan {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_curious.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_curious.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

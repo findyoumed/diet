@@ -510,3 +510,38 @@
 
 
 
+## [2026-06-24 17:12] 잔여 원본 경로 및 탈모 문맥 정리
+
+**LOG_ID: 20260624_1712**
+목표: PC 대상 HTML에 남아 있던 대다모 원본 경로, `index.html/...` 형태의 잘못된 로컬 경로, URL 인코딩된 탈모 검색어를 다이어트온 문맥으로 추가 정리
+수행 작업:
+1. `scripts/build/fix_incorrect_translations.js`에 잔여 로컬 pseudo-path 정리 규칙을 추가했습니다.
+2. `1923club`, `job`, `experts`, 푸터 정책 링크, 언어 alternate 링크, 앱스토어 대다모 링크를 로컬 다이어트온 페이지 흐름에 맞게 치환했습니다.
+3. URL 인코딩 상태로 남아 있던 탈모/모발/두피/가발/증모/대다모 검색어를 비만/다이어트 문맥으로 치환했습니다.
+4. 치환 스크립트를 실행해 `index.html`, `community.html`, `post.html`, `record.html`, `search.html`, `write.html`, `my.html`에 반영했습니다.
+
+검증:
+- `node --check scripts/build/fix_incorrect_translations.js`
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `rg`로 `daedamo.com`, 대다모 앱스토어 URL, `index.html/...`, URL 인코딩된 탈모/모발/두피/가발/증모/대다모 패턴 잔여 없음 확인
+- `curl.exe -I http://localhost:8080/index.html` -> `HTTP/1.1 200 OK`
+## [2026-06-24 18:06] 모바일 i18n 및 배너 mock 잔여 원본 도메인 용어 정리
+
+**LOG_ID: 20260624_1806**
+목표: QA에서 `mobile-index` 및 일부 렌더링 페이지에 남아 있던 탈모/모발/두피/가발/증모 계열 문구를 DietOn 다이어트 도메인 문구로 정리
+
+수행 작업:
+1. `scripts/build/fix_mobile_i18n_terms.js`를 추가해 `new/asset/i18n/ko.json`의 원본 대다모/탈모 도메인 UI 문자열을 다이어트/비만치료/체형관리/DietOn 문구로 일괄 보정.
+2. `api/banner/graftover.ajax.php`의 견적 배너 mock 요청자명에 남아 있던 `탈모불안증세`, `지루성두피염시려요`를 다이어트 도메인 닉네임으로 교체.
+3. `new/js/common/button/share.js`의 공유 기본 설명 문구를 DietOn 다이어트 커뮤니티 문구로 교체.
+4. `scripts/build/qa_clone_pages.js`에 잔여 원본 용어 매칭 문맥(`hairTermMatches`)을 기록하도록 보강해 렌더링 후 남은 문구를 추적 가능하게 개선.
+
+검증:
+- `node --check scripts/build/fix_mobile_i18n_terms.js`
+- `node scripts/build/fix_mobile_i18n_terms.js`
+- `node -e "JSON.parse(require('fs').readFileSync('new/asset/i18n/ko.json','utf8')); console.log('ko.json OK')"`
+- `node --check new/js/common/button/share.js`
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> pc-index, pc-community, pc-search, pc-post, mobile-index 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasHairTerms false`
+
+결과: 렌더링 기준 QA 대상 전 페이지에서 원본 탈모/모발 계열 노출 문구가 제거되었고, 모바일 i18n 로드 후에도 DietOn 도메인 문구가 유지됨.

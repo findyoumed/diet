@@ -77,7 +77,7 @@ $(function () {
             $stickerBanner
               .append(
                 `
-              <button type="button" alt="닫기" class="btn-close closeBtn"><img src="https://image.daedamo.com/images/img/renew/i_close_black.svg" alt="닫기"/></button>
+              <button type="button" alt="닫기" class="btn-close closeBtn"><img src="../../../images/remote/image.daedamo.com/images/img/renew/i_close_black.svg" alt="닫기"/></button>
               <a href="${banner?.link_url}" class="banner-inner btn_banner_link" target="${banner?.link_target === "new" ? "_blank" : ""}" data-banner_type="sticker" data-banner_id="${banner?.seq}">
                   <img src="${banner?.banner_image}" alt="${banner?.title}">
               </a>

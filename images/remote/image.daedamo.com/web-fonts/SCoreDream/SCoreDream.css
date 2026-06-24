@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 900;
+  font-display: swap;
+  src: local("SCDream9"), url("./fonts/woff2/SCDream9.woff2") format("woff2"),
+    url("./fonts/woff/SCDream9.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 800;
+  font-display: swap;
+  src: local("SCDream8"), url("./fonts/woff2/SCDream8.woff2") format("woff2"),
+    url("./fonts/woff/SCDream8.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 700;
+  font-display: swap;
+  src: local("SCDream7"), url("./fonts/woff2/SCDream7.woff2") format("woff2"),
+    url("./fonts/woff/SCDream7.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 600;
+  font-display: swap;
+  src: local("SCDream6"), url("./fonts/woff2/SCDream6.woff2") format("woff2"),
+    url("./fonts/woff/SCDream6.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 500;
+  font-display: swap;
+  src: local("SCDream5"), url("./fonts/woff2/SCDream5.woff2") format("woff2"),
+    url("./fonts/woff/SCDream5.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 400;
+  font-display: swap;
+  src: local("SCDream4"), url("./fonts/woff2/SCDream4.woff2") format("woff2"),
+    url("./fonts/woff/SCDream4.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 300;
+  font-display: swap;
+  src: local("SCDream3"), url("./fonts/woff2/SCDream3.woff2") format("woff2"),
+    url("./fonts/woff/SCDream3.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 200;
+  font-display: swap;
+  src: local("SCDream2"), url("./fonts/woff2/SCDream2.woff2") format("woff2"),
+    url("./fonts/woff/SCDream2.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SCoreDream";
+  font-weight: 100;
+  font-display: swap;
+  src: local("SCDream1"), url("./fonts/woff2/SCDream1.woff2") format("woff2"),
+    url("./fonts/woff/SCDream1.woff") format("woff");
+}

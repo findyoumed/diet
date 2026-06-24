@@ -3,22 +3,22 @@ const fs = require('fs');
 const files = ['index.html', 'community.html', 'post.html', 'my.html', 'record.html', 'write.html', 'search.html'];
 
 const dietAvatars = [
-    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=40&q=80',
-    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=40&q=80',
-    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=40&q=80',
-    'https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=40&q=80'
+    '../../images/remote/images.unsplash.com/photo-1544005313-94ddf0286df2.jpg',
+    '../../images/remote/images.unsplash.com/photo-1506794778202-cad84cf45f1d.jpg',
+    '../../images/remote/images.unsplash.com/photo-1534528741775-53994a69daeb.jpg',
+    '../../images/remote/images.unsplash.com/photo-1521119989659-a83eee488004.jpg'
 ];
 
 const dietProducts = [
-    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80'
+    '../../images/remote/images.unsplash.com/photo-1512621776951-a57141f2eefd.jpg',
+    '../../images/remote/images.unsplash.com/photo-1490645935967-10de6ba17061.jpg',
+    '../../images/remote/images.unsplash.com/photo-1546069901-ba9599a7e63c.jpg',
+    '../../images/remote/images.unsplash.com/photo-1584308666744-24d5c474f2ae.jpg'
 ];
 
 const dietBanners = [
-    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&h=300&q=80',
-    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&h=300&q=80'
+    '../../images/remote/images.unsplash.com/photo-1571019614242-c5c5dee9f50b.jpg',
+    '../../images/remote/images.unsplash.com/photo-1534438327276-14e5300c3a48.jpg'
 ];
 
 function getRandom(arr) {

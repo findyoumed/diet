@@ -220,7 +220,7 @@ const DEFAULT_POSTS = [
     like_count: 128,
     comment_count: 34,
     views: 8421,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1512621776951-a57141f2eefd.jpg",
     created_at: new Date(Date.now() - HOUR * 3).toISOString(),
     comments: [
       { nickname: "유지어터", content: "용량 적응기 설명 정말 도움됐어요. 저도 2.5mg 적응 중입니다." },
@@ -236,7 +236,7 @@ const DEFAULT_POSTS = [
     like_count: 96,
     comment_count: 27,
     views: 6310,
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1576091160550-2173dba999ef.jpg",
     created_at: new Date(Date.now() - HOUR * 6).toISOString(),
     comments: [{ nickname: "고민중", content: "딱 제가 궁금했던 비교네요. 감사합니다!" }]
   },
@@ -249,7 +249,7 @@ const DEFAULT_POSTS = [
     like_count: 213,
     comment_count: 41,
     views: 9844,
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1518611012118-696072aa579a.jpg",
     created_at: new Date(Date.now() - HOUR * 10).toISOString(),
     comments: []
   },
@@ -262,7 +262,7 @@ const DEFAULT_POSTS = [
     like_count: 187,
     comment_count: 52,
     views: 7720,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1571019613454-1cb2f99b2d8b.jpg",
     created_at: new Date(Date.now() - HOUR * 14).toISOString(),
     comments: []
   },
@@ -275,7 +275,7 @@ const DEFAULT_POSTS = [
     like_count: 64,
     comment_count: 12,
     views: 2203,
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1546069901-ba9599a7e63c.jpg",
     created_at: new Date(Date.now() - HOUR * 18).toISOString(),
     comments: []
   },
@@ -288,7 +288,7 @@ const DEFAULT_POSTS = [
     like_count: 71,
     comment_count: 9,
     views: 1890,
-    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1467003909585-2f8a72700288.jpg",
     created_at: new Date(Date.now() - HOUR * 22).toISOString(),
     comments: []
   },
@@ -301,7 +301,7 @@ const DEFAULT_POSTS = [
     like_count: 33,
     comment_count: 18,
     views: 2788,
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1506126613408-eca07ce68773.jpg",
     created_at: new Date(Date.now() - HOUR * 27).toISOString(),
     comments: []
   },
@@ -314,7 +314,7 @@ const DEFAULT_POSTS = [
     like_count: 58,
     comment_count: 23,
     views: 3410,
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1559757148-5c350d0d3c56.jpg",
     created_at: new Date(Date.now() - HOUR * 33).toISOString(),
     comments: []
   },
@@ -327,7 +327,7 @@ const DEFAULT_POSTS = [
     like_count: 19,
     comment_count: 15,
     views: 1506,
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1584308666744-24d5c474f2ae.jpg",
     created_at: new Date(Date.now() - HOUR * 38).toISOString(),
     comments: []
   },
@@ -340,7 +340,7 @@ const DEFAULT_POSTS = [
     like_count: 24,
     comment_count: 11,
     views: 1206,
-    image: "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1579758629938-03607ccdbaba.jpg",
     created_at: new Date(Date.now() - HOUR * 44).toISOString(),
     comments: []
   },
@@ -353,7 +353,7 @@ const DEFAULT_POSTS = [
     like_count: 27,
     comment_count: 14,
     views: 1633,
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1490645935967-10de6ba17061.jpg",
     created_at: new Date(Date.now() - HOUR * 50).toISOString(),
     comments: []
   },
@@ -366,7 +366,7 @@ const DEFAULT_POSTS = [
     like_count: 41,
     comment_count: 19,
     views: 2950,
-    image: "https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=520&q=80",
+    image: "../../images/remote/images.unsplash.com/photo-1434596922112-19c563067271.jpg",
     created_at: new Date(Date.now() - HOUR * 57).toISOString(),
     comments: []
   }

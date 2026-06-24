@@ -56,7 +56,7 @@
 
   display: block;
 
-  background-image: url("https://image.daedamo.com/images/bg_share_buttons.png");
+  background-image: url("../../../../images/remote/image.daedamo.com/images/bg_share_buttons.png");
   background-size: 282px 265px;
   background-repeat: no-repeat;
 }
@@ -100,15 +100,15 @@
 }
 
 .share_popup .share_popup_buttons .btn_sns.evernote i {
-  background-image: url("https://image.daedamo.com/images/i_share_evernote.png");
+  background-image: url("../../../../images/remote/image.daedamo.com/images/i_share_evernote.png");
 }
 
 .share_popup .share_popup_buttons .btn_sns.linkedin i {
-  background-image: url("https://image.daedamo.com/images/i_share_linkedin.png");
+  background-image: url("../../../../images/remote/image.daedamo.com/images/i_share_linkedin.png");
 }
 
 .share_popup .share_popup_buttons .btn_sns.pinterest i {
-  background-image: url("https://image.daedamo.com/images/i_share_pinterest.png");
+  background-image: url("../../../../images/remote/image.daedamo.com/images/i_share_pinterest.png");
   background-size: 26px 26px;
 }
 

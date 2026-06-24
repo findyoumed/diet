@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.5.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 57 57" style="enable-background:new 0 0 57 57;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:none;stroke:#000000;stroke-width:1.8;stroke-miterlimit:10;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#6438EB;stroke-width:1.8;stroke-miterlimit:22.9256;}
+	.st4{opacity:0;fill:none;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#6438EB;stroke-width:1.8;stroke-miterlimit:22.9256;}
+	.st6{fill:none;stroke:#000000;stroke-width:1.8;stroke-miterlimit:22.9256;}
+</style>
+<g id="icon_x5F_5" class="st0">
+	<g class="st1">
+		<g>
+			<path class="st2" d="M49.02,21.28L49.02,21.28c0-0.14,0.01-0.28,0.01-0.42c0-5.71-4.81-10.66-10.75-10.66
+				c-4.34,0-8.08,2.8-9.78,6.36h0c-1.7-3.56-5.44-6.36-9.78-6.36c-5.94,0-10.75,4.95-10.75,10.66c0,0.14,0.01,0.28,0.01,0.42h0
+				c0,0-0.61,6.78,6.94,14.18c3.43,3.44,7.27,6.7,13.58,11.84c6.32-5.13,10.15-8.4,13.58-11.84C49.63,28.07,49.02,21.28,49.02,21.28
+				z"/>
+			<g>
+				<path class="st3" d="M41.62,26.59c2.05-1.39,2.73-4.08,1.88-6.5c-0.4-1.14-1.03-2.08-1.84-3.04"/>
+			</g>
+		</g>
+		<circle class="st4" cx="28.5" cy="28.5" r="28.5"/>
+	</g>
+</g>
+<g id="icon_x5F_4">
+	<g>
+		<circle class="st4" cx="28.5" cy="28.5" r="28.5"/>
+		<g>
+			<polygon class="st5" points="31.54,24.91 26.06,21.18 20.59,24.91 20.59,9.08 31.54,9.08 			"/>
+			<path class="st2" d="M43.13,47.31H13.87c-0.19,0-0.35-0.16-0.35-0.35V9.42c0-0.19,0.16-0.35,0.35-0.35h29.26
+				c0.19,0,0.35,0.16,0.35,0.35v37.54C43.48,47.15,43.32,47.31,43.13,47.31z"/>
+			<line class="st2" x1="19.27" y1="33.62" x2="37.73" y2="33.62"/>
+			<line class="st2" x1="19.27" y1="39.43" x2="37.73" y2="39.43"/>
+		</g>
+	</g>
+</g>
+<g id="icon_x5F_3" class="st0">
+	<g class="st1">
+		<circle class="st4" cx="28.5" cy="28.5" r="28.5"/>
+		<polyline class="st2" points="19.93,11.36 37.07,28.5 19.93,45.64 		"/>
+	</g>
+</g>
+<g id="icon_x5F_2" class="st0">
+	<g class="st1">
+		<circle class="st4" cx="28.5" cy="28.5" r="28.5"/>
+		<polyline class="st2" points="37.07,11.36 19.93,28.5 37.07,45.64 		"/>
+	</g>
+</g>
+<g id="icon_x5F_1-1" class="st0">
+	<g class="st1">
+		<circle class="st4" cx="28.5" cy="28.5" r="28.5"/>
+		<path class="st6" d="M28.5,28.5"/>
+		<g>
+			<polyline class="st6" points="13.08,26.01 13.08,47.31 42.98,47.31 42.98,26.01 			"/>
+			<polyline class="st6" points="6.98,23.79 28.09,9.69 50.02,23.79 			"/>
+			<line class="st5" x1="21.67" y1="34.63" x2="34.05" y2="34.63"/>
+		</g>
+	</g>
+</g>
+</svg>

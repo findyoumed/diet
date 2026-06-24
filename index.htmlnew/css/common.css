@@ -560,7 +560,7 @@ button.common-btn-translate img {
   width: 24px;
   height: 24px;
 
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_star1_off_gray_24.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_star1_off_gray_24.svg");
   background-repeat: no-repeat;
 
   text-indent: -9999px;
@@ -572,7 +572,7 @@ button.common-btn-translate img {
 }
 
 .common-stars-field [type="radio"] + label.on {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_star1_on_blue_24.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_star1_on_blue_24.svg");
 }
 
 /* -----------------------------------------------------------
@@ -712,7 +712,7 @@ button.common-btn-translate img {
   width: 32px;
   height: 32px;
   border: none;
-  background: url("https://image.daedamo.com/images/img/renew/icon/i_picture_off_black_32.svg") no-repeat;
+  background: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_picture_off_black_32.svg") no-repeat;
   text-indent: -9999px;
   cursor: pointer;
 }
@@ -765,7 +765,7 @@ button.common-btn-translate img {
 --------------------------------------------------------------  */
 .common-n-icon {
   display: block;
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_new_orange_20.svg) no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_new_orange_20.svg) no-repeat;
   width: 20px;
   height: 20px;
 }
@@ -790,13 +790,13 @@ button.common-btn-translate img {
   display: block;
   width: 84px;
   height: 18px;
-  background: url(https://image.daedamo.com/images/img/renew/star5_off.png) no-repeat 50% 50%;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/star5_off.png) no-repeat 50% 50%;
   background-size: 84px;
 }
 .common-star-score > div {
   display: block;
   height: 18px;
-  background: url(https://image.daedamo.com/images/img/renew/star5_on.png) no-repeat 0 50%;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/star5_on.png) no-repeat 0 50%;
   background-size: 84px;
 }
 .common-star-score.small {
@@ -807,21 +807,21 @@ button.common-btn-translate img {
 .common-star-score.small > div {
   display: block;
   height: 17px;
-  background: url(https://image.daedamo.com/images/img/renew/star5_on.png) no-repeat 0 50%;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/star5_on.png) no-repeat 0 50%;
   background-size: 70px;
 }
 
 /* yellow */
 .common-star-score.yellow {
-  background: url("https://image.daedamo.com/images/img/renew/star5_yellow_off.png") no-repeat 0 50%;
+  background: url("../../images/remote/image.daedamo.com/images/img/renew/star5_yellow_off.png") no-repeat 0 50%;
   background-size: 84px;
 }
 .common-star-score.yellow > div {
-  background: url("https://image.daedamo.com/images/img/renew/star5_yellow_on.png") no-repeat 0 50%;
+  background: url("../../images/remote/image.daedamo.com/images/img/renew/star5_yellow_on.png") no-repeat 0 50%;
   background-size: 84px;
 }
 .common-star-score.yellow.blue {
-  background: url("https://image.daedamo.com/images/img/renew/star5_yellow_off_blue.png") no-repeat 0 50%;
+  background: url("../../images/remote/image.daedamo.com/images/img/renew/star5_yellow_off_blue.png") no-repeat 0 50%;
   background-size: 84px;
 }
 
@@ -830,7 +830,7 @@ button.common-btn-translate img {
 --------------------------------------------------------------  */
 .common-star-score-icon {
   padding-left: 20px;
-  background: url(https://image.daedamo.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
 }
 .common-star-score-icon strong {
   font-weight: 700;
@@ -849,7 +849,7 @@ button.common-btn-translate img {
   margin-bottom: 0;
   padding-left: 24px;
 
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_check_off_gray_20.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_check_off_gray_20.svg");
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: 0 50%;
@@ -862,7 +862,7 @@ button.common-btn-translate img {
 }
 
 .common-checkbox input:checked + label {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_check_on_blue_20.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_check_on_blue_20.svg");
 
   color: var(--main-color);
   font-weight: 700;
@@ -929,7 +929,7 @@ button.common-btn-translate img {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_delete_gray_20.svg) no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_delete_gray_20.svg) no-repeat;
   background-size: 100%;
   display: none;
   cursor: pointer;
@@ -1730,7 +1730,7 @@ li:has(.common-tooltip) {
 
 /** 블라인드 게시글 */
 .forum-ul-list > li.blocked .left .title-wrap .title a {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 0;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 0;
   padding-left: 22px;
   text-decoration: none !important;
 }
@@ -1908,7 +1908,7 @@ li:has(.common-tooltip) {
 
 .article-ul-list > li.blocked .info .title .sub,
 .gallery-ui-list > li.blocked .info .title .sub {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 1px;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 1px;
   padding-left: 22px;
   text-decoration: none !important;
   color: #888 !important;
@@ -2035,7 +2035,7 @@ li:has(.common-tooltip) {
   padding-left: 8px;
   padding-right: 25px;
   border: none;
-  background: url("https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_20.svg") no-repeat 95% 50%;
+  background: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_20.svg") no-repeat 95% 50%;
   font-size: var(--font-size-md);
   appearance: none;
   -webkit-appearance: none;
@@ -2087,11 +2087,11 @@ li:has(.common-tooltip) {
 }
 
 .content-list .pagination a.prev-page {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_prev_black_20.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_prev_black_20.svg");
 }
 
 .content-list .pagination a.next-page {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/i_next_black_20.svg");
+  background-image: url("../../images/remote/image.daedamo.com/images/img/renew/icon/i_next_black_20.svg");
 }
 
 /* -----------------------------------------------------------
@@ -2099,7 +2099,7 @@ li:has(.common-tooltip) {
 --------------------------------------------------------------  */
 .common-select-box-ui {
   border: none;
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_20.svg) no-repeat right;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_20.svg) no-repeat right;
   padding-right: 20px;
   outline: none;
   cursor: pointer;
@@ -2130,7 +2130,7 @@ li:has(.common-tooltip) {
   display: inline-block;
   width: 20px;
   height: 20px;
-  content: url(https://image.daedamo.com/images/img/renew/i_desc.svg);
+  content: url(../../images/remote/image.daedamo.com/images/img/renew/i_desc.svg);
 }
 .nice-select.common-select-box .option[data-display] {
   display: none;
@@ -2741,7 +2741,7 @@ li:has(.common-tooltip) {
 /** 블라인드 게시글 */
 .mobile .article-ul-list > li.blocked .info .title-wrap .title a,
 .mobile .forum-ul-list > li.blocked .left .title-wrap .title a {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 0;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat 0 0;
   padding-left: 22px;
   text-decoration: none !important;
   color: #888 !important;

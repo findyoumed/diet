@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 .search_popup .delete {
-  background: url(https://image.daedamo.com/images/img/renew/icon/i_delete_gray_20.svg) no-repeat;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/i_delete_gray_20.svg) no-repeat;
   width: 20px;
   height: 20px;
   display: inline-block;
@@ -1017,7 +1017,7 @@ nav.navbar-wrapper .swiper-wrap.swiper-container-initialized {
   width: 100%;
   max-width: 360px;
   position: relative;
-  background: url(https://image.daedamo.com/images/img/renew/ad/pc_top_banner_default.png) no-repeat center;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/ad/pc_top_banner_default.png) no-repeat center;
   background-size: 110%;
   height: var(--mobile-topBanner-height);
   display: flex;

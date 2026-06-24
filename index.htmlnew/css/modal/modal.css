@@ -202,7 +202,7 @@
   right: 0%;
   top: -12%;
 
-  background-image: url(https://image.daedamo.com/images/img/renew/icon/2023/i_close_white.svg);
+  background-image: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2023/i_close_white.svg);
   width: 22px;
   height: 22px;
   background-repeat: no-repeat;
@@ -647,7 +647,7 @@
   height: 330px;
   border-radius: 20px;
   background-color: #1e133f;
-  background-image: url(https://image.daedamo.com/images/img/renew/event/202605_jp_event/bg_pattern.png);
+  background-image: url(../../../images/remote/image.daedamo.com/images/img/renew/event/202605_jp_event/bg_pattern.png);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -714,7 +714,7 @@
   left: 37px;
   width: 48px;
   height: 56px;
-  background: url(https://image.daedamo.com/images/img/renew/event/202605_jp_event/badge.png) no-repeat 0 0 / 48px 56px;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/event/202605_jp_event/badge.png) no-repeat 0 0 / 48px 56px;
 }
 
 /* 설명문 */
@@ -861,12 +861,12 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url(https://image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_default.svg) no-repeat center / 16px 16px;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_default.svg) no-repeat center / 16px 16px;
   /* 흰색으로 보정 */
   filter: brightness(0) invert(1);
 }
 .modal-wrap.jp_event_modal_202605 .jp-no-show-today .bd-modal-checkbox:checked + label::before {
-  background-image: url(https://image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_select_white.svg);
+  background-image: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_select_white.svg);
   filter: none;
 }
 

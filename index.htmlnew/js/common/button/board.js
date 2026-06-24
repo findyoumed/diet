@@ -185,10 +185,14 @@ $(function () {
       mode = $recommendContainer.data("status") === action ? "delete" : "insert";
     }
 
-    $.post(
-      "/api/board/recommend.ajax.php",
-      { mode: mode, bo_table: bo_table, wr_id: wr_id, action: action },
-      function (result) {
+    const currentGoods = Number($(".good span", $recommendContainer).text().replace(/,/g, "") || "0");
+    const nextStatus = mode === "delete" || action === "status" ? "" : action;
+    const result = {
+      code: 1,
+      status: nextStatus,
+      goods: action === "good" && mode === "insert" ? currentGoods + 1 : currentGoods,
+    };
+    (function (result) {
         const { code, status, goods } = result;
 
         $recommendContainer.data({ status: status });
@@ -248,9 +252,7 @@ $(function () {
         }
 
         $recommendContainer.css({ opacity: 1 });
-      },
-      "json",
-    );
+      })(result);
   }
 
   /**

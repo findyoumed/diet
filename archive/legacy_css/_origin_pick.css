@@ -145,7 +145,7 @@
   font-size: 16px;
 }
 .content-list-daedamo-pick-banner .score-wrap .common-star-score-icon {
-  background: url(https://image.daedamo.com/images/img/renew/i_star_right_blue.svg) 0px 50% / 16px no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/i_star_right_blue.svg) 0px 50% / 16px no-repeat;
 }
 .content-list-daedamo-pick-banner .score-wrap > p {
   margin: 0;
@@ -166,7 +166,7 @@
   position: absolute;
   z-index: 5;
 
-  background: #fff url(https://image.daedamo.com/images/img/renew/left_arrow.svg) no-repeat;
+  background: #fff url(../../images/remote/image.daedamo.com/images/img/renew/left_arrow.svg) no-repeat;
   background-size: 25%;
   background-position: 44% 50%;
 
@@ -195,7 +195,7 @@
   width: var(--navigation-size);
   height: var(--navigation-size);
 
-  background: #fff url(https://image.daedamo.com/images/img/renew/right_arrow.svg) no-repeat;
+  background: #fff url(../../images/remote/image.daedamo.com/images/img/renew/right_arrow.svg) no-repeat;
   background-size: 25%;
   background-position: 50% 50%;
   border: 0.5px solid rgba(209, 209, 212, 0.6);
@@ -262,7 +262,7 @@
   color: #000;
 }
 .content-list-daedamo-pick-banner.white .score-wrap .common-star-score-icon {
-  background: url(https://image.daedamo.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
+  background: url(../../images/remote/image.daedamo.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
 }
 .content-list-daedamo-pick-banner.white p.info {
   display: block;

@@ -1598,7 +1598,7 @@ body {
   border-radius: 8px;
   height: 310px;
   overflow: hidden;
-  background: url(https://image.daedamo.com/images/img/renew/ad/main_index_banner_bg.jpg) no-repeat;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/ad/main_index_banner_bg.jpg) no-repeat;
   background-size: 100%;
 }
 #mw5 .index_banner1_box .ad1 {
@@ -1711,7 +1711,7 @@ body {
   justify-content: center;
 }
 #mw5 .index_category_box ul li a .icon.graft {
-  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
 }
@@ -1720,7 +1720,7 @@ body {
 }
 /* talmo_care bg color */
 #mw5 .index_category_box ul li a .icon.talmo_care {
-  background: url(https://image.daedamo.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
   background-size: cover;
 }
 #mw5 .index_category_box ul li a .icon span {
@@ -1995,7 +1995,7 @@ body {
   width: 100%;
   min-height: 500px;
   position: relative;
-  background: url(https://image.daedamo.com/images/img/renew/ad/main_ad_blackfore_ytb_bg.jpg) no-repeat;
+  background: url(../../../images/remote/image.daedamo.com/images/img/renew/ad/main_ad_blackfore_ytb_bg.jpg) no-repeat;
   background-size: 100%;
 }
 .index_blackfore_contents .blackfore_content {
@@ -2511,13 +2511,13 @@ body {
   background: #ff6246;
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type1 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story03.svg");
+  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story03.svg");
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type2 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story01.svg");
+  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story01.svg");
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type3 .vote-emoji {
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vote_story02.svg");
+  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story02.svg");
 }
 /* 동률 (불꽃논쟁) */
 #mw5 .index_content_box .vote_story_list .vote-tag--tie {
@@ -2533,7 +2533,7 @@ body {
   flex-shrink: 0;
   width: 28px;
   height: 16px;
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_vs_00.svg");
+  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vs_00.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -2552,7 +2552,7 @@ body {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background-image: url("https://image.daedamo.com/images/img/renew/icon/2026/i_curious.svg");
+  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_curious.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

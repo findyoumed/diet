@@ -14,7 +14,7 @@ $(function () {
   const langCode = window.g5_translate_lang ?? "ko";
   const shareUrl = window.location.href;
   const shareText = parseMetaContent("og:title") ?? window.document.title;
-  const shareDescription = parseMetaContent("og:description") ?? "대한민국 1등 탈모커뮤니티 대다모! 탈모, 모발이식, 탈모샴푸, 모낭염 등의 탈모 관련 정보가 가득한 대한민국 최초/최대의 탈모 커뮤니티";
+  const shareDescription = parseMetaContent("og:description") ?? "대한민국 1등 다이어트 커뮤니티 DietOn! 비만치료, 식단관리, 다이어트 보조제, 체중관리 정보가 가득한 커뮤니티";
   const shareImageUrl = parseMetaContent("og:image") ?? `https://${window.location.hostname}/new/data/seo/sns_image_2025_${langCode}.png`;
 
   // $.i18n()이 호출 시점(클릭 시)에 평가되도록 함수로 감싼다 — i18n race 방지
