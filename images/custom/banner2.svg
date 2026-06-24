@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" width="1200" height="80">
+    <defs>
+        <linearGradient id="bg_banner2.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4facfe" />
+            <stop offset="100%" stop-color="#00f2fe" />
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="80" rx="10" fill="url(#bg_banner2.svg)"/>
+    <text x="100" y="45" font-family="sans-serif" font-weight="bold" font-size="30" fill="#ffffff" dominant-baseline="middle">
+        전문 다이어트 상담센터 👨‍⚕️
+    </text>
+    <text x="1050" y="45" font-family="sans-serif" font-size="22" fill="#ffffff" text-anchor="end" dominant-baseline="middle" opacity="0.9">
+        맞춤형 식단부터 처방까지 한 번에결!
+    </text>
+    <circle cx="50" cy="40" r="25" fill="#ffffff" opacity="0.2"/>
+    <text x="50" y="44" font-size="30" text-anchor="middle" dominant-baseline="middle">🏥</text>
+</svg>

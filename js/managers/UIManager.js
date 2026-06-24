@@ -5,6 +5,33 @@ class UIManager {
   }
 
   // ===========================================================================
+  // Helper: Keyword based image assignment
+  // ===========================================================================
+  getProductImageForPost(post, fallbackIdx) {
+    let text = (post.title + " " + (post.category_tag || "")).toLowerCase();
+    if (text.includes('위고비') || text.includes('삭센다') || text.includes('주사')) {
+        return 'images/custom/product.png'; // Wegovy/Saxenda
+    }
+    if (text.includes('마운자로') || text.includes('젭바운드')) {
+        return 'images/custom/product2.png'; // Mounjaro
+    }
+    if (text.includes('샐러드') || text.includes('식단') || text.includes('음식') || text.includes('맛')) {
+        return 'images/custom/product3.png'; // Diet food
+    }
+    if (text.includes('약') || text.includes('보조제') || text.includes('영양제')) {
+        return 'images/custom/product4.png'; // Pills
+    }
+    if (text.includes('운동') || text.includes('헬스') || text.includes('바프') || text.includes('피트니스') || text.includes('바디프로필')) {
+        return 'images/custom/product5.png'; // Fitness
+    }
+    if (text.includes('감량') || text.includes('체중') || text.includes('살') || text.includes('눈바디')) {
+        return 'images/custom/product6.png'; // Weight loss concept
+    }
+    // Fallback
+    return fallbackIdx === 1 ? 'images/custom/product.png' : `images/custom/product${fallbackIdx}.png`;
+  }
+
+  // ===========================================================================
   // Phase 7: DOM 바인딩 - 커뮤니티 리스트
   // ===========================================================================
   renderPostList(container, posts) {
@@ -37,40 +64,38 @@ class UIManager {
 
       // Dynamic product thumbnail selection
       let postImage = post.image;
-      if (postImage) {
-        if (postImage.includes('product.png') || postImage.includes('unsplash.com')) {
-          let productIdx = (i % 6) + 1;
-          postImage = productIdx === 1 ? 'images/custom/product.png' : `images/custom/product${productIdx}.png`;
-        }
+      if (postImage && (postImage.includes('product.png') || postImage.includes('unsplash.com'))) {
+        let fallbackIdx = (i % 6) + 1;
+        postImage = this.getProductImageForPost(post, fallbackIdx);
       }
       
       html += `
         <tr class="mw_basic_list_tr mw_basic_list_tr_data ">
-            <td class="mw_basic_list_num media-no-text">\${num}</td>
+            <td class="mw_basic_list_num media-no-text">${num}</td>
             <td class="mw_basic_list_subject">
                 <div class="list_wrap">
                     <div class="list_left">
                         <div class="mw_basic_list_subject_desc">
-                            <a href="post.html?id=\${post.id}">
-                                <strong>\${post.title}</strong>
+                            <a href="post.html?id=${post.id}">
+                                <strong>${post.title}</strong>
                             </a>
                         </div>
                         <div class="info">
                             <div class="mw_basic_list_name media-no-text">
                                 <button type="button" class="btn_usermenu">
-                                  <img src="\${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
-                                  <span>\${post.nickname}</span>
+                                  <img src="${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
+                                  <span>${post.nickname}</span>
                                 </button>
                             </div>
-                            <div class="mw_basic_list_datetime media-no-text">\${dateStr}</div>
-                            <div class="mw_basic_list_hit media-no-text">조회 \${post.views || 0}</div>
-                            <div class="mw_basic_list_good media-no-text"><span class="i_good_gray_16"></span>&nbsp;\${post.like_count || 0}</div>
+                            <div class="mw_basic_list_datetime media-no-text">${dateStr}</div>
+                            <div class="mw_basic_list_hit media-no-text">조회 ${post.views || 0}</div>
+                            <div class="mw_basic_list_good media-no-text"><span class="i_good_gray_16"></span>&nbsp;${post.like_count || 0}</div>
                         </div>
                     </div>
                     <div class="list_right">
-                        \${postImage ? \`<div class="thumb"><img src="\${postImage}" style="width:50px; height:50px; object-fit:cover;"></div>\` : ''}
+                        ${postImage ? '<div class="thumb"><img src="' + postImage + '" style="width:50px; height:50px; object-fit:cover;"></div>' : ''}
                         <div class='list_cmt'>
-                            <span class='i_comment_black'></span> \${post.comment_count || 0}
+                            <span class='i_comment_black'></span> ${post.comment_count || 0}
                         </div>
                     </div>
                 </div>
@@ -78,13 +103,13 @@ class UIManager {
             </td>
             <td class="mw_basic_list_name media-on-text">
                 <button type="button" class="btn_usermenu">
-                  <img src="\${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
-                  <span>\${post.nickname}</span>
+                  <img src="${userAvatar}" alt="Profile Avatar" style="width:16px; height:16px; border-radius:50%; vertical-align:middle; margin-right:3px;" />
+                  <span>${post.nickname}</span>
                 </button>
             </td>
-            <td class="mw_basic_list_datetime media-on-text">\${dateStr}</td>
-            <td class="mw_basic_list_hit media-on-text">\${post.views || 0}</td>
-            <td class="mw_basic_list_good media-on-text">\${post.like_count || 0}</td>
+            <td class="mw_basic_list_datetime media-on-text">${dateStr}</td>
+            <td class="mw_basic_list_hit media-on-text">${post.views || 0}</td>
+            <td class="mw_basic_list_good media-on-text">${post.like_count || 0}</td>
         </tr>
       `;
     });
@@ -111,7 +136,7 @@ class UIManager {
     const commentsEl = document.getElementById("dieton-comments-list");
 
     if (titleEl) {
-        titleEl.innerHTML = `<span style="color:#1e88e5; margin-right:5px;">[\${post.category_tag}]</span> \${post.title}`;
+        titleEl.innerHTML = `<span style="color:#1e88e5; margin-right:5px;">[${post.category_tag}]</span> ${post.title}`;
     }
 
     if (infoEl) {
@@ -123,14 +148,14 @@ class UIManager {
         infoEl.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:15px;">
                 <div>
-                    <img src="\${authorAvatar}" alt="Author Avatar" style="vertical-align:middle; width:20px; height:20px; border-radius:50%; margin-right:5px;"/>
-                    <span style="font-weight:bold; margin-right:15px;">\${post.nickname}</span>
-                    <span style="color:#888; font-size:13px;">\${dateStr}</span>
+                    <img src="${authorAvatar}" alt="Author Avatar" style="vertical-align:middle; width:20px; height:20px; border-radius:50%; margin-right:5px;"/>
+                    <span style="font-weight:bold; margin-right:15px;">${post.nickname}</span>
+                    <span style="color:#888; font-size:13px;">${dateStr}</span>
                 </div>
                 <div style="color:#888; font-size:13px;">
-                    조회 <b style="color:#333;">\${post.views || 0}</b> | 
-                    댓글 <b style="color:#333;">\${post.comment_count || 0}</b> | 
-                    추천 <b style="color:#333;">\${post.like_count || 0}</b>
+                    조회 <b style="color:#333;">${post.views || 0}</b> | 
+                    댓글 <b style="color:#333;">${post.comment_count || 0}</b> | 
+                    추천 <b style="color:#333;">${post.like_count || 0}</b>
                 </div>
             </div>
         `;
@@ -141,17 +166,17 @@ class UIManager {
         let postImage = post.image;
         if (postImage) {
             if (postImage.includes('product.png') || postImage.includes('unsplash.com')) {
-                let productIdx = (post.id.charCodeAt(post.id.length - 1) % 6) + 1;
-                postImage = productIdx === 1 ? 'images/custom/product.png' : `images/custom/product${productIdx}.png`;
+                let fallbackIdx = (post.id.charCodeAt(post.id.length - 1) % 6) + 1;
+                postImage = this.getProductImageForPost(post, fallbackIdx);
             }
-            contentHtml += `<div style="text-align:center; margin-bottom:20px;"><img src="\${postImage}" style="max-width:100%; border-radius:8px;"></div>`;
+            contentHtml += `<div style="text-align:center; margin-bottom:20px;"><img src="${postImage}" style="max-width:100%; border-radius:8px;"></div>`;
         }
-        contentHtml += `<div style="font-size:16px; line-height:1.8; color:#333;">\${post.content.replace(/\\n/g, '<br>')}</div>`;
+        contentHtml += `<div style="font-size:16px; line-height:1.8; color:#333;">${post.content.replace(/\\n/g, '<br>')}</div>`;
         contentEl.innerHTML = contentHtml;
     }
 
     if (commentsEl) {
-        let commentsHtml = `<h4 style="font-size:18px; font-weight:bold; margin-bottom:15px; padding-top:20px; border-top:2px solid #333;">댓글 \${post.comments.length}개</h4>`;
+        let commentsHtml = `<h4 style="font-size:18px; font-weight:bold; margin-bottom:15px; padding-top:20px; border-top:2px solid #333;">댓글 ${post.comments.length}개</h4>`;
         commentsHtml += `<ul style="list-style:none; padding:0; margin:0;">`;
         post.comments.forEach((cmt, idx) => {
             const cDate = new Date(cmt.created_at).toLocaleString();
@@ -163,12 +188,12 @@ class UIManager {
                 <li style="padding:15px 0; border-bottom:1px solid #f1f1f1;">
                     <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                         <div>
-                            <img src="\${cmtAvatar}" alt="Commenter Avatar" style="vertical-align:middle; width:16px; height:16px; border-radius:50%; margin-right:5px;"/>
-                            <b style="font-size:14px; margin-left:5px;">\${cmt.nickname}</b>
+                            <img src="${cmtAvatar}" alt="Commenter Avatar" style="vertical-align:middle; width:16px; height:16px; border-radius:50%; margin-right:5px;"/>
+                            <b style="font-size:14px; margin-left:5px;">${cmt.nickname}</b>
                         </div>
-                        <div style="font-size:12px; color:#999;">\${cDate}</div>
+                        <div style="font-size:12px; color:#999;">${cDate}</div>
                     </div>
-                    <div style="font-size:14px; line-height:1.6; color:#444;">\${cmt.content.replace(/\\n/g, '<br>')}</div>
+                    <div style="font-size:14px; line-height:1.6; color:#444;">${cmt.content.replace(/\\n/g, '<br>')}</div>
                 </li>
             `;
         });
@@ -179,7 +204,7 @@ class UIManager {
             <div style="margin-top:20px; background:#f9f9f9; padding:15px; border-radius:8px; border:1px solid #eee;">
                 <textarea id="newCommentInput" placeholder="댓글을 남겨주세요." style="width:100%; height:80px; padding:10px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; resize:none; outline:none;"></textarea>
                 <div style="text-align:right; margin-top:10px;">
-                    <button onclick="submitComment('\${post.id}')" style="background:#1e88e5; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">등록</button>
+                    <button onclick="submitComment('${post.id}')" style="background:#1e88e5; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:bold;">등록</button>
                 </div>
             </div>
         `;

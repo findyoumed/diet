@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" width="1200" height="80">
+    <defs>
+        <linearGradient id="bg_banner3.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#43e97b" />
+            <stop offset="100%" stop-color="#38f9d7" />
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="80" rx="10" fill="url(#bg_banner3.svg)"/>
+    <text x="100" y="45" font-family="sans-serif" font-weight="bold" font-size="30" fill="#ffffff" dominant-baseline="middle">
+        위고비 / 마운자로 처방 가능 병원 찾기 💉
+    </text>
+    <text x="1050" y="45" font-family="sans-serif" font-size="22" fill="#ffffff" text-anchor="end" dominant-baseline="middle" opacity="0.9">
+        내 주변 가장 가까운 비만치료 전문 병원
+    </text>
+    <circle cx="50" cy="40" r="25" fill="#ffffff" opacity="0.2"/>
+    <text x="50" y="44" font-size="30" text-anchor="middle" dominant-baseline="middle">📍</text>
+</svg>

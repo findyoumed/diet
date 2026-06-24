@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 311" width="250" height="311">
+    <defs>
+        <linearGradient id="bg_side_banner.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fa709a" />
+            <stop offset="100%" stop-color="#fee140" />
+        </linearGradient>
+    </defs>
+    <rect width="250" height="311" rx="10" fill="url(#bg_side_banner.svg)"/>
+    
+    <circle cx="125" cy="70" r="40" fill="#ffffff" opacity="0.2"/>
+    <text x="125" y="74" font-size="50" text-anchor="middle" dominant-baseline="middle">🤱</text>
+    
+    <text x="125" y="150" font-family="sans-serif" font-weight="bold" font-size="28" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">산후다이어트</text>
+    <text x="125" y="231" font-family="sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" opacity="0.9">건강하게</text><text x="125" y="256" font-family="sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" opacity="0.9">예전 몸매로</text>
+</svg>

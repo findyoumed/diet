@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239 628" width="239" height="628">
+    <defs>
+        <linearGradient id="bg_side_banner_tall.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a18cd1" />
+            <stop offset="100%" stop-color="#fbc2eb" />
+        </linearGradient>
+    </defs>
+    <rect width="239" height="628" rx="10" fill="url(#bg_side_banner_tall.svg)"/>
+    
+    <circle cx="119.5" cy="70" r="40" fill="#ffffff" opacity="0.2"/>
+    <text x="119.5" y="74" font-size="50" text-anchor="middle" dominant-baseline="middle">💊</text>
+    
+    <text x="119.5" y="150" font-family="sans-serif" font-weight="bold" font-size="28" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">베스트 보조제</text><text x="119.5" y="185" font-family="sans-serif" font-weight="bold" font-size="28" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">단독 특가</text>
+    <text x="119.5" y="548" font-family="sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" opacity="0.9">다이어트 성공을</text><text x="119.5" y="573" font-family="sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" opacity="0.9">위한 부스터</text>
+</svg>

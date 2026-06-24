@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241 100" width="241" height="100">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff7eb3" />
+            <stop offset="100%" stop-color="#ff758c" />
+        </linearGradient>
+    </defs>
+    <rect width="241" height="100" rx="15" fill="url(#bg)"/>
+    
+    <!-- Move text very high to avoid the bottom-right span.cnt overlay completely -->
+    <text x="20" y="25" font-family="sans-serif" font-weight="bold" font-size="18" fill="#ffffff" dominant-baseline="middle">
+        실시간 비대면
+    </text>
+    <text x="20" y="50" font-family="sans-serif" font-weight="bold" font-size="20" fill="#ffffff" dominant-baseline="middle">
+        견적받기 &gt;
+    </text>
+    
+    <!-- Move icon to top right -->
+    <circle cx="190" cy="30" r="20" fill="#ffffff" opacity="0.2"/>
+    <text x="190" y="32" font-size="24" text-anchor="middle" dominant-baseline="middle">📋</text>
+</svg>
