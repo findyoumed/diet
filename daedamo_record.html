@@ -170,6 +170,30 @@
     'tb_tfa_script');
   </script>
   <!-- End of Taboola Pixel Code -->
+
+<style>
+/* Prevent text wrapping in GNB Mega Menu (PC Only) */
+@media (min-width: 1025px) {
+    #gnbNavbar > .inner > ul > li > a { white-space: nowrap !important; }
+    #gnbNavbar .sub ul li a { white-space: nowrap !important; }
+    #gnbNavbar .sub { width: auto !important; min-width: 100%; }
+    #gnbNavbar .sub ul li { display: block; width: auto !important; }
+}
+/* Specifically constrain large custom banners on mobile to prevent overflow */
+@media (max-width: 1024px) {
+    .index_content_box img, 
+    .index_content_rightbox img,
+    .content_ad img,
+    .middle_banner_container img,
+    img[src*="wide_banner"],
+    img[src*="middle_banner"],
+    img[src*="banner2"] {
+        max-width: 100%;
+        height: auto;
+    }
+}
+</style>
+
 </head>
 <body class="">
   <!-- Google Tag Manager (noscript) -->
@@ -3009,7 +3033,7 @@ M자와 정수리 탈모가 함께 진행되면서 광범위하게 탈모가 진
         </div>
         <div class="content_map">
             <a href="https://daedamo.com/new/hospitalmap.php" class="link">
-                <img src="https://image.daedamo.com/images/staticBanner/pc_banner_hospital_map_ko.jpg" alt="지도보기">
+                <img src="images/custom/content_map_banner.svg" alt="지도보기" style="width:100%; height:auto; display:block;">
             </a>
         </div>
         <div class="content_nav1">

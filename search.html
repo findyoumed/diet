@@ -185,6 +185,30 @@
             height: 50px !important;
         }
     </style>
+
+<style>
+/* Prevent text wrapping in GNB Mega Menu (PC Only) */
+@media (min-width: 1025px) {
+    #gnbNavbar > .inner > ul > li > a { white-space: nowrap !important; }
+    #gnbNavbar .sub ul li a { white-space: nowrap !important; }
+    #gnbNavbar .sub { width: auto !important; min-width: 100%; }
+    #gnbNavbar .sub ul li { display: block; width: auto !important; }
+}
+/* Specifically constrain large custom banners on mobile to prevent overflow */
+@media (max-width: 1024px) {
+    .index_content_box img, 
+    .index_content_rightbox img,
+    .content_ad img,
+    .middle_banner_container img,
+    img[src*="wide_banner"],
+    img[src*="middle_banner"],
+    img[src*="banner2"] {
+        max-width: 100%;
+        height: auto;
+    }
+}
+</style>
+
 </head>
 <body class="">
   <!-- Google Tag Manager (noscript) -->
@@ -2930,7 +2954,7 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
         </div>
         <div class="content_map">
             <a href="https://daedamo.com/new/hospitalmap.php" class="link">
-                <img src="images/custom/banner2.svg" alt="지도보기">
+                <img src="images/custom/content_map_banner.svg" alt="지도보기" style="width:100%; height:auto; display:block;">
             </a>
         </div>
         <div class="content_nav1">
@@ -3169,8 +3193,8 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
 <script src="js/supabaseClient.js"></script>
 <script src="js/managers/PointManager.js"></script>
 <script src="js/managers/StorageManager.js"></script>
-<script src="js/managers/UIManager.js?v=1782265273239"></script>
-<script src="js/app.js?v=1782265273239"></script>
+<script src="js/managers/UIManager.js?v=1782266790939"></script>
+<script src="js/app.js?v=1782266790939"></script>
 
 </body>
 </html>

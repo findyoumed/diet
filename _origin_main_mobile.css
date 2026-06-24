@@ -1,0 +1,345 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Thin.woff") format("woff");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-DemiLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 350;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Noto Sans CJK KR;
+  src: url("../font/NotoSansCJKkr-Black.woff") format("woff");
+  font-style: normal;
+  font-weight: 900;
+}
+/* html {
+  font-family: Noto Sans CJK KR, sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5;
+  box-sizing: border-box;
+  overflow: auto;
+  word-break: break-all;
+  color: #333333;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (min-width: 376px) {
+  html {
+    font-size: 68.75%;
+  }
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  box-sizing: inherit;
+  letter-spacing: inherit;
+  word-break: inherit;
+  color: inherit;
+}
+
+button {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:focus {
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+i, b, em, strong, address, caption, cite, code, dfn, em, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+input, textarea, select {
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+input:disabled, textarea:disabled, select:disabled {
+  opacity: 1;
+}
+
+label {
+  display: block;
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+}
+input[type=checkbox] + .label, input[type=radio] + .label {
+  display: inline-block;
+}
+input[type=search]::-webkit-search-cancel-button {
+  display: none;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input::-ms-clear {
+  display: none;
+}
+
+textarea {
+  resize: none;
+}
+
+fieldset {
+  border: 0;
+}
+*/
+/*----------페이지--------------------------------------------------------------------------------*/
+/* 
+:root {
+  height: 100%;
+}
+
+#body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#body > * {
+  flex: 0 0 auto;
+}
+#body .main {
+  position: relative;
+  top: 0;
+  left: 0;
+  flex: 1;
+}  */
+
+/*----------네비--------------------------------------------------------------------------------*/
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.nav_inner {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.nav_tab {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.6rem;
+  border-top: 1px solid #dddddd;
+  background: #fff;
+  width: 100%;
+}
+.nav_search {
+  position: absolute;
+  bottom: 0;
+  display: none;
+  z-index: 10;
+  padding: 1.6rem;
+  border-top: 1px solid #dddddd;
+  background: #fff;
+  width: 100%;
+}
+.nav_search.on {
+  display: block;
+}
+.nav_search .select_area {
+  display: flex;
+}
+.nav_search .select_area .select {
+  flex: 0 0 auto;
+  padding-right: 1rem;
+}
+.nav_search .select_area .select select {
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  padding: 0 3rem 0 0.8rem;
+  height: 3.6rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.3rem;
+  width: 10rem;
+  font-size: 1.4rem;
+  color: #999999;
+  background: #fff url(../mobile/img/i_bottom_arrow.svg) no-repeat right 1rem
+    center;
+  font-family: Noto Sans CJK KR, sans-serif;
+}
+.nav_search .select_area .search {
+  flex: 1;
+}
+.nav_search .select_area .search .input {
+  display: block;
+}
+.nav_search .select_area .search input {
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  padding: 0 1rem 0 3rem;
+  height: 3.6rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.3rem;
+  width: 100%;
+  font-size: 1.4rem;
+  background: #fff url(../mobile/img/i_search_12.svg) no-repeat left 1rem center;
+}
+.nav .btn_wrap {
+  display: flex;
+  margin-top: 1rem;
+}
+.nav .btn_wrap button {
+  height: 4rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.3rem;
+  color: #999999;
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.nav .btn_wrap button:last-child {
+  margin-left: 1rem;
+  background: #283874;
+  border: 0;
+  color: #fff;
+}
+.nav_icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  height: 5.6rem;
+  width: 100%;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.nav_icon.on {
+  color: #283874;
+}
+.nav_icon.on .i_home {
+  background-image: url("../mobile/img/i_home_on.svg");
+}
+.nav_icon.on .i_write {
+  background-image: url("../mobile/img/i_write_on.svg");
+}
+.nav_icon.on .i_search {
+  background-image: url("../mobile/img/i_search_on.svg");
+}
+.nav_icon.on .i_user {
+  background-image: url("../mobile/img/i_user_on.svg");
+}
+
+*[class^="i_"],
+*[class*=" i_"] {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+/*아이콘*/
+.i_user,
+.i_search,
+.i_write,
+.i_home,
+.nav_icon.on .i_home,
+.nav_icon.on .i_write,
+.nav_icon.on .i_search,
+.nav_icon.on .i_user {
+  width: 2.4rem;
+  height: 2.4rem;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.i_home {
+  background-image: url("../mobile/img/i_home.svg");
+}
+
+.i_write {
+  background-image: url("../mobile/img/i_write.svg");
+}
+
+.i_search {
+  background-image: url("../mobile/img/i_search.svg");
+}
+
+.i_user {
+  background-image: url("../mobile/img/i_user.svg");
+}
+

@@ -221,6 +221,30 @@
             height: 50px !important;
         }
     </style>
+
+<style>
+/* Prevent text wrapping in GNB Mega Menu (PC Only) */
+@media (min-width: 1025px) {
+    #gnbNavbar > .inner > ul > li > a { white-space: nowrap !important; }
+    #gnbNavbar .sub ul li a { white-space: nowrap !important; }
+    #gnbNavbar .sub { width: auto !important; min-width: 100%; }
+    #gnbNavbar .sub ul li { display: block; width: auto !important; }
+}
+/* Specifically constrain large custom banners on mobile to prevent overflow */
+@media (max-width: 1024px) {
+    .index_content_box img, 
+    .index_content_rightbox img,
+    .content_ad img,
+    .middle_banner_container img,
+    img[src*="wide_banner"],
+    img[src*="middle_banner"],
+    img[src*="banner2"] {
+        max-width: 100%;
+        height: auto;
+    }
+}
+</style>
+
 </head>
 <body class="">
   <!-- Google Tag Manager (noscript) -->
@@ -1093,8 +1117,8 @@
 <script src="js/supabaseClient.js"></script>
 <script src="js/managers/PointManager.js"></script>
 <script src="js/managers/StorageManager.js"></script>
-<script src="js/managers/UIManager.js?v=1782265273239"></script>
-<script src="js/app.js?v=1782265273239"></script>
+<script src="js/managers/UIManager.js?v=1782266790939"></script>
+<script src="js/app.js?v=1782266790939"></script>
 
 </body>
 </html>

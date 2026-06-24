@@ -425,6 +425,26 @@
 
 
 
+
+## [2026-06-24 15:05] 모바일 UI Phase 5 기능 검증 및 원본 마스크 잔상 수정 완료
+
+**LOG_ID: 20260624_1505**
+목표: 모바일 클론 페이지(`index_mobile.html`)의 햄버거 메뉴, 퀵메뉴, Swiper 동작, 캐시 버스팅, 로컬 자산 누락 여부를 최종 검증.
+
+수행 작업:
+1. `tmp_mobile_probe.js`에 최종 백드롭/퀵메뉴/오버레이 상태 확인 항목을 추가해 Chrome 원격 디버그 기반 모바일 뷰포트 검증을 보강.
+2. 원본 페이지의 `#mw_modal_mask`가 메뉴 닫힘 뒤에도 남아 화면을 어둡게 만드는 문제를 확인하고, `execute_mobile_clone.js`에서 원본 마스크를 강제로 비활성화하도록 수정.
+3. `execute_mobile_clone.js`로 `index_mobile.html`을 재생성하고, 캐시 버스팅(`?v=...`)이 붙은 자산을 정확히 검사하도록 `audit_broken.js`를 수정.
+4. `UI_CLONE_PLAN_MOBILE.md`의 Phase 5 체크 항목을 완료 상태로 갱신.
+
+검증:
+- `node --check execute_mobile_clone.js`
+- `node --check audit_broken.js`
+- `node --check tmp_mobile_probe.js`
+- `node audit_broken.js` → `Broken assets found: 0`
+- `node tmp_mobile_probe.js` → 메뉴/퀵메뉴 열림·닫힘, Swiper 9개 초기화, 티커 이동, 캐시버스터 적용, 런타임 오류 0건, 콘솔 오류 0건 확인
+
+결과: 모바일 클론 Phase 5 검증 완료. 최종 스크린샷 `mobile_phase5_check.png`에서 원본 dim 마스크 잔상이 사라지고 정상 밝기로 표시됨.
 ## [2026-06-23 21:08] 메인 로고 및 카테고리 박스 아이콘 정밀 치환 완료
 
 **LOG_ID: 20260623_2108**

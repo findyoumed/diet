@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239 240" width="239" height="240">
+    <defs>
+        <linearGradient id="bg_map" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4facfe" />
+            <stop offset="100%" stop-color="#00f2fe" />
+        </linearGradient>
+    </defs>
+    <rect width="239" height="240" rx="10" fill="url(#bg_map)"/>
+    <text x="119.5" y="90" font-family="Arial, sans-serif" font-weight="900" font-size="30" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+        🏥
+    </text>
+    <text x="119.5" y="140" font-family="Arial, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+        내 주변 클리닉
+    </text>
+    <text x="119.5" y="180" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+        지도에서 찾기 &gt;
+    </text>
+</svg>
