@@ -1,0 +1,70 @@
+.btn_usermenu {
+  height: 24px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+button.btn_usermenu > img + span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #181c34;
+}
+.btn_usermenu img {
+  margin-right: 4px;
+
+  width: 16px !important;
+  height: 16px !important;
+
+  vertical-align: text-bottom;
+}
+/* 병원 로고 및 대다모입점병원 */
+button.btn_usermenu.hospital img {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #eeeeee !important;
+    flex-shrink: 0;
+}
+
+.btn_usermenu .usermenu-dropdown {
+  padding: 5px 20px 5px 12px;
+
+  min-width: 120px;
+
+  background: #000;
+  border: 1px solid #000;
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+}
+
+.btn_usermenu .usermenu-dropdown button {
+  margin: 4px 0;
+  height: 24px;
+
+  color: #fff;
+  background-color: transparent;
+  border: none;
+
+  font-size: 12px;
+  line-height: 24px;
+
+  display: block;
+}
+
+.btn_usermenu .usermenu-dropdown button .fa {
+  margin-right: 4px;
+}

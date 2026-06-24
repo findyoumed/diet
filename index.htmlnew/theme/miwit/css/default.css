@@ -1,0 +1,2527 @@
+@charset "utf-8";
+/* SIR 지운아빠 */
+
+/* 폰트 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  font-family:
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    sans-serif;
+}
+
+/* 초기화 */
+html {
+  overflow-y: scroll;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #181c34;
+}
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+#hd ul,
+nav ul,
+#ft ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+}
+label,
+input,
+button,
+select,
+img {
+  vertical-align: middle;
+}
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+button {
+  cursor: pointer;
+}
+
+textarea,
+select {
+  font-size: 1em;
+}
+select {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+hr {
+  display: none;
+}
+pre {
+  overflow-x: scroll;
+  font-size: 1.1em;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a {
+  color: #181c34;
+}
+
+/* 팝업레이어 */
+#hd_pop {
+  z-index: 1000;
+  position: relative;
+  margin: 0 auto;
+  width: 970px;
+  height: 0;
+}
+#hd_pop h2 {
+  position: absolute;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.hd_pops {
+  position: absolute;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+}
+.hd_pops_con {
+}
+.hd_pops_footer {
+  padding: 10px 0;
+  background: #181c34;
+  color: #fff;
+  text-align: right;
+}
+.hd_pops_footer button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 0;
+  background: #393939;
+  color: #fff;
+}
+
+/* 상단 레이아웃 */
+#hd {
+  z-index: 4;
+  position: relative;
+  min-width: 970px;
+  background: #fff;
+}
+.hd_zindex {
+  z-index: 10 !important;
+}
+#hd_h1 {
+  position: absolute;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+#hd_wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 26px 0;
+  width: 970px;
+  zoom: 1;
+}
+#hd_wrapper:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+
+#logo {
+  float: left;
+  padding: 5px 0 0;
+}
+
+/* 전체 검색 */
+#hd_sch {
+  float: left;
+  margin: 0 0 0 20px;
+  padding: 0;
+  border: 1px solid #c3c6ca;
+}
+#hd_sch legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+}
+#hd_sch #sch_stx {
+  padding-left: 5px;
+  width: 110px;
+  height: 24px;
+  border: 0;
+  background: #fff;
+  line-height: 1.9em !important;
+  line-height: 1.6em;
+}
+#hd_sch #sch_submit {
+  padding: 0 5px;
+  height: 26px;
+  border: 0;
+  background: #e2e6eb;
+  color: #333;
+  cursor: pointer;
+}
+
+/* 텍스트 크기 조절 */
+#text_size {
+  float: left;
+  margin: 0 0 0 10px;
+  letter-spacing: -3px;
+}
+#text_size button {
+  margin: 0;
+  padding: 1px 2px;
+  border: 1px solid #c3c6ca;
+  background: transparent;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.ts_up {
+  font-size: 1.167em !important;
+}
+.ts_up2 {
+  font-size: 1.3em !important;
+}
+
+/* 상단 회원가입 등 링크 */
+#tnb {
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  zoom: 1;
+}
+#tnb:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+#tnb li {
+  float: left;
+  margin: 0 0 0 10px;
+}
+#tnb a {
+  display: inline-block;
+  padding: 0 10px;
+  height: 28px;
+  color: #333;
+  letter-spacing: -0.1em;
+  line-height: 2.4em;
+}
+#tnb a:focus,
+#tnb a:hover,
+#tnb a:active {
+  text-decoration: none;
+}
+#tnb img {
+  margin-right: 3px;
+}
+
+/* 메인메뉴 */
+
+#gnb_empty {
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  line-height: 2em;
+}
+#gnb_empty a {
+  text-decoration: underline;
+}
+
+/* 중간 레이아웃 */
+#wrapper {
+  z-index: 5;
+  margin: 0 auto;
+  width: 970px;
+  border-right: 1px solid #dde4e9;
+  border-left: 1px solid #dde4e9;
+  zoom: 1;
+}
+#wrapper:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+
+#aside {
+  float: right;
+  margin: 0 0 0 -1px;
+  width: 210px;
+  border-left: 1px solid #dde4e9;
+  background: #fff;
+}
+
+#container {
+  z-index: 4;
+  position: relative;
+  float: left;
+  padding: 15px 16px 15px 15px;
+  width: 728px;
+  min-height: 500px;
+  height: auto !important;
+  height: 500px;
+  border-right: 1px solid #dde4e9;
+  background: #fff;
+  font-size: 1em;
+  zoom: 1;
+}
+#container:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+#container_title {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* 하단 레이아웃 */
+#ft {
+  min-width: 970px;
+  border-top: 1px solid #dde4e9;
+  background: #f2f5f9;
+}
+#ft h1 {
+  position: absolute;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+#ft p {
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1.8em;
+}
+
+#ft_catch {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  width: 970px;
+  text-align: center;
+}
+
+#ft_company {
+  text-align: center;
+}
+
+#ft_copy {
+  background: #414141;
+}
+#ft_copy div {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 970px;
+  color: #fff;
+}
+#ft_copy a {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  color: inherit;
+}
+#ft_copy #ft_totop {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+/* 게시물 선택복사 선택이동 */
+#copymove {
+}
+.copymove_current {
+  float: right;
+  color: #ff3061;
+}
+.copymove_currentbg {
+  background: #f4f4f4;
+}
+
+/* 화면낭독기 사용자용 */
+#hd_login_msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.msg_sound_only,
+.sound_only {
+  display: inline-block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0;
+  line-height: 0;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+/* 본문 바로가기 */
+#skip_to_container a {
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+#skip_to_container a:focus,
+#skip_to_container a:active {
+  width: 100%;
+  height: 75px;
+  background: #21272e;
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  line-height: 3.3em;
+}
+
+/* ie6 이미지 너비 지정 */
+.img_fix {
+  width: 100%;
+  height: auto;
+}
+
+/* 캡챠 자동등록(입력)방지 기본 */
+#captcha {
+  display: inline-block;
+  position: relative;
+}
+#captcha legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+}
+#captcha #captcha_img {
+  width: 100px;
+  height: 41px;
+  border: 1px solid #e9e9e9;
+}
+#captcha #captcha_mp3 {
+  position: absolute;
+  top: 0;
+  left: 101px;
+  margin: 0;
+  padding: 0;
+  width: 23px;
+  height: 22px;
+  border: 0;
+  background: transparent;
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: pointer;
+}
+#captcha #captcha_mp3 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 23px;
+  height: 22px;
+  background: url("../../../plugin/kcaptcha/img/sound.gif");
+}
+#captcha #captcha_reload {
+  width: 23px;
+  height: 22px;
+  border: 0;
+  background: transparent;
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: pointer;
+}
+#captcha #captcha_info {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 0.95em;
+  letter-spacing: -0.1em;
+}
+
+/* ckeditor 단축키 */
+.cke_sc {
+  margin: 0 0 5px;
+  text-align: right;
+}
+.btn_cke_sc {
+  display: inline-block;
+  padding: 0 10px;
+  height: 23px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #181c34;
+  text-decoration: none;
+  line-height: 1.9em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.cke_sc_def {
+  margin: 0 0 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  text-align: center;
+}
+.cke_sc_def dl {
+  margin: 0 0 5px;
+  text-align: left;
+  zoom: 1;
+}
+.cke_sc_def dl:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+.cke_sc_def dt,
+.cke_sc_def dd {
+  float: left;
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #e9e9e9;
+}
+.cke_sc_def dt {
+  width: 20%;
+  font-weight: bold;
+}
+.cke_sc_def dd {
+  width: 30%;
+}
+
+/* 버튼 */
+a.btn01 {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #181c34;
+  text-decoration: none;
+  vertical-align: middle;
+}
+a.btn01:focus,
+a.btn01:hover {
+  text-decoration: none;
+}
+button.btn01 {
+  display: inline-block;
+  margin: 0;
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #181c34;
+  text-decoration: none;
+}
+a.btn02 {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #3b3c3f;
+  background: #4b545e;
+  color: #fff;
+  text-decoration: none;
+  vertical-align: middle;
+}
+a.btn02:focus,
+.btn02:hover {
+  text-decoration: none;
+}
+button.btn02 {
+  display: inline-block;
+  margin: 0;
+  padding: 7px;
+  border: 1px solid #3b3c3f;
+  background: #4b545e;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn_confirm {
+  text-align: center;
+} /* 서식단계 진행 */
+
+.btn_submit {
+  border: 0;
+  cursor: pointer;
+}
+fieldset .btn_submit {
+  padding: 0 7px;
+  height: 24px;
+  line-height: 1em;
+}
+
+a.btn_cancel {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #181c34;
+  text-decoration: none;
+  vertical-align: middle;
+}
+button.btn_cancel {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #181c34;
+  vertical-align: top;
+  text-decoration: none;
+}
+
+a.btn_frmline,
+button.btn_frmline {
+  display: inline-block;
+  padding: 0 5px;
+  height: 24px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  letter-spacing: -0.1em;
+  text-decoration: none;
+  vertical-align: top;
+} /* 우편번호검색버튼 등 */
+a.btn_frmline {
+  line-height: 24px;
+}
+button.btn_frmline {
+  font-size: 1em;
+}
+
+/* 게시판용 버튼 */
+a.btn_b01 {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #d9ded9;
+  background: #f2f5f9;
+  color: #181c34;
+  text-decoration: none;
+  vertical-align: middle;
+}
+a.btn_b01:focus,
+.btn_b01:hover {
+  text-decoration: none;
+}
+a.btn_b02 {
+  display: inline-block;
+  padding: 7px 7px;
+  border: 1px solid #3b3c3f;
+  background: #4b545e;
+  color: #fff;
+  text-decoration: none;
+  vertical-align: middle;
+}
+a.btn_b02:focus,
+.btn_b02:hover {
+  text-decoration: none;
+}
+a.btn_admin {
+  display: inline-block;
+  padding: 7px;
+  border: 1px solid #e8180c;
+  background: #e8180c;
+  color: #fff;
+  text-decoration: none;
+  vertical-align: middle;
+} /* 관리자 전용 버튼 */
+a.btn_admin:focus,
+a.btn_admin:hover {
+  text-decoration: none;
+}
+
+/* 댓글 스타일 */
+.cnt_cmt {
+  display: inline-block;
+  margin: 0 0 0 3px;
+  font-weight: bold;
+}
+
+/* 기본테이블 */
+.tbl_wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.tbl_wrap caption {
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tbl_head01 {
+  margin: 0 0 10px;
+}
+.tbl_head01 caption {
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.tbl_head01 thead th {
+  padding: 12px 0;
+  border-top: 1px solid #d1dee2;
+  border-bottom: 1px solid #d1dee2;
+  background: #e5ecef;
+  color: #383838;
+  font-size: 0.95em;
+  text-align: center;
+  letter-spacing: -0.1em;
+}
+.tbl_head01 thead a {
+  color: #383838;
+}
+.tbl_head01 thead th input {
+  vertical-align: top;
+} /* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
+.tbl_head01 tfoot th,
+.tbl_head01 tfoot td {
+  padding: 10px 0;
+  border-top: 1px solid #c1d1d5;
+  border-bottom: 1px solid #c1d1d5;
+  background: #d7e0e2;
+  text-align: center;
+}
+.tbl_head01 tbody th {
+  padding: 8px 0;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+.tbl_head01 td {
+  padding: 8px 5px;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+  line-height: 1.5em;
+  word-break: break-all;
+}
+.tbl_head01 a {
+}
+
+.tbl_head02 {
+  margin: 0 0 10px;
+}
+.tbl_head02 caption {
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.tbl_head02 thead th {
+  padding: 5px 0;
+  border-top: 1px solid #d1dee2;
+  border-bottom: 1px solid #d1dee2;
+  background: #e5ecef;
+  color: #383838;
+  font-size: 0.95em;
+  text-align: center;
+  letter-spacing: -0.1em;
+}
+.tbl_head02 thead a {
+  color: #383838;
+}
+.tbl_head02 thead th input {
+  vertical-align: top;
+} /* middle 로 하면 게시판 읽기에서 목록 사용시 체크박스 라인 깨짐 */
+.tbl_head02 tfoot th,
+.tbl_head02 tfoot td {
+  padding: 10px 0;
+  border-top: 1px solid #c1d1d5;
+  border-bottom: 1px solid #c1d1d5;
+  background: #d7e0e2;
+  text-align: center;
+}
+.tbl_head02 tbody th {
+  padding: 5px 0;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+.tbl_head02 td {
+  padding: 5px 3px;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+  line-height: 1.4em;
+  word-break: break-all;
+}
+.tbl_head02 a {
+}
+
+/* 폼 테이블 */
+.tbl_frm01 {
+  margin: 0 0 20px;
+}
+.tbl_frm01 table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.tbl_frm01 th {
+  width: 70px;
+  padding: 7px 13px;
+  border: 1px solid #e9e9e9;
+  border-left: 0;
+  background: #f5f8f9;
+  text-align: left;
+}
+.tbl_frm01 td {
+  padding: 7px 10px;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+  background: transparent;
+}
+.tbl_frm01 textarea,
+.frm_input {
+  border: 1px solid #e4eaec;
+  background: #f7f7f7;
+  color: #181c34;
+  vertical-align: middle;
+  line-height: 2em;
+}
+.tbl_frm01 textarea {
+  padding: 2px 2px 3px;
+}
+.frm_input {
+  height: 22px;
+}
+.tbl_frm01 textarea {
+  width: 98%;
+  height: 100px;
+}
+.tbl_frm01 a {
+  text-decoration: none;
+}
+.tbl_frm01 .frm_file {
+  display: block;
+  margin-bottom: 5px;
+}
+.tbl_frm01 .frm_info {
+  display: block;
+  padding: 0 0 5px;
+  line-height: 1.4em;
+}
+
+/* 자료 없는 목록 */
+.empty_table {
+  padding: 50px 0 !important;
+  text-align: center;
+}
+.empty_list {
+  padding: 20px 0 !important;
+  text-align: center;
+}
+
+/* 필수입력 */
+.required,
+textarea.required {
+  background: url("../img/wrest.gif") #f7f7f7 top right no-repeat !important;
+}
+
+/* 테이블 항목별 정의 */
+.td_board {
+  width: 120px;
+  text-align: center;
+}
+.td_category {
+  width: 80px;
+  text-align: center;
+}
+.td_chk {
+  width: 30px;
+  text-align: center;
+}
+.td_date {
+  width: 60px;
+  text-align: center;
+}
+.td_datetime {
+  width: 140px;
+  text-align: center;
+}
+.td_group {
+  width: 100px;
+  text-align: center;
+}
+.td_mb_id {
+  width: 100px;
+  text-align: center;
+}
+.td_mng {
+  width: 80px;
+  text-align: center;
+}
+.td_name {
+  width: 100px;
+  text-align: left;
+}
+.td_nick {
+  width: 100px;
+  text-align: center;
+}
+.td_num {
+  width: 50px;
+  text-align: center;
+}
+.td_numbig {
+  width: 80px;
+  text-align: center;
+}
+.td_stat {
+  width: 60px;
+  text-align: center;
+}
+
+.txt_active {
+  color: #5d910b;
+}
+.txt_done {
+  color: #e8180c;
+}
+.txt_expired {
+  color: #ccc;
+}
+.txt_rdy {
+  color: #8abc2a;
+}
+
+/* 새창 기본 스타일 */
+.new_win {
+}
+.new_win .tbl_wrap {
+  margin: 0 20px;
+}
+.new_win #win_title {
+  margin: 0 0 20px;
+  padding: 20px;
+  border-top: 3px solid #333;
+  border-bottom: 1px solid #dde4e9;
+  background: #fff;
+  font-size: 1.2em;
+}
+.new_win #win_title .sv {
+  font-size: 0.75em;
+  line-height: 1.2em;
+}
+.new_win .win_ul {
+  margin: -20px 0 20px 0;
+  padding: 0 20px;
+  border-bottom: 1px solid #455255;
+  background: #484848;
+  list-style: none;
+  zoom: 1;
+}
+.new_win .win_ul:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  content: "";
+}
+.new_win .win_ul li {
+  float: left;
+  margin-left: -1px;
+}
+.new_win .win_ul a {
+  display: block;
+  padding: 10px 10px 8px;
+  border-right: 1px solid #455255;
+  border-left: 1px solid #455255;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.new_win .win_desc {
+  padding: 20px;
+}
+
+.new_win .win_btn {
+  clear: both;
+  padding: 20px;
+  text-align: center;
+} /* 새창용 */
+.new_win .win_btn button {
+  display: inline-block;
+  padding: 0 10px;
+  height: 30px;
+  border: 0;
+  background: #4b545e;
+  color: #fff;
+  line-height: 2em;
+  cursor: pointer;
+}
+.new_win .win_btn input {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 2em;
+}
+.new_win .win_btn a {
+  display: inline-block;
+  padding: 0 10px;
+  height: 30px;
+  background: #4b545e;
+  color: #fff;
+  vertical-align: middle;
+  line-height: 2.4em;
+}
+.new_win .win_btn a:focus,
+.new_win .win_btn a:hover {
+  text-decoration: none;
+}
+
+/* 검색결과 색상 */
+.sch_word {
+  color: #ff6600;
+}
+
+/* 자바스크립트 alert 대안 */
+#validation_check {
+  margin: 100px auto;
+  width: 500px;
+}
+#validation_check h1 {
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+#validation_check p {
+  margin-bottom: 20px;
+  padding: 30px 20px;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+}
+
+/* 사이드뷰 */
+.sv_wrap {
+  display: inline-block;
+  position: relative;
+  font-weight: normal;
+}
+.sv_wrap .sv {
+  z-index: 1000;
+  display: none;
+  margin: 5px 0 0;
+}
+.sv_wrap .sv a {
+  display: inline-block;
+  margin: 0;
+  padding: 3px;
+  width: 94px;
+  border-bottom: 1px solid #283646;
+  background: #111;
+  color: #fff !important;
+}
+.sv_wrap a:focus,
+.sv_wrap a:hover,
+.sv_wrap a:active {
+  text-decoration: none;
+}
+.sv_on {
+  display: block !important;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: auto;
+  height: auto;
+}
+.sv_nojs .sv {
+  display: block;
+}
+
+/* 페이징 */
+.pg_wrap {
+  clear: both;
+  margin: 0 0 20px;
+  padding: 20px 0 0;
+  text-align: center;
+}
+.pg {
+}
+.pg_page,
+.pg_current {
+  display: inline-block;
+  padding: 0 8px;
+  height: 25px;
+  color: #181c34;
+  letter-spacing: 0;
+  line-height: 2.2em;
+  vertical-align: middle;
+}
+.pg a:focus,
+.pg a:hover {
+  text-decoration: none;
+}
+.pg_page {
+  background: #e4eaec;
+  text-decoration: none;
+}
+.pg_start,
+.pg_prev {
+  /* 이전 */
+}
+.pg_end,
+.pg_next {
+  /* 다음 */
+}
+.pg_current {
+  display: inline-block;
+  margin: 0 4px 0 0;
+  background: #333;
+  color: #fff;
+  font-weight: normal;
+}
+
+/* Mobile화면으로 */
+#device_change {
+  display: block;
+  margin: 0.3em;
+  padding: 0.5em 0;
+  border: 1px solid #eee;
+  border-radius: 2em;
+  background: #fff;
+  color: #181c34;
+  font-size: 2em;
+  text-decoration: none;
+  text-align: center;
+}
+
+/*캡챠 모바일에서 피시버젼*/
+#captcha.m_captcha audio {
+  display: block;
+  margin: 5px 0 10px;
+}
+#captcha.m_captcha #captcha_key {
+  margin-left: 3px;
+}
+#captcha.m_captcha #captcha_reload span {
+  background: none;
+  display: inline;
+}
+#captcha.m_captcha #captcha_reload {
+  position: relative;
+  width: auto;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 10px;
+  height: 43px;
+  border: 0;
+  background: #e4eaec;
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.sub_banner {
+  margin: 0px 0px 5px 10px;
+}
+.main_banner {
+  margin: 0px;
+}
+
+/* 아이콘정리 */
+.i_link_gray_12 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_link_gray_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.i_time_gray_12 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_time_gray_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.i_view_gray_12 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_view_gray_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.i_write_gray_12 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_write_gray_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+
+.i_ytb_white_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_ytb_white_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_arrow_bottom_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_arrow_bottom_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_arrow_top_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_top_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_block_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_block_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_check_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_check_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_comment_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_comment_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_comment_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_comment_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_kakao_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_kakao_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_link_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_link_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_list_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_list_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_location_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_lock_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_lock_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_message_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_message_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_message_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_message_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_minus_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_minus_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_minus_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_minus_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_next_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_next_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_notice_white_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_notice_white_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_phone_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_phone_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_picture_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_picture_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_plus_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_plus_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_plus_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_plus_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_point_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_point_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_reply_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_reply_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_roadview_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_roadview_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_scrap_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_scrap_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_siren_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_siren_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_time_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_time_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_time_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_time_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_view_darkgray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_view_darkgray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_view_lightgray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_view_lightgray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_web_sky_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_web_sky_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_write_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_write_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_save_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_save_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_good_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_good_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_hate_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_hate_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_print_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_print_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_download_black_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_download_black_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_location_gray_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.i_arrow_bottom_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_arrow_bottom_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_arrow_top_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_top_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_arrow_top_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_top_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_comment_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_comment_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_delete_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_delete_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_location_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_menu_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_menu_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_mute_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_mute_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_darkgray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_darkgray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_lightgray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_lightgray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_white_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_white_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_play_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_play_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_plus_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_plus_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_prev_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_prev_lightgray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_lightgray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_rewind_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_rewind_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_select_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_select_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_setting_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_setting_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_speaker_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_speaker_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_stop_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_stop_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_swap_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_swap_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_sync_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_sync_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_view_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_view_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_write_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_write_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_location_white_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_white_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_new_orange_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_new_orange_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_search_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_search_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_gray_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_replay_black_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_replay_black_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.i_alarm_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_alarm_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_arrow_bottom_black_slim_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_slim_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_arrow_bottom_black_thick_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_thick_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_arrow_top_black_slim_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_top_black_slim_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_arrow_top_black_thick_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_top_black_thick_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_close_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_close_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_delete_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_delete_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_list_sky_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_list_sky_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_list_white_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_list_white_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_location_blue_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_blue_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_menu_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_menu_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_message_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_message_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_go_blue_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_go_blue_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_next_black_slim_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_black_slim_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_next_black_thick_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_black_thick_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_next_gray_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_gray_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_notice_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_notice_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_page_gray_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_page_gray_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_play_white_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_play_white_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_prev_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_prev_gray_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_gray_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_return_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_return_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_search_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_search_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_setting_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_setting_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_write_white_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_write_white_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_plus_black_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_plus_black_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.i_arrow_bottom_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_bottom_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_arrow_right_blue_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_arrow_right_blue_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_block_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_block_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_location_blue_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_location_blue_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_message_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_message_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_next_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_next_gray_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_gray_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_point_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_point_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_prev_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_prev_gray_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_gray_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_scrap_black_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_scrap_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+
+.i_logo_gray_40 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_logo_gray_40.svg) no-repeat;
+  width: 40px;
+  height: 40px;
+}
+
+.i_anonymous_gray_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_anonymous_gray_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_drug_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_drug_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_experience_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_experience_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_graft_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_graft_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_hairline_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_hairline_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_medicine_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_medicine_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_next_black_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_next_black_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_prev_black_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_prev_black_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_shampoo_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_shampoo_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_freestory_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_freestory_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_tattoo_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_tattoo_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_wig_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_wig_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_woman_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_woman_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_young_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_young_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_story_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_story_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.i_circle_talmo_blue_48 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_circle_talmo_blue_48.svg) no-repeat;
+  width: 48px;
+  height: 48px;
+}
+
+.i_anonymous_gray_60 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_anonymous_gray_60.svg) no-repeat;
+  width: 60px;
+  height: 60px;
+}
+
+.i_drug_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_drug_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_experience_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_experience_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_graft_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_graft_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_hairline_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_hairline_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_medicine_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_medicine_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_shampoo_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_shampoo_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_freestory_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_freestory_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_tattoo_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_tattoo_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_wig_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_wig_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_woman_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_woman_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+.i_young_blue_80 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_young_blue_80.svg) no-repeat;
+  width: 80px;
+  height: 80px;
+}
+
+/* on - off */
+.i_star1_blue_12 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_off_gray_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.i_star1_blue_12.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_on_blue_12.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.i_good_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_good_off_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_good_blue_16.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_good_on_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_hate_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_hate_off_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_hate_blue_16.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_hate_on_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_scrap_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_scrap_off_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_scrap_blue_16.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_scrap_on_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_star1_blue_16 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_off_gray_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_star1_blue_16.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_on_blue_16.svg) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+.i_calendar_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_calendar_off_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_calendar_blue_20.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_calendar_on_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_check_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_check_off_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_check_blue_20.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_check_on_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_id_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_id_off_gray_20.png) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_id_blue_20.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_id_on_blue_20.png) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_password_blue_20 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_password_off_gray_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_password_blue_20.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_password_on_blue_20.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_check_blue_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_check_off_gray_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_check_blue_24.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_check_on_blue_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_star1_blue_24 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_off_gray_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_star1_blue_24.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_star1_on_blue_24.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+}
+.i_emoji_blue_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_emoji_off_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_emoji_blue_32.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_emoji_on_blue_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_picture_blue_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_picture_off_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_picture_blue_32.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_picture_on_blue_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_vote_blue_32 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_vote_off_black_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+.i_vote_blue_32.on {
+  background: url(https://image.daedamo.com/images/img/renew/icon/i_vote_on_blue_32.svg) no-repeat;
+  width: 32px;
+  height: 32px;
+}
+
+/*2023 - ux 리뉴얼*/
+.i_arrow_bottom_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_arrow_bottom.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_arrow_right_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_arrow_right_white.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_best_blue {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_best_blue.svg) no-repeat;
+  width: 26px;
+  height: 13px;
+}
+.i_close_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_close_black.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_close_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_close_white.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_comment_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_commnet_black.svg) no-repeat;
+  width: 14px;
+  height: 14px;
+}
+.i_logo_text_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_logo_text_black.svg) no-repeat;
+}
+.i_menu_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_menu_black.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_next_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_next_black.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_notice_blue {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_notice_blue.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_play_blue {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_play_blue.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_plus_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_plus_black.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_search_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_search_black.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_simbol_black {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_simbol_black.svg) no-repeat;
+}
+.i_view_gray {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_view_gray.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_main_nav1 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav1.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav2 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav3.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav3 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav5.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav4 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav6.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav5 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav7.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav6 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav2.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav7 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav19.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav8 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav13.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_main_nav9 {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav18.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+}
+.i_new_red {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_new_red.svg) no-repeat;
+  width: 14px;
+  height: 14px;
+}
+.i_arrow_right_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_arrow_right_white.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_arrow_bottom {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_arrow_bottom.svg) no-repeat;
+  width: 10px;
+  height: 6px;
+}
+.i_board_graft {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav1.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_story {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav2.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_mobal {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav3.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_woman {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav4.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_tattoo {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav5.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_medicine {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav6.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_shampoo {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav7.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_wig {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav8.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_circletalmo {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav9.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_anonymous {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav10.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_review_pic {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav11.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_review_list {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav12.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_find {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav13.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_doctor {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav14.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_fail {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav15.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_success {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav16.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_pharmacy {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav17.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_video {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav18.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_professional {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav19.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_information {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav20.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_faq {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_nav21.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_ai {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2024/i_ai.svg) no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.i_board_hairbnb {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2024/i_hairbnb.svg) no-repeat;
+  width: 30px;
+  height: 22px;
+  background-position: 50% 50%;
+  margin-right: 6px;
+}
+.i_board_rogainefoam {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2024/i_rogaine.svg) no-repeat;
+  width: 30px;
+  height: 22px;
+}
+.i_board_JW {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2026/i_board_JW.svg) no-repeat;
+  width: 30px;
+  height: 22px;
+  background-size: contain;
+}
+.i_board_dr_novid {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2026/i_board_dr_novid.svg) no-repeat;
+  width: 30px;
+  height: 22px;
+  background-size: contain;
+}
+.i_view_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_view_white.svg) no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.i_sns_ameblo_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_ameblo_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_sns_note_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_note_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+  background-size: 25px !important;
+}
+.i_sns_blog_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_blog_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_sns_cafe_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_cafe_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_sns_facebook_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_facebook_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_sns_ytb_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_ytb_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_sns_insta_white {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_sns_insta_white.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+}
+.i_circle_next {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_circle_next.svg) no-repeat;
+  width: 60px;
+  height: 60px;
+}
+.i_circle_plus {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_circle_plus.svg) no-repeat;
+  width: 60px;
+  height: 60px;
+}
+.i_circle_close {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_circle_close.svg) no-repeat;
+  width: 60px;
+  height: 60px;
+}
+.i_circle_plus {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_circle_plus.svg) no-repeat;
+  width: 60px;
+  height: 60px;
+}
+.i_board_care {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_care.svg) no-repeat;
+  width: 38px;
+  height: 38px;
+}
+
+/*문맥타겟팅광고*/
+.i_ad_tip {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_ad_tip.svg) no-repeat;
+  width: 22px;
+  height: 22px;
+}
+.i_ad_info {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_ad_info.svg) no-repeat;
+  width: 22px;
+  height: 22px;
+}
+.i_ad_notice {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_ad_notice.svg) no-repeat;
+  width: 22px;
+  height: 22px;
+}
+.i_ad_ad {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_ad_ad.svg) no-repeat;
+  width: 22px;
+  height: 22px;
+}
+
+/*검색창*/
+.i_search_back {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_search_back.svg) no-repeat;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #d9d9dc;
+  border-radius: 50%;
+}
+.i_search_down {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_search_down.svg) no-repeat;
+  width: 11px;
+  height: 8px;
+}
+.i_search_up {
+  background: url(https://image.daedamo.com/images/img/renew/icon/2023/i_search_up.svg) no-repeat;
+  width: 11px;
+  height: 8px;
+}
+
+.keyword_ads {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.keyword_ads > a {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d1d4;
+  border-radius: 20px;
+  padding: 8px;
+  margin-bottom: 8px;
+  text-decoration: none !important;
+  max-width: 100%;
+}
+.keyword_ads i {
+  margin-right: 6px;
+}
+.keyword_ads span {
+  font-size: 13px;
+  font-weight: 800;
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+/* 형태 */
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex_spbtw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span[class*="i_"] {
+  display: inline-block;
+}
+i[class*="i_"] {
+  display: inline-block;
+}
+
+.i_new_orange_4 {
+  width: 4px;
+  height: 4px;
+  background: #ff6600;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-bottom: 14px;
+}
+
+@-webkit-keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
+  animation-timing-function: step-end;
+}

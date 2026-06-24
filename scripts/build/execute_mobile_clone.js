@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const rootDir = __dirname;
-const inFile = path.join(rootDir, 'daedamo_mobile_raw.html');
+const rootDir = path.join(__dirname, '../../');
+const inFile = path.join(rootDir, 'archive/raw_html/daedamo_mobile_raw.html');
 const outFile = path.join(rootDir, 'index_mobile.html');
 
 if (!fs.existsSync(inFile)) {
@@ -57,7 +57,11 @@ function normalizeHeadAndAssets(html) {
     .replace(/href=["']https:\/\/daedamo\.com\/new\/js\/toast\/jquery-toast\.css["']/gi, 'href="_origin_style_mobile.css"')
     .replace(/var g5_url\s*=\s*["']https:\/\/daedamo\.com\/new["'];/g, 'var g5_url            = ".";')
     .replace(/var g5_bbs_url\s*=\s*["']https:\/\/daedamo\.com\/new\/bbs["'];/g, 'var g5_bbs_url        = ".";')
-    .replace(/var g5_cookie_domain\s*=\s*["']daedamo\.com["'];/g, 'var g5_cookie_domain  = "";');
+    .replace(/var g5_cookie_domain\s*=\s*["']daedamo\.com["'];/g, 'var g5_cookie_domain  = "";')
+    // [LOG: 20260624_1550] Convert remaining absolute paths to relative paths to fix 404 proxy issues.
+    .replace(/https:\/\/daedamo\.com\/new\//gi, '/new/')
+    .replace(/https:\/\/daedamo\.com\/new/gi, '/new')
+    .replace(/\.\/new\//gi, '/new/');
 }
 
 function localHrefFromDaedamo(rawPath) {
@@ -165,7 +169,7 @@ function getReplacement(url) {
   if (/favicon|arrow|prev|next|close|bottom|up_|down_/i.test(decoded)) return url;
 
   if (/banner|Banner|ad_|content_map_banner|mainSlide/i.test(decoded)) {
-    if (/jwDucray|bg_2026_mobile/i.test(decoded)) return 'images/custom/banner_ducray.svg';
+    if (/jwDucray|bg_2026_mobile/i.test(decoded)) return 'images/custom/banner_ducray.png';
     if (/content_map_banner/i.test(decoded)) return 'images/custom/content_map_banner.svg';
     if (/mainSlide/i.test(decoded)) return 'images/custom/middle_banner.png';
     return 'images/custom/wide_banner.png';

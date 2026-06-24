@@ -4,7 +4,7 @@
   "description": "DietOn Community Platform",
   "main": "index.html",
   "scripts": {
-    "dev": "npx http-server -p 8080"
+    "dev": "npx http-server -p 8080 -c-1"
   },
   "_log": "[LOG: 20260623_0935] Created package.json for dev command support",
   "dependencies": {},

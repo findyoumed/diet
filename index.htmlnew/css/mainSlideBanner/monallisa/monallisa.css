@@ -1,0 +1,88 @@
+.monallisa_content {
+  position: relative;
+  height: 610px;
+  margin: 36px 0 51px;
+  padding: 265px 0 30px;
+  box-sizing: border-box;
+  background-image: url(https://image.daedamo.com/images/img/mainSlideBanner/monallisa/monallisa_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.monallisa_content .swiper {
+  padding: 0 40px;
+}
+
+.btn_show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 145px;
+  height: 37px;
+  margin-left: 100px;
+  margin-bottom: 33px;
+  border-radius: 3px 3px 3px 3px;
+  background-image: url(https://image.daedamo.com/images/img/mainSlideBanner/monallisa/button_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.text_wrap .btn_show img {
+  margin: 0 0 0 7px;
+}
+
+.swiper-slide {
+  position: relative;
+}
+
+.monallisa_content .swiper-slide img {
+  display: block;
+  height: 100%;
+}
+
+.monallisa_content .swiper-slide p {
+  margin-top: 7px;
+
+  font-size: 17px;
+  font-weight: 300;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* mobile */
+.mobile.monallisa_content {
+  padding: 51.208vw 0 6.417vw 0;
+  margin: 11.944vw 0 1.944vw;
+  background-image: url(https://image.daedamo.com/images/img/mainSlideBanner/monallisa/monallisa_mobile_bg.png);
+  height: 110.75vw;
+}
+.mobile .monallisa_content .swiper {
+  padding: 0 7.6vw;
+}
+
+.mobile.monallisa_content .swiper-slide p {
+  font-size: 2.68vw;
+}
+
+.mobile.monallisa_content .swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.mobile .text_wrap .btn_show {
+  width: 29.167vw;
+  height: 7.5556vw;
+  margin-left: 10.833vw;
+  margin-bottom: 6.5vw;
+  font-size: 2.9vw;
+  font-weight: 400;
+}
+
+.mobile .text_wrap .btn_show img {
+  width: 1.3vw;
+  margin: 0 0 0 1.389vw;
+}

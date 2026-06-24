@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+.current_connect_table table{width:100%;}
+.current_connect_table tr{padding:10px 0; display: block; border-bottom:1px solid #E6E8EC; width:100%;}
+.current_connect_table .td_num{color:#4C00EE;}
+.current_connect_table .td_name{font-weight: 700}
+.current_connect_table .td_name span{font-weight: 700}

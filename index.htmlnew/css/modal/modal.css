@@ -1,0 +1,990 @@
+/*--------------------------------------------------------------
+	( z-index설정값은 layout.css 최상단에서 전체적으로 확인이 가능합니다. )	  
+--------------------------------------------------------------*/
+
+.not_scroll {
+  overflow: hidden;
+}
+
+/*--------------------------------------------------------------
+    bg
+--------------------------------------------------------------*/
+.modal-bg {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+
+.content-bg {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+
+/*--------------------------------------------------------------
+    기본 레이아웃
+--------------------------------------------------------------*/
+:root {
+  --modal-default-color: var(--main-color);
+  --modal-default-color--hover: var(--main-color);
+}
+
+.modal-wrap {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.modal-wrap .pop-header {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 58px 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.modal-wrap .btn-layerPop-close {
+  position: absolute;
+  right: 17px;
+  top: 8px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.modal-wrap .layerPop-inner {
+  padding: 30px 22px;
+  font-size: 15px;
+}
+
+.modal-wrap .layerPop-inner .pop-title {
+  color: #000;
+  font-weight: 500;
+  text-align: center;
+}
+
+.modal-wrap .btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 57%;
+  margin: 25px auto 0;
+}
+
+.modal-wrap .btn-wrap button {
+  width: 50%;
+  max-width: 100%;
+  padding: 10px 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #bbbcc3;
+  background-color: var(--modal-default-color);
+  transition: background-color 0.4s;
+  white-space: nowrap;
+}
+
+.modal-wrap .btn-wrap button:hover {
+  background-color: var(--modal-default-color--hover);
+}
+
+.modal-wrap .btn-wrap button.cancel {
+  background-color: #fafaff;
+  color: #444;
+}
+
+.modal-wrap .btn-wrap button:first-of-type {
+  margin-right: 0.3rem;
+}
+
+/*--------------------------------------------------------------
+    커스텀 레이아웃
+--------------------------------------------------------------*/
+.modal-wrap.content-modal {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.modal-wrap .pop-header {
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+}
+
+.modal-wrap .btn-layerPop-close {
+  color: #dcdcdc;
+}
+
+.modal-wrap .layerPop-inner {
+  padding: 10px 22px 32px 22px;
+}
+
+.modal-wrap .pop-message {
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal-wrap .btn-wrap {
+  width: 90%;
+  margin: 26px auto 0;
+}
+
+.modal-wrap .btn-wrap button:first-of-type {
+  margin-right: 10px;
+}
+
+.modal-wrap .btn-wrap button.cancel {
+  background-color: #ffffff;
+}
+
+/*------------------------------------------------
+    contentModal
+------------------------------------------------*/
+.modal-wrap.content-modal {
+  width: 389px;
+  z-index: 10;
+}
+
+/*------------------------------------------------
+    mobile
+------------------------------------------------*/
+.mobile .modal-wrap.content-modal {
+  width: 90%;
+  max-width: 90%;
+}
+.mobile .modal-wrap .pop-message {
+  font-size: min(4vw, 16px);
+}
+.mobile .modal-wrap .layerPop-inner {
+  padding: 2vw 3vw 6.6vw 3vw;
+}
+.mobile .modal-wrap .btn-wrap button {
+  font-size: min(4vw, 16px);
+}
+
+/*--------------------------------------------------------------
+    커스텀 레이아웃 - 등업관련 팝업 (등업게시글 작성 후)
+--------------------------------------------------------------*/
+.modal-wrap.discussion_alert {
+  width: 412px;
+  overflow: visible;
+  border-radius: 25px;
+  border: 3px solid var(--main-color);
+}
+.modal-wrap.discussion_alert * {
+  font-family: "S-CoreDream";
+  letter-spacing: -0.3px;
+}
+.modal-wrap.discussion_alert .pop-header {
+  display: none;
+}
+.modal-wrap.discussion_alert .modal_btn.btn-layerPop-close {
+  right: 0%;
+  top: -12%;
+
+  background-image: url(https://image.daedamo.com/images/img/renew/icon/2023/i_close_white.svg);
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+}
+.modal-wrap.discussion_alert .modal_btn.btn-layerPop-close img {
+  display: none;
+}
+.modal-wrap.discussion_alert .layerPop-inner {
+  padding: 16px 0 27px 0;
+}
+.modal-wrap.discussion_alert .layerPop-inner .pop-message > strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+.modal-wrap.discussion_alert .layerPop-inner p {
+  line-height: 1.5;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition {
+  margin-bottom: 10px;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto 15px;
+  padding: 12px 15px;
+
+  border-radius: 10px;
+  background: #eaeaea96;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul li {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul li:not(:last-child):after {
+  position: absolute;
+  right: -13%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  content: "";
+  width: 1px;
+  height: 70%;
+  background: #8e8e8e;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul li p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul li strong {
+  margin-left: 5px;
+}
+.modal-wrap.discussion_alert .layerPop-inner .condition ul li.true p {
+  color: var(--main-color);
+}
+.modal-wrap.discussion_alert .layerPop-inner img {
+  display: block;
+  width: 52px;
+  margin: 0 auto 13px;
+}
+.modal-wrap.discussion_alert .btn-wrap {
+  width: 83%;
+  margin-top: 20px;
+}
+.modal-wrap.discussion_alert .btn-wrap button.done {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--sub-color2);
+  line-height: 1.4;
+}
+.modal-wrap.discussion_alert .btn-wrap button.done span {
+  font-size: 14px;
+  margin-left: 4px;
+}
+/* mobile */
+.mobile .modal-wrap.discussion_alert .modal_btn.btn-layerPop-close {
+  width: 4.8vw;
+  height: 4.8vw;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner {
+  padding-top: 3.5vw;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner .pop-message > strong {
+  font-size: 3.9vw;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner p {
+  font-size: 4vw;
+  margin-bottom: 1.3vw;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner .condition ul {
+  width: 73%;
+  margin: 0 auto 2vw;
+  padding: 3vw 3vw;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner .condition ul li {
+  font-size: 3.2vw;
+  line-height: 1;
+}
+.mobile .modal-wrap.discussion_alert .layerPop-inner .condition ul li p {
+  font-size: 3.2vw;
+  line-height: 1;
+}
+
+.mobile .modal-wrap.discussion_alert .layerPop-inner img {
+  width: 10.7vw;
+  margin: 0 auto 3.3vw;
+}
+
+.mobile .modal-wrap.discussion_alert .btn-wrap button.done {
+  font-size: 5vw;
+}
+
+/*--------------------------------------------------------------
+    커스텀 레이아웃 - 주요 게시판 안내 팝업 (최근 가입회원 한정 노출)
+--------------------------------------------------------------*/
+.modal-wrap.main_boards_modal {
+  --mbs-w-default: 288; /*360px 기준 원본사이즈*/
+  --mbs-w: 340px; /* pc용 비율증가 */
+
+  width: var(--mbs-w);
+  border-radius: calc(var(--mbs-w) * 12 / var(--mbs-w-default));
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.modal-wrap.main_boards_modal .pop-header {
+  display: none;
+}
+.modal-wrap.main_boards_modal .btn-layerPop-close {
+  right: calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+  top: calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+
+  opacity: 0.4;
+}
+.modal-wrap.main_boards_modal .layerPop-inner {
+  padding: calc(var(--mbs-w) * 24 / var(--mbs-w-default)) 0 calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+}
+.modal-wrap.main_boards_modal .pop-content {
+  text-align: center;
+}
+.modal-wrap.main_boards_modal .btn-wrap {
+  display: none !important;
+}
+
+/* 타이틀 */
+.modal-wrap.main_boards_modal .bd-modal-title {
+  display: block;
+  font-size: calc(var(--mbs-w) * 20 / var(--mbs-w-default));
+  font-weight: 700;
+  color: #181c34;
+  margin-bottom: calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 리스트 */
+.modal-wrap.main_boards_modal .bd-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0 0 calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+  list-style: none;
+  padding: 0;
+}
+.modal-wrap.main_boards_modal .bd-modal-list li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--gray-line-color);
+  padding: calc(var(--mbs-w) * 12 / var(--mbs-w-default)) 0 calc(var(--mbs-w) * 12 / var(--mbs-w-default)) calc(var(--mbs-w) * 41 / var(--mbs-w-default));
+}
+
+/* 이미지 */
+.modal-wrap.main_boards_modal .bd-modal-img-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(var(--mbs-w) * 64 / var(--mbs-w-default));
+  height: calc(var(--mbs-w) * 64 / var(--mbs-w-default));
+  margin-right: calc(var(--mbs-w) * 24 / var(--mbs-w-default));
+}
+.modal-wrap.main_boards_modal .bd-modal-img-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--mbs-w) * 80 / var(--mbs-w-default));
+  object-fit: contain;
+  filter: drop-shadow(-4px -4px 10px rgba(0, 0, 0, 0.08));
+}
+.modal-wrap.main_boards_modal li:nth-child(1) .bd-modal-img-wrap img {
+  width: calc(var(--mbs-w) * 108 / var(--mbs-w-default));
+  position: absolute;
+  left: 43%;
+  top: 41%;
+}
+.modal-wrap.main_boards_modal li:nth-child(3) .bd-modal-img-wrap img {
+  width: calc(var(--mbs-w) * 102 / var(--mbs-w-default));
+}
+
+/* 텍스트 + 버튼 영역 */
+.modal-wrap.main_boards_modal .bd-modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--mbs-w) * 6 / var(--mbs-w-default));
+  align-items: flex-start;
+}
+.modal-wrap.main_boards_modal .bd-modal-info p {
+  font-size: calc(var(--mbs-w) * 14 / var(--mbs-w-default));
+  color: #181c34;
+  line-height: 1.35;
+  text-align: left;
+  margin: 0;
+}
+
+/* 버튼 */
+.modal-wrap.main_boards_modal .bd-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--mbs-w) * 4 / var(--mbs-w-default));
+
+  min-width: calc(var(--mbs-w) * 128 / var(--mbs-w-default));
+  min-height: 28px;
+  padding: calc(var(--mbs-w) * 4 / var(--mbs-w-default)) calc(var(--mbs-w) * 12 / var(--mbs-w-default));
+  border-radius: calc(var(--mbs-w) * 12 / var(--mbs-w-default));
+  background: var(--main-primary-color);
+  color: #fff;
+  font-size: calc(var(--mbs-w) * 11 / var(--mbs-w-default));
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: background-color 0.2s;
+}
+.modal-wrap.main_boards_modal .bd-modal-btn:hover {
+  background: #5129d4;
+  color: #fff;
+}
+.modal-wrap.main_boards_modal .bd-modal-btn span {
+  font-size: calc(var(--mbs-w) * 8 / var(--mbs-w-default));
+  line-height: 1;
+}
+
+/* 오늘 하루 다시보지 않기 */
+.modal-wrap.main_boards_modal .bd-modal-no-show-today {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--mbs-w) * 4 / var(--mbs-w-default));
+  padding: 0 calc(var(--mbs-w) * 16 / var(--mbs-w-default));
+}
+.modal-wrap.main_boards_modal .bd-modal-checkbox {
+  display: none;
+}
+.modal-wrap.main_boards_modal .bd-modal-no-show-today label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--mbs-w) * 4 / var(--mbs-w-default));
+  font-size: calc(var(--mbs-w) * 12 / var(--mbs-w-default));
+  font-weight: 400;
+  color: #181c34;
+  cursor: pointer;
+}
+.modal-wrap.main_boards_modal .bd-modal-no-show-today label::before {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background: url(/new/img/renew/icon/2026/m_icon_checkbox_default.svg) no-repeat center / 16px 16px;
+}
+.modal-wrap.main_boards_modal .bd-modal-checkbox:checked + label::before {
+  background-image: url(/new/img/renew/icon/2026/m_icon_checkbox_select.svg);
+}
+
+/* mobile */
+.mobile .modal-wrap.main_boards_modal {
+  top: 53%;
+
+  width: 80%;
+  border-radius: 3.333vw;
+}
+.mobile .modal-wrap.main_boards_modal .btn-layerPop-close {
+  right: 4.444vw;
+  top: 4.444vw;
+}
+.mobile .modal-wrap.main_boards_modal .layerPop-inner {
+  padding: 6.667vw 0 4.444vw;
+}
+/* 타이틀 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-title {
+  font-size: 5.556vw;
+  margin-bottom: 4.444vw;
+}
+/* 리스트 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-list {
+  margin: 0 0 4.444vw;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-list li {
+  padding: 3.333vw 0 3.333vw 11.111vw;
+}
+/* 이미지 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-img-wrap {
+  width: 17.778vw;
+  height: 17.778vw;
+  margin-right: 6.667vw;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-img-wrap img {
+  width: 22.222vw;
+}
+.mobile .modal-wrap.main_boards_modal li:nth-child(1) .bd-modal-img-wrap img {
+  width: 35vw;
+}
+.mobile .modal-wrap.main_boards_modal li:nth-child(3) .bd-modal-img-wrap img {
+  width: 28.333vw;
+}
+/* 텍스트 + 버튼 영역 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-info {
+  gap: 1.667vw;
+  flex: 1;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-info p {
+  font-size: 3.889vw;
+}
+/* 버튼 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-btn {
+  width: 35.556vw;
+  min-width: 28vw;
+  padding: 1.111vw 3.333vw;
+  gap: 1.111vw;
+  border-radius: 3.333vw;
+  font-size: 3.056vw;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-btn span {
+  font-size: 2.222vw;
+}
+/* 오늘 하루 다시보지 않기 */
+.mobile .modal-wrap.main_boards_modal .bd-modal-no-show-today {
+  gap: 1.111vw;
+  padding: 0 4.444vw;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-no-show-today label {
+  gap: 1.111vw;
+  font-size: 3.333vw;
+}
+.mobile .modal-wrap.main_boards_modal .bd-modal-no-show-today label::before {
+  width: 4.444vw;
+  height: 4.444vw;
+  background-size: 4.444vw 4.444vw;
+}
+
+/*--------------------------------------------------------------
+    커스텀 레이아웃 - 커스텀 메인팝업 (2604만우절 팝업 --> 사용X)
+--------------------------------------------------------------*/
+.custom_main_pop {
+  background: transparent;
+}
+.custom_main_pop .layerPop-inner {
+  padding: 0;
+}
+.custom_main_pop .pop-header,
+.custom_main_pop .btn-wrap {
+  display: none;
+}
+.custom_main_pop .pop-content {
+  position: relative;
+}
+.custom_main_pop .cmp-modal-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.custom_main_pop .cmp-modal-close-btn img {
+  display: block;
+  width: 100%;
+}
+
+/*--------------------------------------------------------------
+    [한시 팝업] 2026-05 JP 이벤트 안내 팝업 (2026-05-20 ~ 2026-06-14)
+--------------------------------------------------------------*/
+.modal-wrap.jp_event_modal_202605 * {
+  font-family: "Noto Sans JP", "Pretendard", sans-serif !important;
+}
+.modal-wrap.jp_event_modal_202605 .pop-header {
+  display: none;
+}
+.modal-wrap.jp_event_modal_202605 {
+  /* 모달 자체는 투명 — 카드 영역은 .jp-card 가 담당, X 버튼은 카드 외부에 배치 */
+  overflow: visible;
+  width: 300px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.modal-wrap.jp_event_modal_202605 .layerPop-inner {
+  overflow: visible;
+  padding: 0;
+  background: transparent;
+}
+.modal-wrap.jp_event_modal_202605 .pop-content {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.modal-wrap.jp_event_modal_202605 .btn-wrap {
+  display: none !important;
+}
+
+/* X 닫기 — 카드 외부 상단 */
+.modal-wrap.jp_event_modal_202605 .btn-layerPop-close {
+  right: 0;
+  top: -30px;
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+.modal-wrap.jp_event_modal_202605 .btn-layerPop-close img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0) invert(1);
+}
+
+.jp_event_modal_202605 .jp-card {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 330px;
+  border-radius: 20px;
+  background-color: #1e133f;
+  background-image: url(https://image.daedamo.com/images/img/renew/event/202605_jp_event/bg_pattern.png);
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.jp_event_modal_202605 .jp-view {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.jp_event_modal_202605 .jp-card[data-view="main"] .jp-view--main,
+.jp_event_modal_202605 .jp-card[data-view="notice"] .jp-view--notice {
+  display: flex;
+}
+
+/* ===== 메인 ===== */
+.jp_event_modal_202605 .jp-view--main {
+  align-items: center;
+  padding: 16px 0 12px;
+}
+.jp_event_modal_202605 .jp-period-badge {
+  padding: 0 8px 1px;
+  border-radius: 999px;
+  background: #fff;
+  color: #45279d;
+  font-family: A2Z !important;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.jp_event_modal_202605 .jp-title {
+  margin: 7px 0 0;
+  width: 236px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-align: center;
+}
+
+/* 쿠폰 이미지 + 배지 (쿠폰만 flex item, 배지는 쿠폰 기준 absolute) */
+.jp_event_modal_202605 .jp-coupon {
+  position: relative;
+  margin-top: -7px;
+  width: 282px;
+  height: 129px;
+}
+.jp_event_modal_202605 .jp-coupon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.jp_event_modal_202605 .jp-coupon-badge {
+  display: block;
+  position: absolute;
+  top: 56px;
+  left: 37px;
+  width: 48px;
+  height: 56px;
+  background: url(https://image.daedamo.com/images/img/renew/event/202605_jp_event/badge.png) no-repeat 0 0 / 48px 56px;
+}
+
+/* 설명문 */
+.jp_event_modal_202605 .jp-desc {
+  margin: 7px 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #fff;
+}
+.jp_event_modal_202605 .jp-desc strong {
+  color: #35f4ec;
+  font-weight: 700;
+}
+
+/* 注意事項 / 戻る 버튼 (공통) — main/notice 두 뷰의 마지막 항목에 배치 */
+.jp_event_modal_202605 .jp-link-btn {
+  margin-top: auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 4px 6px 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.jp_event_modal_202605 .jp-link-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.jp_event_modal_202605 .jp-link-btn.jp-to-main {
+  padding: 4px 10px 4px 6px;
+}
+.jp_event_modal_202605 .jp-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: no-repeat center / 6px 10px;
+  vertical-align: middle;
+}
+.jp_event_modal_202605 .jp-arrow--right {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='10' viewBox='0 0 6 10' fill='none'><path d='M1 1l4 4-4 4' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+.jp_event_modal_202605 .jp-arrow--left {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='10' viewBox='0 0 6 10' fill='none'><path d='M5 1L1 5l4 4' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+
+/* ===== 注意事項 ===== */
+.jp_event_modal_202605 .jp-view--notice {
+  padding: 24px 30px 16px;
+}
+.jp_event_modal_202605 .jp-notice-title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.jp_event_modal_202605 .jp-notice-period {
+  margin: 16px 0 27px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid #9394a4;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+}
+.jp_event_modal_202605 .jp-notice-period > div {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+.jp_event_modal_202605 .jp-notice-period > div + div {
+  margin-top: 8px;
+}
+.jp_event_modal_202605 .jp-notice-period dt {
+  width: 110px;
+  margin: 0;
+  font-weight: 300;
+}
+.jp_event_modal_202605 .jp-notice-period dd {
+  margin: 0;
+  font-weight: 400;
+}
+.jp_event_modal_202605 .jp-notice-list {
+  margin: 0;
+  padding: 0 0 0 12px;
+  list-style: none;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+}
+.jp_event_modal_202605 .jp-notice-list li {
+  position: relative;
+}
+.jp_event_modal_202605 .jp-notice-list li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -12px;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+}
+
+/* ===== 오늘 안보기 (카드 아래) ===== */
+.modal-wrap.jp_event_modal_202605 .jp-no-show-today {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+.modal-wrap.jp_event_modal_202605 .jp-no-show-today .bd-modal-checkbox {
+  display: none;
+}
+.modal-wrap.jp_event_modal_202605 .jp-no-show-today label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #fff;
+  cursor: pointer;
+}
+.modal-wrap.jp_event_modal_202605 .jp-no-show-today label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(https://image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_default.svg) no-repeat center / 16px 16px;
+  /* 흰색으로 보정 */
+  filter: brightness(0) invert(1);
+}
+.modal-wrap.jp_event_modal_202605 .jp-no-show-today .bd-modal-checkbox:checked + label::before {
+  background-image: url(https://image.daedamo.com/images/img/renew/icon/2026/m_icon_checkbox_select_white.svg);
+  filter: none;
+}
+
+/* mobile */
+/* mobile — 360px 기준 스케일링 + 1.2px 캡 (viewport 432px 초과 시 고정)
+ * --jp-u: 디자인 1px 당 실제 단위. 모든 값은 calc(N * var(--jp-u)) 로 표기. */
+.mobile .modal-wrap.jp_event_modal_202605 {
+  --jp-u: min(calc(100vw / 360), 1.2px);
+
+  top: 50%;
+  width: calc(300 * var(--jp-u));
+}
+.mobile .modal-wrap.jp_event_modal_202605 .btn-layerPop-close {
+  right: 0;
+  top: calc(-30 * var(--jp-u));
+  width: calc(24 * var(--jp-u));
+  height: calc(24 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-card {
+  width: calc(300 * var(--jp-u));
+  height: calc(330 * var(--jp-u));
+  border-radius: calc(20 * var(--jp-u));
+}
+
+/* 메인 */
+.mobile .jp_event_modal_202605 .jp-view--main {
+  padding: calc(16 * var(--jp-u)) 0 calc(12 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-period-badge {
+  padding: 0 calc(8 * var(--jp-u)) calc(1 * var(--jp-u));
+  font-size: calc(12 * var(--jp-u));
+  line-height: calc(18 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-title {
+  margin: calc(7 * var(--jp-u)) 0 0;
+  width: calc(236 * var(--jp-u));
+  font-size: calc(24 * var(--jp-u));
+  line-height: calc(34 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-coupon {
+  margin-top: calc(-7 * var(--jp-u));
+  width: calc(282 * var(--jp-u));
+  height: calc(129 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-coupon-badge {
+  top: calc(56 * var(--jp-u));
+  left: calc(37 * var(--jp-u));
+  width: calc(48 * var(--jp-u));
+  height: calc(56 * var(--jp-u));
+  background-size: calc(48 * var(--jp-u)) calc(56 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-desc {
+  margin: calc(7 * var(--jp-u)) 0 0;
+  font-size: calc(14 * var(--jp-u));
+  line-height: calc(20 * var(--jp-u));
+}
+
+.mobile .jp_event_modal_202605 .jp-link-btn {
+  padding: calc(4 * var(--jp-u)) calc(6 * var(--jp-u)) calc(4 * var(--jp-u)) calc(10 * var(--jp-u));
+  font-size: calc(12 * var(--jp-u));
+  line-height: calc(18 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-link-btn.jp-to-main {
+  padding: calc(4 * var(--jp-u)) calc(10 * var(--jp-u)) calc(4 * var(--jp-u)) calc(6 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-arrow {
+  width: calc(16 * var(--jp-u));
+  height: calc(16 * var(--jp-u));
+  background-size: calc(6 * var(--jp-u)) calc(10 * var(--jp-u));
+}
+
+/* 注意事項 */
+.mobile .jp_event_modal_202605 .jp-view--notice {
+  padding: calc(24 * var(--jp-u)) calc(30 * var(--jp-u)) calc(16 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-title {
+  font-size: calc(16 * var(--jp-u));
+  line-height: calc(24 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-period {
+  margin: calc(16 * var(--jp-u)) 0 calc(27 * var(--jp-u));
+  padding: 0 0 calc(16 * var(--jp-u));
+  font-size: calc(14 * var(--jp-u));
+  line-height: calc(20 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-period > div {
+  gap: calc(30 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-period > div + div {
+  margin-top: calc(8 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-period dt {
+  width: calc(110 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-list {
+  padding: 0 0 0 calc(12 * var(--jp-u));
+  font-size: calc(12 * var(--jp-u));
+  line-height: calc(18 * var(--jp-u));
+}
+.mobile .jp_event_modal_202605 .jp-notice-list li::before {
+  top: calc(8 * var(--jp-u));
+  left: calc(-12 * var(--jp-u));
+  width: calc(2 * var(--jp-u));
+  height: calc(2 * var(--jp-u));
+}
+
+/* 오늘 안보기 */
+.mobile .modal-wrap.jp_event_modal_202605 .jp-no-show-today {
+  gap: calc(4 * var(--jp-u));
+  margin-top: calc(8 * var(--jp-u));
+}
+.mobile .modal-wrap.jp_event_modal_202605 .jp-no-show-today label {
+  gap: calc(4 * var(--jp-u));
+  font-size: calc(12 * var(--jp-u));
+  line-height: calc(18 * var(--jp-u));
+}
+.mobile .modal-wrap.jp_event_modal_202605 .jp-no-show-today label::before {
+  width: calc(16 * var(--jp-u));
+  height: calc(16 * var(--jp-u));
+  background-size: calc(16 * var(--jp-u)) calc(16 * var(--jp-u));
+}

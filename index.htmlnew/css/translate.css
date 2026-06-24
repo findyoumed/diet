@@ -1,0 +1,329 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp.min.css");
+
+/* --------------------------------------------------------------------------------------
+--------------------- common ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_"] {
+}
+
+/* 영어 */
+body[class*="translate_en"] {
+}
+
+/* 중국어(간체) */
+body[class*="translate_zh-CN"] {
+}
+
+/* 일본어 */
+body[class*="translate_ja"] {
+  font-family:
+    "Pretendard JP Variable",
+    "Pretendard JP",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Hiragino Sans",
+    "Apple SD Gothic Neo",
+    Meiryo,
+    "Noto Sans JP",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    Osaka,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+}
+
+/* --------------------------------------------------------------------------------------
+--------------------- dropdown button ---------------------
+----------------------------------------------------------------------------------------  */
+/* 댓글 */
+:is(body[class*="translate_ja"], body[class*="translate_en"]) .ddm-comment-box .comment-list .comment-item .comment-header .tools .buttons {
+  width: 140px;
+}
+:is(body[class*="translate_zh-CN"]) .ddm-comment-box .comment-list .comment-item .comment-header .tools .buttons {
+  width: 105px;
+}
+body[class*="translate_"] .btn_usermenu .usermenu-dropdown {
+  min-width: 160px;
+}
+/* -----mobile----- */
+body[class*="translate_"].mobile .btn_usermenu .usermenu-dropdown {
+  min-width: 180px;
+}
+
+/* --------------------------------------------------------------------------------------
+--------------------- pc - list ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_"] #mw_basic .bbs_list .list_wrap .content .mw_basic_list_subject a {
+  line-height: 1.3;
+}
+/* -----mobile----- */
+/* 공지사항 목록 notice - tag (원형 -> 사각형 임의 변경)*/
+body[class*="translate_"].mobile .notice-header-list > li .notice-tag {
+  width: auto;
+  border-radius: 2px;
+  height: 20px;
+  padding: 3px 5px;
+}
+body[class*="translate_"].mobile #mw_basic #notice_line .notice_icon,
+body[class*="translate_"].mobile #notice_line .notice_icon {
+  width: 62px;
+  border-radius: 2px;
+  height: 20px;
+  padding: 3px 5px;
+}
+body[class*="translate_"].mobile #mw_basic .mw_basic_list_notice .subject .mw_basic_list_subject span {
+  top: -3px;
+  left: 70px;
+}
+/* --------------------------------------------------------------------------------------
+--------------------- pc - hospital list ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_en"] .hospital-list-page .hospital-list > li .list-header {
+  flex-direction: column;
+}
+body[class*="translate_en"] .hospital-list-page .hospital-list > li .list-header .text-wrap {
+  width: 100%;
+}
+body[class*="translate_"] .hospital-list-page .menu-wrap .sorting-menu > li.order-sorting > .list-sorting > li a {
+  display: flex;
+  width: 100%;
+}
+body[class*="translate_"] .hospital-list-page .map-link .txt {
+  white-space: nowrap;
+}
+body[class*="translate_"] .hospital-list-page .hospital-list > li .list-header .text-wrap .link .name.common-new-icon:after {
+  flex-shrink: 0;
+}
+/* hospital */
+body[class*="translate_"] .hospital-comment-list .comment-item .comment-body .tags {
+  flex-wrap: wrap;
+}
+body[class*="translate_en"] .hospital-comment-list .comment-item .comment-body .comment-scores .review-score strong,
+body[class*="translate_en"] .hospital-comment-form .comment-scores li strong {
+  width: 240px;
+}
+body[class*="translate_ja"] .hospital-comment-list .comment-item .comment-body .comment-scores .review-score strong {
+  width: 160px;
+}
+body[class*="translate_"].mobile .hospital-comment-form .form-buttons .common-btn-submit {
+  letter-spacing: 0;
+}
+
+/* 비대면견적문의 - 글쓰기 tooltip 말풍선 */
+body[class*="translate_"].mobile .graftoverwritebtn_desc {
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------------------
+--------------------- pc - main ---------------------
+----------------------------------------------------------------------------------------  */
+:is(body[class*="translate_zh-CN"], body[class*="translate_ja"]) #mw5 .index_content_box .btn_graftover .cnt {
+  bottom: 8px;
+}
+:is(body[class*="translate_en"], body[class*="translate_ja"]) #mw5 .index_content_box .content_nav1 a span {
+  text-align: right;
+}
+
+body[class*="translate_"] #mw5 .index_content_box .index_daedamo_tv .subject {
+  word-break: break-word;
+}
+body[class*="translate_"] #mw5 .index_content_box .content_woman_hairline .subject {
+  word-break: break-word;
+}
+body[class*="translate_en"] #mw5 .index_content_box .title .cnt {
+  text-align: right;
+}
+
+/* index main banner */
+body[class*="translate_"] #mw5 .index_banner1_box .ad1 .ad1_info {
+  justify-content: center;
+  padding-left: 350px;
+}
+body[class*="translate_zh-CN"] #mw5 .index_banner1_box .ad1 .ad1_info {
+  padding-left: 387px;
+}
+body[class*="translate_"] #mw5 .index_banner1_box .ad1 .ad1_info .sub-title {
+  margin-top: 0;
+  font-size: 21px;
+}
+body[class*="translate_ja"] #mw5 .index_banner1_box .ad1 .ad1_info .sub-title,
+body[class*="translate_ja"] #mw5 .index_banner1_box .ad1 .ad1_info p {
+  font-family:
+    "Pretendard JP Variable",
+    "Pretendard JP",
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Hiragino Sans",
+    "Apple SD Gothic Neo",
+    Meiryo,
+    "Noto Sans JP",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    Osaka,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    sans-serif;
+}
+body[class*="translate_"] #mw5 .index_banner1_box .ad1 .ad1_info .title {
+  font-size: 35px;
+}
+body[class*="translate_zh-CN"] #mw5 .index_banner1_box .ad1 .ad1_info .title {
+}
+body[class*="translate_en"] #mw5 .index_banner1_box .ad1 .ad1_info .title {
+  flex-direction: column;
+  line-height: 1.2;
+  font-size: 25px;
+}
+body[class*="translate_en"] #mw5 .index_banner1_box .ad1 .ad1_info .title span {
+  font-size: 35px;
+}
+body[class*="translate_zh-CN"] #mw5 .index_banner1_box .ad1 .ad1_info .title {
+  flex-direction: column;
+}
+body[class*="translate_en"] #mw5 .index_banner1_box .ad1 .ad1_info .title span,
+body[class*="translate_zh-CN"] #mw5 .index_banner1_box .ad1 .ad1_info .title span {
+  margin-left: 0;
+}
+body[class*="translate_en"] #mw5 .index_banner1_box .ad1 .ad1_info .sub-title {
+  font-size: 17px;
+}
+body[class*="translate_en"] #mw5 .index_banner1_box .ad1 .ad1_info p {
+  font-size: 14px;
+}
+
+/* doctors banner */
+body[class*="translate_ja"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular .img-wrap .popular-label {
+  min-width: 161px;
+}
+body[class*="translate_ja"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-experts .img-wrap .popular-label {
+  min-width: 143px;
+}
+body[class*="translate_en"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular.is-experts .img-wrap .popular-label {
+  min-width: 163px;
+}
+body[class*="translate_en"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular .img-wrap .popular-label {
+  min-width: 143px;
+}
+body[class*="translate_zh-CN"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular.is-experts .img-wrap .popular-label {
+  min-width: 123px;
+}
+body[class*="translate_zh-CN"] .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular .img-wrap .popular-label {
+  min-width: 140px;
+}
+body[class*="translate_"].mobile .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular .img-wrap .popular-label {
+  min-width: 30vw;
+  text-align: left;
+  padding-left: 1.5vw;
+  font-size: 3vw;
+}
+body[class*="translate_"].mobile .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular.is-experts .img-wrap .popular-label {
+  min-width: 28vw;
+}
+body[class*="translate_ja"].mobile .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular.is-experts .img-wrap .popular-label {
+  min-width: 32vw;
+}
+body[class*="translate_ja"].mobile .content-list-doctors-pick-banner .doctors-pick-banner-swiper .swiper-slide.is-popular .img-wrap .popular-label {
+  min-width: 35vw;
+}
+
+/*  */
+/* --------------------------------------------------------------------------------------
+--------------------- pc - header ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_en"] #mw5.wrapper #gnbNavbar > .inner > ul > li > a {
+  text-align: left;
+}
+body[class*="translate_"] #mw5.wrapper #gnbNavbar > .inner > ul > li .sub {
+  padding: 0 12px;
+}
+body[class*="translate_"] #mw5.wrapper #gnbNavbar > .inner > ul > li .sub li {
+  padding: 0;
+  margin: 24px 0;
+  text-align: left;
+}
+body[class*="translate_"] #mw5.wrapper #gnbNavbar > .inner > ul > li .sub li a {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2;
+}
+body[class*="translate_"] #mw5.wrapper #header .util-btns {
+  flex-shrink: 0;
+}
+body[class*="translate_"] #mw5.wrapper #gnbNavbar > .inner > ul > li > a {
+  font-size: 16px;
+}
+body[class*="translate_"] #mw5.wrapper #header .top-menu li a {
+  font-size: 13px;
+}
+body[class*="translate_en"] #mw5.wrapper #gnbNavbar > .inner > ul > li:nth-child(5) > a {
+  width: 90px;
+}
+body[class*="translate_en"] #mw5.wrapper #gnbNavbar .all-menu-popup > .all-menu-content > ul > li {
+  padding: 0 6px;
+}
+body[class*="translate_en"] #mw5.wrapper #header .top-menu li:not(:last-child) {
+  flex-shrink: 0;
+}
+body[class*="translate_en"] #mw5.wrapper #gnbNavbar > .inner > ul > li {
+  margin-right: 29px;
+}
+body[class*="translate_en"] #mw5.wrapper #gnbNavbar > .inner > ul > li:last-child {
+  margin-right: 0;
+}
+
+/* --------------------------------------------------------------------------------------
+--------------------- pc - footer ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_"] #mw5 .footer .wrapper .right {
+  flex-shrink: 0;
+}
+/* mobile - footer */
+body[class*="translate_ja"].mobile #mw_mobile_tail .sns_link_wrap a {
+  margin-right: 1.8%;
+}
+
+/* 등업 불충족 안내 팝업 */
+body[class*="translate_ja"] .modal-wrap.discussion_alert .layerPop-inner .condition ul li:not(:last-child):after {
+  right: -7%;
+}
+body[class*="translate_en"] .modal-wrap.discussion_alert .layerPop-inner .condition ul li:not(:last-child):after {
+  right: -10%;
+}
+body[class*="translate_zh-CN"] .modal-wrap.discussion_alert .layerPop-inner .condition ul li:not(:last-child):after {
+  right: -17%;
+}
+body[class*="translate_en"] .modal-wrap.discussion_alert .layerPop-inner .condition ul {
+  width: 83%;
+}
+
+/* --------------------------------------------------------------------------------------
+--------------------- mobile - main ---------------------
+----------------------------------------------------------------------------------------  */
+body[class*="translate_ja"].mobile .index_nav_menu .menu_list .title {
+  text-align: center;
+}
+/* daedamopick banner */
+body[class*="translate_ja"].mobile .content-list-daedamo-pick-banner .title {
+  font-size: 4vw;
+}
+
+body[class*="translate_"].mobile .modal-wrap.main_boards_modal .bd-modal-info p {
+  font-size: 3.611vw;
+}
+
+body[class*="translate_"]:not(.mobile) .modal-wrap.main_boards_modal .bd-modal-list li {
+  padding: calc(var(--mbs-w) * 12 / var(--mbs-w-default)) 0 calc(var(--mbs-w) * 12 / var(--mbs-w-default)) calc(var(--mbs-w) * 30 / var(--mbs-w-default));
+}

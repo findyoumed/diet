@@ -1,6 +1,5 @@
 @echo off
 chcp 65001 >nul
-:: [LOG: 20260622_1732]
 echo ============================================
 echo   GitHub Push - findyoumed/diet
 echo ============================================
@@ -9,9 +8,6 @@ if not exist ".git" (
     echo [1/5] Initializing Git...
     git init
     git remote add origin https://github.com/findyoumed/diet.git
-) else (
-    echo [1/5] Checking Remote URL...
-    git remote set-url origin https://github.com/findyoumed/diet.git
 )
 
 echo.
@@ -23,9 +19,6 @@ echo [2/5] Adding files...
 git add .
 echo [3/5] Committing... (%MSG%)
 git commit -m "%MSG%"
-:: [LOG: 20260622_1921] Set local branch to main before pull to prevent push error if pull fails
-:: [LOG: 20260622_2248] Fix encoding issues by removing Korean comments
-git branch -M main
 
 echo.
 echo [4/5] Syncing with remote (Pull)...

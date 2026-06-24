@@ -1,0 +1,190 @@
+/* 비대면 견적받기 메인 띠 배너 추가   pc */
+.graftoverBanner-active .graftover-notice-banner {
+  position: relative;
+  display: block;
+
+  width: 100%;
+  height: 40px;
+  /* margin-bottom: 4.167vw; */
+  align-items: center;
+  background: #efeff2;
+  box-shadow:
+    inset 0px -2px 1px 0px #00000004,
+    inset 0px 2px 1px 0px #00000004;
+  z-index: 6;
+}
+.graftover-notice-banner {
+  display: none;
+}
+.graftover-notice-banner .banner-inner-wrap {
+}
+.graftoverBanner-active .graftover-notice-banner .banner-inner-wrap {
+  display: flex;
+  height: 100%;
+}
+/* graftover-notice-banner.main-index : 메인   */
+.graftoverBanner-active .graftover-notice-banner.main-index {
+  top: 9px;
+}
+.graftoverBanner-active .graftover-notice-banner.main-index .banner-inner-wrap {
+  margin-top: 10px;
+}
+
+/* graftover-notice-banner.list : 목록    */
+.graftoverBanner-active .graftover-notice-banner.list {
+  position: fixed;
+  bottom: 0;
+  top: auto;
+  left: 0;
+  margin-bottom: 0;
+}
+.graftover-notice-banner.list .banner-inner-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.graftover-notice-banner.list .left {
+  padding-left: 12px;
+}
+
+.graftover-notice-banner .left {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  padding-left: 42px;
+  padding-right: 14px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.graftover-notice-banner .left p {
+  position: relative;
+  margin-bottom: 0;
+}
+.graftover-notice-banner .left p:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--main-color);
+  left: -6px;
+}
+.graftover-notice-banner .left p:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 1px;
+  height: 5px;
+  background: #1d1d1b6b;
+  right: -7.2px;
+}
+.graftover-notice-banner .left span.num {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  padding: 2px 5px;
+  border-radius: 15px;
+  background: #ff0000;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 1;
+  color: #fff;
+}
+.graftover-notice-banner .right {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.graftover-notice-banner .right .banner-inner {
+  white-space: nowrap;
+  display: inline-flex;
+  animation: marquee 22s linear infinite;
+}
+.graftover-notice-banner.estimates .right .banner-inner {
+  animation-duration: 28s;
+}
+.graftover-notice-banner .right .banner-inner {
+}
+.graftover-notice-banner .right .banner-inner p {
+  margin-bottom: 0;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.graftover-notice-banner .right .banner-inner p span:not(:last-child) {
+  margin-right: 15px;
+}
+
+/*  */
+/* -----------------------------------------------------------
+  ------ mobile ------
+--------------------------------------------------------------  */
+.mobile #mw_mobile .graftover-notice-banner {
+  text-decoration: none;
+}
+
+.mobile .graftover-notice-banner {
+  height: var(--mobile-graftover-banner-height);
+  /* position: relative; */
+}
+.mobile .graftover-notice-banner.main-index {
+  top: 0;
+  margin-bottom: 4.167vw;
+}
+.mobile .graftover-notice-banner.main-index .banner-inner-wrap {
+  margin-top: 0;
+}
+/* jp - 라인/비대면견적 버튼 active -> 높이 변경 */
+.lineGraftoverButton-active.mobile .graftover-notice-banner.list {
+  bottom: var(--mobile-line-graftover-button-height);
+}
+.mobile .graftover-notice-banner .left {
+  padding-left: 6.944vw;
+  padding-right: 4.444vw;
+  font-size: min(3.056vw, 14px);
+}
+.mobile .graftover-notice-banner .left p {
+}
+.mobile .graftover-notice-banner .left p:before {
+  width: 1.15vw;
+  height: 1.15vw;
+  left: -1.667vw;
+}
+.mobile .graftover-notice-banner .left p:after {
+  height: 2.222vw;
+  right: -2vw;
+}
+.mobile .graftover-notice-banner .left span.num {
+  padding: 0.833vw 1.667vw;
+  font-size: min(2vw, 12px);
+}
+.mobile .graftover-notice-banner .right {
+}
+.mobile .graftover-notice-banner.estimates .right .banner-inner {
+  animation: marquee 32s linear infinite;
+}
+
+.mobile .graftover-notice-banner.requests .right .banner-inner {
+  animation-duration: 24s;
+}
+.mobile .graftover-notice-banner .right .banner-inner p {
+  font-size: min(3.056vw, 14px);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
