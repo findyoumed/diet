@@ -4,3 +4,4 @@ documents-prd
 OpenSourceCommunity/
 OpenSourceCommunity
 *.prd
+.chrome-*/

@@ -581,3 +581,61 @@
 - `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
 
 결과: 정적 HTML 구조에서 모바일 자동 진입과 PC 강제보기 우회가 정상 동작함.
+
+## [2026-06-25 10:55] 일회성 임시 JS 정리
+
+**LOG_ID: 20260625_1055**
+목표: 사용자 요청에 따라 불필요한 임시 파일을 정리하되, 사용자가 만든 `.py`와 `.bat` 파일은 보존.
+수행 작업:
+1. 루트의 `zip_project.py`, `zip_project_all.py`, `git_pull.bat`, `push_github.bat`는 보존.
+2. Chrome 프로필 디렉터리 `.chrome-*`는 캐시처럼 보이지만 Git 추적 파일이 포함되어 있어 삭제하지 않음.
+3. `scripts/build/tmp_find.js`, `scripts/build/tmp_replace.js`, `scripts/build/tmp_replace_record.js`는 현재 참조가 없는 일회성 패치 스크립트로 확인하고 삭제.
+4. `scripts/build/tmp_mobile_probe.js`는 WORK_LOG에 모바일 QA 스크립트로 기록되어 있어 보존.
+
+검증:
+- `rg`로 삭제 대상 참조 확인: 삭제 대상은 현재 참조 없음
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+
+결과: `.py`/`.bat` 파일은 그대로 두고, 불필요한 일회성 JS 3개만 제거함.
+
+## [2026-06-25 11:02] 모바일 공지 영역 원본 스타일 보정
+
+**LOG_ID: 20260625_1102**
+목표: 모바일 메인 `body > div.index_notice_wrap` 영역이 `https://daedamo.com/?device=mobile` 원본과 다르게 보이는 문제 수정.
+원인: 원본 CSS는 `#mw_mobile .index_notice_wrap` 선택자에 공지 박스 스타일을 적용하지만, 로컬 렌더링 DOM에서는 HTML 파싱 결과 `.index_notice_wrap`가 `body` 직계로 빠져 해당 선택자가 적용되지 않았음.
+수행 작업:
+1. 원본 모바일 HTML과 CSS를 확인해 공지 영역 구조와 스타일 값을 비교.
+2. `index_mobile.html` 하단 보정 CSS에 `body.mobile > .index_notice_wrap` 및 `.index_notice_wrap` 직접 스타일을 추가.
+3. 원본과 동일한 여백, 회색 배경, 20px radius, flex 정렬, 12px plus icon, 한 줄 말줄임 제목 스타일을 적용.
+
+검증:
+- Chrome CDP computed style 확인:
+  - margin `0px 19.5px 35px`
+  - padding `8px 25px`
+  - background `rgb(239, 239, 242)`
+  - borderRadius `20px`
+  - display `flex`
+  - icon `12px x 12px`
+- `archive/misc/mobile-index_notice_wrap_qa.png` 캡처 저장
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+
+결과: DOM 구조가 body 직계로 남아 있어도 원본 모바일 공지 박스와 같은 시각 스타일이 적용되도록 보정 완료.
+
+## [2026-06-25 11:12] GitHub Secret Alert 대응 - Chrome 프로필 캐시 제거
+
+**LOG_ID: 20260625_1112**
+목표: GitHub secret scanning이 `.chrome-qa/Default/shared_proto_db/000003.log`에서 Google API Key 패턴을 탐지한 문제 대응.
+수행 작업:
+1. 저장소 전체에서 Google API Key 형식 잔여 검색.
+2. `.chrome-local`, `.chrome-origin`, `.chrome-qa`, `.chrome-test`가 Chrome 테스트 프로필 캐시이며 Git 추적 대상임을 확인.
+3. `.gitignore`에 `.chrome-*/` 추가.
+4. `git rm -r --cached`로 `.chrome-*` 디렉터리 4개를 Git 추적에서 제거.
+5. 로컬 `.chrome-*` 디렉터리 4개도 삭제.
+
+검증:
+- 작업트리 Google API Key 형식 검색 -> 결과 없음
+- Git 추적 대상 Google API Key 형식 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test` -> 0
+- `Test-Path .chrome-*` -> 모두 False
+
+주의: 해당 키는 이미 public leak으로 탐지되었으므로 Google Cloud에서 즉시 revoke/rotate 해야 함. 현재 트리 정리는 재유입 방지 조치이며, 이미 공개된 키 자체의 보안 조치를 대체하지 않음.
