@@ -5,7 +5,7 @@
 }
 
 /* -----------------------------------------------------------
-  ------ content-list-dieton-pick-banner (목록 대다모pick 광고) ------
+  ------ content-list-dieton-pick-banner (목록 DietOn pick 광고) ------
 --------------------------------------------------------------  */
 .content-list-dieton-pick-banner {
   --image-height: 189px;
@@ -88,7 +88,7 @@
   background: #fff;
   overflow: hidden;
 }
-/* 대다모픽 구매 CTA 추가 ( 혜택버튼 추가 ) */
+/* DietOn pick 구매 CTA 추가 ( 혜택버튼 추가 ) */
 .content-list-dieton-pick-banner .img-wrap .benefits-card {
   position: absolute;
   right: 2px;
@@ -278,7 +278,7 @@
 /* -----------------------------------------------------------
   ------ mobile ------
 --------------------------------------------------------------  */
-/* content-list-dieton-pick-banner (목록 대다모pick 광고) */
+/* content-list-dieton-pick-banner (목록 DietOn pick 광고) */
 .mobile .content-list-dieton-pick-banner {
   --image-height: 37.7vw;
   --navigation-size: 10.556vw;

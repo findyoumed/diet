@@ -1,1 +1,535 @@
-/* Local DietOn clone stub: original board module styles are not required for static clone rendering. */
+/* DietOn board list rendering for cloned miwit forum pages. */
+#dieton-post-list {
+  width: 100%;
+}
+
+#dieton-post-list .mw_basic_list_table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: #111827;
+  font-size: 13px;
+}
+
+#dieton-post-list .mw_basic_list_tr_head td {
+  height: 36px;
+  padding: 0 8px;
+  border-top: 1px solid #202020;
+  border-bottom: 1px solid #e5e5e5;
+  color: #111;
+  font-weight: 600;
+  text-align: center;
+  background: #fff;
+}
+
+#dieton-post-list .mw_basic_list_tr_data td {
+  height: 64px;
+  padding: 8px;
+  border-bottom: 1px solid #ececec;
+  vertical-align: middle;
+  background: #fff;
+}
+
+#dieton-post-list .mw_basic_list_num,
+#dieton-post-list .mw_basic_list_datetime,
+#dieton-post-list .mw_basic_list_hit,
+#dieton-post-list .mw_basic_list_good {
+  color: #222;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#dieton-post-list .mw_basic_list_name {
+  color: #111827;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#dieton-post-list .mw_basic_list_subject {
+  text-align: left;
+}
+
+#dieton-post-list .mw_basic_list_subject .list_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+}
+
+#dieton-post-list .mw_basic_list_subject .list_left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#dieton-post-list .mw_basic_list_subject_desc a {
+  display: block;
+  color: #0f172a;
+  line-height: 1.4;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#dieton-post-list .mw_basic_list_subject_desc a:hover {
+  color: #ff5a1f;
+}
+
+#dieton-post-list .mw_basic_list_subject_desc strong {
+  font-weight: 700;
+}
+
+#dieton-post-list .mw_basic_list_subject .info {
+  display: none;
+}
+
+#dieton-post-list .mw_basic_list_subject .list_right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#dieton-post-list .mw_basic_list_subject .thumb {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #f3f4f6;
+}
+
+#dieton-post-list .mw_basic_list_subject .thumb img {
+  display: block;
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover;
+}
+
+#dieton-post-list .list_cmt {
+  min-width: 28px;
+  color: #111;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#dieton-post-list .btn_usermenu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 130px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #111827;
+  font: inherit;
+  font-weight: 600;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#dieton-post-list .btn_usermenu span {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#dieton-post-list .mw_basic_line_color {
+  display: none;
+}
+
+#dieton-post-list + div a[href="write.html"],
+#dieton-post-list a[href="write.html"] {
+  background: #111827 !important;
+  border-radius: 2px !important;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  #dieton-post-list .mw_basic_list_table colgroup,
+  #dieton-post-list .mw_basic_list_tr_head,
+  #dieton-post-list .media-on-text {
+    display: none;
+  }
+
+  #dieton-post-list .mw_basic_list_table,
+  #dieton-post-list .mw_basic_list_table tbody,
+  #dieton-post-list .mw_basic_list_tr_data,
+  #dieton-post-list .mw_basic_list_tr_data td {
+    display: block;
+    width: 100%;
+  }
+
+  #dieton-post-list .mw_basic_list_num {
+    display: none;
+  }
+
+  #dieton-post-list .mw_basic_list_subject .info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+    color: #6b7280;
+    font-size: 12px;
+  }
+
+  #dieton-post-list .mw_basic_list_subject_desc a {
+    white-space: normal;
+  }
+}
+
+/* Board view page */
+#mw_basic .bbs_title_box {
+  margin-bottom: 22px;
+}
+
+#mw_basic .bbs_title_box .gnb-sub-menu {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+#mw_basic .bbs_title_box .nice-select,
+#mw_basic .bbs_title_box .swap_title {
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#mw_basic .bbs_title_box .board_content_head p {
+  margin: 7px 0;
+  color: #9394a4;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+#mw_basic .bbs_hotlist_box {
+  margin: 18px 0 24px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid #ececec;
+}
+
+#mw_basic .bbs_hotlist_box .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#mw_basic .bbs_hotlist_box h2 {
+  margin: 0;
+  color: #111;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#mw_basic .bbs_hotlist_box .title a {
+  color: #2563eb;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+#mw_basic .bbs_hotlist_box ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#mw_basic .bbs_hotlist_box li a {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: #0f172a;
+  font-size: 13px;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+#mw_basic .bbs_hotlist_box .num {
+  flex: 0 0 18px;
+  color: #111;
+  font-weight: 700;
+}
+
+#mw_basic .bbs_hotlist_box .best,
+#mw_basic .view_subject_box .ingibest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 18px;
+  margin-right: 6px;
+  border-radius: 2px;
+  background: #111827;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+#mw_basic .bbs_hotlist_box .subject {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mw_basic .bbs_hotlist_box .cmt {
+  flex: 0 0 auto;
+  margin-left: 6px;
+  color: #111;
+  font-size: 12px;
+}
+
+#mw_basic .view_subject_box {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 20px 0 14px;
+  border-top: 2px solid #111;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#mw_basic .view_subject_box h1,
+#mw_basic .view_subject_box .subject {
+  margin: 0;
+  color: #111827;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+#mw_basic .view_info_top_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 42px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ececec;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+#mw_basic .view_info_top_box .flex,
+#mw_basic .view_top_btns,
+#mw_basic .content-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#mw_basic .mw_basic_view_content {
+  padding: 28px 0 36px;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+#mw_basic .mw_basic_view_content img {
+  max-width: 100%;
+  height: auto;
+}
+
+#mw_basic .content-footer {
+  justify-content: center;
+  padding: 20px 0;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+#mw_basic .board-comment-list,
+#mw_basic .board-comment-form {
+  margin-top: 22px;
+  border-top: 2px solid #111;
+}
+
+#mw_basic .board-comment-list ul,
+#mw_basic .board-comment-list ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#mw_basic .board-comment-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+#mw_basic .board-comment-form {
+  padding-top: 16px;
+}
+
+#mw_basic .board-comment-form textarea {
+  width: 100%;
+  min-height: 96px;
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+}
+
+@media (max-width: 768px) {
+  #mw_basic .bbs_hotlist_box ul {
+    grid-template-columns: 1fr;
+  }
+
+  #mw_basic .view_info_top_box {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Write and record subpages */
+.dieton-write-page,
+.dieton-record-page {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+}
+
+.dieton-write-page > h2,
+.dieton-record-page > h2 {
+  margin: 0 0 18px !important;
+  padding: 0 0 12px !important;
+  border-bottom: 2px solid #111 !important;
+  color: #0f172a !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.35;
+}
+
+.dieton-record-page > h2 span {
+  display: inline-block;
+  margin-left: 8px;
+  color: #7b8191 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+
+.dieton-write-page form {
+  display: block !important;
+}
+
+.dieton-write-page select,
+.dieton-write-page input[type="text"],
+.dieton-record-page input[type="text"] {
+  width: 100% !important;
+  height: 42px !important;
+  box-sizing: border-box;
+  margin: 0 0 10px !important;
+  padding: 0 12px !important;
+  border: 1px solid #d8d8d8 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: #111827 !important;
+  font-size: 14px !important;
+}
+
+.dieton-write-page select:focus,
+.dieton-write-page input[type="text"]:focus,
+.dieton-write-page textarea:focus,
+.dieton-record-page input[type="text"]:focus {
+  border-color: #111 !important;
+  outline: none;
+}
+
+.dieton-write-page form > div[style*="border:1px"] {
+  margin-top: 6px;
+  border: 1px solid #d8d8d8 !important;
+  border-radius: 0 !important;
+}
+
+.dieton-write-page form > div[style*="border:1px"] > div:first-child {
+  min-height: 40px;
+  box-sizing: border-box;
+  padding: 6px 8px !important;
+  border-bottom: 1px solid #d8d8d8 !important;
+  background: #f7f7f7 !important;
+}
+
+.dieton-write-page form > div[style*="border:1px"] button[type="button"] {
+  min-width: 32px;
+  height: 28px;
+  padding: 0 9px !important;
+  border: 1px solid #c9c9c9 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: #111 !important;
+  font-size: 12px !important;
+}
+
+.dieton-write-page textarea {
+  min-height: 430px !important;
+  padding: 14px !important;
+  border: 0 !important;
+  color: #222 !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+.dieton-write-page form > div:last-child {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 6px !important;
+  margin-top: 14px !important;
+}
+
+.dieton-write-page form > div:last-child a,
+.dieton-write-page form > div:last-child button,
+.dieton-record-page button {
+  min-width: 84px;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 18px !important;
+  border-radius: 0 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 38px;
+  text-align: center;
+}
+
+.dieton-write-page form > div:last-child a {
+  border: 1px solid #c9c9c9 !important;
+  background: #fff !important;
+  color: #333 !important;
+}
+
+.dieton-write-page form > div:last-child button,
+.dieton-record-page button {
+  border: 1px solid #111827 !important;
+  background: #111827 !important;
+  color: #fff !important;
+}
+
+.dieton-record-page > div {
+  margin: 0 !important;
+  padding: 18px 0 0;
+  border-top: 1px solid #ececec;
+}
+
+.dieton-record-page h3 {
+  margin: 0 0 12px !important;
+  color: #111 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+}
+
+.dieton-record-page label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 18px 10px 0 !important;
+  color: #333;
+  font-size: 13px;
+}
+
+.dieton-record-page button {
+  display: inline-block;
+  width: auto !important;
+  margin-top: 10px !important;
+}

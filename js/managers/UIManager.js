@@ -39,7 +39,7 @@ class UIManager {
     
     // 테이블 레이아웃 그대로 활용
     html += '<table width="100%" cellpadding="0" cellspacing="0" class="mw_basic_list_table">';
-    html += '<colgroup><col width="80"><col width=""><col width="120"><col width="80"><col width="50"><col width="50"></colgroup>';
+    html += '<colgroup><col style="width:70px"><col><col style="width:150px"><col style="width:86px"><col style="width:72px"><col style="width:72px"></colgroup>';
     
     // 테이블 헤더
     html += `
@@ -73,7 +73,7 @@ class UIManager {
         <tr class="mw_basic_list_tr mw_basic_list_tr_data ">
             <td class="mw_basic_list_num media-no-text">${num}</td>
             <td class="mw_basic_list_subject">
-                <div class="list_wrap">
+                <div class="list_wrap flex_spbtw">
                     <div class="list_left">
                         <div class="mw_basic_list_subject_desc">
                             <a href="post.html?id=${post.id}">

@@ -105,7 +105,7 @@ $(function () {
   }
 
   //  ------- ** 이벤트 팝업 닫기 및 쿠키저장 ** -------
-  // 이벤트 안내 팝업 (drlist - 탈모의느님 event_20250908)
+  // 이벤트 안내 팝업 (drlist - DietOn event_20250908)
   checkCookieForEventPop("godDoctorEventPop");
   setCookieEventPop("godDoctorEventPop");
 

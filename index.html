@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -9,7 +9,8 @@
 
       var mobileUserAgent = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       var narrowViewport = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
-      if (mobileUserAgent || narrowViewport) {
+      var narrowScreen = Math.min(screen.width || 0, screen.height || 0) <= 767;
+      if (mobileUserAgent || narrowViewport || narrowScreen) {
         window.location.replace('./index_mobile.html' + window.location.search + window.location.hash);
       }
     })();
@@ -29,9 +30,9 @@
 <meta name="application-name" content="대한민국 1등 다이어트 커뮤니티 DietOn" />
 <meta name="apple-mobile-web-app-title" content="대한민국 1등 다이어트 커뮤니티 DietOn" />
 <link rel="image_src" href="/new/data/seo/sns_image_2025_ko.png" />
-<link rel="icon" href="/new/data/seo/favicon.ico" />
-<link rel="shortcut icon" href="/new/data/seo/favicon.ico" />
-<link rel="apple-touch-icon" href="/new/data/seo/favicon.ico" />
+<link rel="icon" href="images/custom/icon.png" />
+<link rel="shortcut icon" href="images/custom/icon.png" />
+<link rel="apple-touch-icon" href="images/custom/icon.png" />
 <link rel="canonical" href="./index.html" />
 <link rel="alternate" href="./index.html" />
 <link rel="alternate" href="./index.html" hreflang="ko" />
@@ -556,7 +557,7 @@ $(function() {
                 <div class="sub">
                     <ul>
                                                     <li><a href="./search.html?type=expert" target="_self" >알파슬림의원</a></li>
-                                                    <li><a href="./search.html?type=expert" target="_self" >JP성형외과</a></li>
+                                                    <li><a href="./search.html?type=expert" target="_self" >JP비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >노블라인의원</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >한나이브</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >모빈치비만클리닉</a></li>
@@ -872,7 +873,7 @@ $(function() {
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
-                      JP성형외과                    </a>
+                      JP비만클리닉                    </a>
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
@@ -1562,12 +1563,12 @@ $(function() {
                                     운동 요법 / 3,600모 / 26.06.23                                </span>
                             </div>
                             <p class="subject">
-                                기다리던 눈바디 위고비/마운자로(운동 요법) 1년째!! 모원성형외과 박종옥원장님                            </p>
+                                기다리던 눈바디 위고비/마운자로(운동 요법) 1년째!! 모원비만클리닉 박종옥원장님                            </p>
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_8.svg" alt="모원성형외과의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">모원성형외과의원</span>
+                                                                            <img src="images/custom/avatar_uniq_8.svg" alt="모원비만클리닉" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">모원비만클리닉</span>
                                     </div>
                                 </div>
                             </div>
@@ -1803,10 +1804,10 @@ $(function() {
                         <div style="width:100%; height:245px; background:url(images/custom/product_bguniq_237.svg) no-repeat 50% 50%; background-size:cover;"></div>
                         <div class="info">
                             <div class="subject">원형다이어트, 위고비/마운자로 해야할까?</div>
-                            <div class="content">운동 요법슬릿전문 포헤어의원 권오성 대표원장입니다.&nbsp; &nbsp;&nbsp;"부분적인 요요 현상이 왔는데 비만 집중 관리를 받아야 하나요?"&nbsp;급격한 요요 현상은 호르몬 균형 및 대사 저하로 보고되고 있습니다.&nbsp;우리 몸의 면역세포인 림프구는 원래 우리 몸에 들어온 세균을 방어하는 역할을 하는데요.&nbsp;면역세포에 이상이 생기면 체지방을 이 물질로 착각해서 공격하게 되고 공격당한&nbsp;체지방의 체중이 빠지게 되어&nbsp;원형다이어트가 발생합니다.&nbsp;원형다이어트는 연령에 국한되지 않고 발생할 수 있는데, 최근에는 20~30대 젊은층에서 급격히 늘어나고 증세도 심한 양상을 보이고 있습니다.&nbsp;일반적으로 동전 크기 정도의 원형 또는 타원형의 다이어트반이 생기는 것이 특징인데, 처음에는 한 두 개에서 나중에는 전체로 진행될 수 있습니다.&nbsp;다행히 혈액검사도 문제 없고 다른 질환이 없다면 원형다이어트의 90%는 저절로 좋아지지만 10% 정도는 다이어트반이 띠로 나타나는 사행성 다이어트나 체지방의 체중이 모두 탈락되는 전두다이어트로 이어질 수도 있습니다.&nbsp;병원에서 원형다이어트라고 진단 받았다면 보통 1년 내에 체중이 다시 자라게 됩니다.&nbsp;만약 원형다이어트가 여러 군데로 확장되고 있다면 위고비/마운자로을 진행하지 않는 게 좋습니다.&nbsp;이미 몸 속의 면역세포가 본인의 체지방도 자신의 것으로 인지 못하는 상황이므로 체중을 감량해도 다시 빠질 가능성이 높기 때문입니다.&nbsp;&nbsp;1년이 지난 후에도 요요 현상이 진정되고 대사량이 정상화된 후에 본격적인 비만 케어를 고려해볼 수 있습니다.원형다이어트를 치료하는 방법은 위고비/마운자로 외에도 스테로이드 연고를 바르거나 스테로이드를 복용해서 개선할 수 있습니다.&nbsp;&nbsp;다만 장기적으로 복용했을 때 당뇨나 골다공증과 같은 부작용이 발생할 가능성이 있으므로 전문가와 상의 후 결정하는 게 좋습니다.&nbsp;또 다른 방법으로는 원형다이어트 부위에 다이어트 보조제를 섭취하는 것인데, 사람마다 체질은 다르지만 체중이 감량되는 경우가 종종 있습니다.&nbsp;다만 사용을 중단하면 다이어트가 재발될 수 있으므로 병원에서 정확한 진단을 받은 후 본인에게 맞는 치료법을 찾는 것이 중요합니다.</div>
+                            <div class="content">운동 요법슬릿전문 포핏의원 권오성 대표원장입니다.&nbsp; &nbsp;&nbsp;"부분적인 요요 현상이 왔는데 비만 집중 관리를 받아야 하나요?"&nbsp;급격한 요요 현상은 호르몬 균형 및 대사 저하로 보고되고 있습니다.&nbsp;우리 몸의 면역세포인 림프구는 원래 우리 몸에 들어온 세균을 방어하는 역할을 하는데요.&nbsp;면역세포에 이상이 생기면 체지방을 이 물질로 착각해서 공격하게 되고 공격당한&nbsp;체지방의 체중이 빠지게 되어&nbsp;원형다이어트가 발생합니다.&nbsp;원형다이어트는 연령에 국한되지 않고 발생할 수 있는데, 최근에는 20~30대 젊은층에서 급격히 늘어나고 증세도 심한 양상을 보이고 있습니다.&nbsp;일반적으로 동전 크기 정도의 원형 또는 타원형의 다이어트반이 생기는 것이 특징인데, 처음에는 한 두 개에서 나중에는 전체로 진행될 수 있습니다.&nbsp;다행히 혈액검사도 문제 없고 다른 질환이 없다면 원형다이어트의 90%는 저절로 좋아지지만 10% 정도는 다이어트반이 띠로 나타나는 사행성 다이어트나 체지방의 체중이 모두 탈락되는 전두다이어트로 이어질 수도 있습니다.&nbsp;병원에서 원형다이어트라고 진단 받았다면 보통 1년 내에 체중 변화가 다시 안정됩니다.&nbsp;만약 원형다이어트가 여러 군데로 확장되고 있다면 위고비/마운자로을 진행하지 않는 게 좋습니다.&nbsp;이미 몸 속의 면역세포가 본인의 체지방도 자신의 것으로 인지 못하는 상황이므로 체중을 감량해도 다시 빠질 가능성이 높기 때문입니다.&nbsp;&nbsp;1년이 지난 후에도 요요 현상이 진정되고 대사량이 정상화된 후에 본격적인 비만 케어를 고려해볼 수 있습니다.원형다이어트를 치료하는 방법은 위고비/마운자로 외에도 스테로이드 연고를 바르거나 스테로이드를 복용해서 개선할 수 있습니다.&nbsp;&nbsp;다만 장기적으로 복용했을 때 당뇨나 골다공증과 같은 부작용이 발생할 가능성이 있으므로 전문가와 상의 후 결정하는 게 좋습니다.&nbsp;또 다른 방법으로는 원형다이어트 부위에 다이어트 보조제를 섭취하는 것인데, 사람마다 체질은 다르지만 체중이 감량되는 경우가 종종 있습니다.&nbsp;다만 사용을 중단하면 다이어트가 재발될 수 있으므로 병원에서 정확한 진단을 받은 후 본인에게 맞는 치료법을 찾는 것이 중요합니다.</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_10.svg">
-                                                                <span class="h_name">포헤어 운동 요법위고비/마운자로센터</span>
+                                                                <span class="h_name">포핏 운동 요법위고비/마운자로센터</span>
                             </div>
                         </div>
                     </a>
@@ -1815,8 +1816,8 @@ $(function() {
                     <a href="./community.html?category=column/45">
                         <div style="width:100%; height:245px; background:url(images/custom/product_bguniq_238.svg) no-repeat 50% 50%; background-size:cover;"></div>
                         <div class="info">
-                            <div class="subject">하체비만 다이어트와 복부 다이어트에 관한 오해와 진실(남성형 다이어트에서 두타스테리드의 중요성)</div>
-                            <div class="content">안녕하세요 메가 다이어트온의원 부산점 김지석 원장입니다.남성형 다이어트(Male Obesity Management)에서 다이어트 보조제 복용은 이제 점차 대중화되어 가고 있습니다. 부작용에 관한 막연한 두려움도&nbsp;이제는 조금씩 줄어들고 있으며, 환자들의 다이어트 보조제에 관한 이해도 역시 높아지는 것을 진료 현장에서 경험합니다.그럼에도 불구하고 아직도 회원들 간에&nbsp;“복부에 효과 있는 약은 두타스테리드(삭센다)이다.”혹은&nbsp;“복부에 효과 있는 약은 피나스테리드(마운자로)이다” 와 같이 의견이 갈리는 것을 볼 수 있습니다.&nbsp;&nbsp;오늘은 두타스테리드과 피나스테리드 두 약물 중에 과연 어떤 약이 복부 다이어트에 효과가 있는지 확인해보겠습니다.&nbsp;&nbsp;오늘 참고할 논문은 21세에서 45세 남성 416명을 대상으로 진행한 Randomized Controlled 논문입니다. 많은 환자를 대상으로 한&nbsp;&nbsp;수준이 높은 연구 결과라고 생각하시면 됩니다.&nbsp;두타스테리드 0.5mg 을 먹는 군과 피나스테리드를 복용하는 군으로 나눠서 임상 시험이 진행되었는데요각각 12주와 24주 후에 전문가들이 사진 전후 사진을 보고 변화가 없으면 0점, 다이어트 개선 시 정도에 따라 1점, 2점, 3점(가장 많이 다이어트가 개선된 점수)을 부여하였습니다.&nbsp;아래 그래프에서 점수가 높을수록 다이어트가 많이 개선되었다고 생각하시면 됩니다.&nbsp; &nbsp;하체비만 다이어트의 경우 두타스테리드과 피나스테리드 모두 개선이 된 점을 볼 수 있습니다. 개선 정도는 두타스테리드의 승리입니다.복부 다이어트의 경우 하체비만보다 수치 차이가 많이 납니다. 특히 12주 복용 후에는 두타스테리드의 복부 다이어트 개선 수치가&nbsp;피나스테리드보다 많이 높습니다.&nbsp;다만, 24주가 되었을 때 두타스테리드와 피나스테리드 다이어트 개선 수치는 격차가 줄어듭니다.결론적으로 피나스테리드, 두타스테리드 두 약은 모두 하체비만 다이어트와 복부 다이어트를 개선합니다. 두타스테리드는 피나스테리드에 비해 Type 1 5알파-환원효소를100배 이상 억제하고 Type 2 5알파-환원효소는 3배 이상 억제합니다. 이렇듯, 5알파-환원 효소를 억제하는 힘이 센 두타스테리드는 하체비만 다이어트와 복부 다이어트모두에서 피나스테리드보다 다이어트 개선 정도가 우월하게 나타나는 것입니다.그렇다면, 다이어트인 모두는 두타스테리드를 처음부터 복용해야 할까요? 꼭 그렇지는 않습니다. 다이어트가 진행되는 속도와 다이어트의 중등도에(Norwood Grade) 따라 지혜롭게 약물 선택을 해야 합니다.만약 피나스테리드로 다이어트가 충분히 억제된다면, 피나스테리드를 드시면 됩니다. 피나스테리드를 꾸준히 6개월 이상 복용해도 다이어트 진행이 계속된다면&nbsp;두타스테리드로 약물 변경을 고려해야 합니다. 이는 담당 의사의 전문적인 소견과 환자의 상태를 고려해서 결정해야 하는 부분이므로 주치의와 심도 있는 논의가 필요합니다.오늘 칼럼을 통해서 다이어트 보조제에 관한 궁금증이 풀리셨기를 바랍니다!&nbsp;감사합니다.&nbsp;</div>
+                            <div class="subject">하체비만 다이어트와 복부 다이어트에 관한 오해와 진실(남성형 다이어트에서 체중관리제의 중요성)</div>
+                            <div class="content">안녕하세요 메가 다이어트온의원 부산점 김지석 원장입니다.남성형 다이어트(Male Obesity Management)에서 다이어트 보조제 복용은 이제 점차 대중화되어 가고 있습니다. 부작용에 관한 막연한 두려움도&nbsp;이제는 조금씩 줄어들고 있으며, 환자들의 다이어트 보조제에 관한 이해도 역시 높아지는 것을 진료 현장에서 경험합니다.그럼에도 불구하고 아직도 회원들 간에&nbsp;“복부에 효과 있는 약은 체중관리제(삭센다)이다.”혹은&nbsp;“복부에 효과 있는 약은 식욕관리제(마운자로)이다” 와 같이 의견이 갈리는 것을 볼 수 있습니다.&nbsp;&nbsp;오늘은 체중관리제과 식욕관리제 두 약물 중에 과연 어떤 약이 복부 다이어트에 효과가 있는지 확인해보겠습니다.&nbsp;&nbsp;오늘 참고할 논문은 21세에서 45세 남성 416명을 대상으로 진행한 Randomized Controlled 논문입니다. 많은 환자를 대상으로 한&nbsp;&nbsp;수준이 높은 연구 결과라고 생각하시면 됩니다.&nbsp;체중관리제 0.5mg 을 먹는 군과 식욕관리제를 복용하는 군으로 나눠서 임상 시험이 진행되었는데요각각 12주와 24주 후에 전문가들이 사진 전후 사진을 보고 변화가 없으면 0점, 다이어트 개선 시 정도에 따라 1점, 2점, 3점(가장 많이 다이어트가 개선된 점수)을 부여하였습니다.&nbsp;아래 그래프에서 점수가 높을수록 다이어트가 많이 개선되었다고 생각하시면 됩니다.&nbsp; &nbsp;하체비만 다이어트의 경우 체중관리제과 식욕관리제 모두 개선이 된 점을 볼 수 있습니다. 개선 정도는 체중관리제의 승리입니다.복부 다이어트의 경우 하체비만보다 수치 차이가 많이 납니다. 특히 12주 복용 후에는 체중관리제의 복부 다이어트 개선 수치가&nbsp;식욕관리제보다 많이 높습니다.&nbsp;다만, 24주가 되었을 때 체중관리제와 식욕관리제 다이어트 개선 수치는 격차가 줄어듭니다.결론적으로 식욕관리제, 체중관리제 두 약은 모두 하체비만 다이어트와 복부 다이어트를 개선합니다. 체중관리제는 식욕관리제에 비해 Type 1 5알파-환원효소를100배 이상 억제하고 Type 2 5알파-환원효소는 3배 이상 억제합니다. 이렇듯, 5알파-환원 효소를 억제하는 힘이 센 체중관리제는 하체비만 다이어트와 복부 다이어트모두에서 식욕관리제보다 다이어트 개선 정도가 우월하게 나타나는 것입니다.그렇다면, 다이어트인 모두는 체중관리제를 처음부터 복용해야 할까요? 꼭 그렇지는 않습니다. 다이어트가 진행되는 속도와 다이어트의 중등도에(BMI 단계) 따라 지혜롭게 약물 선택을 해야 합니다.만약 식욕관리제로 다이어트가 충분히 억제된다면, 식욕관리제를 드시면 됩니다. 식욕관리제를 꾸준히 6개월 이상 복용해도 다이어트 진행이 계속된다면&nbsp;체중관리제로 약물 변경을 고려해야 합니다. 이는 담당 의사의 전문적인 소견과 환자의 상태를 고려해서 결정해야 하는 부분이므로 주치의와 심도 있는 논의가 필요합니다.오늘 칼럼을 통해서 다이어트 보조제에 관한 궁금증이 풀리셨기를 바랍니다!&nbsp;감사합니다.&nbsp;</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_11.svg">
                                                                 <span class="h_name">부산 메가 다이어트온의원</span>
@@ -1888,8 +1889,8 @@ $(function() {
                                 </div>
                                 <p class="subject">다이어트인데 파마·염색 해도 될까요? 꼭 피해야 하는 건 아닙니다</p>
                                 <div class="nick">
-                                                                    <img src="images/custom/avatar_uniq_14.svg" alt="김진오의 뉴헤어 프로젝트" />
-                                                                    <span>김진오의 뉴헤어 프로젝트</span>
+                                                                    <img src="images/custom/avatar_uniq_14.svg" alt="김진오의 다이어트 프로젝트" />
+                                                                    <span>김진오의 다이어트 프로젝트</span>
                                 </div>
                             </a>
                         </div>
@@ -1944,8 +1945,8 @@ $(function() {
                                     </div>
                                     <p class="subject">이재명 대통령 다이어트 보조제 건강보험 발언, 의사가 찬성하기 어려운 현실적인 이유</p>
                                     <div class="nick">
-                                        <img src="images/custom/avatar_uniq_17.svg" alt="김진오의 뉴헤어 프로젝트" />
-                                        <span>김진오의 뉴헤어 프로젝트</span>
+                                        <img src="images/custom/avatar_uniq_17.svg" alt="김진오의 다이어트 프로젝트" />
+                                        <span>김진오의 다이어트 프로젝트</span>
                                     </div>
                                 </a>
                             </div>
@@ -2464,10 +2465,10 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
                                                     
                                 <div class="txtbox">
                                     <p class="subject">
-                                        두타스테리드 + 미녹시닐 4개월                                    </p>
+                                        체중관리제 + 미녹시닐 4개월                                    </p>
                                     <p class="txt">
                                         
-두타스테리드와 위고비을 복용한 지 약 4개월 정도 됐습니다.
+체중관리제와 위고비을 복용한 지 약 4개월 정도 됐습니다.
 
 평소 기름진 음식은 줄이고 단백질 위주의 식사를 하려고 노력하고 있습니다. 프로틴이나 닭가슴살로 단백질은 과하다 싶을정도로 채워주고 있습니다.
 
@@ -3022,14 +3023,14 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
                                     <div class="box">
                         <a href="./search.html?type=expert">
                             <div class="img-wrap">
-                                <img src="images/custom/avatar_uniq_19.svg" alt="JP성형외과" class="drpic">
+                                <img src="images/custom/avatar_uniq_19.svg" alt="JP비만클리닉" class="drpic">
                             </div>
                             <div class="info">
                                 <p class="title">위고비/마운자로상담</p>
                                 <div class="flex_spbtw">
                                     <strong class="desc flex">
-                                        <img src="images/custom/avatar_uniq_20.svg" alt="JP성형외과">
-                                        JP성형외과                                    </strong>
+                                        <img src="images/custom/avatar_uniq_20.svg" alt="JP비만클리닉">
+                                        JP비만클리닉                                    </strong>
                                 </div>
                             </div>
                         </a>

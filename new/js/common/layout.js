@@ -175,7 +175,7 @@ $(function () {
   // scroll animtaion
   $window.on("scroll resize", scrollAnim).trigger("resize");
 
-  // header 검색바 대다모 now slide
+  // header 검색바 DietOn now slide
   new Swiper(".headerNowListSwiper", {
     slidesPerView: 1,
     direction: "vertical",
@@ -312,7 +312,7 @@ $(function () {
   initSwiper(".historyPageTabSwiper", 0);
   initSwiper(".historyPageSwiper", 10);
 
-  //ingre skin - 탈모의약품 제조사별 검색필터
+  //ingre skin - 식단보조제 제조사별 검색필터
   if ($(".ingreCompanySearchTab").length) {
     initSwiper(".ingreCompanySearchTab", 4);
   }

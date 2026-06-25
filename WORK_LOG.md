@@ -639,3 +639,270 @@
 - `Test-Path .chrome-*` -> 모두 False
 
 주의: 해당 키는 이미 public leak으로 탐지되었으므로 Google Cloud에서 즉시 revoke/rotate 해야 함. 현재 트리 정리는 재유입 방지 조치이며, 이미 공개된 키 자체의 보안 조치를 대체하지 않음.
+
+## [2026-06-25 11:39] 전체 페이지 브라우저 QA 범위 확장 및 잔여 오류 정리
+
+**LOG_ID: 20260625_1139**
+목표: 랜딩만이 아니라 `community.html`, `post.html`, `search.html`, `write.html`, `my.html`, `record.html`, `index_mobile.html`까지 실제 브라우저 기준으로 검증 범위를 확장하고 남은 404/콘솔/원본 문구 문제를 정리.
+
+수행 작업:
+1. `scripts/build/qa_clone_pages.js`를 8개 페이지 검사로 확장.
+2. QA 기준을 `brokenImages`, 실제 외부 이미지, local 4xx, console error, 원본 도메인/원본 문구 잔존 여부로 정리.
+3. `/new/data/seo/favicon.ico` 누락으로 발생하던 404를 `images/custom/icon.png` 참조로 교체.
+4. `/new/css/member/login.css` 누락으로 발생하던 `my.html` 404를 로컬 CSS 파일 추가로 정리.
+5. 메인 PC 배너의 `main_index_banner_bg.jpg`에 남아 있던 이미지 속 hair-loss 문구를 제거하기 위해 CSS 기반 배경으로 교체.
+6. `my.html` 로그인 화면의 검은 배경 로고 PNG를 컬러 `images/custom/logo.svg`로 교체.
+7. QA 후 재생성된 `.chrome-qa` 프로필 캐시를 삭제.
+
+검증:
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/qa_clone_pages.js` -> 8개 페이지 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`
+- 갱신 캡처: `archive/misc/*_qa.png`
+- Google API Key 패턴 재검색: 결과 없음
+
+결과: 자동 QA 기준으로 전체 지정 페이지의 broken image, 외부 이미지 로드, 로컬 4xx, 콘솔 오류, 원본 문구 노출이 모두 0으로 확인됨. 시각 확인에서 PC 메인 배너의 이미지 속 원본 문구와 로그인 화면 검은 로고 박스도 수정됨.
+
+## [2026-06-25 12:05] 검색 페이지 전용 화면 보강
+
+**LOG_ID: 20260625_1205**
+목표: `search.html`이 메인 랜딩 블록처럼 보이던 문제를 줄이고, 검색/병원 찾기 범위에 맞는 전용 화면으로 보이게 정리.
+
+수행 작업:
+1. `search.html`의 `body`에 `search-page` 클래스를 부여.
+2. 검색 페이지에서는 메인 전용 광고/배너/카테고리/홈 콘텐츠 블록을 숨김.
+3. 검색 전용 본문 추가:
+   - 검색 입력 영역
+   - 전체/비만클리닉/다이어트 의사/다이어트 성지/식단&보조제 탭
+   - 디렉터리 카드 3개
+   - 결과형 리스트 3개
+4. 검색 페이지 캡처를 확인해 첫 화면이 검색/디렉터리 페이지로 보이도록 조정.
+5. QA 후 재생성된 `.chrome-qa` 캐시 삭제.
+
+검증:
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 8개 페이지 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`
+- `archive/misc/pc-search_qa.png` 갱신 및 시각 확인.
+
+결과: `search.html`이 더 이상 메인 랜딩 복제 화면으로 시작하지 않고, 검색/디렉터리 목적에 맞는 페이지로 렌더링됨.
+
+## [2026-06-25 12:34] 커뮤니티 목록 테이블 렌더링 보정
+
+**LOG_ID: 20260625_1234**
+목표: `community.html`의 동적 게시판 목록이 원본형 행 테이블처럼 보이지 않고 제목/작성자/날짜/조회 정보가 세로로 무너져 보이는 문제 수정.
+
+수행 작업:
+1. `new/skin/board/miwit_forum/style.common.css`가 stub 상태라 실제 목록 스타일이 적용되지 않던 것을 확인.
+2. `#dieton-post-list .mw_basic_list_table` 계열 CSS를 추가해 번호/제목/글쓴이/날짜/조회/추천 컬럼을 고정 행 테이블로 정렬.
+3. 데스크톱에서는 제목 셀 안의 보조 정보 `.info`를 숨기고, 별도 컬럼을 사용하도록 조정.
+4. 모바일에서는 헤더/별도 컬럼을 숨기고 제목 셀 안의 보조 정보를 다시 표시하도록 반응형 보정.
+5. `js/managers/UIManager.js`의 동적 colgroup 폭과 `list_wrap flex_spbtw` 클래스를 보정.
+6. Supabase 실시간 데이터에 섞인 테스트성 제목 `s` 같은 게시물이 클론 QA 화면에 노출되지 않도록 `js/app.js`에서 렌더링 전 필터링 및 로컬 seed fallback 추가.
+
+검증:
+- `node --check js/app.js` -> 통과
+- `node --check js/managers/UIManager.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 8개 페이지 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`
+- `archive/misc/pc-community_qa.png` 갱신 및 시각 확인.
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 커뮤니티 목록이 원본형 게시판 행 테이블에 가깝게 정렬되고, 외부 DB의 테스트성 게시물이 QA 화면을 오염시키지 않도록 보정됨.
+
+## [2026-06-25 12:52] 게시글 상세 화면 상단 레이아웃 보정
+
+**LOG_ID: 20260625_1252**
+목표: `post.html`이 게시글 상세 화면보다 최신 인기 게시물/댓글 랭킹이 평문 목록처럼 길게 무너져 보이는 문제 수정.
+
+수행 작업:
+1. `post.html`에는 원본 상세 DOM이 존재하지만 `new/skin/board/miwit_forum/style.common.css`가 stub라 상세 페이지 스타일이 적용되지 않는 상태를 확인.
+2. `#mw_basic .bbs_hotlist_box` 스타일을 추가해 최신 인기 게시물을 2열 컴팩트 목록으로 정리.
+3. `view_subject_box`, `view_info_top_box`, `mw_basic_view_content`, 댓글 목록/댓글 폼 스타일을 추가해 원본 게시글 상세 구조가 화면 안에서 정상적으로 보이게 보정.
+4. `archive/misc/pc-post_qa.png`를 갱신해 상세 제목/메타 영역이 상단 화면에 들어오는지 확인.
+
+검증:
+- `node scripts/build/qa_clone_pages.js` -> 8개 페이지 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`
+- `archive/misc/pc-post_qa.png` 갱신 및 시각 확인.
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 게시글 상세 페이지의 상단 인기글 영역이 더 이상 세로 평문처럼 무너지지 않고, 상세 제목/작성자 메타/본문 영역이 원본형 게시판 상세에 가깝게 정렬됨.
+
+## [2026-06-25 13:18] 글쓰기/기록 페이지 게시판형 폼 보정
+
+**LOG_ID: 20260625_1318**
+목표: `write.html`, `record.html` 본문이 둥근 카드형 기본 폼처럼 보여 원본 게시판 계열 화면과 톤이 맞지 않는 문제 수정.
+
+수행 작업:
+1. `write.html` 본문 폼 wrapper에 `dieton-write-page` 클래스를 추가.
+2. `record.html` 본문 기록 wrapper에 `dieton-record-page` 클래스를 추가.
+3. `new/skin/board/miwit_forum/style.common.css`에 글쓰기/기록 전용 스타일을 추가.
+4. 글쓰기 화면의 제목선, 셀렉트, 제목 입력, 에디터 툴바, textarea, 취소/작성완료 버튼을 각진 게시판형 폼으로 보정.
+5. 기록 화면의 제목선, 체중 입력, 체크박스, 저장 버튼을 같은 게시판형 톤으로 보정.
+
+검증:
+- `node --check js/app.js` -> 통과
+- `node --check js/managers/UIManager.js` -> 통과
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 8개 페이지 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`
+- `archive/misc/pc-write_qa.png`, `archive/misc/pc-record_qa.png` 갱신 및 시각 확인.
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 글쓰기와 기록 페이지가 둥근 카드형 폼에서 원본 게시판 모듈과 더 가까운 각진 입력 화면으로 정리됨.
+
+## [2026-06-25 13:40] 모바일 라우팅/메뉴 QA 자동화 보강
+
+**LOG_ID: 20260625_1340**
+목표: 모바일 `/index.html` 접근 시 `index_mobile.html`로 이동하는지, `?view=pc` 예외가 유지되는지, 모바일 전체 메뉴가 실제로 열리고 닫히는지를 자동 QA 범위에 포함.
+
+수행 작업:
+1. `scripts/build/qa_clone_pages.js`에 `mobile-index-redirect`, `mobile-index-pc-exception` 케이스 추가.
+2. QA URL 생성 시 기존 query string이 있는 경로에는 `&qa=...`를 붙이도록 수정.
+3. QA 리포트에 `finalPath`, `finalSearch`, `routeOk`, `mobileMenu` 정보를 추가.
+4. `mobile-index` 케이스에서 `#mw_toggle_button` 클릭 후 `.dieton-mobile-side` 패널과 메뉴 링크 수, 닫힘 상태를 검증하도록 추가.
+5. `index.html`의 모바일 리다이렉트 조건에 `screen.width/screen.height` 기반 보조 판정을 추가. viewport meta보다 리다이렉트 스크립트가 먼저 실행되는 환경에서도 모바일 화면 폭을 감지하도록 보정.
+
+검증:
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+- 모바일 라우팅 세부 결과:
+  - `/index.html` 모바일 viewport -> `/index_mobile.html`
+  - `/index.html?view=pc` 모바일 viewport -> `/index.html`
+  - 모바일 메뉴 버튼 있음, 열림/닫힘 정상, 메뉴 링크 13개 확인.
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 모바일 라우팅과 메뉴 상호작용이 자동 QA의 명시적 검증 항목으로 포함되었고, 모바일 리다이렉트 판정이 더 견고해짐.
+
+## [2026-06-25 13:58] 사용자 노출 속성 문구 QA 보강
+
+**LOG_ID: 20260625_1358**
+목표: 화면 본문 텍스트뿐 아니라 `alt`, `title`, `placeholder`, `aria-label`, SEO/OG/Twitter meta content 등 사용자 또는 브라우저 UI에 노출될 수 있는 문구성 속성에도 원본 주제어가 남아 있는지 자동 검증.
+
+수행 작업:
+1. `scripts/build/qa_clone_pages.js`의 DOM 검사 범위에 문구성 속성 검사를 추가.
+2. 검사 대상:
+   - `[alt]`
+   - `[title]`
+   - `[placeholder]`
+   - `[aria-label]`
+   - `meta[name="description"]`
+   - `meta[name="keywords"]`
+   - `meta[property^="og:"]`
+   - `meta[name^="twitter:"]`
+3. QA 리포트에 `hasAttributeOriginalTerms`, `attributeOriginalTermMatches`를 추가.
+
+검증:
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 본문뿐 아니라 사용자 노출 가능 속성 문구에서도 원본 도메인/주제어가 남지 않았음을 자동 QA로 확인할 수 있게 됨.
+
+## [2026-06-25 14:18] 일회성 build/seed 산출물 정리
+
+**LOG_ID: 20260625_1418**
+목표: 런타임/QA에 필요 없는 일회성 원격 asset 조사 리포트와 Supabase seed 보조 파일을 정리. 사용자가 만든 `.py`, `.bat` 파일은 보존.
+
+삭제 파일:
+- `scripts/build/remote_asset_report.json`
+- `scripts/build/get_ad_size.ps1`
+- `scripts/build/get_banner_size.ps1`
+- `scripts/build/get_dims.ps1`
+- `scripts/build/insert_dummy.sql`
+- `scripts/build/insert_supabase.js`
+- `scripts/build/insert_supabase_fetch.js`
+- `scripts/build/gen_sql.js`
+
+보존 파일:
+- `scripts/build/tmp_mobile_probe.js`: 이전 모바일 QA 로그에 기록된 검증 스크립트라 보존.
+- `scripts/build/zip_project.py`, `scripts/build/zip_project_all.py`, `scripts/build/git_pull.bat`, `scripts/build/push_github.bat`: 사용자 작성 py/bat 파일이라 보존.
+- `scripts/build/localize_remote_assets.js`: 원격 asset 로컬화 재검사용 도구라 보존.
+
+검증:
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node --check js/app.js` -> 통과
+- `node --check js/managers/UIManager.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+- `Test-Path .chrome-qa` -> `False`
+- Google API Key 접두 패턴 검색 -> 결과 없음
+- `git ls-files .chrome-local .chrome-origin .chrome-qa .chrome-test | Measure-Object` -> `Count: 0`
+
+결과: 불필요한 일회성 build/seed 산출물을 제거했고, 정리 후에도 전체 브라우저 QA와 asset 검증은 통과.
+## [2026-06-25 14:42] 원본 용어 주석 정리 및 원본 도메인 요청 QA 강화
+
+**LOG_ID: 20260625_1442**
+목표: 화면에 노출되지 않는 CSS/JS 주석까지 원본 대다모/탈모 주제어가 남지 않도록 정리하고, 브라우저 QA에서 원본 도메인으로 실제 네트워크 요청이 발생하는지도 자동 검증.
+
+수행 작업:
+1. `new/theme/miwit/style_new.css`, `new/js/common/layout.js`, `new/js/common/banner.js`, `new/css/common.css`, `new/css/common/button/usermenu.css`, `new/css/banner/banner_dieton_pick.inc.css`, `new/css/banner/banner_dieton_pick.inc_legacy.css`의 원본 출처성 주석을 DietOn/다이어트 문맥으로 정리.
+2. `scripts/build/qa_clone_pages.js`에 `originalDomainRequests` 감시를 추가.
+3. QA 실패 조건에 원본 도메인 요청 수를 포함하여, `daedamo.com`, `dieton.com`, `image.dieton.com`으로 실제 요청이 발생하면 non-zero 종료되도록 보강.
+
+검증:
+- `rg -n "대다모|탈모|모발이식|모발|두피|가발|증모" index.html index_mobile.html community.html post.html search.html write.html my.html record.html js new -S` -> 결과 없음
+- `rg -n "https?://(www\.)?daedamo\.com|https?://image\.dieton\.com|https?://dieton\.com" index.html index_mobile.html community.html post.html search.html write.html my.html record.html js new -S` -> 결과 없음
+- `node --check new/js/common/layout.js` -> 통과
+- `node --check new/js/common/banner.js` -> 통과
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `originalDomainRequests 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+
+결과: 원본 주제어/원본 URL/원본 도메인 요청이 활성 HTML/CSS/JS 및 브라우저 QA 기준에서 모두 제거됨을 확인.
+## [2026-06-25 15:18] 모바일 하위 메뉴 클론 보강
+
+**LOG_ID: 20260625_1518**
+목표: 모바일 햄버거 메뉴가 단순 아이콘 그리드만 보여 하위 메뉴 클론이 부족했던 문제를 수정하고, PC 전체메뉴/모바일 퀵메뉴/모바일 사이드메뉴 열림 상태를 검증.
+
+수행 작업:
+1. `index_mobile.html`의 모바일 사이드 메뉴 생성 로직을 그룹형 아코디언 구조로 재구성.
+2. 공지/등업, 비대면 견적받기, 닥터다이어트, 다이어트톡톡, 위고비/마운자로, 눈바디/지방흡입, 다이어트 보조제, 식단&운동케어, 다이어트 후기, 전문의상담, 비만클리닉, 다이어트칼럼, PR&MARKET까지 13개 그룹과 하위 링크를 구성.
+3. 모바일 메뉴 스타일을 원본 계열 사이드 메뉴처럼 상단 브랜드/액션 버튼/그룹 제목/하위 링크/펼침 아이콘 형태로 보정.
+4. 모바일 퀵메뉴 팝업이 화면 일부만 덮는 현상을 막기 위해 fixed full-screen 폭/위치 스타일을 보강.
+5. `scripts/build/qa_clone_pages.js`의 모바일 메뉴 검증 조건에 `groupCount`, `subCount`를 추가하여, 단순 링크 수뿐 아니라 하위 메뉴 구조 존재까지 확인하도록 강화.
+
+검증:
+- 메뉴 캡처 QA 결과:
+  - PC 전체메뉴: `topItems 9`, `subItems 69`, `popupVisible true`
+  - 모바일 사이드 메뉴: `groups 13`, `boards 13`, `links 92`, `open true`
+  - 모바일 퀵메뉴: `links 10`, `open true`
+- 스크린샷:
+  - `archive/misc/pc-all-menu_open_qa.png`
+  - `archive/misc/mobile-side-menu_open_qa.png`
+  - `archive/misc/mobile-quick-menu_open_qa.png`
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `originalDomainRequests 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+
+결과: 모바일 햄버거 메뉴에도 하위 메뉴 그룹/링크 구조가 들어갔고, 전체 QA에서 해당 구조가 유지되는지 자동 검증하도록 보강됨.
+## [2026-06-25 15:46] 전체 클론 재점검 및 도메인 불일치 문구 정리
+
+**LOG_ID: 20260625_1546**
+목표: "모든 부분이 잘 클론코딩 되었는지" 기준으로 자동 QA뿐 아니라 주요 화면을 다시 살피고, DietOn 문맥과 맞지 않는 잔여 원본/타 도메인 문구를 정리.
+
+수행 작업:
+1. PC 랜딩, 모바일 랜딩, 게시판 목록, 게시글 상세, 검색, 글쓰기, 기록, 로그인 화면 스크린샷을 재확인.
+2. 화면/본문/속성에 남은 `성형외과`, `헤어`, `댄디`, `닥터노비드`, `피나스테리드`, `두타스테리드`, `Norwood` 등 도메인 불일치 표현을 DietOn/비만/다이어트 문맥으로 정리.
+3. 상단 광고 문구를 `비용보다는 후기! 다이어트 후기는 DietOn`으로 정리.
+4. 검색/전문의/병원명 계열 문구를 `JP비만클리닉`, `모원비만클리닉`, `다나비만클리닉`, `바람부는날에도 비만클리닉` 등으로 정리.
+
+검증:
+- `rg -n "성형외과|뉴헤어|포헤어|헤어플란트|닥터노비드|댄디|피나스테리드|두타스테리드|Norwood|탈모|모발|가발|대다모|두피|증모" index.html index_mobile.html community.html post.html search.html write.html my.html record.html js new -S` -> 결과 없음
+- `rg -n "https?://(www\.)?daedamo\.com|https?://image\.dieton\.com|https?://dieton\.com" index.html index_mobile.html community.html post.html search.html write.html my.html record.html js new -S` -> 결과 없음
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `originalDomainRequests 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
+
+결과: 자동 QA 기준과 주요 화면 육안 점검 기준에서 남아 있던 비-DietOn 문맥 문구를 추가 정리했고, 전체 페이지 QA를 재통과.

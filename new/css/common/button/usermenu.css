@@ -29,7 +29,7 @@ button.btn_usermenu > img + span {
 
   vertical-align: text-bottom;
 }
-/* 병원 로고 및 대다모입점병원 */
+/* 병원 로고 및 DietOn 입점병원 */
 button.btn_usermenu.hospital img {
     border-radius: 50%;
     overflow: hidden;

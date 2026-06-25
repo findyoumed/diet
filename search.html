@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -17,9 +17,9 @@
 <meta name="application-name" content="대한민국 1등 다이어트 커뮤니티 DietOn" />
 <meta name="apple-mobile-web-app-title" content="대한민국 1등 다이어트 커뮤니티 DietOn" />
 <link rel="image_src" href="/new/data/seo/sns_image_2025_ko.png" />
-<link rel="icon" href="/new/data/seo/favicon.ico" />
-<link rel="shortcut icon" href="/new/data/seo/favicon.ico" />
-<link rel="apple-touch-icon" href="/new/data/seo/favicon.ico" />
+<link rel="icon" href="images/custom/icon.png" />
+<link rel="shortcut icon" href="images/custom/icon.png" />
+<link rel="apple-touch-icon" href="images/custom/icon.png" />
 <link rel="canonical" href="./index.html" />
 <link rel="alternate" href="./index.html" />
 <link rel="alternate" href="./index.html" hreflang="ko" />
@@ -210,7 +210,7 @@
 </style>
 
 </head>
-<body class="">
+<body class="search-page">
   <!-- Google Tag Manager (noscript) -->
   <!-- GTM iframe (Disabled) -->
   <!-- End Google Tag Manager (noscript) -->
@@ -545,7 +545,7 @@ $(function() {
                     <ul>
                                                     <li><a href="./search.html?type=expert" target="_self" >노블라인의원</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >알파슬림의원</a></li>
-                                                    <li><a href="./search.html?type=expert" target="_self" >JP성형외과</a></li>
+                                                    <li><a href="./search.html?type=expert" target="_self" >JP비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >한나이브</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >모션비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >연세미다인</a></li>
@@ -864,7 +864,7 @@ $(function() {
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
-                      JP성형외과                    </a>
+                      JP비만클리닉                    </a>
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
@@ -984,6 +984,175 @@ $(function() {
 .index_category_box .i_board_shampoo { background: url(images/custom/icon_salad.svg) no-repeat center center / contain !important; display: inline-block; width: 50px !important; height: 50px !important; }
 .index_category_box .i_board_job { background: url(images/custom/icon_review.svg) no-repeat center center / contain !important; display: inline-block; width: 50px !important; height: 50px !important; }
 
+body.search-page a.banner_gif,
+body.search-page #mw5 .index_banner1_box,
+body.search-page #mw5 .graftover-notice-banner.main-index,
+body.search-page #mw5 .index_category_box,
+body.search-page #mw5 .index_content_box {
+  display: none !important;
+}
+
+.search-directory-page {
+  max-width: 1060px;
+  margin: 0 auto 64px;
+}
+
+.search-directory-page .search-hero {
+  padding: 34px 38px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.search-directory-page .search-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.search-directory-page .search-copy {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.search-directory-page .search-form {
+  display: flex;
+  height: 54px;
+  border: 2px solid #111827;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.search-directory-page .search-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 22px;
+  border: 0;
+  font-size: 17px;
+  outline: none;
+}
+
+.search-directory-page .search-form button {
+  width: 76px;
+  border: 0;
+  background: #111827;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search-directory-page .search-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0 0;
+  flex-wrap: wrap;
+}
+
+.search-directory-page .search-tabs a {
+  padding: 8px 14px;
+  border: 1px solid #dbe1ea;
+  border-radius: 20px;
+  color: #374151;
+  font-size: 14px;
+  text-decoration: none;
+  background: #f8fafc;
+}
+
+.search-directory-page .search-tabs a.active {
+  border-color: #1e88e5;
+  background: #1e88e5;
+  color: #fff;
+  font-weight: 700;
+}
+
+.search-directory-page .directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.search-directory-page .directory-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111827;
+  background: #fff;
+}
+
+.search-directory-page .directory-card img {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.search-directory-page .directory-card strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+.search-directory-page .directory-card span {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+.search-directory-page .result-panel {
+  margin-top: 22px;
+  border-top: 2px solid #111827;
+}
+
+.search-directory-page .result-row {
+  display: grid;
+  grid-template-columns: 1fr 130px 110px;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+  text-decoration: none;
+  color: #111827;
+}
+
+.search-directory-page .result-row strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.search-directory-page .result-row p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.search-directory-page .result-row .badge {
+  justify-self: start;
+  padding: 5px 10px;
+  border-radius: 14px;
+  background: #eef6ff;
+  color: #1e88e5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .search-directory-page {
+    margin: 0 20px 40px;
+  }
+  .search-directory-page .directory-grid,
+  .search-directory-page .result-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 
@@ -1028,6 +1197,57 @@ $(function() {
         </div>
     </div>
 </a>
+
+<section class="search-directory-page">
+  <div class="search-hero">
+    <h1 class="search-title">다이어트 검색</h1>
+    <p class="search-copy">비만클리닉, 다이어트 의사, 위고비/마운자로 후기, 식단 상담처를 한 번에 찾아보세요.</p>
+    <form class="search-form" action="search.html" method="get">
+      <input type="search" name="q" placeholder="지역, 병원명, 후기 키워드 검색">
+      <button type="submit">검색</button>
+    </form>
+    <div class="search-tabs">
+      <a class="active" href="search.html">전체</a>
+      <a href="search.html?type=clinic">비만클리닉</a>
+      <a href="search.html?type=expert">다이어트 의사</a>
+      <a href="search.html?type=consulting">다이어트 성지</a>
+      <a href="search.html?type=product">식단&보조제</a>
+    </div>
+  </div>
+
+  <div class="directory-grid">
+    <a class="directory-card" href="search.html?type=clinic">
+      <img src="images/custom/icon_doctor.svg" alt="">
+      <span><strong>비만클리닉 찾기</strong>지역별 상담, 후기, 누적 답변을 비교합니다.</span>
+    </a>
+    <a class="directory-card" href="search.html?type=expert">
+      <img src="images/custom/icon_treatment.svg" alt="">
+      <span><strong>다이어트 의사 찾기</strong>위고비/마운자로 상담 가능 전문가를 확인합니다.</span>
+    </a>
+    <a class="directory-card" href="search.html?type=product">
+      <img src="images/custom/icon_salad.svg" alt="">
+      <span><strong>식단&보조제 찾기</strong>식단, 보조제, 체중관리 제품 후기를 모아봅니다.</span>
+    </a>
+  </div>
+
+  <div class="result-panel">
+    <a class="result-row" href="search.html?type=clinic">
+      <span><strong>JP비만클리닉</strong><p>위고비/마운자로 상담, 식단 관리, 누적 답변 2,462건</p></span>
+      <span class="badge">전문의 상담</span>
+      <span>서울 강남</span>
+    </a>
+    <a class="result-row" href="search.html?type=consulting">
+      <span><strong>다이어트 성지 찾기</strong><p>처방 후기와 가격 정보를 비교하는 커뮤니티 추천 목록</p></span>
+      <span class="badge">후기 3,329건</span>
+      <span>전국</span>
+    </a>
+    <a class="result-row" href="search.html?type=product">
+      <span><strong>식단&보조제 리뷰</strong><p>인바디 측정, 체중 관리, 보조제 복용 후기를 확인합니다.</p></span>
+      <span class="badge">인기 검색</span>
+      <span>후기 모음</span>
+    </a>
+  </div>
+</section>
 
 
 <div class="index_category_box"><!--카테고리-->
@@ -1550,12 +1770,12 @@ $(function() {
                                     운동 요법 / 3,600모 / 26.06.23                                </span>
                             </div>
                             <p class="subject">
-                                기다리던 눈바디 위고비/마운자로(운동 요법) 1년째!! 모원성형외과 박종옥원장님                            </p>
+                                기다리던 눈바디 위고비/마운자로(운동 요법) 1년째!! 모원비만클리닉 박종옥원장님                            </p>
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_34.svg" alt="모원성형외과의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">모원성형외과의원</span>
+                                                                            <img src="images/custom/avatar_uniq_34.svg" alt="모원비만클리닉" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">모원비만클리닉</span>
                                     </div>
                                 </div>
                             </div>
@@ -1773,10 +1993,10 @@ $(function() {
                         <div style="width:100%; height:245px; background:url(images/custom/product_bguniq_291.svg) no-repeat 50% 50%; background-size:cover;"></div>
                         <div class="info">
                             <div class="subject">위고비/마운자로 식단 요법 정체기가 걱정이세요?</div>
-                            <div class="content">안녕하세요, 바람부는날에도 성형외과 박수호입니다~~식단 조절과 운동 요법 중 어떤 다이어트 방법이 더 효과적인가 고민하시는 분들이 많습니다. 그러나, 우려와는 다르게 초기 식단 조절 단계에서는 정체기가 거의 오지 않고 빠른 감량을 경험할 수 있습니다. 일반적인 인바디 눈바디 상으로도 만족스러운 수치가 먼저 나옵니다. ​그러기 위해서는 모든 단계에서 신경을 써줘야 하는데, ​체계적인 인바디 검사를 통해 골격근량과 체지방량을 정확히 측정해야 합니다. 감량에 필요한 감량 수치를 충분히 채취할 수 있을 만큼 체지방가 부드러운지, 밀도가 좋은지 판단해야 합니다. 그다음 식단 요법가 좋을지, 운동 요법가 좋을지, 혹은 두 가지 방법을 동시에 해야 할지 정합니다. 식단 요법를 해야 한다면 식단 요법폭도 미리 예상해둡니다. ​2. 수술 전 디자인할 때는 체지방의 위치에 따라 탄력이 다르기 때문에 각 부위마다 식단 요법할 폭을 다르게 꼼꼼히 디자인해야 합니다. 이 과정은 반드시 집도의가 직접 해야 합니다. 디자인을 다른 사람이 대신해 주면, 실제로 식단 요법를 할 때 부위마다 달라지는 탄력에 대응을 하기 어렵습니다. ​3. 식단 요법할 때는주위의 체지방이 다치지 않는지 체지방의 각도를 계속 확인하며 식단 요법를 합니다. 수술 전에 꼼꼼히 확인해서 식단 요법선을 정했더라도 실제로 식단 요법할 때는 자주 탄력을 확인해가면서 식단 요법폭을 조정해야 합니다. ​4. 트리코파이틱 조절 (Trichophytic suture)​이름이 좀 어려운 이 조절법은 정체기선에서도 체중이 자라게 해서 정체기를 가려주는 조절법입니다. 그림으로 설명드리자면, &nbsp;체지방의 탄력에 맞게, 주위의 체지방이 다치지 않게 식단 요법를 한 다음,&nbsp;한쪽 면의 피부층만 살짝 제거해 줍니다.&nbsp;피부층은 제거했지만 아래쪽의 체지방은 남아있는 상태죠.&nbsp;이렇게 피부만 제거한 부분을 반대쪽 피부로 덮어서 조절을 해주면&nbsp;피부 아래에 남아있던 체지방이 피부를 뚫고 자라면서 정체기를 가려주게 되는 원리입니다.​​5. 체계적인 식단 및 칼로리 제한 (Galea plication)위고비/마운자로 식단 요법 정체기가 얼마나 남는지, 가장 중요한 요소는 정체기가 넓어지게 양쪽에서 당기는 힘, 장력입니다. 조절한 상처는 1주일이 지나면 아물지만, 상처에 걸려있는 장력이 사라지는 데는 훨씬 오래 걸리기 때문에,실밥을 풀고 나면 더 이상 장력을 버텨주는 힘이 없어서 정체기선이 넓어질 수 있습니다. 그래서 피부층 아래에서 오랫동안 장력을 잡아줄 방법이 필요한데, 체계적인 식단 및 칼로리 제한이 그중 하나입니다. &nbsp;식단 요법법으로 채취되는 부분은 체지방의 여러 층 중에서 건막층의 위에 있는 지방층까지입니다.&nbsp;출처: https://commons.wikimedia.org/wiki/File:Meninges-pt.svg식단 요법편을 떼 내고 나면 아래쪽에 건막이 보이는데, 이 건막이 꽤나 단단한 조직이라서 실을 걸어서 당겨도 쉽게 찢어지지 않습니다. &nbsp;그래서 장력이 걸려 있는 피부를 바로 조절하지 않고, 식단 요법면 양쪽 끝에 있는 건막에 실을 걸어서 당겨주면,&nbsp;건막에 주름이 잡히며 식단 요법폭이 줄어들게 되는데,이런 조절을 식단 요법면을 따라 여러 번 해서 전체에 걸리는 장력을 크게 줄여줄 수 있습니다. 그럼 피부를 조절했던 실을 제거하더라도 피부 밑에서 장력을 버텨주는 힘이 유지되기 때문에 정체기가 넓어지는 걸 막아줍니다.​6. 피부 조절체계적인 식단 및 칼로리 제한으로 상처면을 거의 닿을 정도로 붙여 놨기 때문에피부 조절은 상처의 가장자리를 매끈하게 맞추기만 하면 됩니다. ​7. 수술 후 관리상처는 항상 촉촉하게 유지해야 잘 낫습니다. 수술 후에는 연고를 잘 발라서 상처가 마르지 않게만 해주시면 됩니다. ~각자의 다이어트 정도나 체지방 상태에 따라 식단 요법법이 더 좋은 선택이 될 수 있는 분들이 있습니다. 그런데 식단 요법 정체기가 걱정되어서 망설이게 될 때가 있는데, 위와 같은 과정에서 신경 써서 조절하면 일상생활에서 신경 쓰일 정도로 크게 남는 정체기는 잘 없습니다. (미용실에서도 잘 못 찾는 경우도 많습니다)혹시라도 정체기가 조금 보이게 된다면, 운동 요법로 정체기에 살짝 심어주면 그 또한 가려집니다. ​식단 요법를 해야 하는데 정체기 때문에 고민되신다면, 너무 걱정 마세요~​바람부는날에도박수호였습니다. &nbsp;</div>
+                            <div class="content">안녕하세요, 바람부는날에도 비만클리닉 박수호입니다~~식단 조절과 운동 요법 중 어떤 다이어트 방법이 더 효과적인가 고민하시는 분들이 많습니다. 그러나, 우려와는 다르게 초기 식단 조절 단계에서는 정체기가 거의 오지 않고 빠른 감량을 경험할 수 있습니다. 일반적인 인바디 눈바디 상으로도 만족스러운 수치가 먼저 나옵니다. ​그러기 위해서는 모든 단계에서 신경을 써줘야 하는데, ​체계적인 인바디 검사를 통해 골격근량과 체지방량을 정확히 측정해야 합니다. 감량에 필요한 감량 수치를 충분히 채취할 수 있을 만큼 체지방가 부드러운지, 밀도가 좋은지 판단해야 합니다. 그다음 식단 요법가 좋을지, 운동 요법가 좋을지, 혹은 두 가지 방법을 동시에 해야 할지 정합니다. 식단 요법를 해야 한다면 식단 요법폭도 미리 예상해둡니다. ​2. 수술 전 디자인할 때는 체지방의 위치에 따라 탄력이 다르기 때문에 각 부위마다 식단 요법할 폭을 다르게 꼼꼼히 디자인해야 합니다. 이 과정은 반드시 집도의가 직접 해야 합니다. 디자인을 다른 사람이 대신해 주면, 실제로 식단 요법를 할 때 부위마다 달라지는 탄력에 대응을 하기 어렵습니다. ​3. 식단 요법할 때는주위의 체지방이 다치지 않는지 체지방의 각도를 계속 확인하며 식단 요법를 합니다. 수술 전에 꼼꼼히 확인해서 식단 요법선을 정했더라도 실제로 식단 요법할 때는 자주 탄력을 확인해가면서 식단 요법폭을 조정해야 합니다. ​4. 트리코파이틱 조절 (Trichophytic suture)​이름이 좀 어려운 이 조절법은 정체기선에서도 체중 변화가 안정되게 해서 정체기를 가려주는 조절법입니다. 그림으로 설명드리자면, &nbsp;체지방의 탄력에 맞게, 주위의 체지방이 다치지 않게 식단 요법를 한 다음,&nbsp;한쪽 면의 피부층만 살짝 제거해 줍니다.&nbsp;피부층은 제거했지만 아래쪽의 체지방은 남아있는 상태죠.&nbsp;이렇게 피부만 제거한 부분을 반대쪽 피부로 덮어서 조절을 해주면&nbsp;피부 아래에 남아있던 체지방이 피부를 뚫고 자라면서 정체기를 가려주게 되는 원리입니다.​​5. 체계적인 식단 및 칼로리 제한 (Galea plication)위고비/마운자로 식단 요법 정체기가 얼마나 남는지, 가장 중요한 요소는 정체기가 넓어지게 양쪽에서 당기는 힘, 장력입니다. 조절한 상처는 1주일이 지나면 아물지만, 상처에 걸려있는 장력이 사라지는 데는 훨씬 오래 걸리기 때문에,실밥을 풀고 나면 더 이상 장력을 버텨주는 힘이 없어서 정체기선이 넓어질 수 있습니다. 그래서 피부층 아래에서 오랫동안 장력을 잡아줄 방법이 필요한데, 체계적인 식단 및 칼로리 제한이 그중 하나입니다. &nbsp;식단 요법법으로 채취되는 부분은 체지방의 여러 층 중에서 건막층의 위에 있는 지방층까지입니다.&nbsp;출처: https://commons.wikimedia.org/wiki/File:Meninges-pt.svg식단 요법편을 떼 내고 나면 아래쪽에 건막이 보이는데, 이 건막이 꽤나 단단한 조직이라서 실을 걸어서 당겨도 쉽게 찢어지지 않습니다. &nbsp;그래서 장력이 걸려 있는 피부를 바로 조절하지 않고, 식단 요법면 양쪽 끝에 있는 건막에 실을 걸어서 당겨주면,&nbsp;건막에 주름이 잡히며 식단 요법폭이 줄어들게 되는데,이런 조절을 식단 요법면을 따라 여러 번 해서 전체에 걸리는 장력을 크게 줄여줄 수 있습니다. 그럼 피부를 조절했던 실을 제거하더라도 피부 밑에서 장력을 버텨주는 힘이 유지되기 때문에 정체기가 넓어지는 걸 막아줍니다.​6. 피부 조절체계적인 식단 및 칼로리 제한으로 상처면을 거의 닿을 정도로 붙여 놨기 때문에피부 조절은 상처의 가장자리를 매끈하게 맞추기만 하면 됩니다. ​7. 수술 후 관리상처는 항상 촉촉하게 유지해야 잘 낫습니다. 수술 후에는 연고를 잘 발라서 상처가 마르지 않게만 해주시면 됩니다. ~각자의 다이어트 정도나 체지방 상태에 따라 식단 요법법이 더 좋은 선택이 될 수 있는 분들이 있습니다. 그런데 식단 요법 정체기가 걱정되어서 망설이게 될 때가 있는데, 위와 같은 과정에서 신경 써서 조절하면 일상생활에서 신경 쓰일 정도로 크게 남는 정체기는 잘 없습니다. (미용실에서도 잘 못 찾는 경우도 많습니다)혹시라도 정체기가 조금 보이게 된다면, 운동 요법로 정체기에 살짝 심어주면 그 또한 가려집니다. ​식단 요법를 해야 하는데 정체기 때문에 고민되신다면, 너무 걱정 마세요~​바람부는날에도박수호였습니다. &nbsp;</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_36.svg">
-                                                                <span class="h_name">바람부는날에도 성형외과의원</span>
+                                                                <span class="h_name">바람부는날에도 비만클리닉</span>
                             </div>
                         </div>
                     </a>
@@ -1789,7 +2009,7 @@ $(function() {
                             <div class="content">안녕하세요. 김나래입니다. ~급격한 호르몬 변화나 출산 후 요요 현상으로 고통받는 분들에게 체중 증가는 단순한 외모 변화를 넘어 큰 심리적 스트레스입니다. 특히 유방암은 1기라 하더라도 암의 성격(유형)에 따라 항암 치료가 결정되기도 하고, 난소암 역시 초기 단계부터 재발률을 낮추기 위한 예방적 항암 치료가 필요한 경우가 많습니다. 오늘은 많은 분이 궁금해하시는 항암 치료 후 다이어트의 원인과 회복 과정, 그리고 영구적 다이어트의 가능성에 대해 최신 의학적 근거를 바탕으로 알아보려 합니다.​호르몬 변화 시 왜 살이 찌고 다이어트 정체기가 오는 걸까요?갑작스러운 체질 변화로 인한 요요 현상은 항암제가 우리 몸속에서 작용하는 원리와 깊은 관련이 있습니다. 인체는 급격한 영양 결핍이나 대사 저하 시 지방을 최대한 비축하려는 성질을 가지고 있습니다. 이 때문에 단기간에 과도하게 굶게 되면 기초 대사량이 급격히 하락해 오히려 요요가 오게 됩니다.이 때문에 항암제가 투여되면 체중의 성장기가 급격히 중단되는 성장기 다이어트로 이어져 1~3주 이내 부터 시작되어 1~2달까지 눈에 띄는 다이어트가 생깁니다. ​항암 치료가 끝나면 체지방은 다시 잘 자랄까요?다행히 대부분의 항암 유발 다이어트는 치료가 종료된 후 3~6개월 정도 시간이 흐르면서 서서히 회복됩니다. 하지만 호르몬 수용체 양성 유방암인 경우, 암세포의 성장을 돕는 에스트로겐을 차단하는 항호르몬 요법이 추가되기도 해요. 이 과정에서 안드로겐이 상대적으로 우세해지며 지방 세포가 다시 한번 영향을 받게 되어 체중의 회복 속도가 예상보다 더뎌지는 경우를 자주 보게 됩니다. 타목시펜과 같은 항호르몬 약물은 짧게는 5년, 길게는 10년까지도 장기 복용해야 하므로 체중 건강을 위한 꾸준한 관리가 무엇보다 중요해요. ​평소 체내에 철분이 부족하지는 않은지 세심하게 살피고, 비타민 D, 아연(Zinc), 그리고 체중의 원료가 되는 양질의 단백질을 충분히 섭취해 주는 것이 도움이 됩니다.​'영구적 항암 유발 다이어트(PCIA)'란 무엇인가요?​​간혹 치료가 끝난 뒤 6~12개월이 넘도록 체중이 충분히 회복되지 않는 경우가 있는데, 이를 영구적 항암 유발 다이어트(Persistent CIA, PCIA)라고 부릅니다. 이는 체중의 재생을 담당하는 체지방 연소세포가 암 치료 과정에서 비가역적인 손상을 입었을 때 발생하게 됩니다. 특히 유방암 표준 치료에 자주 쓰이는 도세탁셀(Docetaxel) 같은 Taxane 계열 약물은 줄기세포를 직접 타격할 가능성이 상대적으로 높아 PCIA의 위험 요인으로 꼽히기도 해요. 또한 여러 약제를 조합하는 복합 요법, 환자 개개인이 가진 유전적 민감도나 기저 질환과 영양 상태가 복합적으로 작용하면서 사람마다 회복 속도의 차이를 만들게 됩니다.&nbsp;영구적 다이어트, 예방할 수 있나요?일단 치료를 시작하기 전, 나의 치료 계획에 어떤 약물이 포함되어 있는지 의료진과 상담을 하여 경과를 미리 예측하고 알맞게 대처해 나간다면 막연한 불안감을 덜 수 있다고 생각합니다. 필요한 경우 영구적 다이어트 예방을 위하여 항암 치료 중 체지방 냉각(Scalp Cooling) 시스템을 활용하면 체지방으로 가는 약물 전달을 줄여 모근을 보호하는 데 도움을 받을 수도 있습니다. 대표 약제들에 따른 PCIA 발생 차이를 Antonella Tosti 교수님의 항암치료 후 영구다이어트 관련 논문을 기반으로 표로 한번 정리해 보았습니다. 항암제 계열 (Drug Class)대표 약제 (Common Agents)PCIA  위험도주요 특징 및 기전TaxanesDocetaxel, Paclitaxel가장 높음체지방 연소세포(Stem Cells)를 직접 손상시켜 치료 종료 후에도 재생을 방해함.Alkylating agentsCyclophosphamide, Busulfan높음주로 고용량 투여(골수 감량 전 처리 등) 시 체지방에 비가역적 손상을 입힘.AnthracyclinesDoxorubicin, Epirubicin중간다이어트 유발 빈도는 매우 높으나, 단독 사용 시 영구적으로 이어질 확률은 Taxane보다 낮음.Antimetabolites5-FU, Methotrexate낮음체중이 가늘어지는 현상은 흔하지만, 치료 중단 후 대부분 정상적으로 회복됨.~항암치료 후 찾아온 체중의 변화로 상심이 크실거라 생각됩니다. 다양한 약물과 PRP를 포함한 다양한 체지방주사치료가 가능하기 때문에 전문가와의 상담을 통해 일상을 되찾으시길 바랍니다. 몸과 마음의 건강한 회복을 항상 응원합니다!​​​&lt;참고자료&gt;​Palamaras H, Misciali C, Vincenzi C, Robles-Tenorio A, Tosti A. Permanent chemotherapy-induced alopecia: A review. J Am Acad Dermatol. 2021;84(2):404-12.Freites-Martinez A, Shapiro J, Goldfarb S, Nangia J, Jimenez JJ, Lucky H, et al. Hair disorders in cancer survivors: Epidemiology, etiology, and management. J Am Acad Dermatol. 2019;80(5):1199-213.Kluger N, Jacot W, Frouin E, Rigau V, Pouderoux S, Meunier L, et al. Permanent scalp alopecia related to breast cancer chemotherapy by taxanes: a survival study. Ann Oncol. 2012;23(11):2879-84.</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_37.svg">
-                                                                <span class="h_name">바람부는날에도 성형외과의원</span>
+                                                                <span class="h_name">바람부는날에도 비만클리닉</span>
                             </div>
                         </div>
                     </a>
@@ -1840,8 +2060,8 @@ $(function() {
                                 </div>
                                 <p class="subject">다이어트 중인데 다이어트 보조제 복용은 가능할까요?</p>
                                 <div class="nick">
-                                                                    <img src="images/custom/avatar_uniq_39.svg" alt="다나성형외과 DANA Plastic Surgery" />
-                                                                    <span>다나성형외과 DANA Plastic Surgery</span>
+                                                                    <img src="images/custom/avatar_uniq_39.svg" alt="다나비만클리닉 DANA Diet Clinic" />
+                                                                    <span>다나비만클리닉 DANA Diet Clinic</span>
                                 </div>
                             </a>
                         </div>
@@ -1914,8 +2134,8 @@ $(function() {
                                     </div>
                                     <p class="subject">이재명 대통령 다이어트 보조제 건강보험 발언, 의사가 찬성하기 어려운 현실적인 이유</p>
                                     <div class="nick">
-                                        <img src="images/custom/avatar_uniq_43.svg" alt="김진오의 뉴헤어 프로젝트" />
-                                        <span>김진오의 뉴헤어 프로젝트</span>
+                                        <img src="images/custom/avatar_uniq_43.svg" alt="김진오의 다이어트 프로젝트" />
+                                        <span>김진오의 다이어트 프로젝트</span>
                                     </div>
                                 </a>
                             </div>
@@ -2323,10 +2543,10 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
                                                     
                                 <div class="txtbox">
                                     <p class="subject">
-                                        두타스테리드 + 미녹시닐 4개월                                    </p>
+                                        체중관리제 + 미녹시닐 4개월                                    </p>
                                     <p class="txt">
                                         
-두타스테리드와 위고비을 복용한 지 약 4개월 정도 됐습니다.
+체중관리제와 위고비을 복용한 지 약 4개월 정도 됐습니다.
 
 평소 기름진 음식은 줄이고 단백질 위주의 식사를 하려고 노력하고 있습니다. 프로틴이나 닭가슴살로 단백질은 과하다 싶을정도로 채워주고 있습니다.
 
@@ -2908,14 +3128,14 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
                                     <div class="box">
                         <a href="./search.html?type=expert">
                             <div class="img-wrap">
-                                <img src="images/custom/avatar_uniq_47.svg" alt="JP성형외과" class="drpic">
+                                <img src="images/custom/avatar_uniq_47.svg" alt="JP비만클리닉" class="drpic">
                             </div>
                             <div class="info">
                                 <p class="title">위고비/마운자로상담</p>
                                 <div class="flex_spbtw">
                                     <strong class="desc flex">
-                                        <img src="images/custom/avatar_uniq_48.svg" alt="JP성형외과">
-                                        JP성형외과                                    </strong>
+                                        <img src="images/custom/avatar_uniq_48.svg" alt="JP비만클리닉">
+                                        JP비만클리닉                                    </strong>
                                 </div>
                             </div>
                         </a>

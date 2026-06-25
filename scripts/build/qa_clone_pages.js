@@ -8,7 +8,12 @@ const pages = [
   { name: 'pc-community', path: '/community.html', width: 1440, height: 1100, mobile: false },
   { name: 'pc-search', path: '/search.html', width: 1440, height: 1100, mobile: false },
   { name: 'pc-post', path: '/post.html', width: 1440, height: 1100, mobile: false },
+  { name: 'pc-write', path: '/write.html', width: 1440, height: 1100, mobile: false },
+  { name: 'pc-my', path: '/my.html', width: 1440, height: 1100, mobile: false },
+  { name: 'pc-record', path: '/record.html', width: 1440, height: 1100, mobile: false },
   { name: 'mobile-index', path: '/index_mobile.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-index-redirect', path: '/index.html', width: 390, height: 844, mobile: true, expectedFinalPath: '/index_mobile.html', skipScreenshot: true },
+  { name: 'mobile-index-pc-exception', path: '/index.html?view=pc', width: 390, height: 844, mobile: true, expectedFinalPath: '/index.html', skipScreenshot: true },
 ];
 
 function delay(ms) {
@@ -72,12 +77,14 @@ function connect(wsUrl) {
 }
 
 async function inspectPage(page) {
-  const url = `${BASE_URL}${page.path}?qa=${Date.now()}`;
+  const separator = page.path.includes('?') ? '&' : '?';
+  const url = `${BASE_URL}${page.path}${separator}qa=${Date.now()}`;
   const target = await createTarget(url);
   const cdp = connect(target.webSocketDebuggerUrl);
   const consoleErrors = [];
   const requestFailures = [];
   const failedResponses = [];
+  const originalDomainRequests = [];
 
   await cdp.ready;
   cdp.on('Runtime.exceptionThrown', (params) => {
@@ -88,6 +95,17 @@ async function inspectPage(page) {
   });
   cdp.on('Network.loadingFailed', (params) => {
     requestFailures.push(params.errorText || params.blockedReason || params.requestId);
+  });
+  cdp.on('Network.requestWillBeSent', (params) => {
+    const requestUrl = params.request?.url || '';
+    try {
+      const host = new URL(requestUrl).hostname.toLowerCase();
+      if (host === 'daedamo.com' || host.endsWith('.daedamo.com') || host === 'dieton.com' || host === 'image.dieton.com') {
+        originalDomainRequests.push(requestUrl);
+      }
+    } catch (error) {
+      // Ignore non-URL devtools events.
+    }
   });
   cdp.on('Network.responseReceived', (params) => {
     const status = params.response?.status || 0;
@@ -117,7 +135,14 @@ async function inspectPage(page) {
     returnByValue: true,
     expression: `
 (function () {
-  var externalImageHosts = /^(https?:)?\\/\\/(image\\.dieton\\.com|image\\.dieton\\.com|images\\.unsplash\\.com|img\\.youtube\\.com)/;
+  function isExternalAsset(value) {
+    if (!/^(https?:)?\\/\\//.test(value)) return false;
+    try {
+      return new URL(value, location.href).origin !== location.origin;
+    } catch (error) {
+      return false;
+    }
+  }
   var brokenImages = Array.from(document.images).filter(function (img) {
     return img.currentSrc && (!img.complete || img.naturalWidth === 0);
   }).map(function (img) {
@@ -126,50 +151,98 @@ async function inspectPage(page) {
   var externalImages = Array.from(document.images).map(function (img) {
     return img.getAttribute('src') || img.currentSrc || '';
   }).filter(function (src) {
-    return externalImageHosts.test(src);
+    return isExternalAsset(src);
   });
   var bgExternalImages = Array.from(document.querySelectorAll('*')).map(function (el) {
     return getComputedStyle(el).backgroundImage || '';
   }).filter(function (value) {
-    return externalImageHosts.test(value.replace(/^url\\(["']?/, ''));
+    return isExternalAsset(value.replace(/^url\\(["']?/, '').replace(/["']?\\)$/, ''));
   });
   var bodyText = document.body ? document.body.innerText : '';
-  var hasDietonBrand = /DietOn|다이어트/.test(bodyText);
-  var hairTermPattern = /(탈모|모발이식|두피|가발|증모)/g;
-  var hairTermMatches = [];
+  var hasDietonBrand = /DietOn|\\uB2E4\\uC774\\uC5B4\\uD2B8\\uC628|\\uB2E4\\uC774\\uC5B4\\uD2B8/.test(bodyText);
+  var originalTermPattern = /(daedamo|\\uB300\\uB2E4\\uBAA8|\\uD0C8\\uBAA8|\\uBAA8\\uBC1C\\uC774\\uC2DD|\\uBAA8\\uBC1C|\\uB450\\uD53C|\\uAC00\\uBC1C|\\uC99D\\uBAA8)/gi;
+  var originalTermMatches = [];
   var match;
-  while ((match = hairTermPattern.exec(bodyText)) && hairTermMatches.length < 20) {
-    hairTermMatches.push(bodyText.slice(Math.max(0, match.index - 30), match.index + match[0].length + 30));
+  while ((match = originalTermPattern.exec(bodyText)) && originalTermMatches.length < 20) {
+    originalTermMatches.push(bodyText.slice(Math.max(0, match.index - 30), match.index + match[0].length + 30));
   }
-  var hasHairTerms = hairTermMatches.length > 0;
+  var attributeOriginalTermMatches = [];
+  Array.from(document.querySelectorAll('[alt], [title], [placeholder], [aria-label], meta[name="description"], meta[name="keywords"], meta[property^="og:"], meta[name^="twitter:"]')).forEach(function (el) {
+    ['alt', 'title', 'placeholder', 'aria-label', 'content'].forEach(function (attr) {
+      var value = el.getAttribute(attr);
+      if (!value) return;
+      originalTermPattern.lastIndex = 0;
+      if (originalTermPattern.test(value) && attributeOriginalTermMatches.length < 20) {
+        attributeOriginalTermMatches.push({ tag: el.tagName.toLowerCase(), attr: attr, value: value.slice(0, 160) });
+      }
+    });
+  });
   return {
     title: document.title,
+    finalPath: location.pathname,
+    finalSearch: location.search,
     imageCount: document.images.length,
     brokenImages: brokenImages.slice(0, 20),
     externalImages: externalImages.slice(0, 20),
     bgExternalImages: bgExternalImages.slice(0, 20),
     hasDietonBrand: hasDietonBrand,
-    hasHairTerms: hasHairTerms,
-    hairTermMatches: hairTermMatches,
+    hasOriginalTerms: originalTermMatches.length > 0,
+    originalTermMatches: originalTermMatches,
+    hasAttributeOriginalTerms: attributeOriginalTermMatches.length > 0,
+    attributeOriginalTermMatches: attributeOriginalTermMatches,
     viewport: { width: window.innerWidth, height: window.innerHeight },
     textLength: bodyText.length
   };
 })()
-`,
+`, 
   });
 
   const screenshotDir = path.join(process.cwd(), 'archive', 'misc');
   fs.mkdirSync(screenshotDir, { recursive: true });
-  const screenshot = await cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
-  fs.writeFileSync(path.join(screenshotDir, `${page.name}_qa.png`), Buffer.from(screenshot.data, 'base64'));
+  if (!page.skipScreenshot) {
+    const screenshot = await cdp.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+    fs.writeFileSync(path.join(screenshotDir, `${page.name}_qa.png`), Buffer.from(screenshot.data, 'base64'));
+  }
+
+  let mobileMenu = null;
+  if (page.name === 'mobile-index') {
+    const menuResult = await cdp.send('Runtime.evaluate', {
+      awaitPromise: true,
+      returnByValue: true,
+      expression: `
+(async function () {
+  var button = document.querySelector('#mw_toggle_button, .all-menu');
+  if (!button) return { checked: true, hasButton: false, opens: false, closes: false, linkCount: 0 };
+  button.click();
+  await new Promise(function (resolve) { setTimeout(resolve, 350); });
+  var panel = document.querySelector('.dieton-mobile-side');
+  var opens = document.body.classList.contains('dieton-menu-open') && !!panel;
+  var linkCount = panel ? panel.querySelectorAll('a').length : 0;
+  var groupCount = panel ? panel.querySelectorAll('.dieton-side-group, .group').length : 0;
+  var subCount = panel ? panel.querySelectorAll('.dieton-side-sub, .board').length : 0;
+  var close = document.querySelector('#mw_side_close, .dieton-mobile-backdrop');
+  if (close) close.click();
+  await new Promise(function (resolve) { setTimeout(resolve, 200); });
+  var closes = !document.body.classList.contains('dieton-menu-open');
+  return { checked: true, hasButton: true, opens: opens, closes: closes, linkCount: linkCount, groupCount: groupCount, subCount: subCount };
+})()
+`,
+    });
+    mobileMenu = menuResult.result.value;
+  }
 
   cdp.close();
+  const finalPath = result.result.value.finalPath;
   return {
     page: page.name,
     path: page.path,
+    expectedFinalPath: page.expectedFinalPath || null,
+    routeOk: page.expectedFinalPath ? finalPath === page.expectedFinalPath : true,
+    mobileMenu,
     consoleErrors: [...new Set(consoleErrors)].slice(0, 20),
     requestFailures: [...new Set(requestFailures)].slice(0, 20),
     failedResponses: failedResponses.slice(0, 20),
+    originalDomainRequests: [...new Set(originalDomainRequests)].slice(0, 20),
     ...result.result.value,
   };
 }
@@ -185,9 +258,27 @@ async function main() {
     externalImages: item.externalImages.length + item.bgExternalImages.length,
     local4xx: item.failedResponses.length,
     consoleErrors: item.consoleErrors.length,
-    hasHairTerms: item.hasHairTerms,
+    originalDomainRequests: item.originalDomainRequests.length,
+    hasOriginalTerms: item.hasOriginalTerms,
+    hasAttributeOriginalTerms: item.hasAttributeOriginalTerms,
+    routeOk: item.routeOk,
+    mobileMenuOk: item.mobileMenu ? (item.mobileMenu.hasButton && item.mobileMenu.opens && item.mobileMenu.closes && item.mobileMenu.linkCount > 0 && item.mobileMenu.groupCount > 0 && item.mobileMenu.subCount > 0) : true,
   }));
   console.table(summary);
+  const failed = summary.filter((item) => (
+    item.brokenImages > 0 ||
+    item.externalImages > 0 ||
+    item.local4xx > 0 ||
+    item.consoleErrors > 0 ||
+    item.originalDomainRequests > 0 ||
+    item.hasOriginalTerms ||
+    item.hasAttributeOriginalTerms ||
+    !item.routeOk ||
+    !item.mobileMenuOk
+  ));
+  if (failed.length) {
+    throw new Error(`Clone QA failed: ${failed.map((item) => item.page).join(', ')}`);
+  }
 }
 
 main().catch((error) => {

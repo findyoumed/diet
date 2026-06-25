@@ -109,9 +109,13 @@ class DietOnApp {
     
     try {
       const posts = await this.storage.getThreadsAsync();
-      this.ui.renderPostList(listContainer, posts);
+      const cleanPosts = posts.filter((post) => {
+        const title = String(post.title || "").trim();
+        return title.length > 2 && !/^(test|테스트|s)$/i.test(title);
+      });
+      this.ui.renderPostList(listContainer, cleanPosts.length ? cleanPosts : this.storage.getPosts());
     } catch (e) {
-      listContainer.innerHTML = '<div style="padding:50px; text-align:center; color:red;">에러가 발생했습니다: ' + e.message + '</div>';
+      this.ui.renderPostList(listContainer, this.storage.getPosts());
     }
   }
 
