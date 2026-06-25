@@ -111,7 +111,7 @@ class Modal {
     const optionsTitle = this.options?.title ? `<div class="pop-message">${this.options?.title || ""}</div>` : "";
     const modalHtml = ` <div class="pop-header">${this.options.header || ""}</div>
                             <button class="modal_btn btn-layerPop-close modalCancelIcon_content" type="button" id="">
-                                <img src="../../../images/remote/image.daedamo.com/images/img/renew/i_close_black.svg" alt="닫기 이미지"/>
+                                <img src="../../../images/remote/image.dieton.com/images/img/renew/i_close_black.svg" alt="닫기 이미지"/>
                             </button>
                             <div class="layerPop-inner">
                                 ${optionsTitle}
@@ -333,7 +333,7 @@ const _showDiscussionModal = async (data) => {
     const discussionModal = new Modal();
     discussionModal.showModal({
       doWhat: "done",
-      title: `<img src="../../../images/remote/image.daedamo.com/images/img/renew/discussion_guide/i_discuttion_modal_2.png"/>
+      title: `<img src="../../../images/remote/image.dieton.com/images/img/renew/discussion_guide/i_discuttion_modal_2.png"/>
       <strong>${$.i18n("discussion.modal.title")}</strong>
       <div class="condition">
         <ul>
@@ -372,7 +372,7 @@ const _showMainBoardsModal = (options) => {
       <ul class="bd-modal-list">
         <li>
           <div class="bd-modal-img-wrap">
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_photo_review.svg" alt=""/>
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_photo_review.svg" alt=""/>
           </div>
           <div class="bd-modal-info">
             <p>${$.i18n("board.mainModal.info.photoReview")}</p>
@@ -381,7 +381,7 @@ const _showMainBoardsModal = (options) => {
         </li>
         <li>
           <div class="bd-modal-img-wrap">
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_talk_talk.svg" alt=""/>
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_talk_talk.svg" alt=""/>
           </div>
           <div class="bd-modal-info">
             <p>${$.i18n("board.mainModal.info.forum")}</p>
@@ -390,7 +390,7 @@ const _showMainBoardsModal = (options) => {
         </li>
         <li>
           <div class="bd-modal-img-wrap">
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_level.svg" alt=""/>
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_level.svg" alt=""/>
           </div>
           <div class="bd-modal-info">
             <p>${$.i18n("board.mainModal.info.levelUp")}</p>
@@ -427,7 +427,7 @@ const _showJpEventModal202605 = (options) => {
         <span class="jp-period-badge">5.20 - 6.14</span>
         <h3 class="jp-title">期間限定キャンペーン</h3>
         <div class="jp-coupon">
-          <img class="jp-coupon-img" src="../../../images/remote/image.daedamo.com/images/img/renew/event/202605_jp_event/amazon_gift.png" alt="Amazon Gift Card"/>
+          <img class="jp-coupon-img" src="../../../images/remote/image.dieton.com/images/img/renew/event/202605_jp_event/amazon_gift.png" alt="Amazon Gift Card"/>
           <span class="jp-coupon-badge" aria-label="10名様"></span>
         </div>
         <p class="jp-desc">
@@ -492,7 +492,7 @@ const _showJpEventModal202605 = (options) => {
 //     doWhat: "done",
 //     title: `
 //       <button type="button" class="cmp-modal-close-btn">
-//         <img src="../../../images/remote/image.daedamo.com/images/img/renew/i_close_black.svg" alt="닫기 이미지"/>
+//         <img src="../../../images/remote/image.dieton.com/images/img/renew/i_close_black.svg" alt="닫기 이미지"/>
 //       </button>
 //       <a href="#" class="cmp-modal-link">
 //         <img src="/new/img/dedamo_0425_03.jpg" alt=""/>

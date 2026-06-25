@@ -26,7 +26,7 @@ const svg = `
 
 fs.writeFileSync(path.join(imgDir, 'content_map_banner.svg'), svg);
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 
 for (let file of files) {
     let filePath = 'd:\\work\\다이어트\\' + file;
@@ -35,7 +35,7 @@ for (let file of files) {
     let content = fs.readFileSync(filePath, 'utf8');
     
     // In index.html, content_map uses banner2.svg. Replace it specifically.
-    content = content.replace(/<div class="content_map">\s*<a[^>]*>\s*<img src="[^"]*" alt="지도보기">/g, `<div class="content_map">\n            <a href="https://daedamo.com/new/hospitalmap.php" class="link">\n                <img src="images/custom/content_map_banner.svg" alt="지도보기" style="width:100%; height:auto; display:block;">`);
+    content = content.replace(/<div class="content_map">\s*<a[^>]*>\s*<img src="[^"]*" alt="지도보기">/g, `<div class="content_map">\n            <a href="https://dieton.com/new/hospitalmap.php" class="link">\n                <img src="images/custom/content_map_banner.svg" alt="지도보기" style="width:100%; height:auto; display:block;">`);
     
     // Also bust cache
     content = content.replace(/UIManager\.js\?v=\d+/g, `UIManager.js?v=${ts}`);

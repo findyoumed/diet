@@ -3,7 +3,7 @@
 대다모 모바일 버전(`?device=mobile`)을 다이어트온 전용으로 완벽하게 클론하기 위한 5단계 작업 계획입니다.
 
 ## Phase 1: 기반 환경 구축 및 안정화 (Base Setup)
-- [x] 내부 서브에이전트를 통해 모바일 전용 Raw HTML(`daedamo_mobile_raw.html`) 획득 완료.
+- [x] 내부 서브에이전트를 통해 모바일 전용 Raw HTML(`dieton_mobile_raw.html`) 획득 완료.
 - [x] 구글 애널리틱스, 타불라(Taboola) 등 불필요한 트래킹 스크립트 제거하여 로딩 속도 최적화.
 - [x] 핵심 모바일 CSS를 로컬 백업 파일로 연결하고, 남은 외부 CSS/JS는 원본 URL로 유지하여 깨진 `dieton.com` URL 생성을 방지.
 - [x] 파일명을 `index_mobile.html`로 확정하고 재생성 스크립트(`execute_mobile_clone.js`)와 연동.

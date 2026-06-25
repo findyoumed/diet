@@ -17,7 +17,7 @@ for (const file of files) {
   let content = fs.readFileSync(filePath, 'utf8');
 
   // 1. Localize Notice Banner Script reference
-  content = content.replace(/https:\/\/daedamo\.com\/new\/js\/banner\/banner_graftover_notice\.inc\.js(\?\d+)?/g, '/new/js/banner/banner_graftover_notice.inc.js');
+  content = content.replace(/https:\/\/dieton\.com\/new\/js\/banner\/banner_graftover_notice\.inc\.js(\?\d+)?/g, '/new/js/banner/banner_graftover_notice.inc.js');
 
   // 2. Video Banner alignment styling in HTML (margin: 0 auto; display: block;)
   content = content.replace(/(class="[^"]*video_banner[^"]*"[^>]*>\s*<img[^>]*src="images\/custom\/banner[^"]*"[^>]*style=")([^"]*)(")/gi, (match, before, styleContent, after) => {
@@ -47,8 +47,8 @@ for (const file of files) {
   content = content.replace(/<script[^>]*src="https:\/\/t1\.kakaocdn\.net(?:(?!<\/script>)[\s\S])*?<\/script>/gi, '<!-- Kakao Pixel SDK (Disabled) -->');
   content = content.replace(/<script[^>]*>(?:(?!<\/script>)[\s\S])*?Kakao\.init(?:(?!<\/script>)[\s\S])*?<\/script>/gi, '<!-- Kakao init (Disabled) -->');
 
-  // 6. Deactivate Daedamo Analytical banner.js (MIME error source)
-  content = content.replace(/<script[^>]*src="https:\/\/daedamo\.com\/new\/js\/common\/banner\.js"[^>]*><\/script>/gi, '<!-- Daedamo banner.js (Disabled) -->');
+  // 6. Deactivate DietOn Analytical banner.js (MIME error source)
+  content = content.replace(/<script[^>]*src="https:\/\/dieton\.com\/new\/js\/common\/banner\.js"[^>]*><\/script>/gi, '<!-- DietOn banner.js (Disabled) -->');
 
   // 7. Image Diversification (Avoiding duplication)
   let avatarCount = 0;

@@ -30,7 +30,7 @@ for (let file of files) {
 
     // Find all image tags
     content = content.replace(/src="([^"]+)"/gi, (match, src) => {
-        if (!src.includes('daedamo.com')) return match;
+        if (!src.includes('dieton.com')) return match;
         if (src.includes('icon') || src.includes('logo') || src.includes('.svg') || src.includes('badge') || src.includes('i_balloon') || src.includes('admin.gif') || src.includes('favicon')) {
             return match;
         }
@@ -49,8 +49,8 @@ for (let file of files) {
         return `src="${getRandom(dietProducts)}"`;
     });
 
-    // Also background images for daedamo
-    content = content.replace(/url\(['"]?(https?:\/\/[^'"]+daedamo\.com[^'"]+)['"]?\)/gi, (match, url) => {
+    // Also background images for dieton
+    content = content.replace(/url\(['"]?(https?:\/\/[^'"]+dieton\.com[^'"]+)['"]?\)/gi, (match, url) => {
         if (url.includes('icon') || url.includes('logo') || url.includes('.svg') || url.includes('badge') || url.includes('i_balloon')) {
             return match;
         }

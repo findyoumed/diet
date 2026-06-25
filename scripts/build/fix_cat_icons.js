@@ -38,7 +38,7 @@ for (let icon of icons) {
     cssRule += `.index_category_box .icon${icon.class === 'graft' ? '.graft' : ' .' + icon.class} { background: url(images/custom/${icon.name}) no-repeat center center / contain !important; display: inline-block; width: 35px !important; height: 35px !important; }\n`;
 }
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 
 for (let file of files) {
     let filePath = 'd:\\work\\다이어트\\' + file;

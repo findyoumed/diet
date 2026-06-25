@@ -31,7 +31,7 @@ files.forEach(file => {
         dest = 'scripts/build';
     }
     // 2. Archive raw html
-    else if (file.startsWith('daedamo') && file.endsWith('.html')) {
+    else if (file.startsWith('dieton') && file.endsWith('.html')) {
         dest = 'archive/raw_html';
     } else if (file.startsWith('_origin') && file.endsWith('.html')) {
         dest = 'archive/raw_html';
@@ -39,7 +39,7 @@ files.forEach(file => {
     // 3. Archive legacy css
     else if (file.startsWith('_origin') && file.endsWith('.css')) {
         dest = 'archive/legacy_css';
-    } else if (file.startsWith('daedamo_head') && file.endsWith('.css')) {
+    } else if (file.startsWith('dieton_head') && file.endsWith('.css')) {
         dest = 'archive/legacy_css';
     }
     // 4. Archive misc

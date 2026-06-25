@@ -3,100 +3,115 @@
     "page": "pc-index",
     "path": "/index.html",
     "consoleErrors": [],
-    "requestFailures": [],
+    "requestFailures": [
+      "net::ERR_EMPTY_RESPONSE",
+      "net::ERR_ABORTED"
+    ],
     "failedResponses": [],
-    "title": "대한민국 1등 다이어트 커뮤니티 DietOn",
-    "imageCount": 75,
+    "title": "127.0.0.1",
+    "imageCount": 2,
     "brokenImages": [],
     "externalImages": [],
     "bgExternalImages": [],
-    "hasDietonBrand": true,
+    "hasDietonBrand": false,
     "hasHairTerms": false,
     "hairTermMatches": [],
     "viewport": {
       "width": 1440,
       "height": 1100
     },
-    "textLength": 10531
+    "textLength": 68
   },
   {
     "page": "pc-community",
     "path": "/community.html",
     "consoleErrors": [],
-    "requestFailures": [],
+    "requestFailures": [
+      "net::ERR_EMPTY_RESPONSE",
+      "net::ERR_ABORTED"
+    ],
     "failedResponses": [],
-    "title": "다이어트수다 | 대한민국 1등 다이어트 커뮤니티 DietOn",
-    "imageCount": 49,
+    "title": "127.0.0.1",
+    "imageCount": 2,
     "brokenImages": [],
     "externalImages": [],
     "bgExternalImages": [],
-    "hasDietonBrand": true,
+    "hasDietonBrand": false,
     "hasHairTerms": false,
     "hairTermMatches": [],
     "viewport": {
       "width": 1440,
       "height": 1100
     },
-    "textLength": 2421
+    "textLength": 68
   },
   {
     "page": "pc-search",
     "path": "/search.html",
     "consoleErrors": [],
-    "requestFailures": [],
+    "requestFailures": [
+      "net::ERR_EMPTY_RESPONSE",
+      "net::ERR_ABORTED"
+    ],
     "failedResponses": [],
-    "title": "대한민국 1등 다이어트 커뮤니티 DietOn",
-    "imageCount": 63,
+    "title": "127.0.0.1",
+    "imageCount": 2,
     "brokenImages": [],
     "externalImages": [],
     "bgExternalImages": [],
-    "hasDietonBrand": true,
+    "hasDietonBrand": false,
     "hasHairTerms": false,
     "hairTermMatches": [],
     "viewport": {
       "width": 1440,
       "height": 1100
     },
-    "textLength": 13043
+    "textLength": 68
   },
   {
     "page": "pc-post",
     "path": "/post.html",
     "consoleErrors": [],
-    "requestFailures": [],
+    "requestFailures": [
+      "net::ERR_EMPTY_RESPONSE",
+      "net::ERR_ABORTED"
+    ],
     "failedResponses": [],
-    "title": "[다이어트인가요?] 38세 다이어트 고밋 | 대한민국 1등 다이어트 커뮤니티 DietOn",
-    "imageCount": 218,
+    "title": "127.0.0.1",
+    "imageCount": 2,
     "brokenImages": [],
     "externalImages": [],
     "bgExternalImages": [],
-    "hasDietonBrand": true,
+    "hasDietonBrand": false,
     "hasHairTerms": false,
     "hairTermMatches": [],
     "viewport": {
       "width": 1440,
       "height": 1100
     },
-    "textLength": 32430
+    "textLength": 68
   },
   {
     "page": "mobile-index",
     "path": "/index_mobile.html",
     "consoleErrors": [],
-    "requestFailures": [],
+    "requestFailures": [
+      "net::ERR_EMPTY_RESPONSE",
+      "net::ERR_ABORTED"
+    ],
     "failedResponses": [],
-    "title": "대한민국 1등 다이어트 커뮤니티 다이어트온",
-    "imageCount": 55,
+    "title": "127.0.0.1",
+    "imageCount": 2,
     "brokenImages": [],
     "externalImages": [],
     "bgExternalImages": [],
-    "hasDietonBrand": true,
+    "hasDietonBrand": false,
     "hasHairTerms": false,
     "hairTermMatches": [],
     "viewport": {
       "width": 390,
       "height": 844
     },
-    "textLength": 5875
+    "textLength": 68
   }
 ]

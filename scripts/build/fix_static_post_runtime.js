@@ -23,12 +23,12 @@ post = post.replace(/url:\s*["']\/api\/board\/recommend\.ajax\.php["']/g, 'url: 
 fs.writeFileSync(postFile, post, 'utf8');
 
 const fontAwesomeFiles = [
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.css',
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css',
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.css.asset',
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css.asset',
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.css_',
-  'images/remote/image.daedamo.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css_',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.css',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.css.asset',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css.asset',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.css_',
+  'images/remote/image.dieton.com/public/css/font-awesome-4.4.0/css/font-awesome.min.css_',
 ];
 
 for (const file of fontAwesomeFiles) {

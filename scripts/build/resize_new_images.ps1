@@ -1,4 +1,4 @@
-# [LOG: 20260623_2050] PowerShell script to resize and crop newly generated AI images to exact Daedamo specs
+# [LOG: 20260623_2050] PowerShell script to resize and crop newly generated AI images to exact DietOn specs
 Add-Type -AssemblyName System.Drawing
 
 function Resize-Image {

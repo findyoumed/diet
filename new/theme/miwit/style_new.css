@@ -1598,7 +1598,7 @@ body {
   border-radius: 8px;
   height: 310px;
   overflow: hidden;
-  background: url(../../../images/remote/image.daedamo.com/images/img/renew/ad/main_index_banner_bg.jpg) no-repeat;
+  background: url(../../../images/remote/image.dieton.com/images/img/renew/ad/main_index_banner_bg.jpg) no-repeat;
   background-size: 100%;
 }
 #mw5 .index_banner1_box .ad1 {
@@ -1711,7 +1711,7 @@ body {
   justify-content: center;
 }
 #mw5 .index_category_box ul li a .icon.graft {
-  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
+  background: url(../../../images/remote/image.dieton.com/images/img/renew/icon/2023/i_nav_1_bg.png) no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
 }
@@ -1720,7 +1720,7 @@ body {
 }
 /* talmo_care bg color */
 #mw5 .index_category_box ul li a .icon.talmo_care {
-  background: url(../../../images/remote/image.daedamo.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
+  background: url(../../../images/remote/image.dieton.com/images/img/renew/icon/2023/rainbow_bg.png) no-repeat 50% 50%;
   background-size: cover;
 }
 #mw5 .index_category_box ul li a .icon span {
@@ -1995,7 +1995,7 @@ body {
   width: 100%;
   min-height: 500px;
   position: relative;
-  background: url(../../../images/remote/image.daedamo.com/images/img/renew/ad/main_ad_blackfore_ytb_bg.jpg) no-repeat;
+  background: url(../../../images/remote/image.dieton.com/images/img/renew/ad/main_ad_blackfore_ytb_bg.jpg) no-repeat;
   background-size: 100%;
 }
 .index_blackfore_contents .blackfore_content {
@@ -2288,48 +2288,48 @@ body {
 }
 
 /*대다모 TV*/
-#mw5 .index_content_box .index_daedamo_tv {
+#mw5 .index_content_box .index_dieton_tv {
   margin-top: 20px;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list {
+#mw5 .index_content_box .index_dieton_tv .photo_list {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-#mw5 .index_content_box .index_daedamo_tv .title {
+#mw5 .index_content_box .index_dieton_tv .title {
   color: #ff0000;
   display: flex;
   align-items: center;
 }
-#mw5 .index_content_box .index_daedamo_tv .toggle_ytb {
+#mw5 .index_content_box .index_dieton_tv .toggle_ytb {
   width: 90px;
   height: 30px;
   margin-left: 10px;
   cursor: pointer;
 }
-#mw5 .index_content_box .index_daedamo_tv .cnt {
+#mw5 .index_content_box .index_dieton_tv .cnt {
   color: #777777;
   font-size: 14px;
   font-weight: 400;
 }
-#mw5 .index_content_box .index_daedamo_tv .cnt span {
+#mw5 .index_content_box .index_dieton_tv .cnt span {
   font-weight: 700;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list > div {
+#mw5 .index_content_box .index_dieton_tv .photo_list > div {
   cursor: pointer;
   margin-right: 18px;
   flex: 1;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list > div:last-child {
+#mw5 .index_content_box .index_dieton_tv .photo_list > div:last-child {
   margin-right: 0;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list > div:hover .subject {
+#mw5 .index_content_box .index_dieton_tv .photo_list > div:hover .subject {
   color: #ff6600;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list > div:hover .thumb {
+#mw5 .index_content_box .index_dieton_tv .photo_list > div:hover .thumb {
   opacity: 0.8;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list .thumb {
+#mw5 .index_content_box .index_dieton_tv .photo_list .thumb {
   display: flex;
   flex-direction: column;
   width: 185px;
@@ -2340,14 +2340,14 @@ body {
   border-radius: 8px;
   overflow: hidden;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list .thumb img {
+#mw5 .index_content_box .index_dieton_tv .photo_list .thumb img {
   width: 200%;
   min-height: 100%;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
 }
-#mw5 .index_content_box .index_daedamo_tv .subject {
+#mw5 .index_content_box .index_dieton_tv .subject {
   font-size: 16px;
   font-weight: 400;
   display: -webkit-box;
@@ -2358,13 +2358,13 @@ body {
   height: 40px;
   line-height: 1.3;
 }
-#mw5 .index_content_box .index_daedamo_tv .cont .nick {
+#mw5 .index_content_box .index_dieton_tv .cont .nick {
   color: #989898;
   font-size: 14px;
   display: flex;
   align-items: flex-start;
 }
-#mw5 .index_content_box .index_daedamo_tv .cont .nick span {
+#mw5 .index_content_box .index_dieton_tv .cont .nick span {
   flex: 1;
   line-height: 1.4;
   overflow: hidden;
@@ -2373,7 +2373,7 @@ body {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-#mw5 .index_content_box .index_daedamo_tv .cont .nick img {
+#mw5 .index_content_box .index_dieton_tv .cont .nick img {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -2382,7 +2382,7 @@ body {
   display: block;
   margin-right: 3px;
 }
-#mw5 .index_content_box .index_daedamo_tv .cont .thumb .cnt {
+#mw5 .index_content_box .index_dieton_tv .cont .thumb .cnt {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -2397,7 +2397,7 @@ body {
   display: flex;
   align-items: center;
 }
-#mw5 .index_content_box .index_daedamo_tv .cont .thumb .cnt .hot {
+#mw5 .index_content_box .index_dieton_tv .cont .thumb .cnt .hot {
   background: #ff0000;
   font-weight: 700;
   padding: 0 8px;
@@ -2408,13 +2408,13 @@ body {
   display: block;
 }
 
-#mw5 .index_content_box .index_daedamo_tv .photo_list2 {
+#mw5 .index_content_box .index_dieton_tv .photo_list2 {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   display: none;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list2 .thumb {
+#mw5 .index_content_box .index_dieton_tv .photo_list2 .thumb {
   display: flex;
   flex-direction: column;
   width: 260px;
@@ -2425,7 +2425,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
 }
-#mw5 .index_content_box .index_daedamo_tv .photo_list2 .cont {
+#mw5 .index_content_box .index_dieton_tv .photo_list2 .cont {
   width: 260px;
 }
 /* 탈모치료톡 */
@@ -2511,13 +2511,13 @@ body {
   background: #ff6246;
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type1 .vote-emoji {
-  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story03.svg");
+  background-image: url("../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_vote_story03.svg");
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type2 .vote-emoji {
-  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story01.svg");
+  background-image: url("../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_vote_story01.svg");
 }
 #mw5 .index_content_box .vote_story_list .vote-tag--winner.type3 .vote-emoji {
-  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vote_story02.svg");
+  background-image: url("../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_vote_story02.svg");
 }
 /* 동률 (불꽃논쟁) */
 #mw5 .index_content_box .vote_story_list .vote-tag--tie {
@@ -2533,7 +2533,7 @@ body {
   flex-shrink: 0;
   width: 28px;
   height: 16px;
-  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_vs_00.svg");
+  background-image: url("../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_vs_00.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -2552,7 +2552,7 @@ body {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background-image: url("../../../images/remote/image.daedamo.com/images/img/renew/icon/2026/i_curious.svg");
+  background-image: url("../../../images/remote/image.dieton.com/images/img/renew/icon/2026/i_curious.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const files = ['index.html', 'search.html', 'daedamo.html', 'daedamo_search.html', 'daedamo_record.html'];
+const files = ['index.html', 'search.html', 'dieton.html', 'dieton_search.html', 'dieton_record.html'];
 
 for (let file of files) {
     let path = 'd:\\work\\다이어트\\' + file;

@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const imgDir = 'd:\\work\\다이어트\\images\\custom';
 if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 
 let bgProductCount = 200; // start high to avoid collision with the <img> ones generated earlier
 let bgAvatarCount = 200;

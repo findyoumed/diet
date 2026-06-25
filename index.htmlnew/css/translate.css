@@ -131,7 +131,7 @@ body[class*="translate_"].mobile .graftoverwritebtn_desc {
   text-align: right;
 }
 
-body[class*="translate_"] #mw5 .index_content_box .index_daedamo_tv .subject {
+body[class*="translate_"] #mw5 .index_content_box .index_dieton_tv .subject {
   word-break: break-word;
 }
 body[class*="translate_"] #mw5 .index_content_box .content_woman_hairline .subject {
@@ -315,8 +315,8 @@ body[class*="translate_en"] .modal-wrap.discussion_alert .layerPop-inner .condit
 body[class*="translate_ja"].mobile .index_nav_menu .menu_list .title {
   text-align: center;
 }
-/* daedamopick banner */
-body[class*="translate_ja"].mobile .content-list-daedamo-pick-banner .title {
+/* dietonpick banner */
+body[class*="translate_ja"].mobile .content-list-dieton-pick-banner .title {
   font-size: 4vw;
 }
 

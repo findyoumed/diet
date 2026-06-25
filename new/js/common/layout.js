@@ -61,19 +61,19 @@ function _addContainerBlur(filter) {
           langCode === "ja"
             ? `
             <div class="flex btn common-btn-line-login">
-              <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/i_line.svg" alt="LINE">
+              <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/i_line.svg" alt="LINE">
               ${$.i18n("common.sign.lineLogin")}
             </div>
             `
             : `
             <div class="flex btn btn-kakao-join">
-              <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/i_login_kakao.png" alt="${$.i18n("common.text.kakao")}">
+              <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/i_login_kakao.png" alt="${$.i18n("common.text.kakao")}">
               ${$.i18n("common.sign.kakao")}
             </div>
           `
         }
           <a href="/new/bbs/login.php?hl=${langCode}&url=${loginCallbackUrl}" class="register_email">
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/i_login_email.png" alt="${$.i18n("common.register.startEmail")}">
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/i_login_email.png" alt="${$.i18n("common.register.startEmail")}">
             ${$.i18n("common.guestPanel.emailStart")}
           </a>
         </div>
@@ -86,7 +86,7 @@ function _addContainerBlur(filter) {
       <div class="hlist-popup">
         <div class="txt">
           <h3>
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/2025/i_notice_circle.svg" alt=""> ${$.i18n("common.text.guide")}
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/2025/i_notice_circle.svg" alt=""> ${$.i18n("common.text.guide")}
           </h3>
           <p>${$.i18n(`containerBlurNoGlobal${isMobile ? "_mobile" : ""}`)}</p>
         </div>
@@ -97,7 +97,7 @@ function _addContainerBlur(filter) {
       <div class="hlist-popup">
         <div class="txt">
           <h3>
-            <img src="../../../images/remote/image.daedamo.com/images/img/renew/icon/2025/i_notice_circle.svg" alt=""> ${$.i18n("common.text.guide")}
+            <img src="../../../images/remote/image.dieton.com/images/img/renew/icon/2025/i_notice_circle.svg" alt=""> ${$.i18n("common.text.guide")}
           </h3>
           <p>${$.i18n("common.guestPanel.blocked")}</p>
         </div>

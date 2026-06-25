@@ -5,9 +5,9 @@
 }
 
 /* -----------------------------------------------------------
-  ------ content-list-daedamo-pick-banner (목록 대다모pick 광고) ------
+  ------ content-list-dieton-pick-banner (목록 대다모pick 광고) ------
 --------------------------------------------------------------  */
-.content-list-daedamo-pick-banner {
+.content-list-dieton-pick-banner {
   --image-height: 189px;
   --navigation-size: 50px;
 
@@ -17,33 +17,33 @@
 
   line-height: 1.2;
 }
-.content-list-daedamo-pick-banner .inner {
+.content-list-dieton-pick-banner .inner {
   width: 100%;
   padding: 0 33px;
   box-sizing: border-box;
 }
-.content-list-daedamo-pick-banner .daedamo-pick-banner-swiper-wrap {
+.content-list-dieton-pick-banner .dieton-pick-banner-swiper-wrap {
   overflow: hidden;
   position: relative;
   padding: 0 33px;
 }
-.content-list-daedamo-pick-banner .title-wrap {
+.content-list-dieton-pick-banner .title-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   margin-bottom: 18px !important;
 }
-.content-list-daedamo-pick-banner .title-wrap .daedamo-pick-title-more-btn {
+.content-list-dieton-pick-banner .title-wrap .dieton-pick-title-more-btn {
   display: flex;
   align-items: center;
   color: #fff !important;
 }
-.content-list-daedamo-pick-banner .title-wrap .daedamo-pick-title-more-btn span.icon {
+.content-list-dieton-pick-banner .title-wrap .dieton-pick-title-more-btn span.icon {
   width: 14px;
   background-position: 50% 50%;
 }
-.content-list-daedamo-pick-banner .title {
+.content-list-dieton-pick-banner .title {
   display: flex;
   align-items: center;
 
@@ -51,16 +51,16 @@
   font-size: 24px;
   font-weight: 600;
 }
-.content-list-daedamo-pick-banner .title span {
+.content-list-dieton-pick-banner .title span {
   color: var(--sub-color2);
   margin-left: 2px;
 }
-.content-list-daedamo-pick-banner .title .icon {
+.content-list-dieton-pick-banner .title .icon {
   width: 40px;
   height: 40px;
   margin-left: 6px;
 }
-/* .content-list-daedamo-pick-banner .title .tag {
+/* .content-list-dieton-pick-banner .title .tag {
   margin: 0 0 0 7px;
   padding: 3px 6px;
 
@@ -71,16 +71,16 @@
   font-weight: normal;
   color: var(--main-primary-color);
 } */
-.content-list-daedamo-pick-banner .title-wrap p {
+.content-list-dieton-pick-banner .title-wrap p {
   flex: 1 1;
   margin-left: 10px;
   font-size: 16px;
   font-weight: 300;
 }
-.content-list-daedamo-pick-banner .title-wrap + p {
+.content-list-dieton-pick-banner .title-wrap + p {
   display: none;
 }
-.content-list-daedamo-pick-banner .img-wrap {
+.content-list-dieton-pick-banner .img-wrap {
   height: var(--image-height);
   margin-bottom: 10px;
 
@@ -89,7 +89,7 @@
   overflow: hidden;
 }
 /* 대다모픽 구매 CTA 추가 ( 혜택버튼 추가 ) */
-.content-list-daedamo-pick-banner .img-wrap .benefits-card {
+.content-list-dieton-pick-banner .img-wrap .benefits-card {
   position: absolute;
   right: 2px;
   top: 2px;
@@ -100,20 +100,20 @@
   justify-content: flex-end;
   align-items: flex-start;
 }
-.content-list-daedamo-pick-banner .img-wrap .benefits-card img {
+.content-list-dieton-pick-banner .img-wrap .benefits-card img {
   /* 가로로 긴 이미지 용 */
   max-width: 160%;
   height: 100%;
 }
-.content-list-daedamo-pick-banner .img-wrap .daedamopick-img {
+.content-list-dieton-pick-banner .img-wrap .dietonpick-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.content-list-daedamo-pick-banner .text-wrap {
+.content-list-dieton-pick-banner .text-wrap {
   color: #fff;
 }
-.content-list-daedamo-pick-banner .text-wrap > strong {
+.content-list-dieton-pick-banner .text-wrap > strong {
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -122,7 +122,7 @@
   font-size: 16px;
   font-weight: 500;
 }
-.content-list-daedamo-pick-banner .text-wrap > p {
+.content-list-dieton-pick-banner .text-wrap > p {
   margin: 6px 0 8px;
   line-height: 1.2;
 
@@ -138,46 +138,46 @@
   font-size: 16px;
   font-weight: 200;
 }
-.content-list-daedamo-pick-banner .score-wrap {
+.content-list-dieton-pick-banner .score-wrap {
   display: flex;
   align-items: center;
 
   font-size: 16px;
 }
-.content-list-daedamo-pick-banner .score-wrap .common-star-score-icon {
-  background: url(images/remote/image.daedamo.com/images/img/renew/i_star_right_blue.svg) 0px 50% / 16px no-repeat;
+.content-list-dieton-pick-banner .score-wrap .common-star-score-icon {
+  background: url(images/remote/image.dieton.com/images/img/renew/i_star_right_blue.svg) 0px 50% / 16px no-repeat;
 }
-.content-list-daedamo-pick-banner .score-wrap > p {
+.content-list-dieton-pick-banner .score-wrap > p {
   margin: 0;
   margin-left: 6px;
   font-weight: 300;
 }
-.content-list-daedamo-pick-banner .score-wrap .common-star-score-icon strong {
+.content-list-dieton-pick-banner .score-wrap .common-star-score-icon strong {
   color: #fff;
 }
-.content-list-daedamo-pick-banner .navigation {
+.content-list-dieton-pick-banner .navigation {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.content-list-daedamo-pick-banner .navigation > div {
+.content-list-dieton-pick-banner .navigation > div {
   position: absolute;
   z-index: 5;
 
-  background: #fff url(images/remote/image.daedamo.com/images/img/renew/left_arrow.svg) no-repeat;
+  background: #fff url(images/remote/image.dieton.com/images/img/renew/left_arrow.svg) no-repeat;
   background-size: 25%;
   background-position: 44% 50%;
 
   cursor: pointer;
 }
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-prev.swiper-button-disabled,
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-next.swiper-button-disabled {
+.content-list-dieton-pick-banner .navigation .dieton-pick-prev.swiper-button-disabled,
+.content-list-dieton-pick-banner .navigation .dieton-pick-next.swiper-button-disabled {
   opacity: 0;
   display: none;
 }
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-prev {
+.content-list-dieton-pick-banner .navigation .dieton-pick-prev {
   top: calc(var(--image-height) / 2 - var(--navigation-size));
   left: 1%;
   width: var(--navigation-size);
@@ -188,14 +188,14 @@
   transform: translate(0, 60%);
   box-shadow: 0px 1px 1px 0px #00000026;
 }
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-next {
+.content-list-dieton-pick-banner .navigation .dieton-pick-next {
   top: calc(var(--image-height) / 2 - var(--navigation-size));
   right: 1%;
   left: auto;
   width: var(--navigation-size);
   height: var(--navigation-size);
 
-  background: #fff url(images/remote/image.daedamo.com/images/img/renew/right_arrow.svg) no-repeat;
+  background: #fff url(images/remote/image.dieton.com/images/img/renew/right_arrow.svg) no-repeat;
   background-size: 25%;
   background-position: 50% 50%;
   border: 0.5px solid rgba(209, 209, 212, 0.6);
@@ -204,17 +204,17 @@
   transform: translate(0, 60%);
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
 }
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-prev:not(.swiper-button-disabled),
-.content-list-daedamo-pick-banner .navigation .daedamo-pick-next:not(.swiper-button-disabled) {
+.content-list-dieton-pick-banner .navigation .dieton-pick-prev:not(.swiper-button-disabled),
+.content-list-dieton-pick-banner .navigation .dieton-pick-next:not(.swiper-button-disabled) {
   opacity: 1;
 }
-.swiper-initialized.content-list-daedamo-pick-banner + .navigation .daedamo-pick-next {
+.swiper-initialized.content-list-dieton-pick-banner + .navigation .dieton-pick-next {
   opacity: 1;
 }
-.content-list-daedamo-pick-banner p.info {
+.content-list-dieton-pick-banner p.info {
   display: none;
 }
-.content-list-daedamo-pick-banner .daedamo-pick-more-btn {
+.content-list-dieton-pick-banner .dieton-pick-more-btn {
   display: block;
   width: 100%;
   margin: 30px 0 0;
@@ -227,50 +227,50 @@
   color: #fff !important;
   text-align: center;
 }
-.content-list-daedamo-pick-banner .daedamo-pick-banner-swiper {
+.content-list-dieton-pick-banner .dieton-pick-banner-swiper {
   overflow: hidden;
 }
-.content-list-daedamo-pick-banner .daedamo-pick-banner-swiper .swiper-slide {
+.content-list-dieton-pick-banner .dieton-pick-banner-swiper .swiper-slide {
   background: transparent;
   color: #fff;
 }
 /* white ver */
-.content-list-daedamo-pick-banner.white {
+.content-list-dieton-pick-banner.white {
   background: #fff;
   color: #000;
 }
-.content-list-daedamo-pick-banner.white .title span {
+.content-list-dieton-pick-banner.white .title span {
   color: var(--main-color);
 }
-.content-list-daedamo-pick-banner.white .title .tag {
+.content-list-dieton-pick-banner.white .title .tag {
   color: #fff;
   background: var(--main-color);
 }
-.content-list-daedamo-pick-banner.white .text-wrap {
+.content-list-dieton-pick-banner.white .text-wrap {
   color: #000;
 }
-.content-list-daedamo-pick-banner.white .text-wrap > strong {
+.content-list-dieton-pick-banner.white .text-wrap > strong {
   font-weight: 400;
 }
-.content-list-daedamo-pick-banner.white .text-wrap > p {
+.content-list-dieton-pick-banner.white .text-wrap > p {
   display: none;
 }
-.content-list-daedamo-pick-banner.white .score-wrap {
+.content-list-dieton-pick-banner.white .score-wrap {
   margin-top: 10px;
 }
-.content-list-daedamo-pick-banner.white .score-wrap .common-star-score-icon strong {
+.content-list-dieton-pick-banner.white .score-wrap .common-star-score-icon strong {
   color: #000;
 }
-.content-list-daedamo-pick-banner.white .score-wrap .common-star-score-icon {
-  background: url(images/remote/image.daedamo.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
+.content-list-dieton-pick-banner.white .score-wrap .common-star-score-icon {
+  background: url(images/remote/image.dieton.com/images/img/renew/i_star.svg) 0px 50% / 16px no-repeat;
 }
-.content-list-daedamo-pick-banner.white p.info {
+.content-list-dieton-pick-banner.white p.info {
   display: block;
   margin-top: 7vw;
   color: var(--gray-font-color2);
   text-align: center;
 }
-.content-list-daedamo-pick-banner.white .daedamo-pick-more-btn {
+.content-list-dieton-pick-banner.white .dieton-pick-more-btn {
   border-color: #d9d9d9;
   color: var(--gray-font-color2) !important;
 }
@@ -278,8 +278,8 @@
 /* -----------------------------------------------------------
   ------ mobile ------
 --------------------------------------------------------------  */
-/* content-list-daedamo-pick-banner (목록 대다모pick 광고) */
-.mobile .content-list-daedamo-pick-banner {
+/* content-list-dieton-pick-banner (목록 대다모pick 광고) */
+.mobile .content-list-dieton-pick-banner {
   --image-height: 37.7vw;
   --navigation-size: 10.556vw;
 
@@ -288,30 +288,30 @@
   border-top: 6px solid var(--gray-line-color);
   border-bottom: 6px solid var(--gray-line-color);
 }
-.mobile .content-list-daedamo-pick-banner .inner {
+.mobile .content-list-dieton-pick-banner .inner {
   width: 100%;
   padding: 0 var(--inner-margin);
 }
 
-.mobile .content-list-daedamo-pick-banner .daedamo-pick-banner-swiper-wrap {
+.mobile .content-list-dieton-pick-banner .dieton-pick-banner-swiper-wrap {
   padding: 0 5%;
 }
-.mobile .content-list-daedamo-pick-banner .title-wrap {
+.mobile .content-list-dieton-pick-banner .title-wrap {
   margin-bottom: 2.222vw !important;
 }
-.mobile .content-list-daedamo-pick-banner .title-wrap .daedamo-pick-title-more-btn {
+.mobile .content-list-dieton-pick-banner .title-wrap .dieton-pick-title-more-btn {
   font-size: 3.333vw;
   font-weight: 300;
 }
-.mobile .content-list-daedamo-pick-banner .title {
+.mobile .content-list-dieton-pick-banner .title {
   margin: 0 0 4.167vw;
   font-size: 5vw;
 }
-.mobile .content-list-daedamo-pick-banner .title .icon {
+.mobile .content-list-dieton-pick-banner .title .icon {
   width: 9.167vw;
   height: 9.167vw;
 }
-/* .mobile .content-list-daedamo-pick-banner .title .tag {
+/* .mobile .content-list-dieton-pick-banner .title .tag {
   margin: 0 0 0 1.111vw;
   padding: 0.556vw 2.5vw;
 
@@ -319,40 +319,40 @@
 
   font-size: 3.056vw;
 } */
-.mobile .content-list-daedamo-pick-banner .title + p {
+.mobile .content-list-dieton-pick-banner .title + p {
   display: none;
 }
-.mobile .content-list-daedamo-pick-banner .title-wrap + p {
+.mobile .content-list-dieton-pick-banner .title-wrap + p {
   display: block;
 
   margin-bottom: 3.333vw;
   font-size: 3.333vw;
   font-weight: 300;
 }
-.mobile .content-list-daedamo-pick-banner .img-wrap {
+.mobile .content-list-dieton-pick-banner .img-wrap {
   height: var(--image-height);
   border-radius: 1.667vw;
   margin-bottom: 2.778vw;
 }
-.mobile .content-list-daedamo-pick-banner .img-wrap .benefits-card {
+.mobile .content-list-dieton-pick-banner .img-wrap .benefits-card {
   right: 0.46vw;
   top: 0.46vw;
 }
 
-.mobile .content-list-daedamo-pick-banner .text-wrap > strong {
+.mobile .content-list-dieton-pick-banner .text-wrap > strong {
   font-size: 3.333vw;
 }
-.mobile .content-list-daedamo-pick-banner .text-wrap > p {
+.mobile .content-list-dieton-pick-banner .text-wrap > p {
   margin: 1.111vw 0 1.944vw;
 
   font-size: 3.333vw;
   line-height: 5vw;
 }
-.mobile .content-list-daedamo-pick-banner .score-wrap {
+.mobile .content-list-dieton-pick-banner .score-wrap {
   font-size: 3.333vw;
 }
 
-.mobile .content-list-daedamo-pick-banner .daedamo-pick-more-btn {
+.mobile .content-list-dieton-pick-banner .dieton-pick-more-btn {
   margin: 5.556vw 0 0;
   padding: 2.778vw 0;
   border-radius: 8.333vw;

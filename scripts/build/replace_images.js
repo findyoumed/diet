@@ -32,16 +32,16 @@ for (let file of files) {
     content = content.replace(/src="https:\/\/yt3\.ggpht\.com\/[^"]+"/g, () => `src="${getRandom(dietAvatars)}"`);
     
     // Clinic logos (hlist)
-    content = content.replace(/src="https:\/\/image\.daedamo\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2Fhlist[^"]+"/g, () => `src="${getRandom(dietAvatars)}"`);
+    content = content.replace(/src="https:\/\/image\.dieton\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2Fhlist[^"]+"/g, () => `src="${getRandom(dietAvatars)}"`);
     
     // Products (ingre)
-    content = content.replace(/src="https:\/\/image\.daedamo\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2Fingre[^"]+"/g, () => `src="${getRandom(dietProducts)}"`);
+    content = content.replace(/src="https:\/\/image\.dieton\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2Fingre[^"]+"/g, () => `src="${getRandom(dietProducts)}"`);
     
     // Banners
-    content = content.replace(/src="https:\/\/image\.daedamo\.com\/images\/staticBanner\/[^"]+"/g, () => `src="${getRandom(dietBanners)}"`);
+    content = content.replace(/src="https:\/\/image\.dieton\.com\/images\/staticBanner\/[^"]+"/g, () => `src="${getRandom(dietBanners)}"`);
 
     // In community list there are board thumbnails: /new/data/file/story/ etc.
-    content = content.replace(/src="https:\/\/image\.daedamo\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2F(story|forum)[^"]+"/g, () => `src="${getRandom(dietProducts)}"`);
+    content = content.replace(/src="https:\/\/image\.dieton\.com\/resize\?url=%2Fnew%2Fdata%2Ffile%2F(story|forum)[^"]+"/g, () => `src="${getRandom(dietProducts)}"`);
 
     // Also replace background images inline if any
     content = content.replace(/background-image:\s*url\([^)]*staticBanner[^)]*\)/g, () => `background-image: url(${getRandom(dietBanners)})`);

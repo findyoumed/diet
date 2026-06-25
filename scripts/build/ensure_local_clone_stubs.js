@@ -20,8 +20,8 @@ function copyIfMissing(from, to) {
   if (fs.existsSync(source) && !fs.existsSync(target)) fs.copyFileSync(source, target);
 }
 
-copyIfMissing('new/js/banner/banner_daedamo_pick.inc.js', 'new/js/banner/banner_dieton_pick.inc.js');
-copyIfMissing('new/css/banner/banner_daedamo_pick.inc.css', 'new/css/banner/banner_dieton_pick.inc.css');
+copyIfMissing('new/js/banner/banner_dieton_pick.inc.js', 'new/js/banner/banner_dieton_pick.inc.js');
+copyIfMissing('new/css/banner/banner_dieton_pick.inc.css', 'new/css/banner/banner_dieton_pick.inc.css');
 
 const cssStub = '/* Local DietOn clone stub: original board module styles are not required for static clone rendering. */\n';
 [

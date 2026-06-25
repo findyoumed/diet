@@ -1,7 +1,7 @@
 const fs = require('fs');
 const ts = new Date().getTime();
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html'];
 
 for (let file of files) {
     let path = 'd:\\work\\다이어트\\' + file;

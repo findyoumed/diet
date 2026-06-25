@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-// 1. Read daedamo_story.html
-let story = fs.readFileSync('d:\\work\\다이어트\\daedamo_story.html', 'utf8');
+// 1. Read dieton_story.html
+let story = fs.readFileSync('d:\\work\\다이어트\\dieton_story.html', 'utf8');
 let start = story.indexOf('<div class="container">');
 let end = story.indexOf('</div><!--container-->') + '</div><!--container-->'.length;
 let content = story.substring(start, end);

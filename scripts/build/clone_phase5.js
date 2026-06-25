@@ -3,8 +3,8 @@ const fs = require('fs');
 function replaceKeywords(content) {
     let text = content;
     text = text.replace(/대다모/g, 'DietOn')
-               .replace(/daedamo/g, 'dieton')
-               .replace(/DAEDAMO/g, 'DIETON');
+               .replace(/dieton/g, 'dieton')
+               .replace(/DietOn/g, 'DIETON');
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')
                .replace(/탈모수다/g, '다이어트수다')
                .replace(/모발이식/g, '위고비/마운자로')
@@ -39,36 +39,36 @@ function replaceKeywords(content) {
                .replace(/헤어라인/g, '눈바디')
                .replace(/M자/g, '복부비만')
                .replace(/정수리/g, '하체비만');
-    text = text.replace(/dieton\.com/g, 'daedamo.com');
+    text = text.replace(/dieton\.com/g, 'dieton.com');
     return text;
 }
 
 function fixInternalLinks(content) {
     let text = content;
-    // Replace all Daedamo URL paths with our local HTML pages where appropriate
-    text = text.replace(/href="https:\/\/daedamo\.com\/new"/g, 'href="index.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com"/g, 'href="index.html"');
+    // Replace all DietOn URL paths with our local HTML pages where appropriate
+    text = text.replace(/href="https:\/\/dieton\.com\/new"/g, 'href="index.html"');
+    text = text.replace(/href="https:\/\/dieton\.com"/g, 'href="index.html"');
     
     // Map board links to community.html
-    text = text.replace(/href="https:\/\/daedamo\.com\/story"/g, 'href="community.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/forum"/g, 'href="community.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/story"/g, 'href="community.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/forum"/g, 'href="community.html"');
     
     // Map post links to post.html
-    text = text.replace(/href="https:\/\/daedamo\.com\/story\/([0-9]+)"/g, 'href="post.html?id=$1"');
+    text = text.replace(/href="https:\/\/dieton\.com\/story\/([0-9]+)"/g, 'href="post.html?id=$1"');
     
     // Map login/register to my.html
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/login\.php"/g, 'href="my.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/register\.php"/g, 'href="my.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/login\.php"/g, 'href="my.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/register\.php"/g, 'href="my.html"');
     
     // Create link to write.html and record.html somewhere, e.g., mapping write buttons
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/write\.php\?bo_table=([a-zA-Z0-9_]+)"/g, 'href="write.html?bo_table=$1"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/write\.php"/g, 'href="write.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/write\.php\?bo_table=([a-zA-Z0-9_]+)"/g, 'href="write.html?bo_table=$1"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/write\.php"/g, 'href="write.html"');
     
     return text;
 }
 
 // 1. Create search.html
-let searchContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_search.html', 'utf8');
+let searchContent = fs.readFileSync('d:\\work\\다이어트\\dieton_search.html', 'utf8');
 searchContent = replaceKeywords(searchContent);
 searchContent = fixInternalLinks(searchContent);
 fs.writeFileSync('d:\\work\\다이어트\\search.html', searchContent);

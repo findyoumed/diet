@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '../../');
-const inFile = path.join(rootDir, 'archive/raw_html/daedamo_mobile_raw.html');
+const inFile = path.join(rootDir, 'archive/raw_html/dieton_mobile_raw.html');
 const outFile = path.join(rootDir, 'index_mobile.html');
 
 if (!fs.existsSync(inFile)) {
@@ -46,28 +46,28 @@ function stripSourceSiteNoise(html) {
 
 function normalizeHeadAndAssets(html) {
   return html
-    .replace(/https:\/\/daedamo\.com\/new\/data\/seo\/sns_image_2025_ko\.png/gi, 'images/custom/wide_banner.png')
-    .replace(/https:\/\/daedamo\.com\/new\/data\/seo\/favicon\.ico/gi, 'favicon.ico')
-    .replace(/https:\/\/daedamo\.com\/\?device=mobile/gi, 'index_mobile.html')
+    .replace(/https:\/\/dieton\.com\/new\/data\/seo\/sns_image_2025_ko\.png/gi, 'images/custom/wide_banner.png')
+    .replace(/https:\/\/dieton\.com\/new\/data\/seo\/favicon\.ico/gi, 'favicon.ico')
+    .replace(/https:\/\/dieton\.com\/\?device=mobile/gi, 'index_mobile.html')
     .replace(/<link rel=["']alternate["'][^>]*>\s*/gi, '')
-    .replace(/href=["']https:\/\/daedamo\.com\/new\/theme\/miwit\/mobile\/style\.css\?[^"']*["']/gi, 'href="_origin_style_mobile.css"')
-    .replace(/href=["']https:\/\/daedamo\.com\/new\/theme\/miwit\/mobile\/main\.css\?[^"']*["']/gi, 'href="_origin_main_mobile.css"')
-    .replace(/href=["']https:\/\/daedamo\.com\/new\/css\/mainSlideBanner\/jwDucray\.css\?[^"']*["']/gi, 'href="_origin_ducray.css"')
-    .replace(/href=["']https:\/\/daedamo\.com\/new\/css\/banner\/banner_daedamo_pick\.inc\.css\?[^"']*["']/gi, 'href="_origin_pick.css"')
-    .replace(/href=["']https:\/\/daedamo\.com\/new\/js\/toast\/jquery-toast\.css["']/gi, 'href="_origin_style_mobile.css"')
-    .replace(/var g5_url\s*=\s*["']https:\/\/daedamo\.com\/new["'];/g, 'var g5_url            = ".";')
-    .replace(/var g5_bbs_url\s*=\s*["']https:\/\/daedamo\.com\/new\/bbs["'];/g, 'var g5_bbs_url        = ".";')
-    .replace(/var g5_cookie_domain\s*=\s*["']daedamo\.com["'];/g, 'var g5_cookie_domain  = "";')
+    .replace(/href=["']https:\/\/dieton\.com\/new\/theme\/miwit\/mobile\/style\.css\?[^"']*["']/gi, 'href="_origin_style_mobile.css"')
+    .replace(/href=["']https:\/\/dieton\.com\/new\/theme\/miwit\/mobile\/main\.css\?[^"']*["']/gi, 'href="_origin_main_mobile.css"')
+    .replace(/href=["']https:\/\/dieton\.com\/new\/css\/mainSlideBanner\/jwDucray\.css\?[^"']*["']/gi, 'href="_origin_ducray.css"')
+    .replace(/href=["']https:\/\/dieton\.com\/new\/css\/banner\/banner_dieton_pick\.inc\.css\?[^"']*["']/gi, 'href="_origin_pick.css"')
+    .replace(/href=["']https:\/\/dieton\.com\/new\/js\/toast\/jquery-toast\.css["']/gi, 'href="_origin_style_mobile.css"')
+    .replace(/var g5_url\s*=\s*["']https:\/\/dieton\.com\/new["'];/g, 'var g5_url            = ".";')
+    .replace(/var g5_bbs_url\s*=\s*["']https:\/\/dieton\.com\/new\/bbs["'];/g, 'var g5_bbs_url        = ".";')
+    .replace(/var g5_cookie_domain\s*=\s*["']dieton\.com["'];/g, 'var g5_cookie_domain  = "";')
     // [LOG: 20260624_1550] Convert remaining absolute paths to relative paths to fix 404 proxy issues.
-    .replace(/https:\/\/daedamo\.com\/new\//gi, '/new/')
-    .replace(/https:\/\/daedamo\.com\/new/gi, '/new')
+    .replace(/https:\/\/dieton\.com\/new\//gi, '/new/')
+    .replace(/https:\/\/dieton\.com\/new/gi, '/new')
     .replace(/\.\/new\//gi, '/new/');
 }
 
-function localHrefFromDaedamo(rawPath) {
+function localHrefFromDietOn(rawPath) {
   let pathname = '/';
   try {
-    pathname = new URL(`https://daedamo.com${rawPath}`).pathname;
+    pathname = new URL(`https://dieton.com${rawPath}`).pathname;
   } catch {
     pathname = rawPath.split('?')[0];
   }
@@ -84,18 +84,18 @@ function localHrefFromDaedamo(rawPath) {
 
 function normalizeLinks(html) {
   return html
-    .replace(/<a\b([^>]*?)href=["']https:\/\/daedamo\.com([^"']*)["']/gi, (match, beforeHref, rawPath) => {
-      return `<a${beforeHref}href="${localHrefFromDaedamo(rawPath)}"`;
+    .replace(/<a\b([^>]*?)href=["']https:\/\/dieton\.com([^"']*)["']/gi, (match, beforeHref, rawPath) => {
+      return `<a${beforeHref}href="${localHrefFromDietOn(rawPath)}"`;
     })
     .replace(/href=["']https:\/\/www\.ddmdandy\.com\/?["']/gi, 'href="#"')
     .replace(/href=["']https:\/\/mkt\.shopping\.naver\.com\/[^"']*["']/gi, 'href="index_mobile.html"')
     .replace(/href=["']https:\/\/youtu\.be\/[^"']*["']/gi, 'href="index_mobile.html"')
-    .replace(/href=["']https:\/\/blog\.naver\.com\/daedamo_official["']/gi, 'href="#"')
-    .replace(/href=["']https:\/\/cafe\.naver\.com\/daedamo["']/gi, 'href="#"')
-    .replace(/href=["']https:\/\/www\.youtube\.com\/@(?:Daedamo|DietOn)TV["']/gi, 'href="#"')
-    .replace(/mailto:daedamohelp@gmail\.com/gi, 'mailto:help@dieton.kr')
-    .replace(/daedamohelp@gmail\.com/gi, 'help@dieton.kr')
-    .replace(/Daedamo Corp\. All rights reserved\./g, 'DietOn Corp. All rights reserved.');
+    .replace(/href=["']https:\/\/blog\.naver\.com\/dieton_official["']/gi, 'href="#"')
+    .replace(/href=["']https:\/\/cafe\.naver\.com\/dieton["']/gi, 'href="#"')
+    .replace(/href=["']https:\/\/www\.youtube\.com\/@(?:DietOn|DietOn)TV["']/gi, 'href="#"')
+    .replace(/mailto:dietonhelp@gmail\.com/gi, 'mailto:help@dieton.kr')
+    .replace(/dietonhelp@gmail\.com/gi, 'help@dieton.kr')
+    .replace(/DietOn Corp\. All rights reserved\./g, 'DietOn Corp. All rights reserved.');
 }
 
 function addCacheBusting(html, version) {
@@ -122,8 +122,8 @@ function addCacheBusting(html, version) {
 
 const textPairs = [
   ['대다모', '다이어트온'],
-  ['DAEDAMO', 'DIETON'],
-  ['Daedamo', 'DietOn'],
+  ['DietOn', 'DIETON'],
+  ['DietOn', 'DietOn'],
   ['탈모치료', '다이어트 관리'],
   ['탈모', '다이어트'],
   ['모발이식', '비만클리닉'],
@@ -163,7 +163,7 @@ function getReplacement(url) {
   if (/i_search|search_now/i.test(decoded)) return 'images/custom/icon_search.svg';
   if (/i_go_icon|i_go_hairbnb|i_nav22/i.test(decoded)) return 'images/custom/icon_body.svg';
   if (/i_balloon_help|talmo_help_icon/i.test(decoded)) return 'images/custom/dieton_help_icon.svg';
-  if (/i_daedamo_pick_balloon/i.test(decoded)) return 'images/custom/dieton_pick_balloon.svg';
+  if (/i_dieton_pick_balloon/i.test(decoded)) return 'images/custom/dieton_pick_balloon.svg';
   if (/i_ytb/i.test(decoded)) return 'images/custom/icon_video.svg';
   if (/beta_icon/i.test(decoded)) return 'images/custom/icon_quote.svg';
   if (/favicon|arrow|prev|next|close|bottom|up_|down_/i.test(decoded)) return url;
@@ -189,21 +189,21 @@ function getReplacement(url) {
 
 function normalizeImages(html) {
   let out = html.replace(/src=["']([^"']+)["']/gi, (match, url) => {
-    if (!/daedamo\.com|youtube\.com|yt3\.ggpht\.com/i.test(url)) return match;
+    if (!/dieton\.com|youtube\.com|yt3\.ggpht\.com/i.test(url)) return match;
     if (/\.(js|css)(\?|$)/i.test(url)) return match;
     const replacement = getReplacement(url);
     return replacement === url ? match : `src="${replacement}"`;
   });
 
   out = out.replace(/background(?:-image)?:\s*url\((['"]?)([^'")]+)\1\)/gi, (match, quote, url) => {
-    if (!/daedamo\.com|youtube\.com|yt3\.ggpht\.com/i.test(url)) return match;
+    if (!/dieton\.com|youtube\.com|yt3\.ggpht\.com/i.test(url)) return match;
     const replacement = getReplacement(url);
     return replacement === url ? match : `background: url('${replacement}')`;
   });
 
   return out
-    .replace(/https:\/\/image\.daedamo\.com\/images\/img\/renew\/icon\/i_daedamo_pick_balloon\.svg/gi, 'images/custom/dieton_pick_balloon.svg')
-    .replace(/https:\/\/image\.daedamo\.com\/images\/staticBanner\/etc\/talmo_help_icon_ko_2026\.svg/gi, 'images/custom/dieton_help_icon.svg');
+    .replace(/https:\/\/image\.dieton\.com\/images\/img\/renew\/icon\/i_dieton_pick_balloon\.svg/gi, 'images/custom/dieton_pick_balloon.svg')
+    .replace(/https:\/\/image\.dieton\.com\/images\/staticBanner\/etc\/talmo_help_icon_ko_2026\.svg/gi, 'images/custom/dieton_help_icon.svg');
 }
 
 const safeRuntime = `
@@ -455,10 +455,10 @@ const mobileRuntime = `
       slidesOffsetAfter: 32,
       freeMode: true
     });
-    initSwiper('.daedamoPickBannerSwiper', {
+    initSwiper('.dietonPickBannerSwiper', {
       slidesPerView: 1,
       spaceBetween: 5,
-      navigation: { nextEl: '.daedamo-pick-next', prevEl: '.daedamo-pick-prev' }
+      navigation: { nextEl: '.dieton-pick-next', prevEl: '.dieton-pick-prev' }
     });
     initSwiper('.swiper-container, .swiper-container2, .swiper-container3, .swiper-container_female, .index_popular_list_swipe, .index_column_slide', {
       slidesPerView: 'auto',
@@ -582,7 +582,7 @@ img[src*="wide_banner"], img[src*="middle_banner"] {
   width: 100% !important;
 }
 
-.daedamopick-img {
+.dietonpick-img {
   width: 100% !important;
   height: auto !important;
   aspect-ratio: 1 / 1 !important;
@@ -653,7 +653,7 @@ img[src*="avatar_uniq"] {
 .swiper-container2,
 .swiper-container3,
 .quickMenuSwiper,
-.daedamoPickBannerSwiper,
+.dietonPickBannerSwiper,
 .index_popular_list_swipe,
 .index_column_slide {
   overflow: hidden;
@@ -849,8 +849,8 @@ body.dieton-quick-open {
   object-fit: contain !important;
 }
 
-.index_daedamo_tv .toggle_ytb,
-.index_daedamo_tv .toggle_ytb.on {
+.index_dieton_tv .toggle_ytb,
+.index_dieton_tv .toggle_ytb.on {
   background: url('images/custom/icon_video.svg') no-repeat center center / contain !important;
 }
 </style>

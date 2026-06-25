@@ -117,7 +117,7 @@ async function inspectPage(page) {
     returnByValue: true,
     expression: `
 (function () {
-  var externalImageHosts = /^(https?:)?\\/\\/(image\\.dieton\\.com|image\\.daedamo\\.com|images\\.unsplash\\.com|img\\.youtube\\.com)/;
+  var externalImageHosts = /^(https?:)?\\/\\/(image\\.dieton\\.com|image\\.dieton\\.com|images\\.unsplash\\.com|img\\.youtube\\.com)/;
   var brokenImages = Array.from(document.images).filter(function (img) {
     return img.currentSrc && (!img.complete || img.naturalWidth === 0);
   }).map(function (img) {

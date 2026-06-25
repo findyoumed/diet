@@ -26,7 +26,7 @@ const imgDir = 'd:\\work\\다이어트\\images\\custom';
 if (!fs.existsSync(imgDir)) fs.mkdirSync(imgDir, { recursive: true });
 fs.writeFileSync(path.join(imgDir, 'right_small_banner.svg'), svgContent.trim());
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 
 for (let file of files) {
     let filePath = 'd:\\work\\다이어트\\' + file;
@@ -34,7 +34,7 @@ for (let file of files) {
     
     let content = fs.readFileSync(filePath, 'utf8');
     
-    // In daedamo, btn_graftover had an img tag inside it.
+    // In dieton, btn_graftover had an img tag inside it.
     // It currently might be <img src="images/custom/side_banner2.png" alt="실시간 비대면 견적받기">
     // Let's regex replace the img tag inside a.btn_graftover
     

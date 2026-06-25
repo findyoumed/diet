@@ -3,7 +3,7 @@ const path = require('path');
 
 const files = ['index.html', 'community.html', 'post.html', 'record.html', 'write.html'];
 
-console.log('=== Adjusting video_banner margin to match Daedamo exactly (margin-top: 42px) ===');
+console.log('=== Adjusting video_banner margin to match DietOn exactly (margin-top: 42px) ===');
 
 for (let file of files) {
     const filePath = path.join('d:\\work\\diet', file);

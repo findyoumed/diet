@@ -1,4 +1,4 @@
-# DietOn 대다모(daedamo.com) UI 클론 마스터플랜
+# DietOn 대다모(dieton.com) UI 클론 마스터플랜
 
 ## 🎯 목표
 DietOn 커뮤니티를 대다모 웹사이트의 검증된 레이아웃, 컬러체계, UX 패턴과 동일하게 개편합니다.

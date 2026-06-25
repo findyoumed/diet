@@ -5,8 +5,8 @@ function replaceKeywords(content) {
     
     // 기본 명칭 변경
     text = text.replace(/대다모/g, 'DietOn')
-               .replace(/daedamo/g, 'dieton')
-               .replace(/DAEDAMO/g, 'DIETON');
+               .replace(/dieton/g, 'dieton')
+               .replace(/DietOn/g, 'DIETON');
 
     // 카테고리 및 메뉴 변경 (대다모 GNB 메뉴 기반)
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')
@@ -47,32 +47,32 @@ function replaceKeywords(content) {
                .replace(/정수리/g, '하체비만');
                
     // URL이 dieton.com 으로 바뀌어 이미지가 깨지는 것 방지
-    text = text.replace(/dieton\.com/g, 'daedamo.com');
+    text = text.replace(/dieton\.com/g, 'dieton.com');
 
     return text;
 }
 
-// 1. index.html = daedamo.html
-let indexContent = fs.readFileSync('d:\\work\\다이어트\\daedamo.html', 'utf8');
+// 1. index.html = dieton.html
+let indexContent = fs.readFileSync('d:\\work\\다이어트\\dieton.html', 'utf8');
 indexContent = replaceKeywords(indexContent);
 fs.writeFileSync('d:\\work\\다이어트\\index.html', indexContent);
 
-// 2. community.html = daedamo_story.html
-let commContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_story.html', 'utf8');
+// 2. community.html = dieton_story.html
+let commContent = fs.readFileSync('d:\\work\\다이어트\\dieton_story.html', 'utf8');
 commContent = replaceKeywords(commContent);
 fs.writeFileSync('d:\\work\\다이어트\\community.html', commContent);
 
-// 3. post.html = daedamo_post.html
-let postContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_post.html', 'utf8');
+// 3. post.html = dieton_post.html
+let postContent = fs.readFileSync('d:\\work\\다이어트\\dieton_post.html', 'utf8');
 postContent = replaceKeywords(postContent);
 fs.writeFileSync('d:\\work\\다이어트\\post.html', postContent);
 
-// 4. my.html = daedamo_register.html
-let myContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_register.html', 'utf8');
+// 4. my.html = dieton_register.html
+let myContent = fs.readFileSync('d:\\work\\다이어트\\dieton_register.html', 'utf8');
 myContent = replaceKeywords(myContent);
 fs.writeFileSync('d:\\work\\다이어트\\my.html', myContent);
 
-// 5. record.html = daedamo_story.html with form inside
+// 5. record.html = dieton_story.html with form inside
 let listStart = commContent.indexOf('<!-- 게시판 목록 시작 -->');
 let listEnd = commContent.indexOf('<!-- 게시판 목록 끝 -->');
 if(listEnd !== -1) {

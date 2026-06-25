@@ -18,7 +18,7 @@ const fallbackImages = [
 
 const allowedAssetHosts = new Set([
   'image.dieton.com',
-  'image.daedamo.com',
+  'image.dieton.com',
   'images.unsplash.com',
   'img.youtube.com',
 ]);
@@ -47,7 +47,7 @@ function sourceUrl(raw) {
   const normalized = normalizeUrl(raw);
   try {
     const url = new URL(normalized);
-    if (url.hostname === 'image.dieton.com') url.hostname = 'image.daedamo.com';
+    if (url.hostname === 'image.dieton.com') url.hostname = 'image.dieton.com';
     return url;
   } catch {
     return null;
@@ -153,7 +153,7 @@ async function main() {
     failures,
   };
   fs.writeFileSync(path.join(root, 'scripts', 'build', 'remote_asset_report.json'), JSON.stringify(report, null, 2), 'utf8');
-  console.log(`Localized remote image.daedamo/dieton assets: ${matches.size}`);
+  console.log(`Localized remote image.dieton/dieton assets: ${matches.size}`);
   console.log(`Download failures replaced with local fallbacks: ${failures.length}`);
 }
 

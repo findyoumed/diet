@@ -26,7 +26,7 @@ for (let icon of icons) {
     cssRules.push(`${icon.class} { background: url(images/custom/${icon.name}.svg) no-repeat center center / contain !important; display: inline-block; width: 30px !important; height: 30px !important; }`);
 }
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 const ts = new Date().getTime();
 
 for (let file of files) {

@@ -28,7 +28,7 @@ const svg = `
 
 fs.writeFileSync(path.join(imgDir, 'content_map_banner.svg'), svg);
 
-const files = ['index.html', 'search.html', 'daedamo_search.html', 'daedamo_record.html', 'daedamo.html', 'community.html', 'record.html', 'daedamo_story.html', 'post.html', 'write.html'];
+const files = ['index.html', 'search.html', 'dieton_search.html', 'dieton_record.html', 'dieton.html', 'community.html', 'record.html', 'dieton_story.html', 'post.html', 'write.html'];
 
 for (let file of files) {
     let filePath = 'd:\\work\\다이어트\\' + file;

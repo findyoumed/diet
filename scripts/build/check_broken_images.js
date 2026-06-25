@@ -7,7 +7,7 @@ const urlMatch = [...c.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/gi)];
 
 console.log('--- IMG SRC ---');
 imgMatch.forEach(m => {
-    if (!m[1].includes('images/custom') && !m[1].includes('daedamo')) {
+    if (!m[1].includes('images/custom') && !m[1].includes('dieton')) {
         console.log(m[1]);
     }
     if (m[1] === '') console.log('EMPTY IMG SRC!');
@@ -15,7 +15,7 @@ imgMatch.forEach(m => {
 
 console.log('--- URL(...) ---');
 urlMatch.forEach(m => {
-    if (!m[1].includes('images/custom') && !m[1].includes('daedamo')) {
+    if (!m[1].includes('images/custom') && !m[1].includes('dieton')) {
         console.log(m[1]);
     }
     if (m[1] === '') console.log('EMPTY URL!');

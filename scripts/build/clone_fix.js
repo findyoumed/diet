@@ -2,9 +2,9 @@ const fs = require('fs');
 
 function replaceKeywords(content) {
     let text = content;
-    // DO NOT REPLACE lowercase daedamo to avoid breaking resource URLs!
+    // DO NOT REPLACE lowercase dieton to avoid breaking resource URLs!
     text = text.replace(/대다모/g, 'DietOn')
-               .replace(/DAEDAMO/g, 'DIETON');
+               .replace(/DietOn/g, 'DIETON');
                
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')
                .replace(/탈모수다/g, '다이어트수다')
@@ -47,51 +47,51 @@ function replaceKeywords(content) {
 
 function fixInternalLinks(content) {
     let text = content;
-    text = text.replace(/href="https:\/\/daedamo\.com\/new"/g, 'href="index.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com"/g, 'href="index.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/story"/g, 'href="community.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/forum"/g, 'href="community.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/story\/([0-9]+)"/g, 'href="post.html?id=$1"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/login\.php"/g, 'href="my.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/register\.php"/g, 'href="my.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/write\.php\?bo_table=([a-zA-Z0-9_]+)"/g, 'href="write.html?bo_table=$1"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/new\/bbs\/write\.php"/g, 'href="write.html"');
-    text = text.replace(/href="https:\/\/daedamo\.com\/search[^"]*"/g, 'href="search.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new"/g, 'href="index.html"');
+    text = text.replace(/href="https:\/\/dieton\.com"/g, 'href="index.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/story"/g, 'href="community.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/forum"/g, 'href="community.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/story\/([0-9]+)"/g, 'href="post.html?id=$1"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/login\.php"/g, 'href="my.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/register\.php"/g, 'href="my.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/write\.php\?bo_table=([a-zA-Z0-9_]+)"/g, 'href="write.html?bo_table=$1"');
+    text = text.replace(/href="https:\/\/dieton\.com\/new\/bbs\/write\.php"/g, 'href="write.html"');
+    text = text.replace(/href="https:\/\/dieton\.com\/search[^"]*"/g, 'href="search.html"');
     return text;
 }
 
 // 1. index.html
-let indexContent = fs.readFileSync('d:\\work\\다이어트\\daedamo.html', 'utf8');
+let indexContent = fs.readFileSync('d:\\work\\다이어트\\dieton.html', 'utf8');
 indexContent = replaceKeywords(indexContent);
 indexContent = fixInternalLinks(indexContent);
 fs.writeFileSync('d:\\work\\다이어트\\index.html', indexContent);
 
 // 2. community.html
-let commContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_story.html', 'utf8');
+let commContent = fs.readFileSync('d:\\work\\다이어트\\dieton_story.html', 'utf8');
 commContent = replaceKeywords(commContent);
 commContent = fixInternalLinks(commContent);
 fs.writeFileSync('d:\\work\\다이어트\\community.html', commContent);
 
 // 3. post.html
-let postContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_post.html', 'utf8');
+let postContent = fs.readFileSync('d:\\work\\다이어트\\dieton_post.html', 'utf8');
 postContent = replaceKeywords(postContent);
 postContent = fixInternalLinks(postContent);
 fs.writeFileSync('d:\\work\\다이어트\\post.html', postContent);
 
 // 4. my.html
-let myContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_register.html', 'utf8');
+let myContent = fs.readFileSync('d:\\work\\다이어트\\dieton_register.html', 'utf8');
 myContent = replaceKeywords(myContent);
 myContent = fixInternalLinks(myContent);
 fs.writeFileSync('d:\\work\\다이어트\\my.html', myContent);
 
 // 5. search.html
-let searchContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_search.html', 'utf8');
+let searchContent = fs.readFileSync('d:\\work\\다이어트\\dieton_search.html', 'utf8');
 searchContent = replaceKeywords(searchContent);
 searchContent = fixInternalLinks(searchContent);
 fs.writeFileSync('d:\\work\\다이어트\\search.html', searchContent);
 
 // 6. write.html
-let writeCommContent = fs.readFileSync('d:\\work\\다이어트\\daedamo_story.html', 'utf8');
+let writeCommContent = fs.readFileSync('d:\\work\\다이어트\\dieton_story.html', 'utf8');
 writeCommContent = replaceKeywords(writeCommContent);
 let listStart = writeCommContent.indexOf('<!-- 게시판 목록 시작 -->');
 let listEnd = writeCommContent.indexOf('<!-- 게시판 목록 끝 -->');
