@@ -149,7 +149,6 @@
   <!-- End of Taboola Pixel Code -->
 
     <style>
-        
         img[src*="images/custom"] {
             object-fit: cover;
         }
@@ -157,47 +156,461 @@
             width: 100%;
             height: 100%;
         }
-    
+
         .index_category_box .flex_spbtw li img {
             width: 50px !important;
             height: 50px !important;
         }
+        body.dieton-my-page {
+            margin: 0;
+            background: #f5f7fa;
+            color: #222;
+            font-family: "SCoreDream", "Noto Sans KR", Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        body.dieton-my-page * {
+            box-sizing: border-box;
+        }
+        .my-topbar {
+            background: #fff;
+            border-bottom: 1px solid #e6e9ef;
+            width: 100%;
+        }
+        .my-topbar-inner {
+            width: 1180px;
+            margin: 0 auto;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .my-logo img {
+            width: 148px;
+            height: auto;
+            display: block;
+        }
+        .my-top-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 13px;
+            color: #666;
+        }
+        .my-top-links a {
+            color: #444;
+            text-decoration: none;
+        }
+        .my-nav {
+            background: #fff;
+            border-bottom: 1px solid #e6e9ef;
+            width: 100%;
+        }
+        .my-nav-inner {
+            width: 1180px;
+            margin: 0 auto;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .my-nav-inner a {
+            color: #222;
+            text-decoration: none;
+        }
+        .my-shell {
+            width: 1180px;
+            margin: 32px auto 80px;
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 28px;
+        }
+        .my-sidebar {
+            background: #fff;
+            border: 1px solid #e2e6ee;
+        }
+        .my-sidebar-title {
+            padding: 22px 24px;
+            border-bottom: 2px solid #222;
+            font-size: 22px;
+            font-weight: 800;
+        }
+        .my-sidebar a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 48px;
+            padding: 0 20px;
+            border-bottom: 1px solid #eef1f5;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .my-sidebar a.is-active {
+            color: #1e88e5;
+            background: #f3f9ff;
+        }
+        .my-content {
+            min-width: 0;
+        }
+        .my-content-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #222;
+        }
+        .my-content-head h1 {
+            margin: 0;
+            font-size: 26px;
+            line-height: 1.2;
+        }
+        .my-content-head p {
+            margin: 8px 0 0;
+            color: #777;
+            font-size: 13px;
+        }
+        .my-login-wrap {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: minmax(360px, 1fr) 300px;
+            gap: 24px;
+        }
+        .my-login-panel,
+        .my-benefit-panel,
+        .my-activity-panel {
+            background: #fff;
+            border: 1px solid #e2e6ee;
+        }
+        .my-login-panel {
+            padding: 38px 44px;
+        }
+        .my-login-logo {
+            margin-bottom: 18px;
+        }
+        .my-login-logo img {
+            width: 132px;
+            height: auto;
+        }
+        .my-login-panel h2 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            line-height: 1.35;
+        }
+        .my-login-panel h2 strong {
+            color: #1e88e5;
+        }
+        .my-login-panel .login-copy {
+            margin: 0 0 26px;
+            color: #666;
+            font-size: 14px;
+        }
+        .my-login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .my-login-form input {
+            width: 100%;
+            height: 48px;
+            padding: 0 14px;
+            border: 1px solid #d9dee8;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+        }
+        .my-login-form input:focus {
+            border-color: #1e88e5;
+        }
+        .my-login-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .my-login-actions button {
+            height: 46px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        #btnLogin {
+            background: #1e88e5;
+            color: #fff;
+            border: 1px solid #1e88e5;
+        }
+        #btnSignup {
+            background: #fff;
+            color: #1e88e5;
+            border: 1px solid #1e88e5;
+        }
+        .my-login-help {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            color: #777;
+            font-size: 13px;
+        }
+        .my-login-help a {
+            color: #777;
+            text-decoration: none;
+        }
+        .my-benefit-panel {
+            padding: 26px;
+        }
+        .my-benefit-panel h3,
+        .my-activity-panel h3 {
+            margin: 0 0 16px;
+            font-size: 18px;
+        }
+        .my-benefit-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .my-benefit-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid #eef1f5;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+        .my-benefit-list b {
+            display: block;
+            margin-bottom: 3px;
+        }
+        .my-benefit-list span {
+            color: #777;
+            font-size: 13px;
+        }
+        .my-activity-panel {
+            margin-top: 24px;
+            padding: 24px;
+        }
+        .my-activity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e6e9ef;
+            border: 1px solid #e6e9ef;
+        }
+        .my-activity-grid div {
+            background: #fff;
+            padding: 18px;
+        }
+        .my-activity-grid strong {
+            display: block;
+            font-size: 24px;
+            color: #1e88e5;
+        }
+        .my-activity-grid span {
+            color: #666;
+            font-size: 13px;
+        }
+        .my-info-page {
+            margin-top: 24px;
+            background: #fff;
+            border: 1px solid #e2e6ee;
+            padding: 34px 38px;
+        }
+        .my-info-page h2 {
+            margin: 0 0 14px;
+            font-size: 22px;
+            line-height: 1.35;
+        }
+        .my-info-page h3 {
+            margin: 30px 0 10px;
+            font-size: 17px;
+        }
+        .my-info-page p {
+            margin: 8px 0;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .my-info-page ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+        }
+        .my-info-page li {
+            margin: 7px 0;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .my-info-table {
+            width: 100%;
+            margin-top: 14px;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .my-info-table th,
+        .my-info-table td {
+            padding: 13px 14px;
+            border: 1px solid #e2e6ee;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        .my-info-table th {
+            width: 180px;
+            background: #f7f9fc;
+            color: #222;
+            font-weight: 700;
+        }
+        .my-info-notice {
+            margin-top: 22px;
+            padding: 16px 18px;
+            background: #f7f9fc;
+            border: 1px solid #e6e9ef;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        @media (max-width: 900px) {
+            .my-topbar-inner,
+            .my-nav-inner,
+            .my-shell {
+                width: auto;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+            .my-topbar-inner {
+                height: 64px;
+            }
+            .my-top-links {
+                display: none;
+            }
+            .my-nav-inner {
+                overflow-x: auto;
+                gap: 22px;
+                white-space: nowrap;
+                padding-bottom: 3px;
+            }
+            .my-shell {
+                display: block;
+                margin-top: 18px;
+            }
+            .my-sidebar {
+                display: none;
+            }
+            .my-login-wrap {
+                grid-template-columns: 1fr;
+            }
+            .my-login-panel {
+                padding: 28px 20px;
+                min-width: 0;
+            }
+            .my-content-head {
+                display: block;
+            }
+            .my-content-head h1 {
+                font-size: 26px;
+            }
+            .my-login-panel h2 {
+                font-size: 22px;
+                word-break: keep-all;
+            }
+            .my-info-page {
+                padding: 24px 18px;
+            }
+            .my-info-table th,
+            .my-info-table td {
+                display: block;
+                width: 100%;
+            }
+            .my-login-actions,
+            .my-activity-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-<body class="">
+<body class="dieton-my-page">
   <!-- Google Tag Manager (noscript) -->
   <!-- GTM iframe (Disabled) -->
   <!-- End Google Tag Manager (noscript) -->
-<section id="mb_login" class="mbskin common-login-ui-wrap" data-callback_url="/">
-  <div class="header">
-    <div class="header-inner">
-      <a href="index.html"><img src="images/custom/logo.svg" alt="DietOn"></a>
+<header class="my-topbar">
+  <div class="my-topbar-inner">
+    <a class="my-logo" href="index.html"><img src="images/custom/logo.svg" alt="DietOn"></a>
+    <div class="my-top-links">
+      <a href="my.html">로그인</a>
+      <a href="my.html">회원가입</a>
+      <a href="community.html">커뮤니티</a>
+      <a href="search.html">검색</a>
     </div>
   </div>
-  <div class="bg_white">
-    <div>
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/custom/logo.svg" alt="다이어트 1위 커뮤니티 DietOn">
-        </a>
-      </div>
-      <h1>대한민국 No1. 다이어트커뮤니티 <strong>DietOn</strong></h1>
-      <h2>“대한민국 사람들 다 체중 부자 되세요”</h2>
+</header>
+<nav class="my-nav" aria-label="주요 메뉴">
+  <div class="my-nav-inner">
+    <a href="community.html">다이어트수다</a>
+    <a href="community.html">고민상담</a>
+    <a href="record.html">기록관리</a>
+    <a href="write.html">글쓰기</a>
+    <a href="search.html">통합검색</a>
+  </div>
+</nav>
+<main class="my-shell">
+  <aside class="my-sidebar" aria-label="마이페이지 메뉴">
+    <div class="my-sidebar-title">마이페이지</div>
+    <a class="is-active" href="my.html">로그인 <span>›</span></a>
+    <a href="my.html">회원가입 <span>›</span></a>
+    <a href="community.html">내 게시글 <span>›</span></a>
+    <a href="record.html">다이어트 기록 <span>›</span></a>
+    <a href="search.html">최근 검색 <span>›</span></a>
+  </aside>
+  <section class="my-content">
+    <div class="my-content-head">
       <div>
-        <div class="flex btn" style="flex-direction:column; gap:10px;">
-          <input type="email" id="authEmail" placeholder="이메일 주소" style="width:100%; padding:15px; border:1px solid #ccc; border-radius:5px; box-sizing:border-box;">
-          <input type="password" id="authPassword" placeholder="비밀번호" style="width:100%; padding:15px; border:1px solid #ccc; border-radius:5px; box-sizing:border-box;">
-          
-          <button type="button" id="btnLogin" class="flex btn btn-kakao-login" style="background:#1e88e5; color:#fff; border:none; justify-content:center;">
-            로그인
-          </button>
-          <button type="button" id="btnSignup" class="flex btn btn-register-email" style="justify-content:center;">
-            회원가입
-          </button>
-        </div>
+        <h1>로그인</h1>
+        <p>DietOn 회원으로 로그인하면 게시글 작성, 댓글, 기록 관리 기능을 사용할 수 있습니다.</p>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="my-login-wrap">
+      <section id="mb_login" class="my-login-panel common-login-ui-wrap" data-callback_url="/">
+        <div class="my-login-logo">
+          <a href="index.html"><img src="images/custom/logo.svg" alt="다이어트 1위 커뮤니티 DietOn"></a>
+        </div>
+        <h2>대한민국 No.1 다이어트 커뮤니티 <strong>DietOn</strong></h2>
+        <p class="login-copy">감량 고민, 식단 기록, 위고비/마운자로 후기까지 한 곳에서 이어집니다.</p>
+        <div class="my-login-form">
+          <input type="email" id="authEmail" placeholder="이메일 주소">
+          <input type="password" id="authPassword" placeholder="비밀번호">
+          <div class="my-login-actions">
+            <button type="button" id="btnLogin">로그인</button>
+            <button type="button" id="btnSignup">회원가입</button>
+          </div>
+        </div>
+        <div class="my-login-help">
+          <a href="my.html">아이디 찾기</a>
+          <span>|</span>
+          <a href="my.html">비밀번호 찾기</a>
+        </div>
+      </section>
+      <aside class="my-benefit-panel">
+        <h3>회원 전용 기능</h3>
+        <ul class="my-benefit-list">
+          <li><b>게시글 작성</b><span>고민 상담과 후기를 바로 남길 수 있습니다.</span></li>
+          <li><b>댓글 참여</b><span>다이어트 경험을 나누고 답변을 받을 수 있습니다.</span></li>
+          <li><b>기록 관리</b><span>체중, 식단, 운동 흐름을 한 화면에서 확인합니다.</span></li>
+          <li><b>맞춤 검색</b><span>관심 주제와 최근 읽은 글을 빠르게 찾습니다.</span></li>
+        </ul>
+      </aside>
+    </div>
+    <section class="my-activity-panel">
+      <h3>내 활동 요약</h3>
+      <div class="my-activity-grid">
+        <div><strong>0</strong><span>작성글</span></div>
+        <div><strong>0</strong><span>댓글</span></div>
+        <div><strong>0</strong><span>저장한 글</span></div>
+        <div><strong>0</strong><span>기록 항목</span></div>
+      </div>
+    </section>
+  </section>
+</main>
   <!-- Naver wcslog (Disabled) -->
   <!-- Naver analytics block (Disabled) -->
 

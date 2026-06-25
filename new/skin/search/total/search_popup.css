@@ -68,10 +68,11 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 #search_popup_wrap .search_contents .contents {
   width: 60%;
+  flex: 0 0 60%;
 }
 #search_popup_wrap .search_contents .contents .section_now {
   display: flex;
@@ -182,4 +183,14 @@
   width: 16px;
   height: 12px;
   background-size: 100%;
+}
+#search_popup_wrap .search_contents .ad {
+  flex: 0 0 250px;
+  padding-top: 30px;
+}
+#search_popup_wrap .search_contents .ad img {
+  display: block;
+  width: 250px;
+  height: 311px;
+  object-fit: cover;
 }

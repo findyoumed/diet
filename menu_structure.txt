@@ -1,0 +1,115 @@
+[LOG: 20260625_1702] DietOn Current Menu Structure
+
+================================================================================
+DietOn 현재 메뉴 구조 (GNB 및 사이드바 통합 리스트)
+================================================================================
+
+1. 공지/등업
+   ├── 공지사항 (./community.html?category=notice)
+   ├── 등업신청 (./community.html?category=level-up)
+   └── 운영및제안 (./community.html?category=inquiry)
+
+2. 비대면 견적받기
+   └── 실시간 비대면 견적받기 (./index.html 또는 ./index_mobile.html)
+
+3. 닥터다이어트
+   └── 닥터다이어트 (./community.html?category=clinic)
+
+4. 다이어트톡톡
+   ├── 다이어트톡톡 (./community.html)
+   ├── 다이어트수다 (./community.html)
+   ├── 위고비/마운자로 (./community.html?category=graft)
+   ├── 여성다이어트 (./community.html?category=hairline)
+   ├── 비만치료톡 (./community.html?category=care)
+   ├── 지방흡입/시술 (./community.html?category=smp)
+   ├── 비만치료제 (./community.html?category=drug)
+   ├── 식단&보조제 (./community.html?category=food-supplement)
+   ├── 바디프로필 (./community.html?category=wig)
+   ├── 고도비만&요요 (./community.html?category=yoyo-care)
+   ├── 산후다이어트 (./community.html?category=woman)
+   ├── 익명수다 (./community.html?category=freestory)
+   └── 2030 다이어트 (./community.html?category=2030-diet)
+
+5. 위고비/마운자로
+   ├── 위고비/마운자로톡톡 (./community.html?category=graft)
+   ├── 위고비/마운자로 수다 (./community.html)
+   ├── 위고비/마운자로 포토후기 (./community.html?category=wegovy-photo)
+   ├── 위고비/마운자로 후기/정보 (./community.html?category=graftafter)
+   ├── 위고비/마운자로 병원 찾기 (./search.html?type=clinic&sfl=wr_icon1&stx=1)
+   ├── 위고비/마운자로 닥터찾기 (./search.html?sfl=wr_tag&stx=위고비/마운자로)
+   ├── 위고비/마운자로 실패사례 (./community.html?category=graft_failcase)
+   ├── 성공사례 보고 (./community.html?category=success-story)
+   └── 다이어트치료성공스토리 (./community.html?category=success-story)
+
+6. 눈바디/지방흡입
+   ├── 산후다이어트 톡톡 (./community.html?category=hairline)
+   ├── 지방흡입 톡톡 (./community.html?category=smp)
+   ├── 산후다이어트 포토후기 (./community.html?category=womanphoto)
+   ├── 여성다이어트 후기 (./community.html?category=women-diet-photo)
+   ├── 지방흡입 포토후기 (./community.html?category=liposuction-photo)
+   ├── 바디프로필 포토후기 (./community.html?category=wigphoto)
+   ├── 식단/보조제/운동성공사례 (./community.html?category=wigsuccess)
+   ├── 여성, 체지방 병원 찾기 (./search.html?type=clinic&sfl=wr_icon2||wr_icon3&stx=1)
+   ├── 여성, 체지방 닥터찾기 (./search.html?sfl=wr_tag&stx=눈바디+지방흡입&sop=or)
+   ├── 다이어트 바디프로필 찾기 (./search.html?type=product&sca=바디프로필)
+   └── 식단상담처 찾기 (./search.html?type=product&sca=식단상담처)
+
+7. 다이어트 보조제 (위고비/삭센다)
+   ├── 먹는 다이어트톡톡 (./community.html?category=drug)
+   ├── 다이어트 보조제 포토후기 (./community.html?category=drugafter)
+   ├── 다이어트 보조제 찾기 (./search.html?type=product&sca=비만치료제)
+   ├── 다이어트 성지찾기 (./search.html?type=consulting)
+   └── 다이어트기능식품 찾기 (./search.html?type=product&sca=건강기능식품)
+
+8. 식단&운동케어
+   ├── DietOn픽 (./community.html?category=dieton-pick)
+   ├── 식단&보조제 (./community.html?category=food-supplement)
+   ├── 인바디 측정&체지방제품 찾기 (./search.html?type=product&sca=인바디측정제품)
+   └── 체험평가단 (./community.html?category=trial)
+
+9. 다이어트 후기
+   ├── 전체 보기 (./community.html?category=photo-review)
+   ├── 위고비/마운자로 포토후기 (./community.html?category=wegovy-photo)
+   ├── 위고비/마운자로 후기정보 (./community.html?category=graftafter)
+   ├── 비만치료제 포토후기 (./community.html?category=drugafter)
+   ├── 지방흡입 포토후기 (./community.html?category=liposuction-photo)
+   ├── 바디프로필 포토후기 (./community.html?category=wigphoto)
+   ├── 성공사례 보고 (./community.html?category=wigsuccess)
+   ├── 산후다이어트 포토후기 (./community.html?category=womanphoto)
+   ├── 위고비/마운자로 실패사례 (./community.html?category=graft_failcase)
+   ├── 다이어트치료 성공스토리 (./community.html?category=success-story)
+   └── 다이어트커버스토리 (./community.html?category=cover-story)
+
+10. 전문의상담
+    └── 한나이브 / 노블라인의원 / JP비만클리닉 / 알파슬림의원 등 (./search.html?type=expert)
+
+11. 비만클리닉
+    ├── 비만클리닉 찾기 (./search.html?type=clinic)
+    ├── 다이어트의사 찾기 (./search.html)
+    ├── 다이어트성지, 약국 찾기 (./search.html?type=consulting)
+    ├── 인바디 측정 찾기 (./search.html?type=product&sca=인바디측정제품)
+    ├── 비만치료제 찾기 (./search.html?type=product&sca=비만치료제)
+    ├── 다이어트건기식 찾기 (./search.html?type=product&sca=건강기능식품)
+    ├── 다이어트 바디프로필 찾기 (./search.html?type=product&sca=바디프로필)
+    └── 식단상담처 찾기 (./search.html?type=product&sca=식단상담처)
+
+12. 다이어트칼럼 (사이드바 전용 메뉴)
+    ├── 비만치료 파워 콘텐츠 (./search.html?type=clinicphoto)
+    ├── 다이어트 유튜브 게시판 (./community.html?category=youtube)
+    ├── 다이어트커버스토리 (./community.html?category=cover-story)
+    ├── 다이어트치료성공스토리 (./community.html?category=success-story)
+    ├── 다이어트뉴스 (./news)
+    ├── 다이어트용어사전 (./community.html?category=dictionary)
+    ├── 다이어트FAQ (./community.html?category=faq)
+    ├── 다이어트초보자료실 (./community.html?category=beginner)
+    ├── 다이어트자가진단 (./community.html?category=self-check)
+    ├── 다이어트전문가 컬럼 (./community.html?category=column)
+    ├── 감량여행 티켓 (./community.html?category=diet-trip)
+    ├── DietOn전자 (./community.html?category=ai-gallery&sca=DietOn전자)
+    └── 모플렉스 (./community.html?category=ai-gallery&sca=MOFLEX)
+
+13. PR & MARKET (사이드바 전용 메뉴)
+    ├── 홍보 및 무료배포 (./community.html?category=publicity)
+    ├── 마켓 (./community.html?category=market)
+    ├── 정모벙개/사람찾기 (./community.html?category=find)
+    └── 공동구매 사용후기 (./community.html?category=group-buy-review)

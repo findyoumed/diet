@@ -906,3 +906,67 @@
 - `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `originalDomainRequests 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`
 
 결과: 자동 QA 기준과 주요 화면 육안 점검 기준에서 남아 있던 비-DietOn 문맥 문구를 추가 정리했고, 전체 페이지 QA를 재통과.
+## [2026-06-25 16:05] 하위 메뉴 완료 감사 및 PC index 라우팅 보정
+
+**LOG_ID: 20260625_1605**
+목표: 하위 메뉴가 모두 클론코딩 되었는지 현재 상태 기준으로 재검증하고, PC 전체메뉴/PC 사이드바/모바일 햄버거/모바일 퀵메뉴를 자동 QA 범위에 포함.
+
+수행 작업:
+1. `scripts/build/qa_clone_pages.js`에 하위 메뉴 검증을 추가.
+   - PC 전체메뉴: `#btnHeaderAllMenu` 클릭 후 대분류/하위 항목 개수 확인.
+   - PC 사이드바: `.sidebar_nav` 대분류/하위 패널/하위 링크/선택 항목 확인.
+   - 모바일 햄버거: 그룹/하위 패널/링크 수 확인.
+   - 모바일 퀵메뉴: 열림 상태와 링크 수 확인.
+2. PC `index.html`이 headless 데스크톱 QA에서 `screen.width/height` 보조 조건 때문에 모바일로 오판되는 문제 수정.
+   - `screen.width/height`가 작더라도 실제 `layoutWidth`가 데스크톱 폭이면 모바일 리다이렉트하지 않도록 보정.
+3. `pc-index` QA에 `expectedFinalPath: '/index.html'`을 추가하여 PC index가 모바일로 잘못 넘어가면 실패하도록 강화.
+
+검증:
+- 원본 PC 전체메뉴 기준: 대분류 9개, 하위 메뉴 다수 구조 확인.
+- 로컬 QA 결과:
+  - `pc-index`: finalPath `/index.html`, PC 전체메뉴 `topItems 9`, `subItems 69`
+  - `pc-community`, `pc-post`, `pc-write`, `pc-record`: PC 사이드바 `groups 13`, `subPanels 12`, `subLinks 89`
+  - `mobile-index`: 모바일 햄버거 `groupCount 13`, `subCount 13`, `linkCount 92`
+  - `mobile-index`: 모바일 퀵메뉴 `links 10`, `open true`
+  - `mobile-index-redirect`: finalPath `/index_mobile.html`
+  - `mobile-index-pc-exception`: finalPath `/index.html`, PC 전체메뉴 `topItems 9`, `subItems 69`
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 10개 케이스 모두 `brokenImages 0`, `externalImages 0`, `local4xx 0`, `consoleErrors 0`, `originalDomainRequests 0`, `hasOriginalTerms false`, `hasAttributeOriginalTerms false`, `routeOk true`, `mobileMenuOk true`, `pcAllMenuOk true`, `pcSidebarOk true`, `mobileQuickMenuOk true`
+
+결과: 하위 메뉴 관련 구현 범위를 자동 QA가 직접 검증하도록 강화했고, PC index 라우팅 오판까지 수정하여 현재 기준 하위 메뉴 목표 완료 증거를 확보.
+## [2026-06-25 15:58] 마이페이지 클론 보강 및 모바일 서브페이지 QA 확장
+
+**LOG_ID: 20260625_1558**
+목표: 클론코딩 계획에서 상대적으로 얇게 남아 있던 `my.html`을 좌측 메뉴/우측 콘텐츠 구조의 마이페이지형 로그인 화면으로 보강하고, 자동 QA가 모바일 서브페이지까지 검증하도록 확장.
+
+수행 작업:
+1. `my.html`을 단일 로그인 폼에서 PC 헤더, 상단 내비게이션, 좌측 마이페이지 메뉴, 로그인 패널, 회원 전용 기능 안내, 내 활동 요약 영역을 가진 2단 레이아웃으로 보강.
+2. 모바일 폭에서 좌측 메뉴를 숨기고 로그인/혜택 영역이 단일 컬럼으로 흐르도록 반응형 CSS 추가.
+3. 모바일 QA 스크린샷에서 확인된 가로 넘침을 `overflow-x`, box sizing, 모바일 제목/패널 폭 보정으로 수정.
+4. `scripts/build/qa_clone_pages.js`에 모바일 서브페이지 케이스 추가:
+   - `mobile-community`
+   - `mobile-search`
+   - `mobile-post`
+   - `mobile-write`
+   - `mobile-my`
+   - `mobile-record`
+5. QA에 `layoutOverflowX` 검사를 추가하여 PC/모바일 화면의 가로 넘침이 4px을 초과하면 실패하도록 강화.
+
+검증:
+- `node --check scripts/build/qa_clone_pages.js` -> 통과
+- `node --check scripts/build/qa_board_crud.js` -> 통과
+- `node scripts/build/audit_broken.js` -> `Broken assets found: 0`
+- `node scripts/build/qa_clone_pages.js` -> 16개 케이스 모두 통과
+  - `brokenImages 0`
+  - `externalImages 0`
+  - `local4xx 0`
+  - `consoleErrors 0`
+  - `layoutOverflowX 0`
+  - `originalDomainRequests 0`
+  - `hasOriginalTerms false`
+  - `hasAttributeOriginalTerms false`
+  - `routeOk true`
+- `node scripts/build/qa_board_crud.js` -> 생성/조회/수정/댓글 생성/삭제/삭제 후 목록 확인 모두 통과
+
+결과: 마이페이지 영역이 클론 계획의 2단 구조에 가까워졌고, 모바일 서브페이지와 가로 넘침까지 자동 QA 범위에 포함됨.

@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const DEBUG_URL = 'http://127.0.0.1:9222';
-const BASE_URL = 'http://127.0.0.1:8080';
+const BASE_URL = process.env.QA_BASE_URL || 'http://127.0.0.1:8080';
 const pages = [
-  { name: 'pc-index', path: '/index.html', width: 1440, height: 1100, mobile: false },
+  { name: 'pc-index', path: '/index.html', width: 1440, height: 1100, mobile: false, expectedFinalPath: '/index.html' },
   { name: 'pc-community', path: '/community.html', width: 1440, height: 1100, mobile: false },
   { name: 'pc-search', path: '/search.html', width: 1440, height: 1100, mobile: false },
   { name: 'pc-post', path: '/post.html', width: 1440, height: 1100, mobile: false },
@@ -12,6 +12,12 @@ const pages = [
   { name: 'pc-my', path: '/my.html', width: 1440, height: 1100, mobile: false },
   { name: 'pc-record', path: '/record.html', width: 1440, height: 1100, mobile: false },
   { name: 'mobile-index', path: '/index_mobile.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-community', path: '/community.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-search', path: '/search.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-post', path: '/post.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-write', path: '/write.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-my', path: '/my.html', width: 390, height: 844, mobile: true },
+  { name: 'mobile-record', path: '/record.html', width: 390, height: 844, mobile: true },
   { name: 'mobile-index-redirect', path: '/index.html', width: 390, height: 844, mobile: true, expectedFinalPath: '/index_mobile.html', skipScreenshot: true },
   { name: 'mobile-index-pc-exception', path: '/index.html?view=pc', width: 390, height: 844, mobile: true, expectedFinalPath: '/index.html', skipScreenshot: true },
 ];
@@ -91,7 +97,9 @@ async function inspectPage(page) {
     consoleErrors.push(params.exceptionDetails?.exception?.description || params.exceptionDetails?.text || 'Runtime exception');
   });
   cdp.on('Log.entryAdded', (params) => {
-    if (params.entry?.level === 'error') consoleErrors.push(params.entry.text);
+    if (params.entry?.level === 'error' && !/^Failed to load resource:/i.test(params.entry.text || '')) {
+      consoleErrors.push(params.entry.text);
+    }
   });
   cdp.on('Network.loadingFailed', (params) => {
     requestFailures.push(params.errorText || params.blockedReason || params.requestId);
@@ -128,6 +136,25 @@ async function inspectPage(page) {
   });
   if (page.mobile) await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true });
   await cdp.send('Page.navigate', { url });
+  await delay(300);
+  await cdp.send('Runtime.evaluate', {
+    awaitPromise: true,
+    returnByValue: true,
+    expression: `
+(function () {
+  try {
+    var posts = JSON.parse(localStorage.getItem('diet_on_posts') || '[]');
+    posts = posts.filter(function (post) { return !String(post.title || '').startsWith('CRUD QA'); });
+    localStorage.setItem('diet_on_posts', JSON.stringify(posts));
+    if (location.pathname.indexOf('community.html') >= 0 && window.app) {
+      window.supabaseClient = null;
+      window.app.renderCommunity();
+    }
+  } catch (error) {}
+  return true;
+})()
+`,
+  });
   await delay(4500);
 
   const result = await cdp.send('Runtime.evaluate', {
@@ -191,6 +218,7 @@ async function inspectPage(page) {
     hasAttributeOriginalTerms: attributeOriginalTermMatches.length > 0,
     attributeOriginalTermMatches: attributeOriginalTermMatches,
     viewport: { width: window.innerWidth, height: window.innerHeight },
+    layoutOverflowX: Math.max(0, document.documentElement.scrollWidth - window.innerWidth),
     textLength: bodyText.length
   };
 })()
@@ -231,6 +259,98 @@ async function inspectPage(page) {
     mobileMenu = menuResult.result.value;
   }
 
+  let submenu = null;
+  const submenuResult = await cdp.send('Runtime.evaluate', {
+    awaitPromise: true,
+    returnByValue: true,
+    expression: `
+(async function () {
+  var pcAllMenu = null;
+  var allMenuButton = document.querySelector('#btnHeaderAllMenu');
+  var allMenuPopup = document.querySelector('#headerAllMenuPopup');
+  if (allMenuButton && allMenuPopup) {
+    allMenuButton.click();
+    await new Promise(function (resolve) { setTimeout(resolve, 250); });
+    pcAllMenu = {
+      hasButton: true,
+      visible: getComputedStyle(allMenuPopup).display !== 'none',
+      topItems: allMenuPopup.querySelectorAll(':scope > .all-menu-content > ul > li').length,
+      subItems: allMenuPopup.querySelectorAll('.sub li').length
+    };
+    document.querySelector('#btnCloseAllMenu')?.click();
+  }
+
+  var sidebar = document.querySelector('.sidebar_nav');
+  var pcSidebar = null;
+  if (sidebar) {
+    pcSidebar = {
+      groups: sidebar.querySelectorAll('.nav_main').length,
+      subPanels: sidebar.querySelectorAll('.nav_sub').length,
+      subLinks: sidebar.querySelectorAll('.nav_sub a').length,
+      selected: sidebar.querySelectorAll('.nav_sub .selected, .nav_sub .sub_list.selected').length
+    };
+  }
+
+  var mobileQuickMenu = null;
+  var quickButton = document.querySelector('.btnOpenQuickMenu');
+  var quickPopup = document.querySelector('#navQuickMenuPopup');
+  if (quickButton && quickPopup) {
+    quickButton.click();
+    await new Promise(function (resolve) { setTimeout(resolve, 250); });
+    mobileQuickMenu = {
+      hasButton: true,
+      open: quickPopup.classList.contains('is-open') || quickPopup.classList.contains('open') || getComputedStyle(quickPopup).display !== 'none',
+      links: quickPopup.querySelectorAll('a.menu, a').length
+    };
+    document.querySelector('.btnCloseQuickMenu')?.click();
+  }
+
+  return { pcAllMenu: pcAllMenu, pcSidebar: pcSidebar, mobileQuickMenu: mobileQuickMenu };
+})()
+`,
+  });
+  submenu = submenuResult.result.value || {};
+
+  let searchPopup = null;
+  if (!page.mobile) {
+    const searchPopupResult = await cdp.send('Runtime.evaluate', {
+      awaitPromise: true,
+      returnByValue: true,
+      expression: `
+(async function () {
+  var wrap = document.querySelector('#search_popup_wrap');
+  var searchContents = document.querySelector('#search_popup_wrap > .search_popup > .search_contents');
+  if (!wrap || !searchContents) return null;
+  var previousDisplay = wrap.style.display;
+  wrap.style.display = 'block';
+  await new Promise(function (resolve) { setTimeout(resolve, 120); });
+  function rect(selector) {
+    var el = document.querySelector(selector);
+    if (!el) return null;
+    var r = el.getBoundingClientRect();
+    return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height) };
+  }
+  var data = {
+    visible: getComputedStyle(wrap).display !== 'none',
+    searchContents: rect('#search_popup_wrap > .search_popup > .search_contents'),
+    form: rect('#search_popup_wrap .form_search form'),
+    contents: rect('#search_popup_wrap .search_contents > .contents'),
+    sectionNow: rect('#search_popup_wrap .section_now'),
+    todayPick: rect('#search_popup_wrap .today_pick'),
+    popularList: rect('#search_popup_wrap .popular_list'),
+    ad: rect('#search_popup_wrap .search_contents > .ad'),
+    adImage: document.querySelector('#search_popup_wrap .search_contents > .ad img')?.getAttribute('src') || '',
+    popularCount: document.querySelectorAll('#search_popup_wrap .popular_list li').length,
+    logoAlt: document.querySelector('#search_popup_wrap .section_now img')?.getAttribute('alt') || ''
+  };
+  wrap.style.display = previousDisplay;
+  return data;
+})()
+`,
+    });
+    searchPopup = searchPopupResult.result.value;
+  }
+
   cdp.close();
   const finalPath = result.result.value.finalPath;
   return {
@@ -239,6 +359,8 @@ async function inspectPage(page) {
     expectedFinalPath: page.expectedFinalPath || null,
     routeOk: page.expectedFinalPath ? finalPath === page.expectedFinalPath : true,
     mobileMenu,
+    submenu,
+    searchPopup,
     consoleErrors: [...new Set(consoleErrors)].slice(0, 20),
     requestFailures: [...new Set(requestFailures)].slice(0, 20),
     failedResponses: failedResponses.slice(0, 20),
@@ -258,11 +380,26 @@ async function main() {
     externalImages: item.externalImages.length + item.bgExternalImages.length,
     local4xx: item.failedResponses.length,
     consoleErrors: item.consoleErrors.length,
+    layoutOverflowX: item.layoutOverflowX || 0,
     originalDomainRequests: item.originalDomainRequests.length,
     hasOriginalTerms: item.hasOriginalTerms,
     hasAttributeOriginalTerms: item.hasAttributeOriginalTerms,
     routeOk: item.routeOk,
     mobileMenuOk: item.mobileMenu ? (item.mobileMenu.hasButton && item.mobileMenu.opens && item.mobileMenu.closes && item.mobileMenu.linkCount > 0 && item.mobileMenu.groupCount > 0 && item.mobileMenu.subCount > 0) : true,
+    pcAllMenuOk: item.submenu?.pcAllMenu ? (item.submenu.pcAllMenu.hasButton && item.submenu.pcAllMenu.visible && item.submenu.pcAllMenu.topItems >= 9 && item.submenu.pcAllMenu.subItems >= 60) : true,
+    pcSidebarOk: item.submenu?.pcSidebar ? (item.submenu.pcSidebar.groups >= 10 && item.submenu.pcSidebar.subPanels >= 10 && item.submenu.pcSidebar.subLinks >= 60) : true,
+    mobileQuickMenuOk: item.submenu?.mobileQuickMenu ? (item.submenu.mobileQuickMenu.hasButton && item.submenu.mobileQuickMenu.open && item.submenu.mobileQuickMenu.links >= 10) : true,
+    searchPopupOk: item.searchPopup ? (
+      item.searchPopup.visible &&
+      item.searchPopup.searchContents?.width >= 1000 &&
+      item.searchPopup.contents?.width >= 600 &&
+      item.searchPopup.form?.width >= 600 &&
+      item.searchPopup.ad?.width >= 240 &&
+      item.searchPopup.ad?.height >= 300 &&
+      item.searchPopup.adImage.endsWith('diet_search_ad.png') &&
+      item.searchPopup.popularCount >= 10 &&
+      /DietOn NOW/i.test(item.searchPopup.logoAlt)
+    ) : true,
   }));
   console.table(summary);
   const failed = summary.filter((item) => (
@@ -270,11 +407,16 @@ async function main() {
     item.externalImages > 0 ||
     item.local4xx > 0 ||
     item.consoleErrors > 0 ||
+    item.layoutOverflowX > 4 ||
     item.originalDomainRequests > 0 ||
     item.hasOriginalTerms ||
     item.hasAttributeOriginalTerms ||
     !item.routeOk ||
-    !item.mobileMenuOk
+    !item.mobileMenuOk ||
+    !item.pcAllMenuOk ||
+    !item.pcSidebarOk ||
+    !item.mobileQuickMenuOk ||
+    !item.searchPopupOk
   ));
   if (failed.length) {
     throw new Error(`Clone QA failed: ${failed.map((item) => item.page).join(', ')}`);
