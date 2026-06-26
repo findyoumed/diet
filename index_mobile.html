@@ -863,7 +863,7 @@ $(function() {
                                         <span class="vote-label">모르겠어</span>
                                     </p>
                                 </div>
-                                <p class="subject">18살입니다 다이어트인가요???</p>
+                                <p class="subject">18살입니다 다이어트인가요?</p>
                             </a>
                         </div>
                                             <div class="swiper-slide cont" role="group" aria-label="5 / 6" style="width: 498.667px; margin-right: 8px;">
@@ -2242,7 +2242,7 @@ $(function(){
         <a href="./my.html?page=point-policy">포인트정책</a>
     </div>
     <div class="mw_mobile_tail_middle flex">
-        <div class="i_simbol_black"></div>
+        <div class="dieton-footer-symbol" aria-hidden="true">Diet<span>On</span></div>
         <div>
             <div class="ranky">의학커뮤니티 10년 연속</div>
             <div class="gosu">랭키닷컴 1위 다이어트고수 커뮤니티</div>
@@ -2579,6 +2579,57 @@ body,
 #mw_mobile_tail {
   max-width: 100% !important;
   overflow-x: hidden !important;
+}
+
+#mw_mobile_tail .mw_mobile_tail_top {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px 12px !important;
+  padding: 15px 20px !important;
+  line-height: 1.4 !important;
+}
+
+#mw_mobile_tail .mw_mobile_tail_top a {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  writing-mode: horizontal-tb !important;
+}
+
+#mw_mobile_tail .mw_mobile_tail_top a::before {
+  flex: 0 0 auto !important;
+}
+
+#mw_mobile_tail .mw_mobile_tail_middle {
+  align-items: center !important;
+}
+
+#mw_mobile_tail .dieton-footer-symbol {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 56px !important;
+  height: 36px !important;
+  margin-right: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+}
+
+#mw_mobile_tail .dieton-footer-symbol span {
+  color: #ff7eb3 !important;
 }
 
 img[src*="wide_banner"], img[src*="middle_banner"] {

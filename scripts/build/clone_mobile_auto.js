@@ -11,7 +11,7 @@ if (!fs.existsSync(inFile)) {
 let content = fs.readFileSync(inFile, 'utf8');
 
 // 1. Basic Text Replacements
-content = content.replace(/대다모/g, '다이어트온');
+content = content.replace(/DietOn/g, '다이어트온');
 content = content.replace(/탈모/g, '다이어트');
 content = content.replace(/모발이식/g, '비만클리닉');
 content = content.replace(/dieton\.com/g, 'localhost:8080'); // Optional, but usually we just replace the text

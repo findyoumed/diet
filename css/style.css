@@ -1,11 +1,11 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto:wght@500;700;900&display=swap");
 
-/* [LOG: 20260623_1825] Phase 5: 1:1 대다모 픽셀 퍼펙트 복제 - 컬러 변수 완전 일치화 */
+/* [LOG: 20260623_1825] Phase 5: 1:1 DietOn 픽셀 퍼펙트 복제 - 컬러 변수 완전 일치화 */
 :root {
-  --main: #333333; /* 대다모는 무채색/어두운 톤을 메인으로 많이 씁니다 */
+  --main: #333333; /* DietOn는 무채색/어두운 톤을 메인으로 많이 씁니다 */
   --main-dark: #111111;
-  --accent: #ed1c24; /* 대다모 특유의 강조(포인트) 레드 컬러 */
+  --accent: #ed1c24; /* DietOn 특유의 강조(포인트) 레드 컬러 */
   --danger: #ed1c24;
   --ink: #222222;
   --text: #444444;
@@ -54,7 +54,7 @@ textarea {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* [LOG: 20260623_1840] Phase 6: 대다모 오리지널 3단 헤더 1:1 복제 */
+/* [LOG: 20260623_1840] Phase 6: DietOn 오리지널 3단 헤더 1:1 복제 */
 .top-util {
   background: #f8f8f8;
   border-bottom: 1px solid var(--line);
@@ -159,7 +159,7 @@ textarea {
   color: #666;
   margin-top: 2px;
 }
-/* [LOG: 20260623_1830] Phase 5: GNB(메뉴바) 1:1 대다모 스타일 복제 */
+/* [LOG: 20260623_1830] Phase 5: GNB(메뉴바) 1:1 DietOn 스타일 복제 */
 .gnb {
   height: 50px;
   background: #fff;
@@ -237,7 +237,7 @@ textarea {
   color: var(--accent);
 }
 
-/* [LOG: 20260623_1513] 대다모 스타일 메가 전체메뉴 레이아웃 */
+/* [LOG: 20260623_1513] DietOn 스타일 메가 전체메뉴 레이아웃 */
 .gnb-megamenu {
   position: absolute;
   top: 55px;
@@ -300,7 +300,7 @@ textarea {
   padding: 16px 0 48px;
 }
 
-/* [LOG: 20260623_1431] 대다모 스타일 GNB 바로 아래 와이드 배너 광고 */
+/* [LOG: 20260623_1431] DietOn 스타일 GNB 바로 아래 와이드 배너 광고 */
 .wide-promo-banner {
   display: flex;
   align-items: center;
@@ -485,7 +485,7 @@ textarea {
   gap: 15px;
 }
 
-/* [LOG: 20260623_1235] 대다모 히어로: 둥근모서리 + 강한그림자 */
+/* [LOG: 20260623_1235] DietOn 히어로: 둥근모서리 + 강한그림자 */
 .hero-main {
   height: 300px;
   display: grid;
@@ -641,7 +641,7 @@ textarea {
   font-style: normal;
 }
 
-/* [LOG: 20260623_1235] 대다모 알림바: 뱃지 + 롤링 텍스트 */
+/* [LOG: 20260623_1235] DietOn 알림바: 뱃지 + 롤링 텍스트 */
 .notice-bar {
   display: flex;
   align-items: center;
@@ -848,7 +848,7 @@ textarea {
   padding: 18px 20px;
 }
 
-/* [LOG: 20260623_1230] 대다모 섹션제목: 보더 없음, 20px 굵은 제목 */
+/* [LOG: 20260623_1230] DietOn 섹션제목: 보더 없음, 20px 굵은 제목 */
 .section-head {
   display: flex;
   align-items: baseline;
@@ -893,7 +893,7 @@ textarea {
   gap: 14px;
 }
 
-/* [LOG: 20260623_1431] 대다모 스타일 입체 메탈릭 순위 뱃지 */
+/* [LOG: 20260623_1431] DietOn 스타일 입체 메탈릭 순위 뱃지 */
 .photo-card-rank {
   position: absolute;
   top: 8px;
@@ -995,7 +995,7 @@ textarea {
   aspect-ratio: 4 / 3;
 }
 
-/* [LOG: 20260623_1357] 대다모 스타일 비포애프터 세로 2분할 카드 */
+/* [LOG: 20260623_1357] DietOn 스타일 비포애프터 세로 2분할 카드 */
 .review-card-img-wrap {
   position: relative;
   overflow: hidden;
@@ -1527,7 +1527,7 @@ textarea {
   font-weight: 900;
 }
 
-/* [LOG: 20260623_1235] 대다모 사이드바 퀵링크: 회색버튼 + 화살표 */
+/* [LOG: 20260623_1235] DietOn 사이드바 퀵링크: 회색버튼 + 화살표 */
 .side-menu {
   display: grid;
   gap: 4px;
@@ -1616,7 +1616,7 @@ textarea {
   text-align: center;
 }
 
-/* [LOG: 20260623_1240] 대다모 하단 3열 게시판 */
+/* [LOG: 20260623_1240] DietOn 하단 3열 게시판 */
 .board-triple {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1685,7 +1685,7 @@ textarea {
   white-space: nowrap;
 }
 
-/* [LOG: 20260623_1513] 대다모식 보라색 댓글 수 표기 */
+/* [LOG: 20260623_1513] DietOn식 보라색 댓글 수 표기 */
 .board-comment-count {
   color: var(--main);
   font-weight: 700;
@@ -1694,7 +1694,7 @@ textarea {
   font-family: Roboto, sans-serif;
 }
 
-/* [LOG: 20260623_1513] 대다모식 더보기 링크 */
+/* [LOG: 20260623_1513] DietOn식 더보기 링크 */
 .board-more {
   font-size: 11px !important;
   color: var(--muted) !important;
@@ -1722,7 +1722,7 @@ textarea {
   white-space: nowrap;
 }
 
-/* [LOG: 20260623_1240] 대다모 푸터 */
+/* [LOG: 20260623_1240] DietOn 푸터 */
 .site-footer {
   background: #222;
   color: #aaa;
@@ -1761,7 +1761,7 @@ textarea {
   font-weight: 900;
 }
 
-/* [LOG: 20260623_1357] 대다모 스타일 4열 Q&A 투표형 카드 */
+/* [LOG: 20260623_1357] DietOn 스타일 4열 Q&A 투표형 카드 */
 .qna-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1865,7 +1865,7 @@ textarea {
   padding-top: 8px;
 }
 
-/* [LOG: 20260623_1825] Phase 5: 대다모식 게시판 테이블 강제 1:1 복제 */
+/* [LOG: 20260623_1825] Phase 5: DietOn식 게시판 테이블 강제 1:1 복제 */
 .board-table-wrap {
   border-top: 2px solid var(--ink);
   margin-bottom: 24px;
@@ -1909,7 +1909,7 @@ textarea {
   background: #fdfdfd;
 }
 
-/* 대다모 하단 컨트롤 (페이징, 검색) */
+/* DietOn 하단 컨트롤 (페이징, 검색) */
 .board-footer {
   display: flex;
   flex-direction: column;
@@ -1923,7 +1923,7 @@ textarea {
   align-items: flex-start;
 }
 
-/* [LOG: 20260623_1825] Phase 5: 대다모식 각진 페이지네이션 (1:1 복제) */
+/* [LOG: 20260623_1825] Phase 5: DietOn식 각진 페이지네이션 (1:1 복제) */
 .board-pagination {
   display: flex;
   gap: 4px;
@@ -1976,7 +1976,7 @@ textarea {
   border-color: var(--main);
 }
 
-/* [LOG: 20260623_1550] 대다모 스타일 게시글 상세 및 댓글 영역 */
+/* [LOG: 20260623_1550] DietOn 스타일 게시글 상세 및 댓글 영역 */
 .article-header {
   border-bottom: 1px solid var(--line);
   margin-bottom: 24px;
@@ -2211,7 +2211,7 @@ textarea {
   width: 80px;
 }
 
-/* [LOG: 20260623_1600] 대다모 스타일 마이페이지 LNB 2단 레이아웃 */
+/* [LOG: 20260623_1600] DietOn 스타일 마이페이지 LNB 2단 레이아웃 */
 .my-page-layout {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -2370,7 +2370,7 @@ textarea {
   font-size: 16px;
 }
 
-/* [LOG: 20260623_1610] 대다모 스타일 글쓰기 모달 CSS */
+/* [LOG: 20260623_1610] DietOn 스타일 글쓰기 모달 CSS */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -2480,7 +2480,7 @@ textarea {
   font-size: 14px;
 }
 
-/* [LOG: 20260623_1625] 대다모 스타일 사이드바 로그인 및 위젯 CSS */
+/* [LOG: 20260623_1625] DietOn 스타일 사이드바 로그인 및 위젯 CSS */
 .login-box-dieton {
   background: #fff;
   border: 1px solid var(--line);
@@ -2713,7 +2713,7 @@ textarea {
   margin-top: 4px;
 }
 
-/* [LOG: 20260623_1730] Phase 3: 대다모 스타일 팻 푸터(Fat Footer) CSS */
+/* [LOG: 20260623_1730] Phase 3: DietOn 스타일 팻 푸터(Fat Footer) CSS */
 .site-footer-dieton {
   background: #242933;
   color: #8b92a1;

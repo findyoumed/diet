@@ -344,7 +344,7 @@ const replacements = [
     { target: /"url"\s*:\s*"https:\\\/\\\/dieton\.com\\\/story"/g, replacement: '"url":"./community.html"' },
     { target: /"url"\s*:\s*"https:\\\/\\\/dieton\.com"/g, replacement: '"url":"./index.html"' },
 
-    // [LOG: 20260624_1720] 대다모 잔존 절대 경로 및 픽 배너 브랜딩 추가 치환 규칙 정의
+    // [LOG: 20260624_1720] DietOn 잔존 절대 경로 및 픽 배너 브랜딩 추가 치환 규칙 정의
     { target: /(href|content|url)=["']https:\/\/dieton\.com\/graftover(\?[^"']*)?["']/g, replacement: '$1="./index.html$2"' },
     { target: /(href|content|url)=["']https:\/\/dieton\.com\/doctor(\?[^"']*)?["']/g, replacement: '$1="./search.html$2"' },
     { target: /content-list-dieton-pick-banner/g, replacement: 'content-list-dieton-pick-banner' },
@@ -361,7 +361,7 @@ const replacements = [
     { target: /https:\/\/dieton\.com\/new/g, replacement: '/new' },
     { target: /\.\/new\//g, replacement: '/new/' },
 
-    // [LOG: 20260624_0802] 추가적인 대다모 URL 매핑
+    // [LOG: 20260624_0802] 추가적인 DietOn URL 매핑
     { target: /https:\/\/dieton\.com\/balmo\/80035/g, replacement: './community.html?category=clinic' },
     { target: /https:\/\/dieton\.com\/graft/g, replacement: './community.html?category=graft' },
     { target: /https:\/\/dieton\.com\/hairline/g, replacement: './community.html?category=hairline' },

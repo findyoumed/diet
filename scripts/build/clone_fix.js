@@ -3,7 +3,7 @@ const fs = require('fs');
 function replaceKeywords(content) {
     let text = content;
     // DO NOT REPLACE lowercase dieton to avoid breaking resource URLs!
-    text = text.replace(/대다모/g, 'DietOn')
+    text = text.replace(/DietOn/g, 'DietOn')
                .replace(/DietOn/g, 'DIETON');
                
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')

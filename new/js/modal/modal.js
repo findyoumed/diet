@@ -495,7 +495,7 @@ const _showJpEventModal202605 = (options) => {
 //         <img src="../../../images/remote/image.dieton.com/images/img/renew/i_close_black.svg" alt="닫기 이미지"/>
 //       </button>
 //       <a href="#" class="cmp-modal-link">
-//         <img src="/new/img/dedamo_0425_03.jpg" alt=""/>
+//         <img src="/new/img/service_notice_0425_03.jpg" alt=""/>
 //       </a>
 //       <div class="cmp-modal-no-show-today">
 //         <input type="checkbox" id="cmpModalNoCheck" class="cmp-modal-checkbox">

@@ -175,7 +175,7 @@ $(function () {
   // scroll animtaion
   $window.on("scroll resize", scrollAnim).trigger("resize");
 
-  // header 검색바 대다모 now slide
+  // header 검색바 DietOn now slide
   new Swiper(".headerNowListSwiper", {
     slidesPerView: 1,
     direction: "vertical",

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function replaceKeywords(content) {
     let text = content;
-    text = text.replace(/대다모/g, 'DietOn')
+    text = text.replace(/DietOn/g, 'DietOn')
                .replace(/dieton/g, 'dieton')
                .replace(/DietOn/g, 'DIETON');
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')
@@ -93,7 +93,7 @@ let writeFormHtml = `
         </select>
         <input type="text" placeholder="제목을 입력해 주세요." style="padding:15px; border:1px solid #ddd; border-radius:4px; font-size:16px; outline:none;">
         
-        <!-- 대다모 에디터 흉내 영역 -->
+        <!-- DietOn 에디터 흉내 영역 -->
         <div style="border:1px solid #ddd; border-radius:4px;">
             <div style="background:#f9f9f9; padding:10px; border-bottom:1px solid #ddd; display:flex; gap:10px;">
                 <button type="button" style="padding:5px 10px; border:1px solid #ccc; background:#fff; cursor:pointer;"><b>B</b></button>

@@ -2123,8 +2123,8 @@ textarea.required {
   width: 20px;
   height: 20px;
 }
-.i_simbol_black {
-  background: url(../../../../images/remote/image.dieton.com/images/img/renew/icon/2023/i_simbol_black.svg) no-repeat;
+.dieton-symbol-disabled {
+  background: none;
 }
 .i_view_gray {
   background: url(../../../../images/remote/image.dieton.com/images/img/renew/icon/2023/i_view_gray.svg) no-repeat;

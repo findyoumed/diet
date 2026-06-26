@@ -108,7 +108,7 @@ async function inspectPage(page) {
     const requestUrl = params.request?.url || '';
     try {
       const host = new URL(requestUrl).hostname.toLowerCase();
-      if (host === 'daedamo.com' || host.endsWith('.daedamo.com') || host === 'dieton.com' || host === 'image.dieton.com') {
+      if (host === 'dieton.kr' || host.endsWith('.dieton.kr') || host === 'dieton.com' || host === 'image.dieton.com') {
         originalDomainRequests.push(requestUrl);
       }
     } catch (error) {
@@ -187,7 +187,7 @@ async function inspectPage(page) {
   });
   var bodyText = document.body ? document.body.innerText : '';
   var hasDietonBrand = /DietOn|\\uB2E4\\uC774\\uC5B4\\uD2B8\\uC628|\\uB2E4\\uC774\\uC5B4\\uD2B8/.test(bodyText);
-  var originalTermPattern = /(daedamo|\\uB300\\uB2E4\\uBAA8|\\uD0C8\\uBAA8|\\uBAA8\\uBC1C\\uC774\\uC2DD|\\uBAA8\\uBC1C|\\uB450\\uD53C|\\uAC00\\uBC1C|\\uC99D\\uBAA8)/gi;
+  var originalTermPattern = /(dieton|\\uB300\\uB2E4\\uBAA8|\\uD0C8\\uBAA8|\\uBAA8\\uBC1C\\uC774\\uC2DD|\\uBAA8\\uBC1C|\\uB450\\uD53C|\\uAC00\\uBC1C|\\uC99D\\uBAA8)/gi;
   var originalTermMatches = [];
   var match;
   while ((match = originalTermPattern.exec(bodyText)) && originalTermMatches.length < 20) {

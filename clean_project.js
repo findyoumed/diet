@@ -43,7 +43,7 @@ files.forEach(file => {
         dest = 'archive/legacy_css';
     }
     // 4. Archive misc
-    else if (['test.jpg', 'mobile_check.png', 'mobile_phase5_check.png', 'ad_ddmdandy_animation5.mp4'].includes(file)) {
+    else if (['test.jpg', 'mobile_check.png', 'mobile_phase5_check.png', 'ad_dieton_animation5.mp4'].includes(file)) {
         dest = 'archive/misc';
     }
     // 5. Docs

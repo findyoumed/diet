@@ -87,7 +87,7 @@ function normalizeLinks(html) {
     .replace(/<a\b([^>]*?)href=["']https:\/\/dieton\.com([^"']*)["']/gi, (match, beforeHref, rawPath) => {
       return `<a${beforeHref}href="${localHrefFromDietOn(rawPath)}"`;
     })
-    .replace(/href=["']https:\/\/www\.ddmdandy\.com\/?["']/gi, 'href="#"')
+    .replace(/href=["']https:\/\/www\.dieton\.com\/?["']/gi, 'href="#"')
     .replace(/href=["']https:\/\/mkt\.shopping\.naver\.com\/[^"']*["']/gi, 'href="index_mobile.html"')
     .replace(/href=["']https:\/\/youtu\.be\/[^"']*["']/gi, 'href="index_mobile.html"')
     .replace(/href=["']https:\/\/blog\.naver\.com\/dieton_official["']/gi, 'href="#"')
@@ -121,7 +121,7 @@ function addCacheBusting(html, version) {
 }
 
 const textPairs = [
-  ['대다모', '다이어트온'],
+  ['DietOn', '다이어트온'],
   ['DietOn', 'DIETON'],
   ['DietOn', 'DietOn'],
   ['탈모치료', '다이어트 관리'],

@@ -2464,7 +2464,7 @@ html:lang(ja) .modeSpan {
   margin-top: 5px;
 }
 
-/*대다모 TV*/
+/*DietOn TV*/
 .index_dieton_tv {
   margin-bottom: 24px;
   margin-top: 10px;
@@ -3385,7 +3385,7 @@ html:lang(ja) .modeSpan {
   font-size: 12px;
   font-weight: 700;
 }
-#mw_mobile_tail .mw_mobile_tail_middle .i_simbol_black {
+#mw_mobile_tail .mw_mobile_tail_middle .dieton-footer-symbol {
   filter: invert(100%);
   width: 36px;
   height: 43px;

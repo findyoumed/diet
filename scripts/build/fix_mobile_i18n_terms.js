@@ -4,7 +4,7 @@ const path = require('path');
 const file = path.join(process.cwd(), 'new', 'asset', 'i18n', 'ko.json');
 
 const replacements = [
-  [/대다모/g, 'DietOn'],
+  [/DietOn/g, 'DietOn'],
   [/DietOn/g, 'DietOn'],
   [/탈모성지/g, '다이어트 성지'],
   [/탈모커뮤니티/g, '다이어트 커뮤니티'],

@@ -4,11 +4,11 @@ function replaceKeywords(content) {
     let text = content;
     
     // 기본 명칭 변경
-    text = text.replace(/대다모/g, 'DietOn')
+    text = text.replace(/DietOn/g, 'DietOn')
                .replace(/dieton/g, 'dieton')
                .replace(/DietOn/g, 'DIETON');
 
-    // 카테고리 및 메뉴 변경 (대다모 GNB 메뉴 기반)
+    // 카테고리 및 메뉴 변경 (DietOn GNB 메뉴 기반)
     text = text.replace(/탈모톡톡/g, '다이어트톡톡')
                .replace(/탈모수다/g, '다이어트수다')
                .replace(/모발이식/g, '위고비/마운자로')

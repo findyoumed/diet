@@ -14,7 +14,7 @@
 - **연결 대상**: `threads`, `comments`, `diet_records` (체중 및 식단 기록) 등 필요한 테이블을 Supabase에 생성하거나 연결합니다.
 
 ## 3. 화면 데이터 바인딩 (DOM 조작)
-- **UIManager.js 개편**: 대다모 원본 HTML 클래스(`bbs_hotlist_box`, `list-item` 등)를 타겟팅하여 Supabase에서 가져온 실제 데이터를 끼워넣습니다.
+- **UIManager.js 개편**: DietOn 원본 HTML 클래스(`bbs_hotlist_box`, `list-item` 등)를 타겟팅하여 Supabase에서 가져온 실제 데이터를 끼워넣습니다.
 - 원본 사이트의 더미 텍스트(예: "위고비 1주차 후기입니다" 등)를 지우고, DB에서 긁어온 글로 렌더링되도록 만듭니다.
 
-이 3단계 작업이 끝나면 겉모습은 대다모지만 내부는 Supabase 기반의 완전한 다이어트 커뮤니티로 작동하게 됩니다.
+이 3단계 작업이 끝나면 겉모습은 DietOn지만 내부는 Supabase 기반의 완전한 다이어트 커뮤니티로 작동하게 됩니다.
