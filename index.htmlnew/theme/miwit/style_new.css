@@ -1624,12 +1624,13 @@ body {
 }
 #mw5 .index_banner1_box .ad1 .ad1_info .title {
   margin-bottom: 28px;
-  font-size: 46px;
+  font-size: 42px;
   font-family: "Vitro_core";
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   line-height: 1;
+  white-space: nowrap;
 }
 #mw5 .index_banner1_box .ad1 .ad1_info .title span {
   color: #35f4ec;
@@ -1642,11 +1643,15 @@ body {
   margin-bottom: 16px;
   font-weight: 400;
   font-family: "S-CoreDream-5Medium";
+  white-space: nowrap;
 }
+
+
 #mw5 .index_banner1_box .ad1 .ad1_info p {
   font-size: 16px;
   line-height: 1.4;
   font-weight: 400;
+  white-space: nowrap;
 
   font-family: "S-CoreDream-regular";
 }
