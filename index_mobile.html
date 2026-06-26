@@ -1750,8 +1750,8 @@ $(function() {
 <div class="content-list-dieton-pick-banner content-list-dieton-pick-banner-0">
   <div class="inner">
     <div class="title-wrap">
-      <strong class="title">다이어트온 <span> 식단보조제</span>
-      <img src="images/custom/dieton_pick_balloon.svg?v=1782286027548" alt="" class="icon">
+      <strong class="title">다이어트온 <span>식단보조제</span>
+      <img src="images/custom/dieton_pick_balloon.svg?v=1782286027548" alt="추천 PICK" class="icon">
     </strong>
       <p> / 다이어트온 회원들이 꼼꼼히 선별한 제품 입니다.</p>
       <a href="index_mobile.html" class="dieton-pick-title-more-btn">제품 더 보기<span class="i_next_white_20 icon"></span></a>
@@ -2342,7 +2342,7 @@ $(function(){
         ['뉴스', './news'],
         ['전문가 칼럼', './community.html?category=column'],
         ['FAQ', './community.html?category=faq'],
-        ['용어사전', './community.html?category=dictionary'],
+        ['용어사전', './community.html?category=dictionary']
       ]
     },
     {
@@ -2715,12 +2715,23 @@ img[src*="wide_banner"], img[src*="middle_banner"] {
 
 .dietonpick-img {
   width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
   object-fit: contain !important;
   border-radius: 8px !important;
-  max-height: 180px !important;
   background-color: #f8f9fa !important;
+}
+
+.content-list-dieton-pick-banner .title .icon {
+  width: 23.333vw !important;
+  height: 7.917vw !important;
+  object-fit: contain !important;
+}
+
+.content-list-dieton-pick-banner .img-wrap {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .drpic {

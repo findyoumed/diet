@@ -202,34 +202,30 @@ class DietOnApp {
 
   getBoardRegistry() {
     return {
-      story: { label: "다이어트수다", aliases: ["", "all", "community", "story", "diet-talk", "diet-qa", "inbody", "다이어트수다", "다이어트톡톡", "위고비/마운자로 수다", "고민상담", "고민/상담", "도와주세요", "인바디 질문", "인바디질문"] },
-      graft: { label: "위고비/마운자로톡톡", aliases: ["graft", "위고비/마운자로", "위고비/마운자로톡톡"] },
-      "wegovy-photo": { label: "위고비/마운자로 포토후기", aliases: ["wegovy-photo", "위고비/마운자로 포토후기"] },
-      graftafter: { label: "위고비/마운자로 후기정보", aliases: ["graftafter", "위고비/마운자로 후기", "위고비/마운자로 후기정보"] },
-      graft_failcase: { label: "위고비/마운자로 실패사례", aliases: ["graft_failcase", "위고비/마운자로 실패사례"] },
+      story: { label: "다이어트수다", aliases: ["", "all", "community", "story", "diet-talk", "diet-qa", "inbody", "다이어트수다", "다이어트 톡톡", "다이어트톡톡", "고민상담", "고민/상담", "도와주세요", "인바디 질문", "인바디질문"] },
+      graft: { label: "위고비/마운자로톡톡", aliases: ["graft", "위고비/마운자로", "위고비/마운자로톡톡", "톡톡"] },
+      "wegovy-photo": { label: "위고비/마운자로 포토후기", aliases: ["wegovy-photo", "위고비/마운자로 포토후기", "포토후기"] },
+      graftafter: { label: "위고비/마운자로 후기정보", aliases: ["graftafter", "위고비/마운자로 후기", "위고비/마운자로 후기정보", "후기정보"] },
+      graft_failcase: { label: "위고비/마운자로 실패사례", aliases: ["graft_failcase", "위고비/마운자로 실패사례", "실패사례"] },
       hairline: { label: "여성다이어트", aliases: ["hairline", "여성다이어트", "여성다이어트 톡톡"] },
-      smp: { label: "지방흡입/시술", aliases: ["smp", "지방흡입/시술", "지방흡입 톡톡"] },
-      care: { label: "비만치료톡", aliases: ["care", "비만치료톡"] },
+      smp: { label: "지방흡입/시술", aliases: ["smp", "지방흡입/시술", "지방흡입", "시술"] },
+      care: { label: "비만치료톡", aliases: ["care", "비만치료톡", "비만치료"] },
       drug: { label: "비만치료제", aliases: ["drug", "비만치료제", "먹는 다이어트톡톡", "다이어트 보조제톡"] },
-      drugafter: { label: "다이어트 보조제 포토후기", aliases: ["drugafter", "다이어트 보조제 포토후기"] },
+      drugafter: { label: "비만치료제 포토후기", aliases: ["drugafter", "비만치료제 포토후기", "보조제 후기"] },
       "food-supplement": { label: "식단&보조제", aliases: ["food-supplement", "식단&보조제"] },
-      "photo-review": { label: "다이어트 후기", aliases: ["photo-review", "다이어트 후기", "다이어트후기", "전체 보기"] },
-      "success-story": { label: "다이어트치료 성공스토리", aliases: ["success-story", "성공스토리", "다이어트치료 성공스토리"] },
-      "cover-story": { label: "다이어트커버스토리", aliases: ["cover-story", "다이어트커버스토리"] },
+      "photo-review": { label: "다이어트 후기", aliases: ["photo-review", "다이어트 후기", "다이어트후기", "전체 후기"] },
+      "success-story": { label: "성공사례", aliases: ["success-story", "성공사례", "성공사례 보고"] },
+      "cover-story": { label: "커버스토리", aliases: ["cover-story", "커버스토리", "다이어트커버스토리"] },
       column: { label: "전문가 칼럼", aliases: ["column", "전문가 칼럼", "다이어트전문가 컬럼"] },
-      faq: { label: "다이어트FAQ", aliases: ["faq", "다이어트FAQ", "초보자 가이드/FAQ"] },
+      faq: { label: "FAQ", aliases: ["faq", "FAQ", "초보자 가이드/FAQ"] },
       notice: { label: "공지사항", aliases: ["notice", "공지사항"] },
       "level-up": { label: "등업신청", aliases: ["level-up", "등업신청"] },
-      inquiry: { label: "운영및제안", aliases: ["inquiry", "운영및제안"] },
-      publicity: { label: "홍보 및 무료배포", aliases: ["publicity", "홍보 및 무료배포"] },
-      market: { label: "마켓", aliases: ["market", "마켓", "벼룩시장/모임"] },
-      find: { label: "정모벙개/사람찾기", aliases: ["find", "정모벙개/사람찾기"] },
-      "group-buy-review": { label: "공동구매 사용후기", aliases: ["group-buy-review", "공동구매 사용후기"] },
-      clinic: { label: "닥터다이어트", aliases: ["clinic", "닥터다이어트"] },
-      "dieton-pick": { label: "DietOn픽", aliases: ["dieton-pick", "DietOn픽"] },
-      trial: { label: "체험평가단", aliases: ["trial", "체험평가단"] },
-      youtube: { label: "다이어트 유튜브 게시판", aliases: ["youtube", "다이어트 유튜브 게시판"] },
-      dictionary: { label: "다이어트용어사전", aliases: ["dictionary", "다이어트용어사전"] }
+      inquiry: { label: "운영제안", aliases: ["inquiry", "운영제안", "운영및제안"] },
+      publicity: { label: "홍보/무료", aliases: ["publicity", "홍보/무료", "홍보 및 무료배포"] },
+      market: { label: "벼룩시장/모임", aliases: ["market", "벼룩시장/모임", "마켓"] },
+      find: { label: "정모/사람찾기", aliases: ["find", "정모/사람찾기", "정모벙개/사람찾기"] },
+      "group-buy-review": { label: "공동구매 후기", aliases: ["group-buy-review", "공동구매 후기", "공동구매 사용후기"] },
+      dictionary: { label: "용어사전", aliases: ["dictionary", "용어사전", "다이어트용어사전"] }
     };
   }
 
@@ -277,6 +273,7 @@ class DietOnApp {
         title: "다이어트 톡톡",
         href: this.boardHref("story"),
         items: [
+          { label: "전체", href: this.boardHref("story") },
           { label: "여성다이어트", href: this.boardHref("hairline") },
           { label: "비만치료톡", href: this.boardHref("care") },
           { label: "지방흡입/시술", href: this.boardHref("smp") },
@@ -288,6 +285,7 @@ class DietOnApp {
         title: "위고비/마운자로",
         href: this.boardHref("graft"),
         items: [
+          { label: "톡톡", href: this.boardHref("graft") },
           { label: "포토후기", href: this.boardHref("wegovy-photo") },
           { label: "후기정보", href: this.boardHref("graftafter") },
           { label: "실패사례", href: this.boardHref("graft_failcase") }
@@ -297,6 +295,7 @@ class DietOnApp {
         title: "다이어트 후기",
         href: this.boardHref("photo-review"),
         items: [
+          { label: "전체", href: this.boardHref("photo-review") },
           { label: "보조제 후기", href: this.boardHref("drugafter") },
           { label: "성공사례", href: this.boardHref("success-story") },
           { label: "커버스토리", href: this.boardHref("cover-story") }
@@ -306,6 +305,7 @@ class DietOnApp {
         title: "병원/의사 찾기",
         href: "./search.html?type=clinic",
         items: [
+          { label: "병원찾기", href: "./search.html?type=clinic" },
           { label: "전문의상담", href: "./search.html?type=expert" }
         ]
       },
@@ -313,6 +313,7 @@ class DietOnApp {
         title: "다이어트 뉴스",
         href: "./news",
         items: [
+          { label: "뉴스", href: "./news" },
           { label: "전문가 칼럼", href: this.boardHref("column") },
           { label: "FAQ", href: this.boardHref("faq") },
           { label: "용어사전", href: this.boardHref("dictionary") }
@@ -322,6 +323,7 @@ class DietOnApp {
         title: "홍보 및 나눔게시판",
         href: this.boardHref("publicity"),
         items: [
+          { label: "홍보/무료", href: this.boardHref("publicity") },
           { label: "벼룩시장/모임", href: this.boardHref("market") },
           { label: "정모/사람찾기", href: this.boardHref("find") },
           { label: "공동구매 후기", href: this.boardHref("group-buy-review") }
@@ -331,6 +333,7 @@ class DietOnApp {
         title: "공지/등업/문의",
         href: this.boardHref("notice"),
         items: [
+          { label: "공지사항", href: this.boardHref("notice") },
           { label: "등업신청", href: this.boardHref("level-up") },
           { label: "운영제안", href: this.boardHref("inquiry") }
         ]
