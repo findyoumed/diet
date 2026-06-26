@@ -84,7 +84,7 @@ class StorageManager {
       id: String(post.id || `local-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`),
       title: String(post.title || ""),
       content: String(post.content || ""),
-      category_tag: String(post.category_tag || "다이어트수다"),
+      category_tag: String(post.category_tag || "story"),
       nickname: String(post.nickname || "다이어터"),
       created_at: post.created_at || now,
       updated_at: post.updated_at || post.created_at || now,
@@ -186,7 +186,7 @@ class StorageManager {
     return this.updatePost(post.id, (current) => ({ ...current, views: Number(current.views || 0) + 1 }));
   }
 
-  async createThreadAsync(title, content, nickname = "다이어터", categoryTag = "다이어트수다", image = null) {
+  async createThreadAsync(title, content, nickname = "다이어터", categoryTag = "story", image = null) {
     const post = this.normalizeThread({ title, content, nickname, category_tag: categoryTag, image });
     if (window.supabaseClient) {
       try {
@@ -318,7 +318,7 @@ const DEFAULT_POSTS = [
     id: "post-1",
     title: "위고비 8주차, 체중과 식단 기록 공유합니다",
     content: "처음에는 식욕 조절이 가장 크게 느껴졌고, 4주차부터는 식단 기록을 병행했습니다. 물 섭취와 단백질을 챙기니 컨디션이 훨씬 안정적이었습니다.",
-    category_tag: "위고비/마운자로톡톡",
+    category_tag: "graft",
     nickname: "다이어터01",
     like_count: 128,
     comment_count: 2,
@@ -334,7 +334,7 @@ const DEFAULT_POSTS = [
     id: "post-2",
     title: "정체기 때 운동 루틴을 바꿔본 후기",
     content: "유산소만 하다가 근력 운동을 주 3회로 늘렸습니다. 체중 변화는 느렸지만 눈바디 변화가 먼저 왔습니다.",
-    category_tag: "다이어트수다",
+    category_tag: "story",
     nickname: "루틴러",
     like_count: 76,
     comment_count: 1,
@@ -349,7 +349,7 @@ const DEFAULT_POSTS = [
     id: "post-3",
     title: "저녁 폭식 줄이는 데 도움 된 방법",
     content: "오후 간식을 단백질 위주로 바꾸고, 저녁 식사 전 물을 먼저 마시는 습관을 들였습니다. 작은 변화지만 야식 빈도가 줄었습니다.",
-    category_tag: "다이어트톡톡",
+    category_tag: "story",
     nickname: "습관개선",
     like_count: 54,
     comment_count: 0,

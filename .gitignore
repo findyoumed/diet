@@ -5,3 +5,5 @@ OpenSourceCommunity/
 OpenSourceCommunity
 *.prd
 .chrome-*/
+*.zip
+

@@ -5,11 +5,13 @@ class DietOnApp {
   }
 
   init() {
+    window.DIETON_BOARD_LABELS = this.getBoardLabels();
     this.renderCoreHeaderNav();
     this.renderCoreLandingCategoryNav();
     this.initSidebarNav();
 
     const page = this.detectPage();
+    if (page === "home") this.renderHomeBoardSummaries();
     if (page === "community") this.renderCommunity();
     if (page === "post") this.renderPostDetail();
     if (page === "write") this.renderWrite();
@@ -111,7 +113,7 @@ class DietOnApp {
       "i_board_care"
     ];
 
-    categoryList.innerHTML = this.getCoreMenuGroups().map((group, index) => {
+    categoryList.innerHTML = this.getLandingMenuGroups().map((group, index) => {
       const primaryHref = group.items[0]?.href || "./community.html";
       return `
         <li>
@@ -125,6 +127,61 @@ class DietOnApp {
         </li>
       `;
     }).join("");
+  }
+
+  async renderHomeBoardSummaries() {
+    const container = document.querySelector("#mw5 .content_bbs");
+    if (!container) return;
+
+    const boardIds = ["story", "graft", "drug", "care", "food-supplement", "hairline"];
+    container.innerHTML = boardIds.map((boardId) => this.renderHomeBoardSummary(boardId, [])).join("");
+
+    try {
+      const posts = await this.storage.getThreadsAsync();
+      container.innerHTML = boardIds.map((boardId) => {
+        const boardPosts = this.filterPostsForBoard(posts, boardId);
+        return this.renderHomeBoardSummary(boardId, boardPosts);
+      }).join("");
+    } catch (error) {
+      console.error(error);
+      const posts = this.storage.getPosts();
+      container.innerHTML = boardIds.map((boardId) => {
+        const boardPosts = this.filterPostsForBoard(posts, boardId);
+        return this.renderHomeBoardSummary(boardId, boardPosts);
+      }).join("");
+    }
+  }
+
+  renderHomeBoardSummary(boardId, posts) {
+    const boardPosts = Array.isArray(posts) ? posts.slice(0, 8) : [];
+    const href = this.boardHref(boardId);
+    const label = this.getBoardLabel(boardId);
+    const count = boardPosts.length;
+    const items = boardPosts.length
+      ? boardPosts.map((post) => `
+        <li>
+          <a href="./post.html?id=${encodeURIComponent(post.id)}">
+            <div class="subject">${this.ui.escapeHtml(post.title)}</div>
+            <div class="cnt">
+              <span class="i_comment_black"></span>
+              <span class="cnt_cmt" style="font-weight:normal;">${Number(post.comment_count || 0)}</span>
+            </div>
+          </a>
+        </li>
+      `).join("")
+      : '<li><a href="./write.html"><div class="subject">첫 글을 작성해 주세요.</div><div class="cnt"><span class="cnt_cmt" style="font-weight:normal;">0</span></div></a></li>';
+
+    return `
+      <div class="bbs_${boardId.replace(/[^a-z0-9]/gi, "_")}">
+        <div class="title flex_spbtw">
+          <p>${this.ui.escapeHtml(label)}</p>
+          <a href="${href}" class="cnt">전체 <span>${count}</span>건</a>
+        </div>
+        <div class="mw_latest_list">
+          <ul>${items}</ul>
+        </div>
+      </div>
+    `;
   }
 
   renderHeaderMenuGroup(group, index) {
@@ -143,29 +200,103 @@ class DietOnApp {
     `;
   }
 
+  getBoardRegistry() {
+    return {
+      story: { label: "다이어트수다", aliases: ["", "all", "community", "story", "diet-talk", "diet-qa", "inbody", "다이어트수다", "다이어트톡톡", "위고비/마운자로 수다", "고민상담", "고민/상담", "도와주세요", "인바디 질문", "인바디질문"] },
+      graft: { label: "위고비/마운자로톡톡", aliases: ["graft", "위고비/마운자로", "위고비/마운자로톡톡"] },
+      "wegovy-photo": { label: "위고비/마운자로 포토후기", aliases: ["wegovy-photo", "위고비/마운자로 포토후기"] },
+      graftafter: { label: "위고비/마운자로 후기정보", aliases: ["graftafter", "위고비/마운자로 후기", "위고비/마운자로 후기정보"] },
+      graft_failcase: { label: "위고비/마운자로 실패사례", aliases: ["graft_failcase", "위고비/마운자로 실패사례"] },
+      hairline: { label: "여성다이어트", aliases: ["hairline", "여성다이어트", "여성다이어트 톡톡"] },
+      smp: { label: "지방흡입/시술", aliases: ["smp", "지방흡입/시술", "지방흡입 톡톡"] },
+      care: { label: "비만치료톡", aliases: ["care", "비만치료톡"] },
+      drug: { label: "비만치료제", aliases: ["drug", "비만치료제", "먹는 다이어트톡톡", "다이어트 보조제톡"] },
+      drugafter: { label: "다이어트 보조제 포토후기", aliases: ["drugafter", "다이어트 보조제 포토후기"] },
+      "food-supplement": { label: "식단&보조제", aliases: ["food-supplement", "식단&보조제"] },
+      "photo-review": { label: "다이어트 후기", aliases: ["photo-review", "다이어트 후기", "다이어트후기", "전체 보기"] },
+      "success-story": { label: "다이어트치료 성공스토리", aliases: ["success-story", "성공스토리", "다이어트치료 성공스토리"] },
+      "cover-story": { label: "다이어트커버스토리", aliases: ["cover-story", "다이어트커버스토리"] },
+      column: { label: "전문가 칼럼", aliases: ["column", "전문가 칼럼", "다이어트전문가 컬럼"] },
+      faq: { label: "다이어트FAQ", aliases: ["faq", "다이어트FAQ", "초보자 가이드/FAQ"] },
+      notice: { label: "공지사항", aliases: ["notice", "공지사항"] },
+      "level-up": { label: "등업신청", aliases: ["level-up", "등업신청"] },
+      inquiry: { label: "운영및제안", aliases: ["inquiry", "운영및제안"] },
+      publicity: { label: "홍보 및 무료배포", aliases: ["publicity", "홍보 및 무료배포"] },
+      market: { label: "마켓", aliases: ["market", "마켓", "벼룩시장/모임"] },
+      find: { label: "정모벙개/사람찾기", aliases: ["find", "정모벙개/사람찾기"] },
+      "group-buy-review": { label: "공동구매 사용후기", aliases: ["group-buy-review", "공동구매 사용후기"] },
+      clinic: { label: "닥터다이어트", aliases: ["clinic", "닥터다이어트"] },
+      "dieton-pick": { label: "DietOn픽", aliases: ["dieton-pick", "DietOn픽"] },
+      trial: { label: "체험평가단", aliases: ["trial", "체험평가단"] },
+      youtube: { label: "다이어트 유튜브 게시판", aliases: ["youtube", "다이어트 유튜브 게시판"] },
+      dictionary: { label: "다이어트용어사전", aliases: ["dictionary", "다이어트용어사전"] }
+    };
+  }
+
+  getBoardLabels() {
+    return Object.fromEntries(Object.entries(this.getBoardRegistry()).map(([id, board]) => [id, board.label]));
+  }
+
+  boardHref(boardId) {
+    return boardId === "story" ? "./community.html" : `./community.html?category=${encodeURIComponent(boardId)}`;
+  }
+
+  resolveBoardId(value) {
+    const raw = decodeURIComponent(String(value || "").trim());
+    const registry = this.getBoardRegistry();
+    if (!raw) return "story";
+    if (registry[raw]) return raw;
+
+    const normalized = raw.toLowerCase();
+    for (const [id, board] of Object.entries(registry)) {
+      if ((board.aliases || []).some((alias) => String(alias).toLowerCase() === normalized)) return id;
+    }
+
+    const firstPathPart = raw.split("/")[0];
+    if (firstPathPart !== raw && registry[firstPathPart]) return firstPathPart;
+    return raw;
+  }
+
+  getCurrentBoardId() {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    return category ? this.resolveBoardId(category) : null;
+  }
+
+  getBoardLabel(boardId) {
+    return this.getBoardRegistry()[boardId]?.label || boardId || "다이어트수다";
+  }
+
+  getLandingMenuGroups() {
+    return this.getCoreMenuGroups().filter((group) => group.showOnHome !== false).slice(0, 9);
+  }
+
   getCoreMenuGroups() {
     return [
       {
         title: "다이어트 톡톡",
         items: [
-          { label: "다이어트수다", href: "./community.html?category=diet-talk" },
-          { label: "고민/상담", href: "./community.html?category=diet-qa" },
-          { label: "인바디 질문", href: "./community.html?category=inbody" }
+          { label: "다이어트수다", href: this.boardHref("story") }
         ]
       },
       {
         title: "위고비/마운자로",
         items: [
-          { label: "위고비/마운자로톡톡", href: "./community.html?category=graft" },
-          { label: "지방흡입/시술톡", href: "./community.html?category=smp" },
-          { label: "다이어트 보조제톡", href: "./community.html?category=drug" }
+          { label: "위고비/마운자로", href: this.boardHref("graft") },
+          { label: "위고비/마운자로 포토후기", href: this.boardHref("wegovy-photo") },
+          { label: "위고비/마운자로 후기정보", href: this.boardHref("graftafter") },
+          { label: "위고비/마운자로 실패사례", href: this.boardHref("graft_failcase") }
         ]
       },
       {
         title: "다이어트 후기",
         items: [
-          { label: "다이어트후기", href: "./community.html?category=photo-review" },
-          { label: "성공스토리", href: "./community.html?category=success-story" }
+          { label: "전체 보기", href: this.boardHref("photo-review") },
+          { label: "위고비/마운자로 포토후기", href: this.boardHref("wegovy-photo") },
+          { label: "위고비/마운자로 후기정보", href: this.boardHref("graftafter") },
+          { label: "비만치료제 포토후기", href: this.boardHref("drugafter") },
+          { label: "성공사례 보고", href: this.boardHref("success-story") },
+          { label: "다이어트커버스토리", href: this.boardHref("cover-story") }
         ]
       },
       {
@@ -179,23 +310,25 @@ class DietOnApp {
         title: "다이어트 뉴스",
         items: [
           { label: "다이어트 뉴스", href: "./news" },
-          { label: "전문가 칼럼", href: "./community.html?category=column" },
-          { label: "초보자 가이드/FAQ", href: "./community.html?category=faq" }
+          { label: "전문가 칼럼", href: this.boardHref("column") },
+          { label: "초보자 가이드/FAQ", href: this.boardHref("faq") },
+          { label: "다이어트용어사전", href: this.boardHref("dictionary") }
         ]
       },
       {
         title: "홍보 및 나눔게시판",
         items: [
-          { label: "홍보 및 무료배포", href: "./community.html?category=publicity" },
-          { label: "벼룩시장/모임", href: "./community.html?category=market" }
+          { label: "홍보 및 무료배포", href: this.boardHref("publicity") },
+          { label: "벼룩시장/모임", href: this.boardHref("market") },
+          { label: "정모벙개/사람찾기", href: this.boardHref("find") }
         ]
       },
       {
         title: "공지/등업/문의",
         items: [
-          { label: "공지사항", href: "./community.html?category=notice" },
-          { label: "등업신청", href: "./community.html?category=level-up" },
-          { label: "운영및제안", href: "./community.html?category=inquiry" }
+          { label: "공지사항", href: this.boardHref("notice") },
+          { label: "등업신청", href: this.boardHref("level-up") },
+          { label: "운영및제안", href: this.boardHref("inquiry") }
         ]
       }
     ];
@@ -233,6 +366,7 @@ class DietOnApp {
     const titleEl = document.getElementById("writeTitle");
     const contentEl = document.getElementById("writeContent");
     if (!btn || !categoryEl || !titleEl || !contentEl) return;
+    this.renderWriteCategoryOptions(categoryEl);
 
     const params = new URLSearchParams(window.location.search);
     const editId = params.get("id");
@@ -242,7 +376,7 @@ class DietOnApp {
       try {
         editingPost = await this.storage.getThreadDetailAsync(editId, { skipViewIncrement: true });
         if (editingPost) {
-          categoryEl.value = editingPost.category_tag || categoryEl.value;
+          categoryEl.value = this.resolveBoardId(editingPost.category_tag) || categoryEl.value;
           titleEl.value = editingPost.title || "";
           contentEl.value = editingPost.content || "";
           btn.textContent = "수정완료";
@@ -256,7 +390,7 @@ class DietOnApp {
 
     const handleSubmit = async (event) => {
       event.preventDefault();
-      const category = categoryEl.value;
+      const category = this.resolveBoardId(categoryEl.value);
       const title = titleEl.value.trim();
       const content = contentEl.value.trim();
 
@@ -382,7 +516,7 @@ class DietOnApp {
             <tbody>
               <tr><th>서비스명</th><td>DietOn</td></tr>
               <tr><th>운영 목적</th><td>다이어트 정보 공유, 후기 열람, 커뮤니티 활동, 기록 관리</td></tr>
-              <tr><th>주요 콘텐츠</th><td>위고비/마운자로, 여성다이어트, 산후다이어트, 식단&보조제, 지방흡입/시술, 성공사례</td></tr>
+              <tr><th>주요 콘텐츠</th><td>위고비/마운자로, 여성다이어트, 식단&보조제, 지방흡입/시술, 성공사례</td></tr>
               <tr><th>문의</th><td>dietonhelp@gmail.com</td></tr>
             </tbody>
           </table>
@@ -492,15 +626,60 @@ class DietOnApp {
     const listContainer = document.getElementById("dieton-post-list");
     if (!listContainer) return;
 
+    const currentBoardId = this.getCurrentBoardId();
     listContainer.innerHTML = '<div style="padding:50px; text-align:center;">게시글을 불러오는 중입니다...</div>';
 
     try {
       const posts = await this.storage.getThreadsAsync();
-      this.ui.renderPostList(listContainer, this.filterRenderablePosts(posts));
+      this.ui.renderPostList(listContainer, this.filterPostsForBoard(posts, currentBoardId));
     } catch (error) {
       console.error(error);
-      this.ui.renderPostList(listContainer, this.filterRenderablePosts(this.storage.getPosts()));
+      this.ui.renderPostList(listContainer, this.filterPostsForBoard(this.storage.getPosts(), currentBoardId));
     }
+  }
+
+  renderWriteCategoryOptions(categoryEl) {
+    const writableBoardIds = [
+      "story",
+      "graft",
+      "wegovy-photo",
+      "graftafter",
+      "graft_failcase",
+      "hairline",
+      "smp",
+      "care",
+      "drug",
+      "drugafter",
+      "food-supplement",
+      "photo-review",
+      "success-story",
+      "cover-story",
+      "column",
+      "faq",
+      "publicity",
+      "market",
+      "find",
+      "group-buy-review",
+      "notice",
+      "level-up",
+      "inquiry"
+    ];
+    categoryEl.innerHTML = writableBoardIds.map((id) => `<option value="${id}">${this.getBoardLabel(id)}</option>`).join("");
+    const currentBoardId = this.getCurrentBoardId();
+    if (currentBoardId && writableBoardIds.includes(currentBoardId)) categoryEl.value = currentBoardId;
+  }
+
+  filterPostsForBoard(posts, boardId) {
+    const renderable = this.filterRenderablePosts(posts).map((post) => {
+      const resolved = this.resolveBoardId(post.category_tag);
+      return {
+        ...post,
+        category_tag: resolved,
+        category_label: this.getBoardLabel(resolved)
+      };
+    });
+    if (!boardId) return renderable;
+    return renderable.filter((post) => this.resolveBoardId(post.category_tag) === boardId);
   }
 
   filterRenderablePosts(posts) {

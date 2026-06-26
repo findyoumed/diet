@@ -37,6 +37,11 @@ class UIManager {
     return /^(https?:)?\/\//i.test(String(src || ""));
   }
 
+  getCategoryLabel(post) {
+    const raw = post?.category_label || post?.category_tag || "";
+    return window.DIETON_BOARD_LABELS?.[raw] || raw || "다이어트수다";
+  }
+
   renderPostList(container, posts) {
     const items = Array.isArray(posts) ? posts : [];
     let html = '<table width="100%" cellpadding="0" cellspacing="0" class="mw_basic_list_table">';
@@ -70,7 +75,7 @@ class UIManager {
             <div class="list_wrap flex_spbtw">
               <div class="list_left">
                 <div class="mw_basic_list_subject_desc">
-                  <a href="post.html?id=${encodeURIComponent(post.id)}"><strong>${this.escapeHtml(post.title)}</strong></a>
+                  <a href="post.html?id=${encodeURIComponent(post.id)}"><span style="color:#1e88e5;margin-right:6px;">[${this.escapeHtml(this.getCategoryLabel(post))}]</span><strong>${this.escapeHtml(post.title)}</strong></a>
                 </div>
                 <div class="info">
                   <div class="mw_basic_list_name media-no-text">
@@ -140,7 +145,7 @@ class UIManager {
       <div class="dieton-post-view">
         <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:2px solid #222;padding-bottom:14px;">
           <h2 id="dieton-post-title" style="font-size:22px;line-height:1.4;margin:0;">
-            <span style="color:#1e88e5;margin-right:6px;">[${this.escapeHtml(post.category_tag)}]</span>${this.escapeHtml(post.title)}
+            <span style="color:#1e88e5;margin-right:6px;">[${this.escapeHtml(this.getCategoryLabel(post))}]</span>${this.escapeHtml(post.title)}
           </h2>
           <div class="dieton-post-actions" style="display:flex;gap:8px;white-space:nowrap;">
             <a href="community.html" class="dieton-list-btn" style="padding:8px 12px;border:1px solid #ccc;border-radius:4px;color:#333;text-decoration:none;">목록</a>
