@@ -2300,33 +2300,10 @@ $(function(){
 
   var sideMenuGroups = [
     {
-      title: '공지/등업',
-      links: [
-        ['공지사항', './community.html?category=notice'],
-        ['등업신청', './community.html?category=level-up'],
-        ['운영및제안', './community.html?category=inquiry']
-      ]
-    },
-    {
-      title: '비대면 견적받기',
-      highlight: true,
-      links: [
-        ['비대면 견적받기', './index_mobile.html']
-      ]
-    },
-    {
-      title: '닥터다이어트',
-      links: [
-        ['닥터다이어트', './community.html?category=clinic']
-      ]
-    },
-    {
-      title: '다이어트톡톡',
+      title: '다이어트 톡톡',
       open: true,
       links: [
-        ['다이어트톡톡', './community.html'],
-        ['다이어트수다', './community.html'],
-        ['위고비/마운자로', './community.html?category=graft'],
+        ['전체', './community.html'],
         ['여성다이어트', './community.html?category=hairline'],
         ['비만치료톡', './community.html?category=care'],
         ['지방흡입/시술', './community.html?category=smp'],
@@ -2337,111 +2314,52 @@ $(function(){
     {
       title: '위고비/마운자로',
       links: [
-        ['위고비/마운자로톡톡', './community.html?category=graft'],
-        ['위고비/마운자로 수다', './community.html'],
-        ['위고비/마운자로 포토후기', './community.html?category=wegovy-photo'],
-        ['위고비/마운자로 후기/정보', './community.html?category=graftafter'],
-        ['위고비/마운자로 병원 찾기', './search.html?type=clinic&sfl=wr_icon1&stx=1'],
-        ['위고비/마운자로 닥터찾기', './search.html?sfl=wr_tag&stx=%EC%9C%84%EA%B3%A0%EB%B9%84%2F%EB%A7%88%EC%9A%B4%EC%9E%90%EB%A1%9C'],
-        ['위고비/마운자로 실패사례', './community.html?category=graft_failcase'],
-        ['성공사례 보고', './community.html?category=success-story']
-      ]
-    },
-    {
-      title: '눈바디/지방흡입',
-      links: [
-        ['여성다이어트 톡톡', './community.html?category=hairline'],
-        ['지방흡입 톡톡', './community.html?category=smp'],
-        ['여성다이어트 후기', './community.html?category=women-diet-photo'],
-        ['지방흡입 포토후기', './community.html?category=liposuction-photo'],
-        ['식단/보조제/운동 성공사례', './community.html?category=wigsuccess'],
-        ['여성, 체지방 병원 찾기', './search.html?type=clinic&sfl=wr_icon2%7C%7Cwr_icon3&stx=1'],
-        ['여성, 체지방 닥터찾기', './search.html?sfl=wr_tag&stx=%EB%88%88%EB%B0%94%EB%94%94%2B%EC%A7%80%EB%B0%A9%ED%9D%A1%EC%9E%85&sop=or'],
-        ['식단상담처 찾기', './search.html?type=product&sca=%EC%8B%9D%EB%8B%A8%EC%83%81%EB%8B%B4%EC%B2%98']
-      ]
-    },
-    {
-      title: '다이어트 보조제',
-      links: [
-        ['먹는 다이어트톡톡', './community.html?category=drug'],
-        ['다이어트 보조제 포토후기', './community.html?category=drugafter'],
-        ['다이어트 보조제 찾기', './search.html?type=product&sca=%EB%B9%84%EB%A7%8C%EC%B9%98%EB%A3%8C%EC%A0%9C'],
-        ['다이어트 성지찾기', './search.html?type=consulting'],
-        ['다이어트기능식품 찾기', './search.html?type=product&sca=%EA%B1%B4%EA%B0%95%EA%B8%B0%EB%8A%A5%EC%8B%9D%ED%92%88']
-      ]
-    },
-    {
-      title: '식단&운동케어',
-      links: [
-        ['DietOn픽', './community.html?category=dieton-pick'],
-        ['식단&보조제', './community.html?category=food-supplement'],
-        ['인바디 측정&체지방제품 찾기', './search.html?type=product&sca=%EC%9D%B8%EB%B0%94%EB%94%94%EC%B8%A1%EC%A0%95%EC%A0%9C%ED%92%88'],
-        ['체험평가단', './community.html?category=trial']
+        ['톡톡', './community.html?category=graft'],
+        ['포토후기', './community.html?category=wegovy-photo'],
+        ['후기정보', './community.html?category=graftafter'],
+        ['실패사례', './community.html?category=graft_failcase']
       ]
     },
     {
       title: '다이어트 후기',
       links: [
-        ['전체 보기', './community.html?category=photo-review'],
-        ['위고비/마운자로 포토후기', './community.html?category=wegovy-photo'],
-        ['위고비/마운자로 후기정보', './community.html?category=graftafter'],
-        ['비만치료제 포토후기', './community.html?category=drugafter'],
-        ['지방흡입 포토후기', './community.html?category=liposuction-photo'],
-        ['성공사례 보고', './community.html?category=success-story'],
-        ['위고비/마운자로 실패사례', './community.html?category=graft_failcase'],
-        ['다이어트치료 성공스토리', './community.html?category=success-story'],
-        ['다이어트커버스토리', './community.html?category=cover-story']
+        ['전체', './community.html?category=photo-review'],
+        ['보조제 후기', './community.html?category=drugafter'],
+        ['성공사례', './community.html?category=success-story'],
+        ['커버스토리', './community.html?category=cover-story']
       ]
     },
     {
-      title: '전문의상담',
+      title: '병원/의사 찾기',
       links: [
-        ['JP비만클리닉', './search.html?type=expert'],
-        ['알파슬림의원', './search.html?type=expert'],
-        ['노블라인의원', './search.html?type=expert'],
-        ['한나이브', './search.html?type=expert'],
-        ['연세미다인', './search.html?type=expert'],
-        ['모빈치비만클리닉', './search.html?type=expert'],
-        ['모션비만클리닉', './search.html?type=expert']
+        ['병원찾기', './search.html?type=clinic'],
+        ['전문의상담', './search.html?type=expert']
       ]
     },
     {
-      title: '비만클리닉',
+      title: '다이어트 뉴스',
       links: [
-        ['비만클리닉 찾기', './search.html?type=clinic'],
-        ['다이어트의사 찾기', './search.html'],
-        ['다이어트성지, 약국 찾기', './search.html?type=consulting'],
-        ['인바디 측정 찾기', './search.html?type=product&sca=%EC%9D%B8%EB%B0%94%EB%94%94%EC%B8%A1%EC%A0%95%EC%A0%9C%ED%92%88'],
-        ['비만치료제 찾기', './search.html?type=product&sca=%EB%B9%84%EB%A7%8C%EC%B9%98%EB%A3%8C%EC%A0%9C'],
-        ['다이어트건기식 찾기', './search.html?type=product&sca=%EA%B1%B4%EA%B0%95%EA%B8%B0%EB%8A%A5%EC%8B%9D%ED%92%88'],
-        ['식단상담처 찾기', './search.html?type=product&sca=%EC%8B%9D%EB%8B%A8%EC%83%81%EB%8B%B4%EC%B2%98']
+        ['뉴스', './news'],
+        ['전문가 칼럼', './community.html?category=column'],
+        ['FAQ', './community.html?category=faq'],
+        ['용어사전', './community.html?category=dictionary'],
       ]
     },
     {
-      title: '다이어트칼럼',
+      title: '홍보 및 나눔게시판',
       links: [
-        ['비만치료 파워 콘텐츠', './search.html?type=clinicphoto'],
-        ['다이어트 유튜브 게시판', './community.html?category=youtube'],
-        ['다이어트커버스토리', './community.html?category=cover-story'],
-        ['다이어트치료성공스토리', './community.html?category=success-story'],
-        ['다이어트뉴스', './news'],
-        ['다이어트용어사전', './community.html?category=dictionary'],
-        ['다이어트FAQ', './community.html?category=faq'],
-        ['다이어트초보자료실', './community.html?category=beginner'],
-        ['다이어트자가진단', './community.html?category=self-check'],
-        ['다이어트전문가 컬럼', './community.html?category=column'],
-        ['감량여행 티켓', './community.html?category=diet-trip'],
-        ['DietOn전자', './community.html?category=ai-gallery&sca=DietOn%EC%A0%84%EC%9E%90'],
-        ['모플렉스', './community.html?category=ai-gallery&sca=MOFLEX']
+        ['홍보/무료', './community.html?category=publicity'],
+        ['벼룩시장/모임', './community.html?category=market'],
+        ['정모/사람찾기', './community.html?category=find'],
+        ['공동구매 후기', './community.html?category=group-buy-review']
       ]
     },
     {
-      title: 'PR&MARKET',
+      title: '공지/등업/문의',
       links: [
-        ['홍보 및 무료배포', './community.html?category=publicity'],
-        ['마켓', './community.html?category=market'],
-        ['정모벙개/사람찾기', './community.html?category=find'],
-        ['공동구매 사용후기', './community.html?category=group-buy-review']
+        ['공지사항', './community.html?category=notice'],
+        ['등업신청', './community.html?category=level-up'],
+        ['운영제안', './community.html?category=inquiry']
       ]
     }
   ];

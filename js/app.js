@@ -114,7 +114,7 @@ class DietOnApp {
     ];
 
     categoryList.innerHTML = this.getLandingMenuGroups().map((group, index) => {
-      const primaryHref = group.items[0]?.href || "./community.html";
+      const primaryHref = group.href || group.items[0]?.href || "./community.html";
       return `
         <li>
           <a href="${primaryHref}">
@@ -185,7 +185,7 @@ class DietOnApp {
   }
 
   renderHeaderMenuGroup(group, index) {
-    const primaryHref = group.items[0]?.href || "./community.html";
+    const primaryHref = group.href || group.items[0]?.href || "./community.html";
     return `
       <li data-overlaps="${index + 1}">
         <a href="${primaryHref}">${group.title}</a>
@@ -275,60 +275,64 @@ class DietOnApp {
     return [
       {
         title: "다이어트 톡톡",
+        href: this.boardHref("story"),
         items: [
-          { label: "다이어트수다", href: this.boardHref("story") }
+          { label: "여성다이어트", href: this.boardHref("hairline") },
+          { label: "비만치료톡", href: this.boardHref("care") },
+          { label: "지방흡입/시술", href: this.boardHref("smp") },
+          { label: "비만치료제", href: this.boardHref("drug") },
+          { label: "식단&보조제", href: this.boardHref("food-supplement") }
         ]
       },
       {
         title: "위고비/마운자로",
+        href: this.boardHref("graft"),
         items: [
-          { label: "위고비/마운자로", href: this.boardHref("graft") },
-          { label: "위고비/마운자로 포토후기", href: this.boardHref("wegovy-photo") },
-          { label: "위고비/마운자로 후기정보", href: this.boardHref("graftafter") },
-          { label: "위고비/마운자로 실패사례", href: this.boardHref("graft_failcase") }
+          { label: "포토후기", href: this.boardHref("wegovy-photo") },
+          { label: "후기정보", href: this.boardHref("graftafter") },
+          { label: "실패사례", href: this.boardHref("graft_failcase") }
         ]
       },
       {
         title: "다이어트 후기",
+        href: this.boardHref("photo-review"),
         items: [
-          { label: "전체 보기", href: this.boardHref("photo-review") },
-          { label: "위고비/마운자로 포토후기", href: this.boardHref("wegovy-photo") },
-          { label: "위고비/마운자로 후기정보", href: this.boardHref("graftafter") },
-          { label: "비만치료제 포토후기", href: this.boardHref("drugafter") },
-          { label: "성공사례 보고", href: this.boardHref("success-story") },
-          { label: "다이어트커버스토리", href: this.boardHref("cover-story") }
+          { label: "보조제 후기", href: this.boardHref("drugafter") },
+          { label: "성공사례", href: this.boardHref("success-story") },
+          { label: "커버스토리", href: this.boardHref("cover-story") }
         ]
       },
       {
         title: "병원/의사 찾기",
+        href: "./search.html?type=clinic",
         items: [
-          { label: "병원/의사 찾기", href: "./search.html?type=clinic" },
-          { label: "전문의 상담", href: "./search.html?type=expert" }
+          { label: "전문의상담", href: "./search.html?type=expert" }
         ]
       },
       {
         title: "다이어트 뉴스",
+        href: "./news",
         items: [
-          { label: "다이어트 뉴스", href: "./news" },
           { label: "전문가 칼럼", href: this.boardHref("column") },
-          { label: "초보자 가이드/FAQ", href: this.boardHref("faq") },
-          { label: "다이어트용어사전", href: this.boardHref("dictionary") }
+          { label: "FAQ", href: this.boardHref("faq") },
+          { label: "용어사전", href: this.boardHref("dictionary") }
         ]
       },
       {
         title: "홍보 및 나눔게시판",
+        href: this.boardHref("publicity"),
         items: [
-          { label: "홍보 및 무료배포", href: this.boardHref("publicity") },
           { label: "벼룩시장/모임", href: this.boardHref("market") },
-          { label: "정모벙개/사람찾기", href: this.boardHref("find") }
+          { label: "정모/사람찾기", href: this.boardHref("find") },
+          { label: "공동구매 후기", href: this.boardHref("group-buy-review") }
         ]
       },
       {
         title: "공지/등업/문의",
+        href: this.boardHref("notice"),
         items: [
-          { label: "공지사항", href: this.boardHref("notice") },
           { label: "등업신청", href: this.boardHref("level-up") },
-          { label: "운영및제안", href: this.boardHref("inquiry") }
+          { label: "운영제안", href: this.boardHref("inquiry") }
         ]
       }
     ];
