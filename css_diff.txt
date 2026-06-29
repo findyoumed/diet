@@ -1,0 +1,236 @@
+﻿diff --git a/dieton_head.css b/dieton_head.css
+index 9a41d59..ef3e388 100644
+--- a/dieton_head.css
++++ b/dieton_head.css
+@@ -614,8 +614,14 @@
+   margin: 5px 0 0 0;
+   padding: 0 2% 0 5%;
+ 
+-  border-bottom: 1px solid #000;
++  border-bottom: 1px solid #e6e8ec;
+   background: #fff;
++
++  -ms-overflow-style: none;
++  scrollbar-width: none;
++}
++#navSwiper.sub-navbar-wrap::-webkit-scrollbar {
++  display: none;
+ }
+ #navSwiper.sub-navbar-wrap .swiper-wrapper {
+   align-items: center;
+@@ -643,8 +649,8 @@
+ #navSwiper.sub-navbar-wrap .swiper-wrapper .swiper-slide a {
+   display: flex;
+   align-items: center;
+-  font-size: 16px;
+-  font-weight: 700;
++  font-size: 15px;
++  font-weight: 600;
+   height: 100%;
+ 
+   text-decoration: none;
+@@ -1199,3 +1205,204 @@ nav.navbar-wrapper .swiper-wrap.swiper-container-initialized {
+   top: 10px;
+   right: 10px;
+ }
++
++/* [LOG: 20260629_1108] 諛섏쓳??誘몃뵒??荑쇰━ 異붽? */
++@media screen and (max-width: 1024px) {
++  :root {
++    --inner-header-min-width: 100% !important;
++    --inner-min-width: 100% !important;
++  }
++  body, html {
++    overflow-x: hidden;
++    width: 100%;
++  }
++  #mw5.wrapper {
++    width: 100% !important;
++    min-width: 100% !important;
++    overflow-x: hidden;
++  }
++  #mw5.wrapper #header {
++    width: 100% !important;
++    min-width: 100% !important;
++  }
++  #mw5.wrapper #header .inner {
++    width: 100% !important;
++    padding: 0 10px !important;
++    box-sizing: border-box;
++  }
++  #mw5.wrapper #gnbNavbar {
++    width: 100% !important;
++    height: auto !important;
++  }
++  #mw5.wrapper #gnbNavbar > .inner {
++    width: 100% !important;
++    padding: 0 10px !important;
++    box-sizing: border-box;
++  }
++  #gnbNavbar > .inner > ul {
++    overflow-x: auto;
++    white-space: nowrap;
++    display: flex !important;
++    flex-wrap: nowrap !important;
++    justify-content: flex-start !important;
++    padding: 10px 0;
++    -webkit-overflow-scrolling: touch;
++  }
++  #gnbNavbar > .inner > ul > li {
++    display: inline-block !important;
++    float: none !important;
++    margin-right: 20px;
++  }
++  #gnbNavbar > .inner > ul > li > a {
++    padding: 5px 0 !important;
++    font-size: 15px !important;
++  }
++  .container {
++    width: 100% !important;
++    padding: 0 10px !important;
++    box-sizing: border-box;
++  }
++  .wrapper {
++    width: 100% !important;
++    box-sizing: border-box;
++  }
++  .sidebar {
++    display: none !important;
++  }
++  #mw5 .container .main {
++    width: 100% !important;
++    margin-left: 0 !important;
++    padding: 0 !important;
++  }
++  
++  /* ??移댄뀒怨좊━ 3x3 諛곗튂 */
++  .index_category_box {
++    padding: 15px 5px !important;
++  }
++  .index_category_box ul {
++    display: flex !important;
++    flex-wrap: wrap !important;
++    justify-content: flex-start !important;
++  }
++  .index_category_box ul li {
++    width: 33.33% !important;
++    margin-bottom: 15px;
++    text-align: center;
++  }
++  .index_category_box ul li a {
++    display: flex;
++    flex-direction: column;
++    align-items: center;
++  }
++  
++  /* 諛곕꼫 諛?湲고? ?붿냼 議곗젅 */
++  .index_banner1_box {
++    flex-direction: column;
++    height: auto !important;
++    padding: 10px !important;
++  }
++  .index_banner1_box .ad1, .index_banner1_box .ad2 {
++    width: 100% !important;
++    margin: 5px 0;
++  }
++  
++  /* 寃뚯떆??移대뱶 ?덉씠?꾩썐/?щ씪?대뱶 ???*/
++  .content_photo2 {
++    width: 100% !important;
++    overflow-x: hidden;
++  }
++  .content_photo2 .content {
++    flex-wrap: wrap !important;
++    justify-content: space-between !important;
++  }
++  .content_photo2 .content .box {
++    width: 48% !important;
++    margin-right: 0 !important;
++    margin-bottom: 15px !important;
++  }
++  
++  /* ?섎떒 ?명꽣 諛섏쓳??*/
++  .footer .wrapper {
++    flex-direction: column;
++    align-items: center;
++    text-align: center;
++  }
++  .footer .information {
++    width: 100% !important;
++  }
++  .footer .right {
++    margin-top: 20px;
++    align-items: center;
++  }
++
++  /* 而ㅻ??덊떚 寃뚯떆???뚯씠釉?紐⑸줉 諛섏쓳??泥섎━ */
++  .mw_basic_list_table {
++    display: block !important;
++    width: 100% !important;
++  }
++  .mw_basic_list_table colgroup {
++    display: none !important;
++  }
++  .mw_basic_list_tr_head {
++    display: none !important;
++  }
++  .mw_basic_list_tr_data {
++    display: block !important;
++    width: 100% !important;
++    padding: 12px 5px !important;
++    border-bottom: 1px solid #eee !important;
++  }
++  .mw_basic_list_tr_data td {
++    display: block !important;
++    width: 100% !important;
++    padding: 0 !important;
++    border: none !important;
++    text-align: left !important;
++  }
++  .mw_basic_list_tr_data td.media-on-text {
++    display: none !important;
++  }
++  .mw_basic_list_tr_data td.mw_basic_list_num {
++    display: none !important;
++  }
++  .mw_basic_list_subject {
++    width: 100% !important;
++  }
++  .mw_basic_list_subject .list_wrap {
++    display: flex !important;
++    width: 100% !important;
++  }
++  .mw_basic_list_subject .list_left {
++    flex: 1 !important;
++  }
++  .mw_basic_list_subject .list_right {
++    margin-left: 10px !important;
++    display: flex !important;
++    flex-direction: column !important;
++    align-items: flex-end !important;
++    justify-content: space-between !important;
++  }
++  .mw_basic_list_subject_desc {
++    font-size: 15px !important;
++    line-height: 1.4 !important;
++    margin-bottom: 6px !important;
++  }
++  .mw_basic_list_subject_desc a {
++    font-size: 15px !important;
++  }
++  .mw_basic_list_subject .info {
++    display: flex !important;
++    flex-wrap: wrap !important;
++    gap: 8px !important;
++    font-size: 12px !important;
++    color: #888 !important;
++    align-items: center;
++  }
++  .mw_basic_list_subject .info div {
++    display: inline-block !important;
++  }
++  .mw_basic_list_subject .info .mw_basic_list_name span {
++    font-size: 12px !important;
++  }
++}
++

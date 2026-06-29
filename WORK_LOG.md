@@ -993,3 +993,27 @@
 2. QA 검증 및 프로브 관련 스크립트들(`qa_board_crud.js`, `qa_clone_pages.js`, `qa_landing_nav_alignment.js`, `qa_live_browser_check.js`, `qa_sidebar_core_menu.js`, `qa_static_server.js`, `tmp_mobile_probe.js`)의 기본 URL 및 포트 상수를 `8085`로 일괄 변경.
 
 결과: 기존 포트 점유 여부와 관계없이 충돌을 피해 `npm run dev` 실행 시 즉시 테스트 서버가 가동되며 QA 자동 검증 환경이 안정화됨.
+
+## [2026-06-29 12:30] index_mobile.html의 퀵메뉴 내 레거시 클래스(hannaeve) 소거 및 아카이브 스크러빙
+
+**LOG_ID: 20260629_1230**
+목표: `index_mobile.html` 모바일 퀵메뉴 영역 내 잔여 레거시 브랜드명 "hannaeve" 클래스를 "expert" 클래스로 리팩토링하고, 아카이브용 백업 html 파일들의 레거시 참조를 일괄 정리.
+변경 파일: `index_mobile.html`, `archive/raw_html/` 내 HTML 파일들
+수행 작업:
+1. `index_mobile.html` 677라인 및 766라인의 `<div class="hannaeve">` 요소를 모바일 전문가 쿼리 키워드와 대칭되는 `<div class="expert">` 클래스로 변경하고 감사 로그 주석 연결.
+2. `archive/raw_html/`에 잔존해 있던 백업용 템플릿 내 레거시 키워드("hannaeve", "한나이브", "daedamo", "대다모")를 다이어트온 브랜드 키워드로 일괄 변환(Neutralized)하는 일시적 정화 스크립트 작성 및 실행 완료 후 제거.
+결과: 운영 소스 코드 전반 및 백업 아카이브 데이터에서도 레거시 브랜드의 흔적이 완전하게 소거되어 깔끔한 정합성을 확보함.
+
+## [2026-06-29 12:22] 개발 서버 포트 8085 점유 오류(EADDRINUSE) 디버깅 완료
+
+**LOG_ID: 20260629_1222**
+에러: `Error: listen EADDRINUSE: address already in use 0.0.0.0:8085`
+원인: 이전 백그라운드 node.exe(PID: 9568)가 미처 종료되지 않고 포트를 점유하고 있었음.
+해결: `taskkill /F /PID 9568` 명령을 통해 해당 프로세스를 수동 강제 종료하여 포트를 해제함.
+
+## [2026-06-29 12:29] PC UI 반응형 스타일 간섭 및 푸터 위치 왜곡 문제 해결
+
+**LOG_ID: 20260629_1229**
+에러: 1024px 이하 해상도 또는 브라우저 창 조절 시 PC 페이지의 사이드바 및 푸터 위치가 왜곡되고 UI 레이아웃이 상이해지는 문제 발생.
+원인: `dieton_head.css` 최하단에 추가되었던 PC용 반응형 미디어 쿼리(`@media screen and (max-width: 1024px)`) 스타일이 기존 독립형 PC 레이아웃 구조와 충돌하여 푸터 flex 및 wrapper 넓이를 무차별 재정의함.
+해결: `dieton_head.css` 파일에서 해당 미디어 쿼리 스타일 블록을 전면 제거하여 원래의 선명하고 안정적인 PC 및 푸터 레이아웃으로 복원 완료.
