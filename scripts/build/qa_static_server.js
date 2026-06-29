@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = process.cwd();
-const port = Number(process.argv[2] || process.env.PORT || 8080);
+const port = Number(process.argv[2] || process.env.PORT || 8085);
 const types = {
   '.css': 'text/css',
   '.gif': 'image/gif',

@@ -1,5 +1,5 @@
 const DEBUG_URL = process.env.DEBUG_URL || 'http://127.0.0.1:9222';
-const BASE_URL = 'http://127.0.0.1:8080';
+const BASE_URL = 'http://127.0.0.1:8085';
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));

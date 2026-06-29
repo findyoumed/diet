@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DEBUG_URL = 'http://127.0.0.1:9222';
-const BASE_URL = process.env.QA_BASE_URL || 'http://127.0.0.1:8080';
+const BASE_URL = process.env.QA_BASE_URL || 'http://127.0.0.1:8085';
 const pages = [
   { name: 'pc-index', path: '/index.html', width: 1440, height: 1100, mobile: false, expectedFinalPath: '/index.html' },
   { name: 'pc-community', path: '/community.html', width: 1440, height: 1100, mobile: false },

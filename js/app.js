@@ -103,37 +103,38 @@ class DietOnApp {
     const categoryList = document.querySelector("#mw5 .index_category_box > ul");
     if (!categoryList) return;
 
-    const iconClasses = [
-      "i_board_story",
-      "i_board_mobal",
-      "i_board_review_pic",
-      "i_board_dr_novid",
-      "i_board_shampoo",
-      "i_board_job",
-      "i_board_care"
+    // [LOG: 20260629_1108] 마운자로/위고비 전문 카뮤니티용 퀵 카테고리 구성
+    const landingItems = [
+      { title: "위고비 톡", href: "./community.html?category=wegovy-talk", icon: "i_board_mobal", pick: true, hasNew: true },
+      { title: "마운자로 톡", href: "./community.html?category=mounjaro-talk", icon: "i_board_care", pick: false },
+      { title: "위고비 후기", href: "./community.html?category=wegovy-review", icon: "i_board_review_pic", pick: true },
+      { title: "마운자로 후기", href: "./community.html?category=mounjaro-review", icon: "i_board_job", pick: false },
+      { title: "식단/보조제", href: "./community.html?category=food-supplement", icon: "i_board_shampoo", pick: true, hasNew: true },
+      { title: "닥터 Q&A", href: "./community.html?category=doctor-qa", icon: "i_board_dr_novid", pick: false },
+      { title: "비만클리닉 찾기", href: "./search.html?type=clinic", icon: "i_board_tattoo", pick: true },
+      { title: "자유수다", href: "./community.html?category=free-talk", icon: "i_board_story", pick: false },
+      { title: "여성다이어트", href: "./community.html?category=women-diet", icon: "i_board_woman", pick: false }
     ];
 
-    categoryList.innerHTML = this.getLandingMenuGroups().map((group, index) => {
-      const primaryHref = group.href || group.items[0]?.href || "./community.html";
-      return `
-        <li>
-          <a href="${primaryHref}">
-            <span class="i_new_red"></span>
-            <div class="icon${index === 1 || index === 5 ? " pick" : ""}">
-              <span class="${iconClasses[index] || "i_board_story"}"></span>
-            </div>
-            <p class="nav_title">${group.title}</p>
-          </a>
-        </li>
-      `;
-    }).join("");
+    categoryList.innerHTML = landingItems.map((item) => `
+      <li>
+        <a href="${item.href}">
+          ${item.hasNew ? '<span class="i_new_red"></span>' : '<span class=""></span>'}
+          <div class="icon${item.pick ? " pick" : ""}">
+            <span class="${item.icon}"></span>
+          </div>
+          <p class="nav_title">${item.title}</p>
+        </a>
+      </li>
+    `).join("");
   }
 
+  // [LOG: 20260629_1054] 홈 요약 보드를 새 카테고리 키로 교체
   async renderHomeBoardSummaries() {
     const container = document.querySelector("#mw5 .content_bbs");
     if (!container) return;
 
-    const boardIds = ["story", "graft", "drug", "care", "food-supplement", "hairline"];
+    const boardIds = ["free-talk", "wegovy-talk", "mounjaro-talk", "dosage-sideeffect", "all-review", "food-supplement"];
     container.innerHTML = boardIds.map((boardId) => this.renderHomeBoardSummary(boardId, [])).join("");
 
     try {
@@ -200,32 +201,45 @@ class DietOnApp {
     `;
   }
 
+  // [LOG: 20260629_1054] 카테고리 키 전면 교체 — 탈모 잔재 제거, 새 키 도입, 기존 키는 aliases에 하위호환
   getBoardRegistry() {
     return {
-      story: { label: "다이어트수다", aliases: ["", "all", "community", "story", "diet-talk", "diet-qa", "inbody", "다이어트수다", "다이어트 톡톡", "다이어트톡톡", "고민상담", "고민/상담", "도와주세요", "인바디 질문", "인바디질문"] },
-      graft: { label: "위고비/마운자로톡톡", aliases: ["graft", "위고비/마운자로", "위고비/마운자로톡톡", "톡톡"] },
-      "wegovy-photo": { label: "위고비/마운자로 포토후기", aliases: ["wegovy-photo", "위고비/마운자로 포토후기", "포토후기"] },
-      graftafter: { label: "위고비/마운자로 후기정보", aliases: ["graftafter", "위고비/마운자로 후기", "위고비/마운자로 후기정보", "후기정보"] },
-      graft_failcase: { label: "위고비/마운자로 실패사례", aliases: ["graft_failcase", "위고비/마운자로 실패사례", "실패사례"] },
-      hairline: { label: "여성다이어트", aliases: ["hairline", "여성다이어트", "여성다이어트 톡톡"] },
-      smp: { label: "지방흡입/시술", aliases: ["smp", "지방흡입/시술", "지방흡입", "시술"] },
-      care: { label: "비만치료톡", aliases: ["care", "비만치료톡", "비만치료"] },
-      drug: { label: "비만치료제", aliases: ["drug", "비만치료제", "먹는 다이어트톡톡", "다이어트 보조제톡"] },
-      drugafter: { label: "비만치료제 포토후기", aliases: ["drugafter", "비만치료제 포토후기", "보조제 후기"] },
-      "food-supplement": { label: "식단&보조제", aliases: ["food-supplement", "식단&보조제"] },
-      "photo-review": { label: "다이어트 후기", aliases: ["photo-review", "다이어트 후기", "다이어트후기", "전체 후기"] },
-      "success-story": { label: "성공사례", aliases: ["success-story", "성공사례", "성공사례 보고"] },
-      "cover-story": { label: "커버스토리", aliases: ["cover-story", "커버스토리", "다이어트커버스토리"] },
+      // ── 약톡 (비만치료제 이야기) ──
+      "wegovy-talk": { label: "위고비 톡", aliases: ["wegovy-talk", "graft", "위고비/마운자로", "위고비/마운자로톡톡", "톡톡", "위고비"] },
+      "mounjaro-talk": { label: "마운자로 톡", aliases: ["mounjaro-talk", "마운자로", "마운자로 톡"] },
+      "other-glp1": { label: "삭센다/기타약", aliases: ["other-glp1", "drug", "비만치료제", "먹는 다이어트톡톡", "다이어트 보조제톡", "삭센다"] },
+      "dosage-sideeffect": { label: "용량/부작용", aliases: ["dosage-sideeffect", "care", "비만치료톡", "비만치료", "용량", "부작용"] },
+      "cost-insurance": { label: "비용/보험", aliases: ["cost-insurance", "비용", "보험", "약값"] },
+      "doctor-qa": { label: "닥터 Q&A", aliases: ["doctor-qa", "clinic", "닥터다이어트", "닥터 Q&A"] },
+
+      // ── 후기 (포토/영상 인증) ──
+      "all-review": { label: "전체 후기", aliases: ["all-review", "photo-review", "다이어트 후기", "다이어트후기", "전체 후기"] },
+      "wegovy-review": { label: "위고비 후기", aliases: ["wegovy-review", "wegovy-photo", "위고비/마운자로 포토후기", "포토후기", "graftafter", "위고비/마운자로 후기", "위고비/마운자로 후기정보", "후기정보"] },
+      "mounjaro-review": { label: "마운자로 후기", aliases: ["mounjaro-review", "마운자로 후기"] },
+      "procedure-review": { label: "시술 후기", aliases: ["procedure-review", "smp", "지방흡입/시술", "지방흡입", "시술", "liposuction-photo", "지방흡입 포토후기"] },
+      "success-story": { label: "성공 스토리", aliases: ["success-story", "wigsuccess", "성공사례", "성공사례 보고", "cover-story", "커버스토리", "다이어트커버스토리"] },
+      "fail-lesson": { label: "실패/교훈", aliases: ["fail-lesson", "graft_failcase", "위고비/마운자로 실패사례", "실패사례"] },
+
+      // ── 식단케어 ──
+      "food-supplement": { label: "식단/보조제", aliases: ["food-supplement", "식단&보조제", "drugafter", "비만치료제 포토후기", "보조제 후기"] },
+      "exercise-body": { label: "운동/바디프로필", aliases: ["exercise-body", "wig", "바디프로필", "wigphoto", "바디프로필 포토후기"] },
+      "weight-log": { label: "체중기록", aliases: ["weight-log", "체중기록"] },
+      "dieton-pick": { label: "DietOn 픽", aliases: ["dieton-pick", "DietOn픽"] },
+
+      // ── 커뮤니티 ──
+      "free-talk": { label: "자유수다", aliases: ["free-talk", "", "all", "community", "story", "diet-talk", "diet-qa", "inbody", "다이어트수다", "다이어트 톡톡", "다이어트톡톡", "고민상담", "고민/상담", "도와주세요", "인바디 질문", "인바디질문", "freestory", "익명수다"] },
+      "women-diet": { label: "여성다이어트", aliases: ["women-diet", "hairline", "여성다이어트", "여성다이어트 톡톡", "woman", "산후다이어트", "womanphoto", "산후다이어트 포토후기", "women-diet-photo", "여성다이어트 후기", "2030-diet", "2030 다이어트", "yoyo-care", "고도비만&요요"] },
+
+      // ── 정보/칼럼 ──
       column: { label: "전문가 칼럼", aliases: ["column", "전문가 칼럼", "다이어트전문가 컬럼"] },
-      faq: { label: "FAQ", aliases: ["faq", "FAQ", "초보자 가이드/FAQ"] },
+      faq: { label: "FAQ", aliases: ["faq", "FAQ", "초보자 가이드/FAQ", "beginner", "self-check"] },
+      dictionary: { label: "용어사전", aliases: ["dictionary", "용어사전", "다이어트용어사전"] },
+
+      // ── 운영 ──
       notice: { label: "공지사항", aliases: ["notice", "공지사항"] },
       "level-up": { label: "등업신청", aliases: ["level-up", "등업신청"] },
       inquiry: { label: "운영제안", aliases: ["inquiry", "운영제안", "운영및제안"] },
-      publicity: { label: "홍보/무료", aliases: ["publicity", "홍보/무료", "홍보 및 무료배포"] },
-      market: { label: "벼룩시장/모임", aliases: ["market", "벼룩시장/모임", "마켓"] },
-      find: { label: "정모/사람찾기", aliases: ["find", "정모/사람찾기", "정모벙개/사람찾기"] },
-      "group-buy-review": { label: "공동구매 후기", aliases: ["group-buy-review", "공동구매 후기", "공동구매 사용후기"] },
-      dictionary: { label: "용어사전", aliases: ["dictionary", "용어사전", "다이어트용어사전"] }
+      market: { label: "홍보/마켓", aliases: ["market", "publicity", "홍보/무료", "홍보 및 무료배포", "벼룩시장/모임", "마켓", "find", "정모/사람찾기", "정모벙개/사람찾기", "group-buy-review", "공동구매 후기", "공동구매 사용후기"] }
     };
   }
 
@@ -267,70 +281,66 @@ class DietOnApp {
     return this.getCoreMenuGroups().filter((group) => group.showOnHome !== false).slice(0, 9);
   }
 
+  // [LOG: 20260629_1054] GNB 6개 메뉴 재구성 — 마운자로/위고비 전문 커뮤니티
   getCoreMenuGroups() {
     return [
       {
-        title: "다이어트 톡톡",
-        href: this.boardHref("story"),
+        title: "💊 약톡",
+        href: this.boardHref("wegovy-talk"),
         items: [
-          { label: "전체", href: this.boardHref("story") },
-          { label: "여성다이어트", href: this.boardHref("hairline") },
-          { label: "비만치료톡", href: this.boardHref("care") },
-          { label: "지방흡입/시술", href: this.boardHref("smp") },
-          { label: "비만치료제", href: this.boardHref("drug") },
-          { label: "식단&보조제", href: this.boardHref("food-supplement") }
+          { label: "위고비 톡", href: this.boardHref("wegovy-talk") },
+          { label: "마운자로 톡", href: this.boardHref("mounjaro-talk") },
+          { label: "삭센다/기타약", href: this.boardHref("other-glp1") },
+          { label: "용량/부작용", href: this.boardHref("dosage-sideeffect") },
+          { label: "비용/보험", href: this.boardHref("cost-insurance") },
+          { label: "닥터 Q&A", href: this.boardHref("doctor-qa") }
         ]
       },
       {
-        title: "위고비/마운자로",
-        href: this.boardHref("graft"),
+        title: "📸 후기",
+        href: this.boardHref("all-review"),
         items: [
-          { label: "톡톡", href: this.boardHref("graft") },
-          { label: "포토후기", href: this.boardHref("wegovy-photo") },
-          { label: "후기정보", href: this.boardHref("graftafter") },
-          { label: "실패사례", href: this.boardHref("graft_failcase") }
+          { label: "전체 후기", href: this.boardHref("all-review") },
+          { label: "위고비 후기", href: this.boardHref("wegovy-review") },
+          { label: "마운자로 후기", href: this.boardHref("mounjaro-review") },
+          { label: "시술 후기", href: this.boardHref("procedure-review") },
+          { label: "성공 스토리", href: this.boardHref("success-story") },
+          { label: "실패/교훈", href: this.boardHref("fail-lesson") }
         ]
       },
       {
-        title: "다이어트 후기",
-        href: this.boardHref("photo-review"),
-        items: [
-          { label: "전체", href: this.boardHref("photo-review") },
-          { label: "보조제 후기", href: this.boardHref("drugafter") },
-          { label: "성공사례", href: this.boardHref("success-story") },
-          { label: "커버스토리", href: this.boardHref("cover-story") }
-        ]
-      },
-      {
-        title: "병원/의사 찾기",
+        title: "🏥 병원찾기",
         href: "./search.html?type=clinic",
         items: [
-          { label: "병원찾기", href: "./search.html?type=clinic" },
-          { label: "전문의상담", href: "./search.html?type=expert" }
+          { label: "비만클리닉", href: "./search.html?type=clinic" },
+          { label: "전문의 찾기", href: "./search.html?type=expert" },
+          { label: "약국/성지", href: "./search.html?type=consulting" },
+          { label: "비대면 견적", href: "./index.html" }
         ]
       },
       {
-        title: "다이어트 뉴스",
-        href: "./news",
+        title: "🥗 식단케어",
+        href: this.boardHref("food-supplement"),
         items: [
-          { label: "뉴스", href: "./news" },
+          { label: "식단/보조제", href: this.boardHref("food-supplement") },
+          { label: "운동/바디프로필", href: this.boardHref("exercise-body") },
+          { label: "체중기록", href: "./record.html" },
+          { label: "DietOn 픽", href: this.boardHref("dieton-pick") }
+        ]
+      },
+      {
+        title: "💬 커뮤니티",
+        href: this.boardHref("free-talk"),
+        items: [
+          { label: "자유수다", href: this.boardHref("free-talk") },
+          { label: "여성다이어트", href: this.boardHref("women-diet") },
+          { label: "홍보/마켓", href: this.boardHref("market") },
           { label: "전문가 칼럼", href: this.boardHref("column") },
-          { label: "FAQ", href: this.boardHref("faq") },
-          { label: "용어사전", href: this.boardHref("dictionary") }
+          { label: "FAQ", href: this.boardHref("faq") }
         ]
       },
       {
-        title: "홍보 및 나눔게시판",
-        href: this.boardHref("publicity"),
-        items: [
-          { label: "홍보/무료", href: this.boardHref("publicity") },
-          { label: "벼룩시장/모임", href: this.boardHref("market") },
-          { label: "정모/사람찾기", href: this.boardHref("find") },
-          { label: "공동구매 후기", href: this.boardHref("group-buy-review") }
-        ]
-      },
-      {
-        title: "공지/등업/문의",
+        title: "📢 공지",
         href: this.boardHref("notice"),
         items: [
           { label: "공지사항", href: this.boardHref("notice") },
@@ -645,28 +655,27 @@ class DietOnApp {
     }
   }
 
+  // [LOG: 20260629_1054] 글쓰기 카테고리 옵션을 새 키로 교체
   renderWriteCategoryOptions(categoryEl) {
     const writableBoardIds = [
-      "story",
-      "graft",
-      "wegovy-photo",
-      "graftafter",
-      "graft_failcase",
-      "hairline",
-      "smp",
-      "care",
-      "drug",
-      "drugafter",
-      "food-supplement",
-      "photo-review",
+      "free-talk",
+      "wegovy-talk",
+      "mounjaro-talk",
+      "other-glp1",
+      "dosage-sideeffect",
+      "cost-insurance",
+      "doctor-qa",
+      "all-review",
+      "wegovy-review",
+      "mounjaro-review",
+      "procedure-review",
       "success-story",
-      "cover-story",
+      "fail-lesson",
+      "food-supplement",
+      "exercise-body",
+      "women-diet",
       "column",
-      "faq",
-      "publicity",
       "market",
-      "find",
-      "group-buy-review",
       "notice",
       "level-up",
       "inquiry"

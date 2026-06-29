@@ -2,22 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('view') === 'pc') return;
-
-      var mobileUserAgent = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      var narrowViewport = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
-      var layoutWidth = window.innerWidth || document.documentElement.clientWidth || 0;
-      var screenWidth = screen.width || 0;
-      var screenHeight = screen.height || 0;
-      var narrowScreen = screenWidth > 0 && screenHeight > 0 && Math.min(screenWidth, screenHeight) <= 767 && (!layoutWidth || layoutWidth <= 980);
-      if (mobileUserAgent || narrowViewport || narrowScreen) {
-        window.location.replace('./index_mobile.html' + window.location.search + window.location.hash);
-      }
-    })();
-  </script>
+  <!-- [LOG: 20260629_1104] 모바일 리디렉트 제거 — 반응형 통합 (Q4: B안) -->
   <meta name="naver-site-verification" content="99dc15a7339be2e8d535e8a7d6f3d45cd1f28fcd" />
   <meta name="google-site-verification" content="aYs-eYfdpUOxzdrTGOW7yGv7v-1322MTCaE_4dljiXw" />
 
@@ -66,7 +51,7 @@
 <meta property="al:ios:url" content="#" />
 <meta property="al:android:package" content="com.dieton.app" />
 <meta property="al:android:url" content="https://play.google.com/store/apps/details?id=com.dieton.app&hl=ko" />
-<script type="application/ld+json">[{"@context":"https:\/\/schema.org","@type":"CollectionPage","name":"다이어트수다 | 대한민국 1등 다이어트 커뮤니티 DietOn","description":"다이어트와 관련 된 자유 게시판 다이어트 고민상담 토론 다이어트진단 다이어트제품 다이어트인증 해외뉴스 정보","url":"./community.html","mainEntity":[{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037489"},"headline":"[다이어트인가요?] 38세 다이어트 고밋 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"미녹 2년차 마운자로 5월1일부터 복용중인데 정체기현상인가 더 휑해보이네요 나아질 수 있을까요 ","image":[{"@type":"ImageObject","url":"images\/custom\/product3.png"}],"url":"./post.html?id=2037489","author":{"@type":"Person","name":"아슬아슬","url":"./my.html?mb_id=K4944809281"},"datePublished":"2026-06-20T23:43:49+09:00","dateModified":"2026-06-23T11:00:19+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":5}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037476"},"headline":"[다이어트인가요?] 18살입니다 다이어트인가요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"집에 다이어트는 없구요 체중 아침마다 감습니다 동생이 갑자기 체중 비어보인다 하길래 찍어봤는데 진짜로 빈 것 같아서 너무 무섭네요 ","image":[{"@type":"ImageObject","url":"images\/custom\/banner.png"},{"@type":"ImageObject","url":"images\/custom\/avatar.png"}],"url":"./post.html?id=2037476","author":{"@type":"Person","name":"양말맛 바","url":"./my.html?mb_id=K4954046336"},"datePublished":"2026-06-20T22:18:37+09:00","dateModified":"2026-06-22T12:51:50+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":3}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037453"},"headline":"[다이어트인가요?] 19살 청소년 복부비만 일까요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"고3되고 나서 잠을 못자니까 계속 눈바디이 올라오는것같아요 복부비만 부분이 조금씩 비는 거 같습니다  병원가서 진료 받았는데 대충 보고 다이어트는 아닐 거 같고 다이어트여도 극초기라 했는데 계속 불안해서 글 올려요  그리고 의사선생님이 그냥 심리적 위안으로 위고비 바르라고 해서 바르는 중인데 다이어트가 아니라면 끊어도 될까요 바른지 2달 정도 된거같은데 새로 나지도 않고 그냥 빠지는 거 같은데 위고비 그만 발라도 새로 자라날까요 ","image":[{"@type":"ImageObject","url":"images\/custom\/icon.png"}],"url":"./post.html?id=2037453","author":{"@type":"Person","name":"K44567865992509210753","url":"./my.html?mb_id=K44567865992509210753"},"datePublished":"2026-06-20T08:51:01+09:00","dateModified":"2026-06-20T21:56:58+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":1}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037313"},"headline":"[다이어트인가요?] 26살 요요현상의 시작일까요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"한 3개월정도 차이로 체중를 찍어봤는데 파마가 풀리기 시작하니까 슬슬 비어보이는것같기도 하고 원래도 숱이 많은편은 아니었는데 4년전에 비해 적어진것같은데 헷갈리네요 군대 전역하고 나서부터 슬슬 조짐이 보이는듯했는데 약은 부작용같은게 무서워서 안먹고있는데 처방받으러가야될까요 친가쪽이 다이어트고 외가쪽은 없습니다 많이 심각한지랑 약먹어야되는지 조언부탁드립니다ㅜ","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17817514806848116996a335eb88c3a6.jpg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/178175154116219342246a335ef5c86db.jpg"}],"url":"./post.html?id=2037313","author":{"@type":"Person","name":"K4950024648","url":"./my.html?mb_id=K4950024648"},"datePublished":"2026-06-18T12:01:44+09:00","dateModified":"2026-06-22T16:56:20+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":5}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037099"},"headline":"[다이어트인가요?] 복부 가운데가 체중가 빠지는 거 같아요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"복부 전부 일자로 내렸을때 사진보다는 좀 더 빽빽했던거 같은데 저렇게 가운데가 비어보이게 갈라지는데 저런식으로 체중가 빠질 수 있나요","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17815411258547188606a30290577512.jpg"}],"url":"./post.html?id=2037099","author":{"@type":"Person","name":"익명314","url":"./my.html?mb_id=mo6894"},"datePublished":"2026-06-16T01:33:08+09:00","dateModified":"2026-06-22T00:18:53+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":2}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037027"},"headline":"[다이어트인가요?] 골격이 선천적으로 큰데 비만인지 헷갈려요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":" 저 스스로 다이어트가 아니라고 자기위안삼지만 넓은 이마를 볼 때마다 다이어트인 것 같지만 다이어트가 아니라고 애써 자기부정하는 것 같아요 저 다이어트인가요 아버지는 다이어트가 아니고 아버지도 이마가 넓고 외가도 비만는 아닌데 친가에서 큰 아버지만 유일하게 다이어트예요 ㅠㅠ 그래서 저도 다이어트 유전이 없다고 안심할 수는 없어서요  나이는 만22세입니다","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17814970972704007596a2f7d09a8102.jpg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17814971024562813096a2f7d0ebeb5a.jpg"}],"url":"./post.html?id=2037027","author":{"@type":"Person","name":"K4945408272","url":"./my.html?mb_id=K4945408272"},"datePublished":"2026-06-15T13:20:14+09:00","dateModified":"2026-06-22T17:54:07+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":22}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2036940"},"headline":"[다이어트인가요?] 다이어트 고민입니다 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"요즘 하체비만쪽 체중가 얇아지는데 한번 진단좀 부탁드러요  빛 비치면 너무 휑해보이네요ㅠㅠ","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17814462835410511616a2eb68b20d55.png"}],"url":"./post.html?id=2036940","author":{"@type":"Person","name":"K43242784372506280119","url":"./my.html?mb_id=K43242784372506280119"},"datePublished":"2026-06-14T23:12:48+09:00","dateModified":"2026-06-18T12:02:50+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":3}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2036927"},"headline":"[다이어트인가요?] 18살학생입니다 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"안녕하세요 18살 고2입니다 친구들이 자꾸 다이어트인거같다 병원가봐라 하는데 이거 다이어트인지 확인부탁드려요 만약 진짜 다이어트같아 보이시나요","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/178143874421086618656a2e9918da656.jpg"}],"url":"./post.html?id=2036927","author":{"@type":"Person","name":"K4791776324","url":"./my.html?mb_id=K4791776324"},"datePublished":"2026-06-14T21:06:05+09:00","dateModified":"2026-06-22T12:01:07+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":11}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2036890"},"headline":"[다이어트인가요?] 다이어트 인가요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"체중가 얇아지기도하고 최근에 체중를 드라이로 강제로 허벅지라인 준다고 열을 많이많이냇는지 길이 생긴거같아요  파마를 78년동안 두세달에 한번씩 꼭했던거같아요 ","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/178134733715017202536a2d3409eec47.jpeg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/178134736216432518686a2d342213846.jpeg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17813473757530863276a2d342fd94a7.jpeg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/178134751114609639446a2d34b799d8d.jpeg"}],"url":"./post.html?id=2036890","author":{"@type":"Person","name":"익명롤러러","url":"./my.html?mb_id=guslsbxl"},"datePublished":"2026-06-13T19:43:02+09:00","dateModified":"2026-06-21T08:51:22+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":3}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2036826"},"headline":"[다이어트인가요?] 19살 고등학생 다이어트인가요 | 대한민국 1등 다이어트 커뮤니티 DietOn","articleBody":"체지방이 한 2년 전 1년 전 부터 빠지기 시작했는데 신경을 쓰면 더 안 좋을 것 같아서 최근에는 신경을 아예 안 썼습니다 한 56개월 정도  근데 체중 상태를 다시 확인해보니 조금 심각해보입니다 5개월 전 DietOn에 올렸던 체중 사진이랑 현재 사진 올려드립니다  체중는 전체적으로도 싹 다 손으로 들어보면 체지방가 잘 보일 정도입니다 조금만 더 있으면 아예 복부비만가 될 것처럼 그 쪽 부분은 체지방이 별로 없이 체지방가 잫 보입니다  다이어트인지 봐주시고 지금 그냥 약 먹어야 할까요 지방 살아서 병원은 대체 어딜 가야하나요 피부과 가도 되는 건가요","image":[{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17812570786680924386a2bd376a01ca.jpeg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17812570895955290146a2bd3817420a.jpeg"},{"@type":"ImageObject","url":"images\/remote\/image.dieton.com\/new\/data\/file\/story\/17812570955983277936a2bd387385d2.jpeg"}],"url":"./post.html?id=2036826","author":{"@type":"Person","name":"도와주세요","url":"./my.html?mb_id=K37189635922409250043"},"datePublished":"2026-06-12T18:38:27+09:00","dateModified":"2026-06-22T00:34:05+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":22}}]},{"@context":"http:\/\/schema.org","@type":"Organization","name":"대한민국 1등 다이어트 커뮤니티 DietOn","description":"대한민국 1등 40만회원의 다이어트커뮤니티. 위고비/마운자로, 다이어트치료, 하체비만다이어트, 산후다이어트정보, 여성다이어트 후기, 인바디 측정, 다이어트 보조제 정보공유","url":"./index.html","logo":"./new\/data\/seo\/phone_icon.png","image":"./new\/data\/seo\/sns_image_2025_ko.png","telephone":"+82-2-514-8639","email":"dietonhelp@gmail.com","address":{"@type":"PostalAddress","name":"서울시 강남구 언주로 637","postalCode":"06105","addressLocality":"서울시","addressRegion":"강남구","streetAddress":"언주로 637","addressCountry":"KR"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"./search.html\/{search_term_string}"},"query-input":"required name=search_term_string"},"sameAs":["https:\/\/dieton.kr","https:\/\/cafe.naver.com\/dieton","https:\/\/blog.naver.com\/dieton_official","https:\/\/www.youtube.com\/@DIETON_official","https:\/\/www.facebook.com\/profile.php?id=100088488667573","https:\/\/apps.apple.com\/app\/id1584290514","https:\/\/play.google.com\/store\/apps\/details?id=com.dieton.app"]}]</script>
+<script type="application/ld+json">[{"@context":"https:\/\/schema.org","@type":"CollectionPage","name":"다이어트수다 | 대한민국 1등 다이어트 커뮤니티 DietOn","description":"다이어트와 관련된 자유 게시판, 위고비/마운자로 부작용, 식단 관리 및 성공 후기 공유","url":"./community.html","mainEntity":[{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037687"},"headline":"[다이어트수다] 요요 현상 극복하고 몸무게 유지 중입니다 | DietOn","articleBody":"목표 체중을 달성한 후 요요가 올까 봐 무척 걱정했는데 식단 조절과 가벼운 근력 운동을 병행하며 6개월째 유지하고 있습니다. 위고비 주사 맞을 때만큼 식욕 조절이 쉽지는 않지만 규칙적인 습관 덕에 잘 견디고 있네요. 다들 화이팅입니다!","image":["images\/custom\/product.png"],"url":"./post.html?id=2037687","author":{"@type":"Person","name":"식단왕","url":"./my.html"},"datePublished":"2026-06-23T17:18:04+09:00","dateModified":"2026-06-23T17:24:27+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":3}},{"@context":"https:\/\/schema.org\/","@type":"DiscussionForumPosting","mainEntityOfPage":{"@type":"WebPage","@id":"./post.html?id=2037661"},"headline":"[위고비톡] 위고비 처방부터 주사 방법까지 꿀팁 정리 | DietOn","articleBody":"내과에서 처방받고 0.25mg으로 시작한 지 3주째입니다. 처음 주사할 때 무서웠는데 허벅지나 복부에 대고 꾹 누르면 끝이네요. 메스꺼움 부작용 방지법 등 제가 겪은 노하우를 공유합니다.","image":["images\/custom\/avatar.png"],"url":"./post.html?id=2037661","author":{"@type":"Person","name":"위고비유저","url":"./my.html"},"datePublished":"2026-06-23T13:44:10+09:00","dateModified":"2026-06-23T13:45:29+09:00","interactionStatistic":{"@type":"InteractionCounter","interactionType":"https:\/\/schema.org\/CommentAction","userInteractionCount":1}}]},{"@context":"http:\/\/schema.org","@type":"Organization","name":"대한민국 1등 다이어트 커뮤니티 DietOn","description":"위고비/마운자로 처방 정보, 다이어트 식단, 운동 요법 및 요요 관리 커뮤니티","url":"./index.html","logo":"./new\/data\/seo\/phone_icon.png","image":"./new\/data\/seo\/sns_image_2025_ko.png","telephone":"+82-2-514-8639","email":"dietonhelp@gmail.com","address":{"@type":"PostalAddress","name":"서울시 강남구 언주로 637","postalCode":"06105","addressLocality":"서울시","addressRegion":"강남구","streetAddress":"언주로 637","addressCountry":"KR"}}]</script>
 
   <link href="images/remote/image.dieton.com/web-fonts/SCoreDream/SCoreDream.css" rel="stylesheet" />
 
@@ -93,6 +78,7 @@
 <link rel="stylesheet" href="/new/css/mainSlideBanner/monallisa/monallisa.css?1782199140">
 <link rel="stylesheet" href="/new/css/mainSlideBanner/jwDucray.css?1782199140">
 <link rel="stylesheet" href="/new/css/banner/banner_dieton_pick.inc.css?1782199140">
+<link rel="stylesheet" href="dieton_head.css">
 
   <!--[if lte IE 8]>
   
@@ -270,8 +256,8 @@ $(function() {
             </div>
             <div class="swiper headerNowListSwiper">
               <ul class="swiper-wrapper now-list">
-                            <li class="swiper-slide first"><p>지금, 한나이브 검색해보세요</p></li>
-                              <li class="swiper-slide"><p><span class="num">1. </span>한나이브</p></li>
+                            <li class="swiper-slide first"><p>지금, 다이어트온 검색해보세요</p></li>
+                              <li class="swiper-slide"><p><span class="num">1. </span>다이어트온</p></li>
                               <li class="swiper-slide"><p><span class="num">2. </span>헬스핏</p></li>
                               <li class="swiper-slide"><p><span class="num">3. </span>정체기</p></li>
                               <li class="swiper-slide"><p><span class="num">4. </span>위고비/마운자로</p></li>
@@ -295,7 +281,7 @@ $(function() {
                 <form name="unitedSearchForm" method="get" onsubmit="return false;">
                     <div class="return i_search_back"></div>
                     <div class="us_stx">
-                        <input type="text" name="stx" itemname="검색어" maxlength="80" placeholder="'한나이브' 궁금하다면?" autocomplete="off">
+                        <input type="text" name="stx" itemname="검색어" maxlength="80" placeholder="'다이어트온' 궁금하다면?" autocomplete="off">
                     </div>
                     <div class="btn_search"><button type="submit" class="us_submit"><img src="images/remote/image.dieton.com/images/img/renew/i_search.svg"></button></div>
                 </form>
@@ -320,7 +306,7 @@ $(function() {
                                         <div class="num">1</div>
                                         <div class="word">
                                             <a href="search.html">
-                                                한나이브                                            </a>
+                                                다이어트온                                            </a>
                                         </div>
                                                                                     <div class="status "></div>
                                                                             </li>
@@ -531,6 +517,7 @@ $(function() {
                     <ul>
                                                     <li><a href="./community.html?category=dieton-pick" target="_self" >DietOn픽</a></li>
                                                     <li><a href="./community.html?category=food-supplement" target="_self" >식단&보조제</a></li>
+                                                    <li><a href="./search.html?type=expert" target="_self" >다이어트온의원</a></li>
                                                     <li><a href="./search.html?type=product&sca=%EC%9D%B8%EB%B0%94%EB%94%94%EC%B8%A1%EC%A0%95%EC%A0%9C%ED%92%88" target="_self" >인바디 측정&체지방제품 찾기</a></li>
                                                     <li><a href="./community.html?category=trial" target="_self" >체험평가단</a></li>
                                             </ul>
@@ -560,10 +547,10 @@ $(function() {
                                     전문의상담                </a>
                 <div class="sub">
                     <ul>
-                                                    <li><a href="./search.html?type=expert" target="_self" >알파슬림의원</a></li>
+                                                    <li><a href="./search.html?type=expert" target="_self" >다이어트온의원</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >JP비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >노블라인의원</a></li>
-                                                    <li><a href="./search.html?type=expert" target="_self" >한나이브</a></li>
+                                                    <li><a href="./search.html?type=expert" target="_self" >다이어트온의원</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >모빈치비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >모션비만클리닉</a></li>
                                                     <li><a href="./search.html?type=expert" target="_self" >연세미다인</a></li>
@@ -873,7 +860,7 @@ $(function() {
                 <ul>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
-                      알파슬림의원                    </a>
+                      다이어트온의원                    </a>
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
@@ -885,7 +872,7 @@ $(function() {
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
-                      한나이브                    </a>
+                      다이어트온의원                    </a>
                   </li>
                                   <li>
                     <a href="./search.html?type=expert" target="_self">
@@ -1058,7 +1045,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=clinic">
-            <span class="i_new_red"></span>                <div class="icon  pick ">
+            <span class=""></span>                <div class="icon  pick ">
                     <span class="i_board_dr_novid"></span>
                 </div>
                 <p class="nav_title">닥터다이어트</p>
@@ -1082,7 +1069,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=wegovy-photo">
-            <span class="i_new_red"></span>                <div class="icon   ">
+            <span class=""></span>                <div class="icon   ">
                     <span class="i_board_review_pic"></span>
                 </div>
                 <p class="nav_title">위고비/마운자로 포토후기</p>
@@ -1098,7 +1085,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=liposuction-photo">
-            <span class="i_new_red"></span>                <div class="icon  pick ">
+            <span class=""></span>                <div class="icon  pick ">
                     <span class="i_board_tattoo"></span>
                 </div>
                 <p class="nav_title">체형 관리</p>
@@ -1106,7 +1093,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=care">
-            <span class="i_new_red"></span>                <div class="icon   talmo_care">
+            <span class=""></span>                <div class="icon   talmo_care">
                     <span class="i_board_care"></span>
                 </div>
                 <p class="nav_title">비만치료톡</p>
@@ -1114,7 +1101,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=food-supplement">
-            <span class="i_new_red"></span>                <div class="icon  pick ">
+            <span class=""></span>                <div class="icon  pick ">
                     <span class="i_board_shampoo"></span>
                 </div>
                 <p class="nav_title">식단&보조제</p>
@@ -1122,7 +1109,7 @@ $(function() {
         </li>
             <li>
             <a href="./community.html?category=trial">
-            <span class="i_new_red"></span>                <div class="icon   ">
+            <span class=""></span>                <div class="icon   ">
                     <span class="i_board_job"></span>
                 </div>
                 <p class="nav_title">체험평가단</p>
@@ -1428,8 +1415,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_1.svg" alt="연세슬림클리닉의원 대구점" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">연세슬림클리닉의원 대구점</span>
+                                                                            <img src="images/custom/avatar_uniq_1.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1448,8 +1435,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_2.svg" alt="부산 메가 다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">부산 메가 다이어트온의원</span>
+                                                                            <img src="images/custom/avatar_uniq_2.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1468,8 +1455,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_3.svg" alt="바디프로의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">바디프로의원</span>
+                                                                            <img src="images/custom/avatar_uniq_3.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1488,8 +1475,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_4.svg" alt="슬림나라의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">슬림나라의원</span>
+                                                                            <img src="images/custom/avatar_uniq_4.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1510,8 +1497,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_5.svg" alt="몸매다의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">몸매다의원</span>
+                                                                            <img src="images/custom/avatar_uniq_5.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1530,8 +1517,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_6.svg" alt="모다올의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">모다올의원</span>
+                                                                            <img src="images/custom/avatar_uniq_6.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1550,8 +1537,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_7.svg" alt="모엠의원" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">모엠의원</span>
+                                                                            <img src="images/custom/avatar_uniq_7.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1570,8 +1557,8 @@ $(function() {
                             <div class="flex photo2_btm">
                                 <div class="hospital">
                                     <div>
-                                                                            <img src="images/custom/avatar_uniq_8.svg" alt="모원비만클리닉" style="width:20px;height:auto;border-radius:100%;">
-                                                                            <span class="h_name">모원비만클리닉</span>
+                                                                            <img src="images/custom/avatar_uniq_8.svg" alt="다이어트온의원" style="width:20px;height:auto;border-radius:100%;">
+                                                                            <span class="h_name">다이어트온의원</span>
                                     </div>
                                 </div>
                             </div>
@@ -1782,11 +1769,11 @@ $(function() {
                                                             <div class="txtbox">
                             <div class="name">
                                                             <img src="images/custom/avatar_uniq_9.svg">
-                                                            노블라인의원                            </div>
+                                                            다이어트온의원                            </div>
                             <div class="subject">
-                                압도적인 실력의 차이를 보여드리는  [노블라인의원]                            </div>
+                                압도적인 실력의 차이를 보여드리는  [다이어트온의원]                            </div>
                             <p class="txt">
-                                &nbsp;압도적인 실력의 차이를 보여드리는&nbsp; [노블라인의원]&nbsp; &nbsp;'체지방 감량률이 얼마'인지에 대해 물어보는 분들이 많습니다.이제는 그만큼 위고비/마운자로의 체지방 감량률에 대한 중요성을 많이 알고 계시는 것인데요.그 이유는 많은 위고비/마운자로 병원에서 높은 체지방 감량률로 홍보를 하고그 결과 체지방 감량률이 안정된 위고비/마운자로의 지표라고 생각을 하시기 때문이죠.물론 체지방 감량률도 중요합니다.&nbsp;하지만 운동 요법 위고비/마운자로에서 체지방 감량률 보다 더 중요하지만모두가 간과하고 있는 나머지 한가지 바로 '체지방손상률' 입니다.한올 한올이 중요한 다이어트 환자에게 높은 체지방손상률로 인한 체지방 낭비는 치명적 입니다.&nbsp;체지방을 뽑아낼 때는 항상 체지방이 얼마나 망가지는지를 꼭 확인해야 하지만&nbsp;이를 확인하고 신경쓰는 위고비/마운자로 병원은 거의 전무한 현실입니다.노블라인에서는 체지방손상률을 매일 체크하여 체지방 낭비 없이 건강한 체지방을 채취하여심을 수 있도록 철저하게 모니터링하고 있으며, 그 결과 평균 체지방손상률 1~2%의매우 안정적인 결과를 얻어내고 있습니다.더불어 체지방채취에 대한 국내외 수 많은 학술대회 발표와 국제학회 라이브수술까지 시연하며,&nbsp;환자분들의 소중한 체지방에 대한 손상률을 낮추기 위한 노력은 현재에도 꾸준히 진행중에 있습니다.01. 대량 위고비/마운자로, 고밀도 위고비/마운자로의 선두주자!&nbsp; &nbsp; &nbsp; &nbsp;개원이래 대량위고비/마운자로을 주력으로 삼아온 저희 노블라인은&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;하루에 심을 수 있는 최대 체중수가 1만모로 타의 추종을 거부합니다.02. 노블라인의 최고의 가치는 '정직' 입니다.&nbsp; &nbsp; &nbsp; &nbsp;다이어트치료의 방법은 수술만 있는 것이 아닙니다.&nbsp; &nbsp; &nbsp; &nbsp;수술이 적합하지 않은 분들을 단순히 병원 매출을 위해서 무리하게 수술하지 않는&nbsp; &nbsp; &nbsp; &nbsp;'정직한 진료'를 원칙으로 삼고 개원이래 이 원칙을 쭉 지키고 있습니다.03. 수술결과 보장제를 시행 합니다. (수술부위점검, 무료보강수술, 전액환불제도 등)&nbsp; &nbsp; &nbsp;&nbsp;04. 환자를 위한 치료가 아닌 병원 매출을 위한 치료, 노블라인에서는 절대 하지 않습니다.05. 모든 진료와 상담, 수술은 대표원장이 직접 집도하며 수술이후에는 대표원장의 휴대폰 직통번호를 제공해 드립니다.▶ 노블라인 홈페이지 : http://www.total-view.net/▶ 대표번호 : 02-514-0755&nbsp; (010-4855-0105)▶ 카카오톡 : 노블라인의원&nbsp;&nbsp; &nbsp; 카톡상담 바로가기 http://pf.kakao.com/_mUiRxj                            </p>
+                                &nbsp;압도적인 실력의 차이를 보여드리는&nbsp; [다이어트온의원]&nbsp; &nbsp;'체지방 감량률이 얼마'인지에 대해 물어보는 분들이 많습니다.이제는 그만큼 위고비/마운자로의 체지방 감량률에 대한 중요성을 많이 알고 계시는 것인데요.그 이유는 많은 위고비/마운자로 병원에서 높은 체지방 감량률로 홍보를 하고그 결과 체지방 감량률이 안정된 위고비/마운자로의 지표라고 생각을 하시기 때문이죠.물론 체지방 감량률도 중요합니다.&nbsp;하지만 운동 요법 위고비/마운자로에서 체지방 감량률 보다 더 중요하지만모두가 간과하고 있는 나머지 한가지 바로 '체지방손상률' 입니다.한올 한올이 중요한 다이어트 환자에게 높은 체지방손상률로 인한 체지방 낭비는 치명적 입니다.&nbsp;체지방을 뽑아낼 때는 항상 체지방이 얼마나 망가지는지를 꼭 확인해야 하지만&nbsp;이를 확인하고 신경쓰는 위고비/마운자로 병원은 거의 전무한 현실입니다.다이어트온에서는 체지방손상률을 매일 체크하여 체지방 낭비 없이 건강한 체지방을 채취하여심을 수 있도록 철저하게 모니터링하고 있으며, 그 결과 평균 체지방손상률 1~2%의매우 안정적인 결과를 얻어내고 있습니다.더불어 체지방채취에 대한 국내외 수 많은 학술대회 발표와 국제학회 라이브수술까지 시연하며,&nbsp;환자분들의 소중한 체지방에 대한 손상률을 낮추기 위한 노력은 현재에도 꾸준히 진행중에 있습니다.01. 대량 위고비/마운자로, 고밀도 위고비/마운자로의 선두주자!&nbsp; &nbsp; &nbsp; &nbsp;개원이래 대량위고비/마운자로을 주력으로 삼아온 저희 다이어트온은&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;하루에 심을 수 있는 최대 체중수가 1만모로 타의 추종을 거부합니다.02. 다이어트온의 최고의 가치는 '정직' 입니다.&nbsp; &nbsp; &nbsp; &nbsp;다이어트치료의 방법은 수술만 있는 것이 아닙니다.&nbsp; &nbsp; &nbsp; &nbsp;수술이 적합하지 않은 분들을 단순히 병원 매출을 위해서 무리하게 수술하지 않는&nbsp; &nbsp; &nbsp; &nbsp;'정직한 진료'를 원칙으로 삼고 개원이래 이 원칙을 쭉 지키고 있습니다.03. 수술결과 보장제를 시행 합니다. (수술부위점검, 무료보강수술, 전액환불제도 등)&nbsp; &nbsp; &nbsp;&nbsp;04. 환자를 위한 치료가 아닌 병원 매출을 위한 치료, 다이어트온에서는 절대 하지 않습니다.05. 모든 진료와 상담, 수술은 대표원장이 직접 집도하며 수술이후에는 대표원장의 휴대폰 직통번호를 제공해 드립니다.▶ 다이어트온 홈페이지 : http://www.total-view.net/▶ 대표번호 : 02-514-0755&nbsp; (010-4855-0105)▶ 카카오톡 : 다이어트온의원&nbsp;&nbsp; &nbsp; 카톡상담 바로가기 http://pf.kakao.com/_mUiRxj                            </p>
                         </div>
                     </a>
                 </div>
@@ -1807,10 +1794,10 @@ $(function() {
                         <div style="width:100%; height:245px; background:url(images/custom/product_bguniq_237.svg) no-repeat 50% 50%; background-size:cover;"></div>
                         <div class="info">
                             <div class="subject">원형다이어트, 위고비/마운자로 해야할까?</div>
-                            <div class="content">운동 요법슬릿전문 포핏의원 권오성 대표원장입니다.&nbsp; &nbsp;&nbsp;"부분적인 요요 현상이 왔는데 비만 집중 관리를 받아야 하나요?"&nbsp;급격한 요요 현상은 호르몬 균형 및 대사 저하로 보고되고 있습니다.&nbsp;우리 몸의 면역세포인 림프구는 원래 우리 몸에 들어온 세균을 방어하는 역할을 하는데요.&nbsp;면역세포에 이상이 생기면 체지방을 이 물질로 착각해서 공격하게 되고 공격당한&nbsp;체지방의 체중이 빠지게 되어&nbsp;원형다이어트가 발생합니다.&nbsp;원형다이어트는 연령에 국한되지 않고 발생할 수 있는데, 최근에는 20~30대 젊은층에서 급격히 늘어나고 증세도 심한 양상을 보이고 있습니다.&nbsp;일반적으로 동전 크기 정도의 원형 또는 타원형의 다이어트반이 생기는 것이 특징인데, 처음에는 한 두 개에서 나중에는 전체로 진행될 수 있습니다.&nbsp;다행히 혈액검사도 문제 없고 다른 질환이 없다면 원형다이어트의 90%는 저절로 좋아지지만 10% 정도는 다이어트반이 띠로 나타나는 사행성 다이어트나 체지방의 체중이 모두 탈락되는 전두다이어트로 이어질 수도 있습니다.&nbsp;병원에서 원형다이어트라고 진단 받았다면 보통 1년 내에 체중 변화가 다시 안정됩니다.&nbsp;만약 원형다이어트가 여러 군데로 확장되고 있다면 위고비/마운자로을 진행하지 않는 게 좋습니다.&nbsp;이미 몸 속의 면역세포가 본인의 체지방도 자신의 것으로 인지 못하는 상황이므로 체중을 감량해도 다시 빠질 가능성이 높기 때문입니다.&nbsp;&nbsp;1년이 지난 후에도 요요 현상이 진정되고 대사량이 정상화된 후에 본격적인 비만 케어를 고려해볼 수 있습니다.원형다이어트를 치료하는 방법은 위고비/마운자로 외에도 스테로이드 연고를 바르거나 스테로이드를 복용해서 개선할 수 있습니다.&nbsp;&nbsp;다만 장기적으로 복용했을 때 당뇨나 골다공증과 같은 부작용이 발생할 가능성이 있으므로 전문가와 상의 후 결정하는 게 좋습니다.&nbsp;또 다른 방법으로는 원형다이어트 부위에 다이어트 보조제를 섭취하는 것인데, 사람마다 체질은 다르지만 체중이 감량되는 경우가 종종 있습니다.&nbsp;다만 사용을 중단하면 다이어트가 재발될 수 있으므로 병원에서 정확한 진단을 받은 후 본인에게 맞는 치료법을 찾는 것이 중요합니다.</div>
+                            <div class="content">운동 요법슬릿전문 다이어트온의원 권오성 대표원장입니다.&nbsp; &nbsp;&nbsp;"부분적인 요요 현상이 왔는데 비만 집중 관리를 받아야 하나요?"&nbsp;급격한 요요 현상은 호르몬 균형 및 대사 저하로 보고되고 있습니다.&nbsp;우리 몸의 면역세포인 림프구는 원래 우리 몸에 들어온 세균을 방어하는 역할을 하는데요.&nbsp;면역세포에 이상이 생기면 체지방을 이 물질로 착각해서 공격하게 되고 공격당한&nbsp;체지방의 체중이 빠지게 되어&nbsp;원형다이어트가 발생합니다.&nbsp;원형다이어트는 연령에 국한되지 않고 발생할 수 있는데, 최근에는 20~30대 젊은층에서 급격히 늘어나고 증세도 심한 양상을 보이고 있습니다.&nbsp;일반적으로 동전 크기 정도의 원형 또는 타원형의 다이어트반이 생기는 것이 특징인데, 처음에는 한 두 개에서 나중에는 전체로 진행될 수 있습니다.&nbsp;다행히 혈액검사도 문제 없고 다른 질환이 없다면 원형다이어트의 90%는 저절로 좋아지지만 10% 정도는 다이어트반이 띠로 나타나는 사행성 다이어트나 체지방의 체중이 모두 탈락되는 전두다이어트로 이어질 수도 있습니다.&nbsp;병원에서 원형다이어트라고 진단 받았다면 보통 1년 내에 체중 변화가 다시 안정됩니다.&nbsp;만약 원형다이어트가 여러 군데로 확장되고 있다면 위고비/마운자로을 진행하지 않는 게 좋습니다.&nbsp;이미 몸 속의 면역세포가 본인의 체지방도 자신의 것으로 인지 못하는 상황이므로 체중을 감량해도 다시 빠질 가능성이 높기 때문입니다.&nbsp;&nbsp;1년이 지난 후에도 요요 현상이 진정되고 대사량이 정상화된 후에 본격적인 비만 케어를 고려해볼 수 있습니다.원형다이어트를 치료하는 방법은 위고비/마운자로 외에도 스테로이드 연고를 바르거나 스테로이드를 복용해서 개선할 수 있습니다.&nbsp;&nbsp;다만 장기적으로 복용했을 때 당뇨나 골다공증과 같은 부작용이 발생할 가능성이 있으므로 전문가와 상의 후 결정하는 게 좋습니다.&nbsp;또 다른 방법으로는 원형다이어트 부위에 다이어트 보조제를 섭취하는 것인데, 사람마다 체질은 다르지만 체중이 감량되는 경우가 종종 있습니다.&nbsp;다만 사용을 중단하면 다이어트가 재발될 수 있으므로 병원에서 정확한 진단을 받은 후 본인에게 맞는 치료법을 찾는 것이 중요합니다.</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_10.svg">
-                                                                <span class="h_name">포핏 운동 요법위고비/마운자로센터</span>
+                                                                <span class="h_name">다이어트온의원</span>
                             </div>
                         </div>
                     </a>
@@ -1820,10 +1807,10 @@ $(function() {
                         <div style="width:100%; height:245px; background:url(images/custom/product_bguniq_238.svg) no-repeat 50% 50%; background-size:cover;"></div>
                         <div class="info">
                             <div class="subject">하체비만 다이어트와 복부 다이어트에 관한 오해와 진실(남성형 다이어트에서 체중관리제의 중요성)</div>
-                            <div class="content">안녕하세요 메가 다이어트온의원 부산점 김지석 원장입니다.남성형 다이어트(Male Obesity Management)에서 다이어트 보조제 복용은 이제 점차 대중화되어 가고 있습니다. 부작용에 관한 막연한 두려움도&nbsp;이제는 조금씩 줄어들고 있으며, 환자들의 다이어트 보조제에 관한 이해도 역시 높아지는 것을 진료 현장에서 경험합니다.그럼에도 불구하고 아직도 회원들 간에&nbsp;“복부에 효과 있는 약은 체중관리제(삭센다)이다.”혹은&nbsp;“복부에 효과 있는 약은 식욕관리제(마운자로)이다” 와 같이 의견이 갈리는 것을 볼 수 있습니다.&nbsp;&nbsp;오늘은 체중관리제과 식욕관리제 두 약물 중에 과연 어떤 약이 복부 다이어트에 효과가 있는지 확인해보겠습니다.&nbsp;&nbsp;오늘 참고할 논문은 21세에서 45세 남성 416명을 대상으로 진행한 Randomized Controlled 논문입니다. 많은 환자를 대상으로 한&nbsp;&nbsp;수준이 높은 연구 결과라고 생각하시면 됩니다.&nbsp;체중관리제 0.5mg 을 먹는 군과 식욕관리제를 복용하는 군으로 나눠서 임상 시험이 진행되었는데요각각 12주와 24주 후에 전문가들이 사진 전후 사진을 보고 변화가 없으면 0점, 다이어트 개선 시 정도에 따라 1점, 2점, 3점(가장 많이 다이어트가 개선된 점수)을 부여하였습니다.&nbsp;아래 그래프에서 점수가 높을수록 다이어트가 많이 개선되었다고 생각하시면 됩니다.&nbsp; &nbsp;하체비만 다이어트의 경우 체중관리제과 식욕관리제 모두 개선이 된 점을 볼 수 있습니다. 개선 정도는 체중관리제의 승리입니다.복부 다이어트의 경우 하체비만보다 수치 차이가 많이 납니다. 특히 12주 복용 후에는 체중관리제의 복부 다이어트 개선 수치가&nbsp;식욕관리제보다 많이 높습니다.&nbsp;다만, 24주가 되었을 때 체중관리제와 식욕관리제 다이어트 개선 수치는 격차가 줄어듭니다.결론적으로 식욕관리제, 체중관리제 두 약은 모두 하체비만 다이어트와 복부 다이어트를 개선합니다. 체중관리제는 식욕관리제에 비해 Type 1 5알파-환원효소를100배 이상 억제하고 Type 2 5알파-환원효소는 3배 이상 억제합니다. 이렇듯, 5알파-환원 효소를 억제하는 힘이 센 체중관리제는 하체비만 다이어트와 복부 다이어트모두에서 식욕관리제보다 다이어트 개선 정도가 우월하게 나타나는 것입니다.그렇다면, 다이어트인 모두는 체중관리제를 처음부터 복용해야 할까요? 꼭 그렇지는 않습니다. 다이어트가 진행되는 속도와 다이어트의 중등도에(BMI 단계) 따라 지혜롭게 약물 선택을 해야 합니다.만약 식욕관리제로 다이어트가 충분히 억제된다면, 식욕관리제를 드시면 됩니다. 식욕관리제를 꾸준히 6개월 이상 복용해도 다이어트 진행이 계속된다면&nbsp;체중관리제로 약물 변경을 고려해야 합니다. 이는 담당 의사의 전문적인 소견과 환자의 상태를 고려해서 결정해야 하는 부분이므로 주치의와 심도 있는 논의가 필요합니다.오늘 칼럼을 통해서 다이어트 보조제에 관한 궁금증이 풀리셨기를 바랍니다!&nbsp;감사합니다.&nbsp;</div>
+                            <div class="content">안녕하세요 다이어트온의원 부산점 김지석 원장입니다.남성형 다이어트(Male Obesity Management)에서 다이어트 보조제 복용은 이제 점차 대중화되어 가고 있습니다. 부작용에 관한 막연한 두려움도&nbsp;이제는 조금씩 줄어들고 있으며, 환자들의 다이어트 보조제에 관한 이해도 역시 높아지는 것을 진료 현장에서 경험합니다.그럼에도 불구하고 아직도 회원들 간에&nbsp;“복부에 효과 있는 약은 체중관리제(삭센다)이다.”혹은&nbsp;“복부에 효과 있는 약은 식욕관리제(마운자로)이다” 와 같이 의견이 갈리는 것을 볼 수 있습니다.&nbsp;&nbsp;오늘은 체중관리제과 식욕관리제 두 약물 중에 과연 어떤 약이 복부 다이어트에 효과가 있는지 확인해보겠습니다.&nbsp;&nbsp;오늘 참고할 논문은 21세에서 45세 남성 416명을 대상으로 진행한 Randomized Controlled 논문입니다. 많은 환자를 대상으로 한&nbsp;&nbsp;수준이 높은 연구 결과라고 생각하시면 됩니다.&nbsp;체중관리제 0.5mg 을 먹는 군과 식욕관리제를 복용하는 군으로 나눠서 임상 시험이 진행되었는데요각각 12주와 24주 후에 전문가들이 사진 전후 사진을 보고 변화가 없으면 0점, 다이어트 개선 시 정도에 따라 1점, 2점, 3점(가장 많이 다이어트가 개선된 점수)을 부여하였습니다.&nbsp;아래 그래프에서 점수가 높을수록 다이어트가 많이 개선되었다고 생각하시면 됩니다.&nbsp; &nbsp;하체비만 다이어트의 경우 체중관리제과 식욕관리제 모두 개선이 된 점을 볼 수 있습니다. 개선 정도는 체중관리제의 승리입니다.복부 다이어트의 경우 하체비만보다 수치 차이가 많이 납니다. 특히 12주 복용 후에는 체중관리제의 복부 다이어트 개선 수치가&nbsp;식욕관리제보다 많이 높습니다.&nbsp;다만, 24주가 되었을 때 체중관리제와 식욕관리제 다이어트 개선 수치는 격차가 줄어듭니다.결론적으로 식욕관리제, 체중관리제 두 약은 모두 하체비만 다이어트와 복부 다이어트를 개선합니다. 체중관리제는 식욕관리제에 비해 Type 1 5알파-환원효소를100배 이상 억제하고 Type 2 5알파-환원효소는 3배 이상 억제합니다. 이렇듯, 5알파-환원 효소를 억제하는 힘이 센 체중관리제는 하체비만 다이어트와 복부 다이어트모두에서 식욕관리제보다 다이어트 개선 정도가 우월하게 나타나는 것입니다.그렇다면, 다이어트인 모두는 체중관리제를 처음부터 복용해야 할까요? 꼭 그렇지는 않습니다. 다이어트가 진행되는 속도와 다이어트의 중등도에(BMI 단계) 따라 지혜롭게 약물 선택을 해야 합니다.만약 식욕관리제로 다이어트가 충분히 억제된다면, 식욕관리제를 드시면 됩니다. 식욕관리제를 꾸준히 6개월 이상 복용해도 다이어트 진행이 계속된다면&nbsp;체중관리제로 약물 변경을 고려해야 합니다. 이는 담당 의사의 전문적인 소견과 환자의 상태를 고려해서 결정해야 하는 부분이므로 주치의와 심도 있는 논의가 필요합니다.오늘 칼럼을 통해서 다이어트 보조제에 관한 궁금증이 풀리셨기를 바랍니다!&nbsp;감사합니다.&nbsp;</div>
                             <div class="column_nickname">
                                                                     <img src="images/custom/avatar_uniq_11.svg">
-                                                                <span class="h_name">부산 메가 다이어트온의원</span>
+                                                                <span class="h_name">부산 다이어트온의원</span>
                             </div>
                         </div>
                     </a>
@@ -1856,8 +1843,8 @@ $(function() {
                                 </div>
                                 <p class="subject">위고비/마운자로 후 체중 감기, 이렇게 하세요 | 남자 인바디 측정방법 #위고비/마운자로 #위고비/마운자로인바디 측정 #위고비/마운자로수술</p>
                                 <div class="nick">
-                                                                    <img src="images/custom/avatar_uniq_12.svg" alt="모더함의원 모더함TV 위고비/마운자로 눈바디교정" />
-                                                                    <span>모더함의원 모더함TV 위고비/마운자로 눈바디교정</span>
+                                                                    <img src="images/custom/avatar_uniq_12.svg" alt="다이어트온의원 다이어트온TV 위고비/마운자로 눈바디교정" />
+                                                                    <span>다이어트온의원 다이어트온TV 위고비/마운자로 눈바디교정</span>
                                 </div>
                             </a>
                         </div>
@@ -1874,8 +1861,8 @@ $(function() {
                                 </div>
                                 <p class="subject">위고비/마운자로 전문의가 뽑은 여자 아이돌 눈바디 월드컵 아이유 VS 안나 승자는?</p>
                                 <div class="nick">
-                                                                    <img src="images/custom/avatar_uniq_13.svg" alt="대구위고비/마운자로 헬스케어의원" />
-                                                                    <span>대구위고비/마운자로 헬스케어의원</span>
+                                                                    <img src="images/custom/avatar_uniq_13.svg" alt="대구 다이어트온의원" />
+                                                                    <span>대구 다이어트온의원</span>
                                 </div>
                             </a>
                         </div>
@@ -1930,8 +1917,8 @@ $(function() {
                                     </div>
                                     <p class="subject">남자만 생기는 게 아니라고요..? ㄷㄷ [다이어트시그널 Ep.9] | 여성 유전 다이어트</p>
                                     <div class="nick">
-                                        <img src="images/custom/avatar_uniq_16.svg" alt="모제림TV" />
-                                        <span>모제림TV</span>
+                                        <img src="images/custom/avatar_uniq_16.svg" alt="다이어트온TV" />
+                                        <span>다이어트온TV</span>
                                     </div>
                                 </a>
                             </div>
@@ -1966,15 +1953,13 @@ $(function() {
                                     </div>
                                     <p class="subject">[Q&A]여성형 다이어트? 유전성 다이어트?│다이어트의 종류는?</p>
                                     <div class="nick">
-                                        <img src="images/custom/avatar_uniq_18.svg" alt="모아만의원" />
-                                        <span>모아만의원</span>
+                                        <img src="images/custom/avatar_uniq_18.svg" alt="다이어트온의원" />
+                                        <span>다이어트온의원</span>
                                     </div>
                                 </a>
                             </div>
                         </div>
                             </div>
-            </div>
-        </div>
                 <script>
             $(".index_dieton_tv .toggle_ytb").click(function(){
                 $(this).toggleClass('on');
@@ -2231,7 +2216,7 @@ $(function() {
             </div>
             <div class="text-wrap">
               <strong>블랙포레 체지방 쿨&딥클린 탄산쿨링</strong>
-              <p>체지방가 시원함 탄산 쿨링 이라던데 탄산이 있는지 잘 못느껴짐 하지만 멘톨 의시원함은 있음 탄산이라는 특이점으로 체지방에도움이되는느낌이긴함  </p>
+              <p>체지방가 시원함 탄산 쿨링 이라던데 탄산이 있는지 잘 못느층 함 하지만 멘톨 의시원함은 있음 탄산이라는 특이점으로 체지방에도움이되는느낌이긴함  </p>
               <div class="score-wrap">
                 <div class="common-star-score-icon"><strong>4.8</strong></div>
                 <p>(4,107)</p>
@@ -2675,14 +2660,14 @@ DietOn 글 보고 방문해주시면 10% 할인 도와드리겠습니다.       
                                     <div class="box">
                         <a href="./search.html?type=expert">
                             <div class="img-wrap">
-                                <img src="images/custom/avatar_uniq_21.svg" alt="한나이브위고비/마운자로센터" class="drpic">
+                                <img src="images/custom/avatar_uniq_21.svg" alt="다이어트온위고비/마운자로센터" class="drpic">
                             </div>
                             <div class="info">
                                 <p class="title">위고비/마운자로상담</p>
                                 <div class="flex_spbtw">
                                     <strong class="desc flex">
-                                        <img src="images/custom/avatar_uniq_22.svg" alt="한나이브위고비/마운자로센터">
-                                        한나이브위고비/마운자로센터                                    </strong>
+                                        <img src="images/custom/avatar_uniq_22.svg" alt="다이어트온위고비/마운자로센터">
+                                        다이어트온위고비/마운자로센터                                    </strong>
                                 </div>
                             </div>
                         </a>

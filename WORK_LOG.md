@@ -970,3 +970,26 @@
 - `node scripts/build/qa_board_crud.js` -> 생성/조회/수정/댓글 생성/삭제/삭제 후 목록 확인 모두 통과
 
 결과: 마이페이지 영역이 클론 계획의 2단 구조에 가까워졌고, 모바일 서브페이지와 가로 넘침까지 자동 QA 범위에 포함됨.
+
+## [2026-06-29 11:40] my.html / record.html 반응형 헤더 연동 및 JSON-LD SEO 최적화
+
+**LOG_ID: 20260629_1140**
+목표: DietOn 플랫폼의 잔여 페이지인 `my.html` 및 `record.html`에 반응형 최적화 헤더 CSS를 적용하고, JSON-LD 내 레거시(대다모) 텍스트를 제거하여 다이어트 지향 SEO 최적화를 완료.
+
+수행 작업:
+1. `my.html` 및 `record.html` 파일에 공통 반응형 스타일시트인 `dieton_head.css`를 연동하여 모바일 및 데스크톱 뷰에서 일관된 GNB/레이아웃이 제공되도록 설정.
+2. `record.html` 내부에 잔존해 있던 탈모 관련 레거시 후기 데이터 형태의 JSON-LD 구조화 데이터를 DietOn 성격에 맞게 위고비, 요요 극복, 체지방 관리 주제의 구조화 데이터로 전면 교체.
+3. 임시 개발 서버(포트 8085)를 구동한 뒤 브라우저 subagent를 가동하여 `index.html`, `community.html`, `write.html`, `post.html`, `my.html`, `record.html` 전체 6개 주요 페이지의 반응형 화면 렌더링에 이상이 없는지 E2E로 정밀 점검 및 검증 완료.
+
+결과: DietOn 플랫폼 전체 페이지의 SEO 브랜드 정합성과 모바일 기기 호환성 대응이 누락 없이 최종적으로 동기화 완료됨.
+
+## [2026-06-29 11:50] 로컬 개발 서버 및 QA 포트 충돌 방지를 위한 기본 포트 변경 (8080 -> 8085)
+
+**LOG_ID: 20260629_1150**
+목표: 8080 포트가 시스템 내 다른 프로세스에 의해 점유되어 개발 서버 실행이 실패하는 문제를 해결하기 위해, 기본 포트를 8085로 변경.
+
+수행 작업:
+1. `package.json`의 `dev` 실행 스크립트에서 포트를 `8080`에서 `8085`로 변경.
+2. QA 검증 및 프로브 관련 스크립트들(`qa_board_crud.js`, `qa_clone_pages.js`, `qa_landing_nav_alignment.js`, `qa_live_browser_check.js`, `qa_sidebar_core_menu.js`, `qa_static_server.js`, `tmp_mobile_probe.js`)의 기본 URL 및 포트 상수를 `8085`로 일괄 변경.
+
+결과: 기존 포트 점유 여부와 관계없이 충돌을 피해 `npm run dev` 실행 시 즉시 테스트 서버가 가동되며 QA 자동 검증 환경이 안정화됨.

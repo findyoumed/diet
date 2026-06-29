@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const DEBUG_URL = 'http://127.0.0.1:9222';
-const PAGE_URL = `http://127.0.0.1:8080/index_mobile.html?probe=${Date.now()}`;
+const PAGE_URL = `http://127.0.0.1:8085/index_mobile.html?probe=${Date.now()}`;
 
 async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
